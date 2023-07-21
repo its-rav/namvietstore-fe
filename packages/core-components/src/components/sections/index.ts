@@ -1,10 +1,10 @@
 import StatisticSection, {
-  type StatisticContentType,
+  type StatisticItemsType,
   type StatisticSectionProps,
 } from '@/components/sections/StatisticSection';
 
 export {
-  type StatisticContentType,
+  type StatisticItemsType,
   type StatisticSectionProps,
   StatisticSection,
 };

@@ -4,27 +4,24 @@ import React from "react";
 import "regenerator-runtime/runtime";
 import "@namviet-fe/core-ui/dist/style.css";
 
-import {
-  type StatisticContentType,
-  StatisticSection,
-} from "@namviet-fe/core-ui";
+import { type StatisticItemsType, StatisticSection } from "@namviet-fe/core-ui";
 
-const content: StatisticContentType[] = [
+const statisticItems: StatisticItemsType[] = [
   {
     title: "mặt hàng",
-    statistic: "500",
+    statistic: 500,
   },
   {
     title: "khách hàng hài lòng",
-    statistic: "100",
+    statistic: 100,
   },
   {
     title: "dự án thành công",
-    statistic: "200",
+    statistic: 200,
   },
   {
     title: "thành lập doanh nghiệp",
-    statistic: "2010",
+    statistic: 2010,
   },
 ];
 
@@ -39,6 +36,6 @@ export const Default: Story = () => (
       backgroundColor: "black",
     }}
   >
-    <StatisticSection content={content} />
+    <StatisticSection statisticItems={statisticItems} />
   </div>
 );
