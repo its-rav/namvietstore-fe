@@ -1,7 +1,10 @@
 import type { Story, StoryDefault } from "@ladle/react";
+import React from "react";
 
-import { ContentType } from "@/components/layout/StatisticSection";
-import StatisticSection from "@/components/layout/StatisticSection";
+import "regenerator-runtime/runtime";
+import "@namviet-fe/core-ui/dist/style.css";
+
+import { type ContentType, StatisticSection } from "@namviet-fe/core-ui";
 
 const content: ContentType[] = [
   {
@@ -23,7 +26,16 @@ const content: ContentType[] = [
 ];
 
 export default {
-  title: "@nv/components/layout/StatisticSection",
+  title: "@nv-fe/core-ui/layout/StatisticSection",
 } satisfies StoryDefault<typeof StatisticSection>;
 
-export const Default: Story = () => <StatisticSection content={content} />;
+export const Default: Story = () => (
+  <div
+    style={{
+      width: "100%",
+      backgroundColor: "black",
+    }}
+  >
+    <StatisticSection content={content} />
+  </div>
+);

@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import clsxm from '@/lib/clsxm';
+import clsxm from "@/lib/clsxm";
 
 export type VariantType = {
   [key: string]: string[];
@@ -12,9 +12,9 @@ type SectionType = {
 };
 
 const VariantArr: VariantType = {
-  statistic: ['h-96 bg-[#850000]'],
-  hero: ['h-96 bg-[#850000]'],
-  businessArea: ['h-96 bg-[#850000]'],
+  statistic: ["h-96 bg-[#850000]"],
+  hero: ["h-96 bg-[#850000]"],
+  businessArea: ["h-96 bg-[#850000]"],
 };
 
 /**
@@ -29,11 +29,11 @@ const Section: React.FC<SectionType> = ({ variant, children }) => {
       <section
         className={clsxm(
           //#region  //*=========== Variants ===========
-          [variant === 'statistic' && [VariantArr.statistic]]
+          [variant === "statistic" && [VariantArr.statistic]]
           //#endregion  //*======== Variants ===========
         )}
       >
-        <div className='flex h-full items-center justify-between p-36'>
+        <div className="flex h-full items-center justify-between p-36">
           {children}
         </div>
       </section>
