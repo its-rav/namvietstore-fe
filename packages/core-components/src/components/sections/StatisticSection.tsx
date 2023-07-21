@@ -3,17 +3,19 @@ import { AiOutlinePlus } from 'react-icons/ai';
 
 export type ContentType = {
   title: string;
-  statistic: string;
+  statistic: number;
 };
 
 export type StatisticSectionProps = {
-  content: ContentType[];
+  statisticItems: ContentType[];
 };
 
-const StatisticSection: React.FC<StatisticSectionProps> = ({ content }) => {
+const StatisticSection: React.FC<StatisticSectionProps> = ({
+  statisticItems,
+}) => {
   return (
     <div className='flex flex-col md:flex-row w-full items-center justify-between'>
-      {content.map((item) => (
+      {statisticItems.map((item) => (
         <div
           key={item.title}
           className=' flex flex-col my-5 mx-5 items-center text-white justify-center text-center relative'

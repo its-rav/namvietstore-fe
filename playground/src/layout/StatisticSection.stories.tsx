@@ -9,19 +9,19 @@ import { type ContentType, StatisticSection } from "@namviet-fe/core-ui";
 const content: ContentType[] = [
   {
     title: "mặt hàng",
-    statistic: "500",
+    statistic: 500,
   },
   {
     title: "khách hàng hài lòng",
-    statistic: "100",
+    statistic: 100,
   },
   {
     title: "dự án thành công",
-    statistic: "200",
+    statistic: 200,
   },
   {
     title: "thành lập doanh nghiệp",
-    statistic: "2010",
+    statistic: 2010,
   },
 ];
 
@@ -36,6 +36,6 @@ export const Default: Story = () => (
       backgroundColor: "black",
     }}
   >
-    <StatisticSection content={content} />
+    <StatisticSection statisticItems={content} />
   </div>
 );
