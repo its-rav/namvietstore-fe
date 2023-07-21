@@ -1,13 +1,13 @@
 import React from 'react';
 import { AiOutlinePlus } from 'react-icons/ai';
 
-export type ContentType = {
+export type StatisticItemsType = {
   title: string;
   statistic: number;
 };
 
 export type StatisticSectionProps = {
-  statisticItems: ContentType[];
+  statisticItems: StatisticItemsType[];
 };
 
 const StatisticSection: React.FC<StatisticSectionProps> = ({
