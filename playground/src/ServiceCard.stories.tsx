@@ -7,11 +7,11 @@ import "@namviet-fe/core-ui/dist/style.css";
 
 import {
   ServiceCard,
-  type ServiceCardContentType,
+  type ServiceCardItemType,
   ProductIcon,
 } from "@namviet-fe/core-ui";
 
-const content: ServiceCardContentType = {
+const serviceCardItem: ServiceCardItemType = {
   icon: <ProductIcon />,
   title: "Sản phẩm",
   description: "Đội ngũ giàu kinh nghiệm, có chuyên môn",
@@ -31,7 +31,7 @@ export const Default: Story = () => (
       justifyContent: "center",
     }}
   >
-    <ServiceCard content={content} />{" "}
+    <ServiceCard serviceCardItem={serviceCardItem} />{" "}
   </div>
 );
 
