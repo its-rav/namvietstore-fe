@@ -6,14 +6,14 @@ export type ServiceCardItemType = {
   description: string;
 };
 
-type ServiceCardType = {
+type ServiceCardProps = {
   serviceCardItem: ServiceCardItemType;
   titleClassName?: string;
   descriptionClassName?: string;
   className?: string;
 };
 
-const ServiceCard: React.FC<ServiceCardType> = ({
+const ServiceCard: React.FC<ServiceCardProps> = ({
   serviceCardItem,
   titleClassName,
   descriptionClassName,
