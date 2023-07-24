@@ -1,5 +1,5 @@
 import MarqueeSection, {
-  type MarqueeContentType,
+  type MarqueeItemsType,
 } from '@/components/sections/MarqueeSection';
 import StatisticSection, {
   type StatisticItemsType,
@@ -7,7 +7,7 @@ import StatisticSection, {
 } from '@/components/sections/StatisticSection';
 
 export {
-  type MarqueeContentType,
+  type MarqueeItemsType,
   type StatisticItemsType,
   type StatisticSectionProps,
   MarqueeSection,

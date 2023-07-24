@@ -1,18 +1,17 @@
 import React from 'react';
 import Marquee from 'react-fast-marquee';
 
-export type MarqueeContentType = {
+export type MarqueeItemsType = {
   id: string;
   url: string;
   alt: string;
 };
 
 type MarqueeSectionProps = {
-  content?: MarqueeContentType[];
+  content: MarqueeItemsType[];
   direction?: 'left' | 'right' | 'up' | 'down';
   speed?: number;
   autoFill?: boolean;
-  children?: React.ReactNode;
   pauseOnClick?: boolean;
   pauseOnHover?: boolean;
   gradient?: boolean;
@@ -28,7 +27,6 @@ const MarqueeSection: React.FC<MarqueeSectionProps> = ({
   pauseOnHover,
   gradient,
   gradientWidth,
-  children,
 }) => {
   return (
     <Marquee
@@ -43,13 +41,16 @@ const MarqueeSection: React.FC<MarqueeSectionProps> = ({
       {content &&
         content.map((item) => (
           <div
-            className='flex items-center justify-center text-center mx-6 md:w-44 md:h-16 sm:w-36 sm:h-12'
+            className='flex items-center justify-center text-center mx-6 md:w-44 md:h-16 sm:w-28 sm:h-10'
             key={item.id}
           >
-            <img src={item.url} alt={item.alt} className='w-full h-full' />
+            <img
+              src={item.url}
+              alt={item.alt}
+              className='w-full h-full object-cover'
+            />
           </div>
         ))}
-      {children}
     </Marquee>
   );
 };
