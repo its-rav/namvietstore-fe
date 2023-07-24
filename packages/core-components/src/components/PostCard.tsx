@@ -22,7 +22,7 @@ const PostCard: React.FC<PostCardProps> = ({
       <img
         src={previewImage}
         alt={title}
-        className='rounded-t-md md:h-52 sm:h-36 md:text-base sm:text-sm bg-gray-200'
+        className='rounded-t-md object-cover md:h-52 sm:h-36 md:text-base sm:text-sm bg-gray-200'
       />
       <div className='w-full'>
         <h2 className='md:text-lg sm:text-base font-bold'>{title}</h2>
