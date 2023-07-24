@@ -8,7 +8,6 @@ import { GiUsaFlag } from "react-icons/gi";
 import "regenerator-runtime/runtime";
 import "@namviet-fe/core-ui/dist/style.css";
 import { EnIcon, ViIcon } from "@namviet-fe/core-ui";
-import { KeyIcon } from "@namviet-fe/core-ui";
 
 export default {
   title: "@nv-fe/core-ui/buttons/Select",
