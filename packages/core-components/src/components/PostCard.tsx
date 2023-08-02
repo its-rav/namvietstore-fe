@@ -1,19 +1,23 @@
 import React from 'react';
 
+import Button from '@/components/buttons/Button';
+
+import { WhitePlusIcon } from '@/icons';
+
 type PostCardProps = {
-  children?: React.ReactNode;
   className?: string;
   previewImage?: string;
   title?: string;
   description?: string;
+  onClick?: () => void;
 };
 
 const PostCard: React.FC<PostCardProps> = ({
-  children,
   className,
   previewImage,
   title,
   description,
+  onClick,
 }) => {
   return (
     <div
@@ -26,11 +30,15 @@ const PostCard: React.FC<PostCardProps> = ({
       />
       <div className='w-full'>
         <h2 className='md:text-lg sm:text-base font-bold'>{title}</h2>
-        <p className='h-15 line-clamp-3 md:text-base sm:text-sm font-normal'>
+        <p className='h-16 line-clamp-3 md:text-base sm:text-sm md:leading-snug sm:leading-normal font-normal'>
           {description}
         </p>
       </div>
-      {children}
+      <Button
+        children='Đọc thêm'
+        rightIcon={<WhitePlusIcon />}
+        onClick={onClick}
+      />
     </div>
   );
 };
