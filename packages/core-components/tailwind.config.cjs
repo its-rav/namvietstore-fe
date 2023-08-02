@@ -61,8 +61,11 @@ module.exports = {
         1: '1px',
         2: '4px',
         3: '8px',
-        4: '16px',
-        5: '24px',
+        4: '12px',
+        5: '16px',
+        6: '18px',
+        7: '22px',
+        8: '26px',
       },
       borderWidth: {
         DEFAULT: '1px',

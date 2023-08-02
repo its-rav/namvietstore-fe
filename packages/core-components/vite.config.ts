@@ -27,7 +27,11 @@ const app = async (): Promise<UserConfigExport> =>
       //   extensions,
       //   babelHelpers: 'bundled',
       // }),
-      svgr(),
+      svgr({
+        svgrOptions: {
+          dimensions: false,
+        },
+      }),
     ],
     css: {
       postcss: {
