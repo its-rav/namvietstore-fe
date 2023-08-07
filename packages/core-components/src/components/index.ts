@@ -1,3 +1,6 @@
+import PostCard from '@/components/PostCard';
+
+export { PostCard };
 import ServiceCard, {
   type ServiceCardItemType,
 } from '@/components/ServiceCard';
