@@ -1,14 +1,14 @@
 import React from 'react';
 import Marquee from 'react-fast-marquee';
 
-export type MarqueeItemsType = {
+export type MarqueeItemType = {
   id: string;
   url: string;
   alt: string;
 };
 
 type MarqueeSectionProps = {
-  content: MarqueeItemsType[];
+  marqueeItems: MarqueeItemType[];
   direction?: 'left' | 'right' | 'up' | 'down';
   speed?: number;
   autoFill?: boolean;
@@ -19,7 +19,7 @@ type MarqueeSectionProps = {
 };
 
 const MarqueeSection: React.FC<MarqueeSectionProps> = ({
-  content,
+  marqueeItems,
   direction,
   speed,
   autoFill,
@@ -38,8 +38,8 @@ const MarqueeSection: React.FC<MarqueeSectionProps> = ({
       gradient={gradient}
       gradientWidth={gradientWidth}
     >
-      {content &&
-        content.map((item) => (
+      {marqueeItems &&
+        marqueeItems.map((item) => (
           <div
             className='flex items-center justify-center text-center mx-6 md:w-44 md:h-16 sm:w-28 sm:h-10'
             key={item.id}

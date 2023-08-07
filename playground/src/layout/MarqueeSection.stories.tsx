@@ -4,13 +4,13 @@ import React from "react";
 import "regenerator-runtime/runtime";
 import "@namviet-fe/core-ui/dist/style.css";
 
-import { MarqueeSection, type MarqueeContentType } from "@namviet-fe/core-ui";
+import { MarqueeSection, type MarqueeItemType } from "@namviet-fe/core-ui";
 
 export default {
   title: "@nv-fe/core-ui/layout/MarqueeSection",
 } satisfies StoryDefault<typeof MarqueeSection>;
 
-const sampleContent: MarqueeContentType[] = [
+const sampleContent: MarqueeItemType[] = [
   {
     id: "logo1",
     url: "logo1",
@@ -38,7 +38,7 @@ const sampleContent: MarqueeContentType[] = [
   },
 ];
 
-const content: MarqueeContentType[] = [
+const items: MarqueeItemType[] = [
   {
     id: "PH",
     url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Pornhub-logo.svg/1200px-Pornhub-logo.svg.png",
@@ -68,7 +68,7 @@ const content: MarqueeContentType[] = [
 
 export const Default: Story = () => (
   <MarqueeSection
-    content={content}
+    marqueeItems={items}
     gradient={true}
     gradientWidth={100}
     autoFill={true}
@@ -78,7 +78,7 @@ export const Default: Story = () => (
 
 export const NoLogo: Story = () => (
   <MarqueeSection
-    content={sampleContent}
+    marqueeItems={sampleContent}
     gradient={true}
     gradientWidth={100}
     autoFill={true}
