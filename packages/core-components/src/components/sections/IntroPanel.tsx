@@ -4,18 +4,23 @@ import { Button } from '@/components/buttons';
 
 import { WhitePlusIcon } from '@/icons';
 
-export type introPanelItemType = {
+export type IntroPanelItemType = {
   title: string;
   establisedTime: string;
   description: string;
 };
 
 type IntroPanelProps = {
-  introPanelItem: introPanelItemType;
+  introPanelItem: IntroPanelItemType;
+  buttonText: string;
   onClick?: () => void;
 };
 
-const IntroPanel: React.FC<IntroPanelProps> = ({ introPanelItem, onClick }) => {
+const IntroPanel: React.FC<IntroPanelProps> = ({
+  introPanelItem,
+  buttonText,
+  onClick,
+}) => {
   return (
     <div>
       <h2 className='font-primary md:text-2xl sm:text-xl font-bold text-primary leading-normal'>
@@ -30,7 +35,7 @@ const IntroPanel: React.FC<IntroPanelProps> = ({ introPanelItem, onClick }) => {
       <Button
         onClick={onClick}
         rightIcon={<WhitePlusIcon />}
-        children='Đọc thêm'
+        children={buttonText}
       />
     </div>
   );

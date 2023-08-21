@@ -19,6 +19,6 @@ export default {
 
 export const Default: Story = () => (
   <div style={{ padding: "20px" }}>
-    <IntroPanel introPanelItem={introPanelItem} />
+    <IntroPanel introPanelItem={introPanelItem} buttonText="Đọc thêm" />
   </div>
 );

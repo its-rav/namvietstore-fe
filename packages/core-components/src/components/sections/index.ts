@@ -1,5 +1,5 @@
 import IntroPanel, {
-  type introPanelItemType,
+  type IntroPanelItemType,
 } from '@/components/sections/IntroPanel';
 import MarqueeSection, {
   type MarqueeItemType,
@@ -10,7 +10,7 @@ import StatisticSection, {
 } from '@/components/sections/StatisticSection';
 
 export {
-  type introPanelItemType,
+  type IntroPanelItemType,
   type MarqueeItemType,
   type StatisticItemType,
   type StatisticSectionProps,
