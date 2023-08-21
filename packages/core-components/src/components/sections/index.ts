@@ -1,15 +1,20 @@
 import FeaturesList, {
   type FeaturesListItemType,
 } from '@/components/sections/FeaturesList';
+import MarqueeSection, {
+  type MarqueeItemType,
+} from '@/components/sections/MarqueeSection';
 import StatisticSection, {
-  type StatisticItemsType,
+  type StatisticItemType,
   type StatisticSectionProps,
 } from '@/components/sections/StatisticSection';
 
 export {
   type FeaturesListItemType,
-  type StatisticItemsType,
+  type MarqueeItemType,
+  type StatisticItemType,
   type StatisticSectionProps,
   FeaturesList,
+  MarqueeSection,
   StatisticSection,
 };
