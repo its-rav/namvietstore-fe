@@ -11,4 +11,4 @@ export * from './buttons';
 export * from './sections';
 
 import TopBar, { type TopBarProps } from '@/components/TopBar';
-export { type TopBarProps,TopBar };
+export { type TopBarProps, TopBar };
