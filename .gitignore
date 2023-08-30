@@ -45,3 +45,6 @@ sitemap-*.xml
 # dist
 /dist
 **/dist
+
+# dir
+.idea/

@@ -2,7 +2,7 @@ import React from "react";
 import type { Story, StoryDefault } from "@ladle/react";
 import "regenerator-runtime/runtime";
 import "@namviet-fe/core-ui/dist/style.css";
-
+import { BrandIcon } from "@namviet-fe/core-ui";
 import { TopBar, type TopBarProps } from "@namviet-fe/core-ui";
 import { ContactIcon } from "@namviet-fe/core-ui";
 import { Button, type ButtonProps } from "@namviet-fe/core-ui";
@@ -19,10 +19,15 @@ export let Default: Story<DropdownButtonProps>;
 Default = ({ selected, options }) => (
   <TopBar
     className="TopBar"
-    contactIcon={<ContactIcon />}
+    brandIcon={<BrandIcon />}
+    phoneIcon={<ContactIcon />}
     languageButton={<DropdownButton selected={selected} options={options} />}
     linkContact1={""}
     linkContact2={""}
+    phoneNumber1={"+91 9876543210"}
+    phoneNumber2={"+91 9876543210"}
+    nameContact1={"Ms. Huynh"}
+    nameContact2={"Mr. Duong"}
   ></TopBar>
 );
 
