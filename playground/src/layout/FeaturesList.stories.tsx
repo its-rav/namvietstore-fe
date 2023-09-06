@@ -5,7 +5,7 @@ import "regenerator-runtime/runtime";
 import "@namviet-fe/core-ui/dist/style.css";
 
 import {
-  type FeatureListItemType,
+  type FeaturesListItemType,
   ProductIcon,
   HeadphonesIcon,
   KeyIcon,
@@ -13,7 +13,7 @@ import {
   FeaturesList,
 } from "@namviet-fe/core-ui";
 
-const items: FeatureListItemType[] = [
+const items: FeaturesListItemType[] = [
   {
     icon: <ProductIcon />,
     title: "Sản phẩm",
