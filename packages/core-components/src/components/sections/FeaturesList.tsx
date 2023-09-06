@@ -1,10 +1,10 @@
 import React from 'react';
 
-import ServiceCard, {
-  type ServiceCardItemType,
-} from '@/components/ServiceCard';
+import FeaturesCard, {
+  type FeaturesCardItemType,
+} from '@/components/FeaturesCard';
 
-export type FeaturesListItemType = ServiceCardItemType & {
+export type FeaturesListItemType = FeaturesCardItemType & {
   id: number;
 };
 
@@ -16,7 +16,7 @@ const FeaturesList: React.FC<FeaturesListProps> = ({ items }) => {
   return (
     <div className='flex flex-col md:flex-row w-full items-center justify-between'>
       {items.map((item) => (
-        <ServiceCard key={item.id} serviceCardItem={item} />
+        <FeaturesCard key={item.id} featuresCardItem={item} />
       ))}
     </div>
   );
