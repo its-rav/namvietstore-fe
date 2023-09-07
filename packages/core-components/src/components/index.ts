@@ -10,5 +10,5 @@ export { type ServiceCardItemType, ServiceCard };
 export * from './buttons';
 export * from './sections';
 
-import TopBar, { type TopBarProps } from '@/components/TopBar';
-export { type TopBarProps, TopBar };
+import TopBar, { type TopBarProps, TopBarItemType } from '@/components/TopBar';
+export { type TopBarProps, type TopBarItemType, TopBar };
