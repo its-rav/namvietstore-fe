@@ -6,7 +6,6 @@ import { type TopBarProps, TopBar } from "@namviet-fe/core-ui";
 import { ContactIcon } from "@namviet-fe/core-ui";
 import { DropdownButton, type DropdownButtonProps } from "@namviet-fe/core-ui";
 import { EnIcon, ViIcon } from "@namviet-fe/core-ui";
-import { LanguageSelect } from "../buttons/Select.stories";
 export default {
   title: "@nv-fe/core-ui/topbar/TopBar",
 } satisfies StoryDefault<typeof TopBar>;
@@ -14,20 +13,22 @@ export default {
 export let Default: Story<DropdownButtonProps>;
 Default = ({ selected, options }) => (
   <TopBar
+      className={"TopBar"}
       topBarItems={[
           {
-              className: "TopBar",
-              linkContact1: "",
-              linkContact2: "",
-              phoneNumber1: "+91 9876543210",
-              phoneNumber2: "+91 9876543210",
-              nameContact1: "Ms. Huynh",
-              nameContact2: "Mr. Duong",
+              nameContact: "Ms. Huynh",
+              phoneNumber: "+91 9876543210",
+
+          },
+          {
+              nameContact: "Mr. Duong",
+              phoneNumber: "+91 9876543210",
+
           },
       ]}
       phoneIcon={<ContactIcon />}
       languageButton={<DropdownButton selected={selected} options={options} />}
-  / >
+  />
 );
 
 Default.defaultProps = {

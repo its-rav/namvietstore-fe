@@ -1,4 +1,3 @@
-export { ReactComponent as BrandIcon } from './brand.svg';
 export { ReactComponent as EnIcon } from './enflag.svg';
 export { ReactComponent as HeadphonesIcon } from './headphones.svg';
 export { ReactComponent as KeyIcon } from './key.svg';
