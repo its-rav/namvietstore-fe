@@ -20,14 +20,12 @@ export const Default:Story<CategoryProps> = ({className,content,icon,directory})
             marginTop: "40px",
         }
     }>
-        <div style={{width:"50px", height:"50px", background:"black"}}></div>
-        <CategoryMenuButton
-            className={className}
-            content={content}
-            icon={icon}
-            directory={directory}
-        />
-        <div style={{width:"50px", height:"50px", background:"black"}}></div>
+    <CategoryMenuButton
+        className={className}
+        content={content}
+        icon={icon}
+        directory={directory}
+    />
     </div>
 )
 

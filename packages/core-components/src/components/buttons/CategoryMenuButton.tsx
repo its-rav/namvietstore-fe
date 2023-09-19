@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from "react";
+import CategoryList from "@/components/buttons/CategoryList";
+import CategoryBoard from "@/components/buttons/CategoryBoard";
 export interface ItemType{
     itemTitle: string;
     itemLink: string;
@@ -72,63 +74,17 @@ const CategoryMenuButton:React.FC<CategoryProps> = ({
                 </button>
             </div>
             {isShow && (
-                <div className={`flex flex-row`} onMouseLeave={handleMouseLeave}>
-                    <div>
+                <div className={`flex flex-row relative z-10`} onMouseLeave={handleMouseLeave}>
+                    <div className="absolute left-0 top-0">
                         {directory.map((data) => {
-                            return ( // tao component moi
-                                <div key={data.id}>
-                                    <div
-                                        className="w-full bg-white drop-shadow-xl"
-                                    >
-                                        <button
-                                            className={
-                                                "rounded-[5px] mt-1 hover:bg-secondary-50 hover:cursor-pointer w-56 "+
-                                                "flex items-center justify-left gap-3.5 px-5 py-3 " +
-                                                "transition ease-in-out hover:scale-105 "
-                                            }
-                                            onMouseEnter={() => {
-                                                setItem(data.id);
-                                                //setBoardShow(true)
-                                            }}
-                                            onFocus={() => {
-                                                setItem(data.id);
-                                            }}
-                                            /*onMouseLeave={()=>{
-                                                //setBoardShow(false)
-                                            }}*/
-                                        >
-                                            <div className="w-6">{data.icon}</div>
-                                            <div className="sm:text-sm py-2 px-3">{data.rootName}</div>
-                                        </button>
-                                    </div>
-                                </div>
+                            return (
+                                <CategoryList key={data.id} data={data} setItem={setItem} />
                             );
                         })}
                     </div>
-                    {(indexItem >= 0)&&( //component moi
-                        <div
-                            className={`left-auto w-4/5 min-h-60 max-h-max bg-white drop-shadow-xl `}
-                        >
-                            <div className="grid grid-cols-4 gap-4 p-4">
-                                <div>{indexItem}</div>
-                                {directory[indexItem].childrenDirectory.map((folder, index) => {
-                                    console.log(folder)
-                                    return (
-                                        <div key={folder.folderTitle + index}>
-                                            <div className="font-bold mb-2">{folder.folderTitle}</div>
-                                            {folder.folderItems.map((item) => {
-                                                return (
-                                                    <div key={item.itemTitle}>
-                                                        <a href={item.itemLink} className="font-sm hover:text-secondary hover:font-medium ">
-                                                            {item.itemTitle}
-                                                        </a>
-                                                    </div>
-                                                );
-                                            })}
-                                        </div>
-                                    );
-                                })}
-                            </div>
+                    {indexItem >= 0 && (
+                        <div className="absolute left-56 top-0 w-4/6">
+                            <CategoryBoard folderData={directory[indexItem]} indexItem={indexItem} />
                         </div>
                     )}
                 </div>
