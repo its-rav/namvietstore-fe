@@ -13,21 +13,19 @@ export default {
 export let Default: Story<DropdownButtonProps>;
 Default = ({ selected, options }) => (
   <TopBar
-      className={"TopBar"}
-      topBarItems={[
-          {
-              nameContact: "Ms. Huynh",
-              phoneNumber: "+91 9876543210",
-
-          },
-          {
-              nameContact: "Mr. Duong",
-              phoneNumber: "+91 9876543210",
-
-          },
-      ]}
-      phoneIcon={<ContactIcon />}
-      languageButton={<DropdownButton selected={selected} options={options} />}
+    className={"TopBar"}
+    topBarItems={[
+      {
+        nameContact: "Ms. Huynh",
+        phoneNumber: "+91 9876543210",
+      },
+      {
+        nameContact: "Mr. Duong",
+        phoneNumber: "+91 9876543210",
+      },
+    ]}
+    phoneIcon={<ContactIcon />}
+    languageButton={<DropdownButton selected={selected} options={options} />}
   />
 );
 

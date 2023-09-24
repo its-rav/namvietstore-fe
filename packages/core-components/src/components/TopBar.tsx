@@ -29,28 +29,24 @@ const TopBar: React.FC<TopBarProps> = ({
         {phoneIcon}
       </div>
 
-      <div
-          className={
-            'flex justify-center items-center'
-          }
-      >
+      <div className={'flex justify-center items-center'}>
         {topBarItems.map((item, index) => (
-            <div
-                className={
-                    'font-Roboto text-white font-medium ' +
-                    'px-4 text-sm lg:text-lg ' +
-                    'hover:drop-shadow-2xl ' +
-                    ((index == 0)?'border-r-2 border-white border-opacity-50':'')
-                }
-                key={index}
-            >
-              <a href=''>
+          <div
+            className={
+              'font-Roboto text-white font-medium ' +
+              'px-4 text-sm lg:text-lg ' +
+              'hover:drop-shadow-2xl ' +
+              (index == 0 ? 'border-r-2 border-white border-opacity-50' : '')
+            }
+            key={index}
+          >
+            <a href=''>
               <span className={'hidden md:inline'}>
                 {item.phoneNumber + ' - '}
               </span>
-                {item.nameContact}
-              </a>
-            </div>
+              {item.nameContact}
+            </a>
+          </div>
         ))}
       </div>
 
