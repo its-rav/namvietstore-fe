@@ -30,37 +30,28 @@ const TopBar: React.FC<TopBarProps> = ({
       </div>
 
       <div
-        className={
-          'font-Roboto text-slate-200 border-e-2 font-medium ' +
-          'sm:visible ' +
-          'md:px-4 md:text-sm lg:text-lg ' +
-          'hover:text-white ' +
-          'hover:drop-shadow-2xl '
-        }
+          className={
+            'flex justify-center items-center'
+          }
       >
-        <a href=''>
-          <span className={'sm:hidden md:contents'}>
-            {topBarItems[0].phoneNumber + ' - '}
-          </span>
-          {topBarItems[0].nameContact}
-        </a>
-      </div>
-
-      <div
-        className={
-          'font-Roboto text-slate-200 font-medium ' +
-          'sm:visible ' +
-          'md:px-4 md:text-sm lg:text-lg ' +
-          'hover:text-white ' +
-          'hover:drop-shadow-2xl '
-        }
-      >
-        <a href=''>
-          <span className={'sm:hidden md:contents '}>
-            {topBarItems[1].phoneNumber + ' - '}
-          </span>
-          {topBarItems[1].nameContact}
-        </a>
+        {topBarItems.map((item, index) => (
+            <div
+                className={
+                    'font-Roboto text-white font-medium ' +
+                    'px-4 text-sm lg:text-lg ' +
+                    'hover:drop-shadow-2xl ' +
+                    ((index == 0)?'border-r-2 border-white border-opacity-50':'')
+                }
+                key={index}
+            >
+              <a href=''>
+              <span className={'hidden md:inline'}>
+                {item.phoneNumber + ' - '}
+              </span>
+                {item.nameContact}
+              </a>
+            </div>
+        ))}
       </div>
 
       <div
