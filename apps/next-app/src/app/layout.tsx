@@ -1,6 +1,7 @@
 import Head from "next/head";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Nam Viet Store",
   description: "Nam Viet Store description",
 };
@@ -12,11 +13,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-      </Head>
-      {/* header */}
       <body>{children}</body>
     </html>
   );
