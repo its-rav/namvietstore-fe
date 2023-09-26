@@ -1,18 +1,17 @@
-import Head from "next/head";
-import { Metadata } from "next";
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Nam Viet Store",
-  description: "Nam Viet Store description",
+  title: 'Nam Viet Store',
+  description: 'Nam Viet Store description',
 };
 
-export default function RootLayout({
-  children,
-}: {
+type RootLayoutProps = {
   children: React.ReactNode;
-}) {
+};
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body>{children}</body>
     </html>
   );
