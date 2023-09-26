@@ -1,8 +1,15 @@
-"use client";
+'use client';
 
-import { Button } from "@namviet-fe/core-ui";
-import "@namviet-fe/core-ui/dist/style.css";
-import { useRouter } from "next/navigation";
+import { Button } from '@namviet-fe/core-ui';
+import { Metadata } from 'next';
+import { useRouter } from 'next/navigation';
+
+import '@namviet-fe/core-ui/dist/style.css';
+
+export const metadata: Metadata = {
+  title: 'Products',
+  description: 'Products description',
+};
 
 export default function ProductsPage() {
   const router = useRouter();
@@ -10,7 +17,7 @@ export default function ProductsPage() {
     <>
       <Button
         onClick={() => {
-          router.push("/");
+          router.push('/');
         }}
       >
         Homepage
