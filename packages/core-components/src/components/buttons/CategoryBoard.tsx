@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { DirectoryTypes, FolderTypes } from './CategoryMenuButton';
 
 export type FolderDetailProps = {

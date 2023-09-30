@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import CategoryBoard from '@/components/buttons/CategoryBoard';
 import CategoryList from '@/components/buttons/CategoryList';
 
