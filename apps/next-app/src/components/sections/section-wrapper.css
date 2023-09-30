@@ -1,0 +1,8 @@
+.section-wrapper section {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.section-wrapper.full-width section {
+  max-width: 100%;
+}

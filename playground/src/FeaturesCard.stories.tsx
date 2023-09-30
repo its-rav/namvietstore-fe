@@ -6,20 +6,20 @@ import "regenerator-runtime/runtime";
 import "@namviet-fe/core-ui/dist/style.css";
 
 import {
-  ServiceCard,
-  type ServiceCardItemType,
+  FeaturesCard,
+  type FeaturesCardItemType,
   ProductIcon,
 } from "@namviet-fe/core-ui";
 
-const serviceCardItem: ServiceCardItemType = {
+const featuresCardItem: FeaturesCardItemType = {
   icon: <ProductIcon />,
   title: "Sản phẩm",
   description: "Đội ngũ giàu kinh nghiệm, có chuyên môn",
 };
 
 export default {
-  title: "@nv-fe/core-ui/ServiceCard",
-} satisfies StoryDefault<typeof ServiceCard>;
+  title: "@nv-fe/core-ui/FeaturesCard",
+} satisfies StoryDefault<typeof FeaturesCard>;
 
 export const Default: Story = () => (
   <div
@@ -31,7 +31,7 @@ export const Default: Story = () => (
       justifyContent: "center",
     }}
   >
-    <ServiceCard serviceCardItem={serviceCardItem} />{" "}
+    <FeaturesCard featuresCardItem={featuresCardItem} />{" "}
   </div>
 );
 
@@ -45,6 +45,6 @@ export const NoContent: Story = () => (
       display: "flex",
     }}
   >
-    <ServiceCard />
+    <FeaturesCard />
   </div>
 );

@@ -5,5 +5,7 @@ import DropdownButton, {
 
 export { type ButtonProps, Button, DropdownButton, DropdownButtonProps };
 
-import CategoryMenuButton, {type CategoryProps } from "@/components/buttons/CategoryMenuButton";
-export {type CategoryProps, CategoryMenuButton}
+import CategoryMenuButton, {
+  type CategoryProps,
+} from '@/components/buttons/CategoryMenuButton';
+export { type CategoryProps, CategoryMenuButton };
