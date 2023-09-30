@@ -3,13 +3,9 @@ import { DirectoryTypes, FolderTypes } from './CategoryMenuButton';
 
 export type FolderDetailProps = {
   folderData: DirectoryTypes;
-  indexItem: number;
 };
 
-const CategoryBoard: React.FC<FolderDetailProps> = ({
-  folderData,
-  indexItem,
-}) => {
+const CategoryBoard: React.FC<FolderDetailProps> = ({ folderData }) => {
   const boardSize = {
     minHeight: '15rem',
     maxHeight: ' max-content',

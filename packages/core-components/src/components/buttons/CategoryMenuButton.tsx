@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import CategoryList from '@/components/buttons/CategoryList';
 import CategoryBoard from '@/components/buttons/CategoryBoard';
+import CategoryList from '@/components/buttons/CategoryList';
+
 export interface ItemType {
   itemTitle: string;
   itemLink: string;
@@ -76,10 +77,7 @@ const CategoryMenuButton: React.FC<CategoryProps> = ({
           </div>
           {indexItem >= 0 && (
             <div className='absolute left-56 top-0 w-4/6'>
-              <CategoryBoard
-                folderData={directory[indexItem]}
-                indexItem={indexItem}
-              />
+              <CategoryBoard folderData={directory[indexItem]} />
             </div>
           )}
         </div>

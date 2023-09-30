@@ -1,5 +1,5 @@
-import React from 'react';
 import { type DirectoryTypes } from '@/components/buttons/CategoryMenuButton';
+import React from 'react';
 
 export type DirectoryItemProps = {
   data: DirectoryTypes;
