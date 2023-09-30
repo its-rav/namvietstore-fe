@@ -13,6 +13,7 @@ export interface DirectoryTypes {
   id: number;
   icon?: React.ReactNode;
   rootName: string;
+  rootLink: string;
   childrenDirectory: FolderTypes[];
 }
 

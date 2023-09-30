@@ -24,7 +24,9 @@ const CategoryList: React.FC<DirectoryItemProps> = ({ data, setItem }) => {
           }}
         >
           <div className='w-6'>{data.icon}</div>
-          <div className='sm:text-sm py-2 px-3'>{data.rootName}</div>
+          <a href={data.rootLink} className='sm:text-sm py-2 px-3'>
+            {data.rootName}
+          </a>
         </button>
       </div>
     </div>

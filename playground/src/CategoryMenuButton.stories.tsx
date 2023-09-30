@@ -43,6 +43,7 @@ Default.defaultProps = {
       id: 0,
       icon: <KeyIcon />,
       rootName: "ĐẦU ĐỐT",
+      rootLink: "",
       childrenDirectory: [
         {
           folderTitle: "Đầu đốt theo hãng",
@@ -135,6 +136,7 @@ Default.defaultProps = {
       id: 1,
       icon: <KeyIcon />,
       rootName: "LAPTOP1",
+      rootLink: "",
       childrenDirectory: [
         {
           folderTitle: "Cơ Khí1",
@@ -168,6 +170,7 @@ Default.defaultProps = {
       id: 2,
       icon: <KeyIcon />,
       rootName: "LAPTOP2",
+      rootLink: "",
       childrenDirectory: [
         {
           folderTitle: "Cơ Khí2",
@@ -193,6 +196,7 @@ Default.defaultProps = {
       id: 3,
       icon: <KeyIcon />,
       rootName: "LAPTOP3",
+      rootLink: "",
       childrenDirectory: [
         {
           folderTitle: "Cơ Khí3",
