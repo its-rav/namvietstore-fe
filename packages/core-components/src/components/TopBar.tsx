@@ -8,7 +8,6 @@ export interface TopBarItemType {
 export interface TopBarProps {
   className: string;
   topBarItems: TopBarItemType[];
-  brandIcon: React.ReactNode;
   phoneIcon: React.ReactNode;
   languageButton: React.ReactNode;
 }
@@ -52,7 +51,7 @@ const TopBar: React.FC<TopBarProps> = ({
 
       <div
         className={
-          'LanguageButton sm:scale-[80%] md:scale-[95%] py-3 ml-auto md:me-8'
+          'LanguageButton sm:scale-[80%] md:scale-[95%] py-3 ml-auto md:me-12'
         }
       >
         {languageButton}

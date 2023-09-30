@@ -2,7 +2,7 @@ import React from "react";
 import type { Story, StoryDefault } from "@ladle/react";
 import "regenerator-runtime/runtime";
 import "@namviet-fe/core-ui/dist/style.css";
-import { type TopBarProps, TopBar } from "@namviet-fe/core-ui";
+import { TopBar } from "@namviet-fe/core-ui";
 import { ContactIcon } from "@namviet-fe/core-ui";
 import { DropdownButton, type DropdownButtonProps } from "@namviet-fe/core-ui";
 import { EnIcon, ViIcon } from "@namviet-fe/core-ui";

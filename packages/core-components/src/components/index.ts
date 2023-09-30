@@ -1,11 +1,11 @@
 import PostCard from '@/components/PostCard';
 
 export { PostCard };
-import ServiceCard, {
-  type ServiceCardItemType,
-} from '@/components/ServiceCard';
+import FeaturesCard, {
+  type FeaturesCardItemType,
+} from '@/components/FeaturesCard';
 
-export { type ServiceCardItemType, ServiceCard };
+export { type FeaturesCardItemType, FeaturesCard };
 
 export * from './buttons';
 export * from './sections';
