@@ -10,7 +10,7 @@ const CategoryBoard: React.FC<CategoryMenuItem> = ({ items }) => {
   };
   return (
     <div
-      className={'left-auto min-h-60 max-h-full w-full bg-white drop-shadow-xl'}
+      className={'left-auto min-h-60 max-h-max w-full bg-white drop-shadow-md'}
     >
       <div className='grid grid-cols-4 gap-4 p-4' style={boardSize}>
         {items.map((data) => {
