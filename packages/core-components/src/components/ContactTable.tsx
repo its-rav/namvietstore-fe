@@ -3,7 +3,7 @@ import React from 'react';
 export type ContactTableItemType = {
   title: string;
   description: string;
-  adress: string;
+  address: string;
   phone: string;
   email: string;
 };
@@ -34,7 +34,7 @@ const ContactTable: React.FC<ContactTableProps> = ({ contactTableItem }) => {
       </div>
       <div className='grid grid-cols-6 gap-3 w-11/12'>
         <p className='col-span-2'>Địa chỉ</p>
-        <p className='col-span-4 text-justify'>{contactTableItem.adress}</p>
+        <p className='col-span-4 text-justify'>{contactTableItem.address}</p>
         <p className='col-span-2'>Điện thoại</p>
         <a
           className='col-span-4 text-justify'

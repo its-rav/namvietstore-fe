@@ -12,7 +12,7 @@ const contactTableItem: ContactTableItemType = {
   title: "CÔNG TY TNHH THIẾT BỊ NHIỆT NAM VIỆT",
   description:
     "Công ty TNHH Thiết bị nhiệt Nam Việt GCNDKKD: 03456789 do Sở Kế hoạch và Đầu tư Thành phố Hồ Chí Minh cấp ngày 16/10/2018 ( Đăng ký thay đổi lần thứ 1 ngày 17/1/2023)",
-  adress:
+  address:
     "Phòng 21 Lầu 14, Tháp 1, Toà nhà Saigon Centre, 65 Lê lợi, Phường Bến Nghé, Quận 1, Tp.HCM, Việt Nam",
   phone: "+ 84 7646578696",
   email: "thaiduong.huynh@gmail.com",
