@@ -8,4 +8,5 @@ import ServiceCard, {
 export { type ServiceCardItemType, ServiceCard };
 
 export * from './buttons';
+export * from './category';
 export * from './sections';

@@ -3,19 +3,19 @@ import React from "react";
 import "regenerator-runtime/runtime";
 import "@namviet-fe/core-ui/dist/style.css";
 
-import { type CategoryProps, CategoryMenuButton } from "@namviet-fe/core-ui";
+import {type CategoryMenu, CategoryUsage } from "@namviet-fe/core-ui";
 import { StripsIcon } from "@namviet-fe/core-ui";
 import { KeyIcon } from "@namviet-fe/core-ui";
-
+import { CategoryButton, type CategoryMenuButtonProps} from "@namviet-fe/core-ui";
+import {type ItemProps, CategoryItem} from "@namviet-fe/core-ui"
 export default {
   title: "@nv-fe/core-ui/CategoryMenuButton",
-} satisfies StoryDefault<typeof CategoryMenuButton>;
+} satisfies StoryDefault<typeof CategoryUsage>;
 
-export const Default: Story<CategoryProps> = ({
-  className,
-  children,
-  icon,
-  directory,
+export const Default: Story<CategoryMenu> = ({
+  mainButtonIcon,
+    mainButtonTitle,
+    items,
 }) => (
   <div
     style={{
@@ -25,194 +25,234 @@ export const Default: Story<CategoryProps> = ({
       marginTop: "40px",
     }}
   >
-    <CategoryMenuButton
-      className={className}
-      children={children}
-      icon={icon}
-      directory={directory}
-    />
+    <CategoryUsage mainButtonTitle = {mainButtonTitle}
+                   mainButtonIcon = {mainButtonIcon}
+                   items = {items} />
   </div>
 );
 
+export const MenuButton: Story<CategoryMenuButtonProps> = () => (
+    <div
+        style={{
+          display: "block",
+          marginLeft: "20px",
+          marginRight: "20px",
+          marginTop: "40px",
+        }}
+    >
+      <CategoryButton icon = {<StripsIcon />} title = {"Danh Mục Sản Phẩm"}/>
+    </div>
+);
+export const DefaultItemButton: Story<CategoryMenuButtonProps> = () => (
+    <div
+        style={{
+          display: "block",
+          marginLeft: "20px",
+          marginRight: "20px",
+          marginTop: "40px",
+        }}
+    >
+      <CategoryItem icon = {<KeyIcon />} children = {"Đầu đốt"}/>
+    </div>
+);
+export const SmallItemButton: Story<CategoryMenuButtonProps> = () => (
+    <div
+        style={{
+          display: "block",
+          marginLeft: "20px",
+          marginRight: "20px",
+          marginTop: "40px",
+        }}
+    >
+      <CategoryItem icon = {<KeyIcon />} children = {"Đầu đốt FO"} small={true}/>
+    </div>
+);
+
 Default.defaultProps = {
-  className: "CategoryButton",
-  children: "DANH MỤC SẢN PHẨM",
-  icon: <StripsIcon />,
-  directory: [
+  mainButtonTitle: "DANH MỤC SẢN PHẨM",
+  mainButtonIcon: <StripsIcon />,
+  items: [
     {
-      id: 0,
       icon: <KeyIcon />,
-      rootName: "ĐẦU ĐỐT",
-      rootLink: "",
-      childrenDirectory: [
+      name: "ĐẦU ĐỐT",
+      link: "#ĐẦU ĐỐT",
+      items: [
         {
-          folderTitle: "Đầu đốt theo hãng",
-          folderItems: [
+          name: "Đầu đốt theo hãng",
+          link: "#Đầu đốt theo hãng",
+          items: [
             {
-              itemTitle: "Madas",
-              itemLink: "",
+              name: "Madas",
+              link: "#Madas",
             },
             {
-              itemTitle: "Blowtherm",
-              itemLink: "",
+              name: "Blowtherm",
+              link: "#Blowtherm",
             },
             {
-              itemTitle: "Monarc",
-              itemLink: "",
+              name: "Monarc",
+              link: "#Monarc",
             },
           ],
         },
         {
-          folderTitle: "Đầu đốt theo loại nhiên liệu",
-          folderItems: [
+          name: "Đầu đốt theo loại nhiên liệu",
+          link: "#Đầu đốt theo loại nhiên liệu",
+          items: [
             {
-              itemTitle: "Đầu đốt gas",
-              itemLink: "",
+              name: "Đầu đốt gas",
+              link: "#Đầu đốt gas",
             },
             {
-              itemTitle: "Đầu đốt DO",
-              itemLink: "",
+              name: "Đầu đốt DO",
+              link: "#Đầu đốt DO",
             },
             {
-              itemTitle: "Đầu đốt FO",
-              itemLink: "",
-            },
-          ],
-        },
-        {
-          folderTitle: "Đầu đốt theo lĩnh vực",
-          folderItems: [
-            {
-              itemTitle: "Bê tông nhựa nóng",
-              itemLink: "",
-            },
-            {
-              itemTitle: "Sản xuất",
-              itemLink: "",
-            },
-            {
-              itemTitle: "Trạm trộn",
-              itemLink: "",
+              name: "Đầu đốt FO",
+              link: "#Đầu đốt FO",
             },
           ],
         },
         {
-          folderTitle: "Đầu đốt theo lĩnh vực",
-          folderItems: [
+          name: "Đầu đốt theo lĩnh vực",
+          link: "#Đầu đốt theo lĩnh vực",
+          items: [
             {
-              itemTitle: "Bê tông nhựa nóng",
-              itemLink: "",
+              name: "Bê tông nhựa nóng",
+              link: "#Bê tông nhựa nóng",
             },
             {
-              itemTitle: "Sản xuất",
-              itemLink: "",
+              name: "Sản xuất",
+              link: "#Sản xuất",
             },
             {
-              itemTitle: "Trạm trộn",
-              itemLink: "",
+              name: "Trạm trộn",
+              link: "#Trạm trộn",
             },
           ],
         },
         {
-          folderTitle: "Đầu đốt theo lĩnh vực",
-          folderItems: [
+          name: "Đầu đốt theo lĩnh vực",
+          link:"#Đầu đốt theo lĩnh vực",
+          items: [
             {
-              itemTitle: "Bê tông nhựa nóng",
-              itemLink: "",
+              name: "Bê tông nhựa nóng",
+              link: "#Bê tông nhựa nóng",
             },
             {
-              itemTitle: "Sản xuất",
-              itemLink: "",
+              name: "Sản xuất",
+              link: "#Sản xuất",
             },
             {
-              itemTitle: "Trạm trộn",
-              itemLink: "",
+              name: "Trạm trộn",
+              link: "#Trạm trộn",
+            },
+          ],
+        },
+        {
+          name: "Đầu đốt theo lĩnh vực",
+          link: "#Đầu đốt theo lĩnh vực",
+          items: [
+            {
+              name: "Bê tông nhựa nóng",
+              link: "",
+            },
+            {
+              name: "Sản xuất",
+              link: "",
+            },
+            {
+              name: "Trạm trộn",
+              link: "",
             },
           ],
         },
       ],
     },
     {
-      id: 1,
       icon: <KeyIcon />,
-      rootName: "LAPTOP1",
-      rootLink: "",
-      childrenDirectory: [
+      name: "LAPTOP1",
+      link: "",
+      items: [
         {
-          folderTitle: "Cơ Khí1",
-          folderItems: [
+          name: "Cơ Khí1",
+          link: "",
+          items: [
             {
-              itemTitle: "Bút chì",
-              itemLink: "",
+              name: "Bút chì",
+              link: "",
             },
             {
-              itemTitle: "Bút chì",
-              itemLink: "",
+              name: "Bút chì",
+              link: "",
             },
             {
-              itemTitle: "Bút chì",
-              itemLink: "",
+              name: "Bút chì",
+              link: "",
             },
           ],
         },
         {
-          folderTitle: "Cơ Khí1",
-          folderItems: [
+          name: "Cơ Khí1",
+          link:"",
+          items: [
             {
-              itemTitle: "Bút chì",
-              itemLink: "",
+              name: "Bút chì",
+              link: "",
             },
           ],
         },
       ],
     },
     {
-      id: 2,
       icon: <KeyIcon />,
-      rootName: "LAPTOP2",
-      rootLink: "",
-      childrenDirectory: [
+      name: "LAPTOP2",
+      link: "",
+      items: [
         {
-          folderTitle: "Cơ Khí2",
-          folderItems: [
+          name: "Cơ Khí2",
+          link:"",
+          items: [
             {
-              itemTitle: "Bút chì",
-              itemLink: "",
+              name: "Bút chì",
+              link: "",
             },
           ],
         },
         {
-          folderTitle: "Cơ Khí2",
-          folderItems: [
+          name: "Cơ Khí2",
+          link: "",
+          items: [
             {
-              itemTitle: "Bút chì",
-              itemLink: "",
+              name: "Bút chì",
+              link: "",
             },
           ],
         },
       ],
     },
     {
-      id: 3,
       icon: <KeyIcon />,
-      rootName: "LAPTOP3",
-      rootLink: "",
-      childrenDirectory: [
+      name: "LAPTOP3",
+      link: "",
+      items: [
         {
-          folderTitle: "Cơ Khí3",
-          folderItems: [
+          name: "Cơ Khí3",
+          link: "",
+          items: [
             {
-              itemTitle: "Bút chì",
-              itemLink: "",
+              name: "Bút chì",
+              link: "",
             },
           ],
         },
         {
-          folderTitle: "Cơ Khí3",
-          folderItems: [
+          name: "Cơ Khí3",
+          link: "",
+          items: [
             {
-              itemTitle: "Bút chì",
-              itemLink: "",
+              name: "Bút chì",
+              link: "",
             },
           ],
         },
