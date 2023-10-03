@@ -19,7 +19,7 @@ const CategoryButton: React.FC<CategoryMenuButtonProps> = ({
       <button
         className={
           'flex items-center justify-center gap-2.5 bg-secondary text-white lg:w-56 lg:py-2.5 md:w-52 md:py-2.5 ' +
-          'transition ease-in hover:scale-105 hover:-translate-y-1 duration-300 hover:drop-shadow-2xl'
+          'transition ease-in hover:scale-103 hover:-translate-y-1 duration-300 hover:drop-shadow-2xl'
         }
         onClick={handleClick}
         onMouseEnter={handleMouseEnter}
