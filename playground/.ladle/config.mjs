@@ -4,7 +4,7 @@ export default {
   addons: {
     width: {
       options: {
-        xsmall: 375,
+        xsmall: 320,
         small: 480,
         medium: 768,
         large: 1024,
