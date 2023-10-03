@@ -20,15 +20,15 @@ const ContactTable: React.FC<ContactTableProps> = ({ contactTableItem }) => {
   const titleSecondLine = contactTableItem.title.split(' ').slice(3).join(' ');
 
   return (
-    <div className='w-96 font-primary leading-normal font-normal text-base text-white'>
-      <h2 className='text-xl font-bold uppercase'>
+    <div className='md:w-96 font-primary leading-normal font-normal md:text-base text-white sm:text-sm sm:w-full'>
+      <h2 className='md:text-xl font-bold uppercase sm:text-base'>
         {titleFirstLine} <br /> {titleSecondLine}
       </h2>
       <div className='bg-white w-full h-1 my-4'>
         <div className='bg-primary w-1/5 h-1'></div>
       </div>
       <p className='text-justify'>{contactTableItem.description}</p>
-      <h3 className='text-lg my-4'>Liên hệ</h3>
+      <h3 className='md:text-lg my-4 sm:text-base'>Liên hệ</h3>
       <div className='bg-white w-full h-1 my-4'>
         <div className='bg-primary w-1/5 h-1'></div>
       </div>
