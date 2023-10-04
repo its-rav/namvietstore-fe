@@ -15,7 +15,7 @@ const CategoryBoard: React.FC<CategoryMenuItem> = ({ items }) => {
       <div className='grid grid-cols-4 gap-4 p-4' style={boardSize}>
         {items.map((data) => {
           return (
-            <div key={data.link + Math.random()}>
+            <div key={data.link + data.name}>
               <CategoryItem
                 children={data.name}
                 link={data.link}
@@ -24,7 +24,7 @@ const CategoryBoard: React.FC<CategoryMenuItem> = ({ items }) => {
               />
               {data.items?.map((subdata) => {
                 return (
-                  <div key={subdata.link + Math.random()}>
+                  <div key={subdata.link + subdata.name}>
                     <CategoryItem
                       children={subdata.name}
                       link={subdata.link}

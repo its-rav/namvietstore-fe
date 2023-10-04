@@ -115,55 +115,55 @@ Default.defaultProps = {
         },
         {
           name: "Đầu đốt theo lĩnh vực",
-          link: "#Đầu đốt theo lĩnh vực",
+          link: "#Đầu đốt theo lĩnh vực1",
           items: [
             {
               name: "Bê tông nhựa nóng",
-              link: "#Bê tông nhựa nóng",
+              link: "#Bê tông nhựa nóng1",
             },
             {
               name: "Sản xuất",
-              link: "#Sản xuất",
+              link: "#Sản xuất1",
             },
             {
               name: "Trạm trộn",
-              link: "#Trạm trộn",
+              link: "#Trạm trộn1",
             },
           ],
         },
         {
           name: "Đầu đốt theo lĩnh vực",
-          link:"#Đầu đốt theo lĩnh vực",
+          link:"#Đầu đốt theo lĩnh vực2",
           items: [
             {
               name: "Bê tông nhựa nóng",
-              link: "#Bê tông nhựa nóng",
+              link: "#Bê tông nhựa nóng2",
             },
             {
               name: "Sản xuất",
-              link: "#Sản xuất",
+              link: "#Sản xuất2",
             },
             {
               name: "Trạm trộn",
-              link: "#Trạm trộn",
+              link: "#Trạm trộn2",
             },
           ],
         },
         {
           name: "Đầu đốt theo lĩnh vực",
-          link: "#Đầu đốt theo lĩnh vực",
+          link: "#Đầu đốt theo lĩnh vực3",
           items: [
             {
               name: "Bê tông nhựa nóng",
-              link: "",
+              link: "#Bê tông nhựa nóng3",
             },
             {
               name: "Sản xuất",
-              link: "",
+              link: "#Sản xuất3",
             },
             {
               name: "Trạm trộn",
-              link: "",
+              link: "#Trạm trộn3",
             },
           ],
         },
@@ -172,33 +172,33 @@ Default.defaultProps = {
     {
       icon: <KeyIcon />,
       name: "LAPTOP1",
-      link: "",
+      link: "#LAPTOP1",
       items: [
         {
           name: "Cơ Khí1",
-          link: "",
+          link: "#Cơ Khí1",
           items: [
             {
               name: "Bút chì",
-              link: "",
+              link: "#Bút chì1",
             },
             {
               name: "Bút chì",
-              link: "",
+              link: "#Bút chì2",
             },
             {
               name: "Bút chì",
-              link: "",
+              link: "#Bút chì3",
             },
           ],
         },
         {
-          name: "Cơ Khí1",
-          link:"",
+          name: "Cơ Khí2",
+          link:"#Cơ Khí2",
           items: [
             {
-              name: "Bút chì",
-              link: "",
+              name: "Bút chì2",
+              link: "#Bút chì1",
             },
           ],
         },
@@ -207,25 +207,25 @@ Default.defaultProps = {
     {
       icon: <KeyIcon />,
       name: "LAPTOP2",
-      link: "",
+      link: "#link_213",
       items: [
         {
           name: "Cơ Khí2",
-          link:"",
+          link:"#link_asd",
           items: [
             {
               name: "Bút chì",
-              link: "",
+              link: "#link_2134",
             },
           ],
         },
         {
           name: "Cơ Khí2",
-          link: "",
+          link: "#link_jdacj",
           items: [
             {
               name: "Bút chì",
-              link: "",
+              link: "#link_21ndjn",
             },
           ],
         },
@@ -234,25 +234,25 @@ Default.defaultProps = {
     {
       icon: <KeyIcon />,
       name: "LAPTOP3",
-      link: "",
+      link: "#link_nmvjof",
       items: [
         {
           name: "Cơ Khí3",
-          link: "",
+          link: "#link_12324fd",
           items: [
             {
               name: "Bút chì",
-              link: "",
+              link: "#link_kvjuj912",
             },
           ],
         },
         {
           name: "Cơ Khí3",
-          link: "",
+          link: "#link_123hcjjmd",
           items: [
             {
               name: "Bút chì",
-              link: "",
+              link: "#link_bkmkmklamksd",
             },
           ],
         },

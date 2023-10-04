@@ -42,7 +42,7 @@ const CategoryUsage: React.FC<CategoryMenu> = ({
           <div className='absolute left-0 top-0'>
             {items.map((data) => {
               return (
-                <div key={data.link + Math.random()}>
+                <div key={data.link + data.name}>
                   <CategoryItem
                     icon={data.icon}
                     link={data.link}
