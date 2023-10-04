@@ -43,7 +43,7 @@ export const MenuButton: Story<CategoryMenuButtonProps> = () => (
       <CategoryButton icon = {<StripsIcon />} title = {"Danh Mục Sản Phẩm"}/>
     </div>
 );
-export const DefaultItemButton: Story<CItemProps> = () => (
+export const DefaultItemButton: Story<ItemProps> = () => (
     <div
         style={{
           display: "block",
