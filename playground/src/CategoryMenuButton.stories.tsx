@@ -43,7 +43,7 @@ export const MenuButton: Story<CategoryMenuButtonProps> = () => (
       <CategoryButton icon = {<StripsIcon />} title = {"Danh Mục Sản Phẩm"}/>
     </div>
 );
-export const DefaultItemButton: Story<CategoryMenuButtonProps> = () => (
+export const DefaultItemButton: Story<CItemProps> = () => (
     <div
         style={{
           display: "block",
@@ -55,7 +55,7 @@ export const DefaultItemButton: Story<CategoryMenuButtonProps> = () => (
       <CategoryItem icon = {<KeyIcon />} children = {"Đầu đốt"}/>
     </div>
 );
-export const SmallItemButton: Story<CategoryMenuButtonProps> = () => (
+export const SmallItemButton: Story<ItemProps> = () => (
     <div
         style={{
           display: "block",
