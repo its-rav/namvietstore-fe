@@ -9,7 +9,8 @@ export default {
 } satisfies StoryDefault<typeof ContactTable>;
 
 const contactTableItem: ContactTableItemType = {
-  title: "CÔNG TY TNHH THIẾT BỊ NHIỆT NAM VIỆT",
+  title: "THIẾT BỊ NHIỆT NAM VIỆT",
+  subTitle: "CÔNG TY TNHH",
   description:
     "Công ty TNHH Thiết bị nhiệt Nam Việt GCNDKKD: 03456789 do Sở Kế hoạch và Đầu tư Thành phố Hồ Chí Minh cấp ngày 16/10/2018 ( Đăng ký thay đổi lần thứ 1 ngày 17/1/2023)",
   address:
