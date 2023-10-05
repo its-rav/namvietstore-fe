@@ -47,19 +47,9 @@ const ContactTable: React.FC<ContactTableProps> = ({ contactTableItem }) => {
         <p className='col-span-2'>Địa chỉ</p>
         <p className='col-span-4 text-justify'>{contactTableItem.address}</p>
         <p className='col-span-2'>Điện thoại</p>
-        <a
-          className='col-span-4 text-justify'
-          href={`tel: ${contactTableItem.phone}`}
-        >
-          {contactTableItem.phone}
-        </a>
+        <p className='col-span-4 text-justify'>{contactTableItem.phone}</p>
         <p className='col-span-2'>Email</p>
-        <a
-          className='col-span-4 text-justify'
-          href={`mailto: ${contactTableItem.email}`}
-        >
-          {contactTableItem.email}
-        </a>
+        <p className='col-span-4 text-justify'>{contactTableItem.email}</p>
         {contactTableItem.icon && (
           <>
             <div className='col-span-2 mt-7'></div>
