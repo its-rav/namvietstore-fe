@@ -1,12 +1,13 @@
 import React from 'react';
 
 export type ContactTableItemType = {
-  title: string;
-  subTitle: string;
+  title?: string;
+  subTitle?: string;
   description: string;
   address: string;
   phone: string;
   email: string;
+  icon?: React.ReactNode;
 };
 
 type ContactTableProps = {
@@ -14,7 +15,7 @@ type ContactTableProps = {
 };
 
 const ContactTable: React.FC<ContactTableProps> = ({ contactTableItem }) => {
-  const isNull = (text: string) => {
+  const isNull = (text: string | undefined) => {
     if (text != null && text !== undefined) {
       return true;
     } else {
@@ -59,6 +60,14 @@ const ContactTable: React.FC<ContactTableProps> = ({ contactTableItem }) => {
         >
           {contactTableItem.email}
         </a>
+        {contactTableItem.icon && (
+          <>
+            <div className='col-span-2 mt-7'></div>
+            <div className='col-span-4 mt-7 w-52 h-20 object-cover'>
+              {contactTableItem.icon}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
