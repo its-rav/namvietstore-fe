@@ -1,17 +1,8 @@
 'use client';
 import { Button, MarqueeSection, StatisticSection } from '@namviet-fe/core-ui';
-import { Metadata } from 'next';
 import { useRouter } from 'next/navigation';
 
-import '@/styles/global.css';
-import '@namviet-fe/core-ui/dist/style.css';
-
 import SectionWrapper from '@/components/sections/section-wrapper';
-
-export const metadata: Metadata = {
-  title: 'Nam Viet Store',
-  description: 'Nam Viet Store description',
-};
 
 export default function Home() {
   const router = useRouter();
