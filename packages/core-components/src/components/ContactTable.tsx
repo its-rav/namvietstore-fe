@@ -9,14 +9,17 @@ export type ContactTableItemType = {
   address: string;
   phone: string;
   email: string;
-  icon?: React.ReactNode;
 };
 
 type ContactTableProps = {
   contactTableItem: ContactTableItemType;
+  stamp?: React.ReactNode;
 };
 
-const ContactTable: React.FC<ContactTableProps> = ({ contactTableItem }) => {
+const ContactTable: React.FC<ContactTableProps> = ({
+  contactTableItem,
+  stamp,
+}) => {
   return (
     <div className='md:w-96 font-primary leading-normal font-normal md:text-base text-white sm:text-sm sm:w-full'>
       {isNotNull(contactTableItem.subTitle) && (
@@ -45,10 +48,8 @@ const ContactTable: React.FC<ContactTableProps> = ({ contactTableItem }) => {
         <p className='col-span-2'>Email</p>
         <p className='col-span-4 text-justify'>{contactTableItem.email}</p>
         <div className='col-span-2 mt-7'></div>
-        {contactTableItem.icon && (
-          <div className='col-span-4 mt-7 w-52 h-20 object-cover'>
-            {contactTableItem.icon}
-          </div>
+        {stamp && (
+          <div className='col-span-4 mt-7 w-52 h-20 object-cover'>{stamp}</div>
         )}
       </div>
     </div>

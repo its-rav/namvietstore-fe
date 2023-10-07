@@ -2,7 +2,6 @@ import type { Story, StoryDefault } from "@ladle/react";
 import React from "react";
 
 import { ContactTable, type ContactTableItemType } from "@namviet-fe/core-ui";
-import { LabelImage } from "@namviet-fe/core-ui";
 import "@namviet-fe/core-ui/dist/style.css";
 
 export default {
@@ -18,11 +17,20 @@ const contactTableItem: ContactTableItemType = {
     "Phòng 21 Lầu 14, Tháp 1, Toà nhà Saigon Centre, 65 Lê lợi, Phường Bến Nghé, Quận 1, Tp.HCM, Việt Nam",
   phone: "+ 84 7646578696",
   email: "thaiduong.huynh@gmail.com",
-  icon: <LabelImage />,
 };
 
 export const Default: Story = () => (
   <div style={{ padding: "20px", backgroundColor: "#002651" }}>
-    <ContactTable contactTableItem={contactTableItem} />
+    <ContactTable
+      contactTableItem={contactTableItem}
+      stamp={
+        <img
+          src={
+            "http://online.gov.vn/PublicImages/2015/08/27/11/20150827110756-dathongbao.png"
+          }
+          alt="Bo Cong Thuong Stamp"
+        />
+      }
+    />
   </div>
 );
