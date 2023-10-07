@@ -76,6 +76,12 @@ Start ladle playground server
   yarn pg:watch
 ```
 
+Start NextJS local server
+
+```bash
+  yarn next:dev
+```
+
 ## Color Reference
 
 | Color           | Hex                                                              |
