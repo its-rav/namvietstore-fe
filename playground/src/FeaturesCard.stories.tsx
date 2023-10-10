@@ -31,20 +31,6 @@ export const Default: Story = () => (
       justifyContent: "center",
     }}
   >
-    <FeaturesCard featuresCardItem={featuresCardItem} />{" "}
-  </div>
-);
-
-export const NoContent: Story = () => (
-  <div
-    style={{
-      width: "100%",
-      padding: "20px",
-      backgroundColor: "black",
-      justifyContent: "center",
-      display: "flex",
-    }}
-  >
-    <FeaturesCard />
+    <FeaturesCard featuresCardItem={featuresCardItem} />
   </div>
 );
