@@ -5,11 +5,11 @@ import {
   Option,
 } from '@/components/buttons/DropdownButton';
 
-type DropdownButtonMobileProps = DropdownButtonProps & {
+type LanguageSelectButtonMobileProps = DropdownButtonProps & {
   buttonIcon: React.ReactNode;
 };
 
-const DropdownButtonMobile: React.FC<DropdownButtonMobileProps> = ({
+const LanguageSelectButtonMobile: React.FC<LanguageSelectButtonMobileProps> = ({
   selected,
   options,
   buttonIcon,
@@ -42,4 +42,4 @@ const DropdownButtonMobile: React.FC<DropdownButtonMobileProps> = ({
   );
 };
 
-export default DropdownButtonMobile;
+export default LanguageSelectButtonMobile;
