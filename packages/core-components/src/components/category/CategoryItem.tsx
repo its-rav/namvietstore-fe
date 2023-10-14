@@ -1,22 +1,22 @@
 import React from 'react';
 
-export type ItemProps = {
+export type CategoryItemProps = {
   icon?: React.ReactNode;
   link?: string;
   children: string;
-  boldTitle?: boolean;
-  small?: boolean;
+  isBold?: boolean;
+  isSmall?: boolean;
   handleClick?: () => void;
   handleMouseEnter?: () => void;
   handleMouseLeave?: () => void;
 };
 
-const CategoryItem: React.FC<ItemProps> = ({
+const CategoryItem: React.FC<CategoryItemProps> = ({
   icon,
   link,
   children,
-  boldTitle,
-  small,
+  isBold,
+  isSmall,
   handleClick,
   handleMouseEnter,
   handleMouseLeave,
@@ -28,7 +28,7 @@ const CategoryItem: React.FC<ItemProps> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {!small && (
+      {!isSmall && (
         <div
           className={
             'flex items-center justify-left gap-2.5 bg-white text-white lg:w-56 lg:py-2.5 md:ps-5 md:w-52 md:py-2.5 ' +
@@ -38,13 +38,13 @@ const CategoryItem: React.FC<ItemProps> = ({
           <div className={'lg:w-5 md:w-4'}>{icon}</div>
           <a
             href={link}
-            className={`text-black md:text-sm ${boldTitle ? 'font-bold' : ''}`}
+            className={`text-black md:text-sm ${isBold ? 'font-bold' : ''}`}
           >
             {children}
           </a>
         </div>
       )}
-      {small && (
+      {isSmall && (
         <div
           className={
             'flex items-center justify-left gap-2.5 text-left bg-white text-white max-w-9 px-4 '
@@ -54,7 +54,7 @@ const CategoryItem: React.FC<ItemProps> = ({
           <a
             href={link}
             className={`text-black ${
-              boldTitle ? 'font-bold md:text-sm' : 'md:text-xs'
+              isBold ? 'font-bold md:text-sm' : 'md:text-xs'
             } hover:font-bold`}
           >
             {children}

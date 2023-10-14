@@ -47,7 +47,7 @@ const CategoryUsage: React.FC<CategoryMenu> = ({
                     icon={data.icon}
                     link={data.link}
                     children={data.name}
-                    small={false}
+                    isSmall={false}
                     handleMouseEnter={() => {
                       setSubItems(data.items);
                     }}
@@ -58,7 +58,7 @@ const CategoryUsage: React.FC<CategoryMenu> = ({
           </div>
           {subItems.length > 0 && (
             <div className='absolute md:left-52 lg:left-56 top-0 w-4/6'>
-              <CategoryBoard icon={''} name={''} link={''} items={subItems} />
+              <CategoryBoard items={subItems} />
             </div>
           )}
         </div>

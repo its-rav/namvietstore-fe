@@ -1,9 +1,12 @@
 import React from 'react';
 
 import CategoryItem from '@/components/category/CategoryItem';
-import { CategoryMenuItem } from '@/components/category/CategoryProps';
+import { CategorySubMenu } from '@/components/category/CategoryProps';
 
-const CategoryBoard: React.FC<CategoryMenuItem> = ({ items }) => {
+export type CategoryBoardProps = {
+  items: CategorySubMenu[];
+};
+const CategoryBoard: React.FC<CategoryBoardProps> = ({ items }) => {
   const boardSize = {
     minHeight: '15rem',
     maxHeight: ' max-content',
@@ -19,8 +22,8 @@ const CategoryBoard: React.FC<CategoryMenuItem> = ({ items }) => {
               <CategoryItem
                 children={data.name}
                 link={data.link}
-                small={true}
-                boldTitle={true}
+                isSmall={true}
+                isBold={true}
               />
               {data.items?.map((subdata) => {
                 return (
@@ -28,7 +31,7 @@ const CategoryBoard: React.FC<CategoryMenuItem> = ({ items }) => {
                     <CategoryItem
                       children={subdata.name}
                       link={subdata.link}
-                      small={true}
+                      isSmall={true}
                     />
                   </div>
                 );

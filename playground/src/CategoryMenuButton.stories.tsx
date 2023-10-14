@@ -7,7 +7,7 @@ import {type CategoryMenu, CategoryUsage } from "@namviet-fe/core-ui";
 import { StripsIcon } from "@namviet-fe/core-ui";
 import { KeyIcon } from "@namviet-fe/core-ui";
 import { CategoryButton, type CategoryMenuButtonProps} from "@namviet-fe/core-ui";
-import {type ItemProps, CategoryItem} from "@namviet-fe/core-ui"
+import {type CategoryItemProps, CategoryItem} from "@namviet-fe/core-ui"
 export default {
   title: "@nv-fe/core-ui/CategoryMenuButton",
 } satisfies StoryDefault<typeof CategoryUsage>;
@@ -43,7 +43,7 @@ export const MenuButton: Story<CategoryMenuButtonProps> = () => (
       <CategoryButton icon = {<StripsIcon />} title = {"Danh Mục Sản Phẩm"}/>
     </div>
 );
-export const DefaultItemButton: Story<ItemProps> = () => (
+export const DefaultItemButton: Story<CategoryItemProps> = () => (
     <div
         style={{
           display: "block",
@@ -55,7 +55,7 @@ export const DefaultItemButton: Story<ItemProps> = () => (
       <CategoryItem icon = {<KeyIcon />} children = {"Đầu đốt"}/>
     </div>
 );
-export const SmallItemButton: Story<ItemProps> = () => (
+export const SmallItemButton: Story<CategoryItemProps> = () => (
     <div
         style={{
           display: "block",
@@ -64,7 +64,7 @@ export const SmallItemButton: Story<ItemProps> = () => (
           marginTop: "40px",
         }}
     >
-      <CategoryItem icon = {<KeyIcon />} children = {"Đầu đốt FO"} small={true}/>
+      <CategoryItem icon = {<KeyIcon />} children = {"Đầu đốt FO"} isSmall={true}/>
     </div>
 );
 
