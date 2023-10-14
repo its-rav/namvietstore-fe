@@ -4,9 +4,9 @@ import React from "react";
 import "regenerator-runtime/runtime";
 import "@namviet-fe/core-ui/dist/style.css";
 
-import { type StatisticItemsType, StatisticSection } from "@namviet-fe/core-ui";
+import { type StatisticItemType, StatisticSection } from "@namviet-fe/core-ui";
 
-const statisticItems: StatisticItemsType[] = [
+const statisticItems: StatisticItemType[] = [
   {
     title: "mặt hàng",
     statistic: 500,
