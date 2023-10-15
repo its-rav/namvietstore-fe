@@ -11,4 +11,5 @@ import FeaturesCard, {
 export { type FeaturesCardItemType, FeaturesCard };
 export { type ContactTableItemType, ContactTable };
 export * from './buttons';
+export * from './category';
 export * from './sections';

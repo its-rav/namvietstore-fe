@@ -52,6 +52,8 @@ module.exports = {
         'primary-800': '#be0000',
         'primary-900': '#850000',
         'primary-950': '#560000',
+        secondary: '#002651',
+        'secondary-50': '#eff6ff',
       },
       spacing: {
         sm: '4px',
