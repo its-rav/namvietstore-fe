@@ -1,7 +1,6 @@
 import type { Story, StoryDefault } from "@ladle/react";
 import React from "react";
 
-import "regenerator-runtime/runtime";
 import "@namviet-fe/core-ui/dist/style.css";
 
 import { type introPanelItemType, IntroPanel } from "@namviet-fe/core-ui";

@@ -1,3 +1,6 @@
+import ContactTable, {
+  type ContactTableItemType,
+} from '@/components/ContactTable';
 import FeaturesCard, {
   type FeaturesCardItemType,
 } from '@/components/FeaturesCard';
@@ -8,5 +11,6 @@ export { PostCard };
 export { type FeaturesCardItemType, FeaturesCard };
 export { SearchBar };
 
+export { type ContactTableItemType, ContactTable };
 export * from './buttons';
 export * from './sections';
