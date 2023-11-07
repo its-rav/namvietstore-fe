@@ -5,6 +5,11 @@ import clsxm from '@/lib/clsxm';
 
 export type ButtonProps = {
   isLoading?: boolean;
+  backgroundColor?: string;
+  buttonType?: string;
+  isUpperCase?: boolean;
+  isBold?: boolean;
+  disabled?: boolean;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   onClick?: () => void;
@@ -14,11 +19,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       children,
-      className,
       disabled: buttonDisabled,
       isLoading,
       leftIcon,
       rightIcon,
+      backgroundColor,
+      isUpperCase,
+      isBold,
+      buttonType,
       onClick,
       ...rest
     },
@@ -32,10 +40,19 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         type='button'
         disabled={disabled}
         className={clsxm(
-          'flex items-center justify-evenly rounded-xs font-primary bg-primary hover:bg-primary-700 active:bg-primary-800 sm:font-light text-white sm:text-xs md:text-md md:h-10 md:w-28 sm:h-8 sm:w-20 text-justify md:font-normal disabled:cursor-not-allowed',
+          'flex items-center justify-evenly rounded-xs font-primary text-white sm:text-xs md:text-md text-justify disabled:cursor-not-allowed',
           isLoading &&
             'relative text-transparent transition-none hover:text-transparent disabled:cursor-wait',
-          className
+          buttonType === 'category'
+            ? 'md:h-14 md:w-64'
+            : 'md:h-10 md:w-28 sm:h-8 sm:w-20',
+          backgroundColor === 'secondary'
+            ? 'bg-secondary hover:bg-secondary-800 active:bg-secondary-700'
+            : 'bg-primary hover:bg-primary-800 active:bg-primary-700',
+          isUpperCase && 'uppercase',
+          isBold
+            ? 'md:font-medium sm:font-normal'
+            : 'md:font-normal sm:font-light'
         )}
         onClick={onClick}
         {...rest}
