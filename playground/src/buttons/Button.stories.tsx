@@ -1,7 +1,7 @@
 import React from "react";
 
 import type { Story, StoryDefault } from "@ladle/react";
-import { WhitePlusIcon } from "@namviet-fe/core-ui";
+import { WhitePlusIcon, HamburgerIcon } from "@namviet-fe/core-ui";
 
 import { Button, type ButtonProps } from "@namviet-fe/core-ui";
 import "regenerator-runtime/runtime";
@@ -26,4 +26,15 @@ export const Loading: Story<ButtonProps> = () => (
 
 export const Disabled: Story<ButtonProps> = () => (
   <Button rightIcon={<WhitePlusIcon />} children="Đọc thêm" disabled={true} />
+);
+
+export const CategoryButton: Story<ButtonProps> = () => (
+  <Button
+    leftIcon={<HamburgerIcon />}
+    children="danh mục sản phẩm"
+    backgroundColor="secondary"
+    buttonType="category"
+    isUpperCase={true}
+    isBold={true}
+  />
 );
