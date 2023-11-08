@@ -1,13 +1,13 @@
 import React from 'react';
 
 type SearchBarMobileProps = {
-  placeholders: string;
+  placeholder: string;
   handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
   searchIcon?: React.ReactNode;
 };
 
 const SearchBarMobile: React.FC<SearchBarMobileProps> = ({
-  placeholders,
+  placeholder,
   handleSubmit,
   searchIcon,
 }) => {
@@ -19,7 +19,7 @@ const SearchBarMobile: React.FC<SearchBarMobileProps> = ({
       <input
         type='text'
         className='appearance-none pl-6'
-        placeholder={placeholders}
+        placeholder={placeholder}
       />
       <button type='submit' className='h-full w-12 bg-primary'>
         <i>{searchIcon}</i>
