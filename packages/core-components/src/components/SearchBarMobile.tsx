@@ -2,29 +2,38 @@ import React from 'react';
 
 type SearchBarMobileProps = {
   placeholder: string;
-  handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  handleSubmit: () => void;
+  toggleSideBar: () => void;
   searchIcon?: React.ReactNode;
+  sideBarIcon?: React.ReactNode;
 };
 
 const SearchBarMobile: React.FC<SearchBarMobileProps> = ({
   placeholder,
   handleSubmit,
+  toggleSideBar,
   searchIcon,
+  sideBarIcon,
 }) => {
   return (
-    <form
-      onSubmit={handleSubmit}
-      className='flex border-solid h-12 w-96 border-2 font-primary text-sm leading-6 font-medium border-gray-200'
-    >
-      <input
-        type='text'
-        className='appearance-none pl-6'
-        placeholder={placeholder}
-      />
-      <button type='submit' className='h-full w-12 bg-primary'>
-        <i>{searchIcon}</i>
+    <div className='flex border-solid border-2 h-16 shadow-md items-center border-gray-200 px-4 py-4 w-full'>
+      <button className='w-11' onClick={toggleSideBar}>
+        <i>{sideBarIcon}</i>
       </button>
-    </form>
+      <form
+        onSubmit={handleSubmit}
+        className='h-full w-full flex font-primary text-sm leading-6 font-medium'
+      >
+        <input
+          type='text'
+          className='appearance-none w-full pl-6'
+          placeholder={placeholder}
+        />
+        <button type='submit' className='w-11'>
+          <i>{searchIcon}</i>
+        </button>
+      </form>
+    </div>
   );
 };
 
