@@ -17,19 +17,9 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 };
 
 export const Default: Story = () => (
-  <div
-    style={{
-      width: "100%",
-      padding: "20px",
-      backgroundColor: "white",
-      display: "flex",
-      justifyContent: "center",
-    }}
-  >
-    <SearchBar
-      searchIcon={<SearchIcon />}
-      handleSubmit={handleSubmit}
-      placeholders="Search all products..."
-    />
-  </div>
+  <SearchBar
+    searchIcon={<SearchIcon />}
+    handleSubmit={handleSubmit}
+    placeholders="Search all products..."
+  />
 );
