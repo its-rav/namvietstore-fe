@@ -1,0 +1,31 @@
+import React from "react";
+
+import type { Story, StoryDefault } from "@ladle/react";
+import { WhitePlusIcon } from "@namviet-fe/core-ui";
+
+import { Button, type ButtonProps } from "@namviet-fe/core-ui";
+import "regenerator-runtime/runtime";
+import "@namviet-fe/core-ui/dist/style.css";
+import { TranslationDecorators } from "../decorators/TranslationDecorators";
+export default {
+  title: "@nv-fe/core-ui/buttons/Button",
+  decorators: [...TranslationDecorators],
+} satisfies StoryDefault<typeof Button>;
+
+export const Default: Story<ButtonProps> = () => (
+  <Button rightIcon={<WhitePlusIcon />} children="Đọc thêm" />
+);
+
+export const NoIcon: Story<ButtonProps> = () => <Button children="Submit" />;
+
+export const LeftIcon: Story<ButtonProps> = () => (
+  <Button leftIcon={<WhitePlusIcon />} children="Đọc thêm" />
+);
+
+export const Loading: Story<ButtonProps> = () => (
+  <Button children="Đọc thêm" isLoading={true} />
+);
+
+export const Disabled: Story<ButtonProps> = () => (
+  <Button rightIcon={<WhitePlusIcon />} children="Đọc thêm" disabled={true} />
+);
