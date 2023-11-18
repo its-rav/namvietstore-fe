@@ -2,6 +2,7 @@ import React from 'react';
 
 import Button from '@/components/buttons/Button';
 
+import { useI18nContext } from '@/i18n/i18n-react';
 import { WhitePlusIcon } from '@/icons';
 
 type PostCardProps = {
@@ -19,6 +20,7 @@ const PostCard: React.FC<PostCardProps> = ({
   description,
   onClick,
 }) => {
+  const { LL: t } = useI18nContext();
   return (
     <div
       className={`flex flex-col md:w-80 sm:w-60 font-primary gap-3 ${className}`}
@@ -35,7 +37,7 @@ const PostCard: React.FC<PostCardProps> = ({
         </p>
       </div>
       <Button
-        children='Đọc thêm'
+        children={`${t.postCard.readMore()}`}
         rightIcon={<WhitePlusIcon />}
         onClick={onClick}
       />
