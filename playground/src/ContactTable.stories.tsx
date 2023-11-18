@@ -3,9 +3,11 @@ import React from "react";
 
 import { ContactTable, type ContactTableItemType } from "@namviet-fe/core-ui";
 import "@namviet-fe/core-ui/dist/style.css";
+import { TranslationDecorators } from "./decorators/TranslationDecorators";
 
 export default {
   title: "@nv-fe/core-ui/ContactTable",
+  decorators: [...TranslationDecorators],
 } satisfies StoryDefault<typeof ContactTable>;
 
 const contactTableItem: ContactTableItemType = {

@@ -8,9 +8,11 @@ import { GiUsaFlag } from "react-icons/gi";
 import "regenerator-runtime/runtime";
 import "@namviet-fe/core-ui/dist/style.css";
 import { EnIcon, ViIcon } from "@namviet-fe/core-ui";
+import { TranslationDecorators } from "../decorators/TranslationDecorators";
 
 export default {
   title: "@nv-fe/core-ui/buttons/Select",
+  decorators: [...TranslationDecorators],
 } satisfies StoryDefault<DropdownButtonProps>;
 
 export const Default: Story<DropdownButtonProps> = ({ selected, options }) => (
