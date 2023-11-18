@@ -40,6 +40,12 @@ Clone the project
   git clone https://github.com/its-rav/namvietstore-fe
 ```
 
+Build api package **yarn**
+
+```bash
+  yarn api:build
+```
+
 Install core-ui package with **yarn**
 
 ```bash
