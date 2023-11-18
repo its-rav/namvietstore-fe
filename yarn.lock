@@ -1736,6 +1736,10 @@
   resolved "https://registry.yarnpkg.com/@microsoft/tsdoc/-/tsdoc-0.14.2.tgz#c3ec604a0b54b9a9b87e9735dfc59e1a5da6a5fb"
   integrity sha512-9b8mPpKrfeGRuhFH5iO1iwCLeIIsV6+H1sRfxbkoGXIyQE2BTsPd9zqSqQJ+pv5sJ/hT5M1zvOFL02MnEezFug==
 
+"@namviet-fe/api@link:./playground/packages/nv-cms-api":
+  version "0.0.0"
+  uid ""
+
 "@namviet-fe/core-ui@link:./apps/next-app/packages/core-components":
   version "0.0.0"
 
