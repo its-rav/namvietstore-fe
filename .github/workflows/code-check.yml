@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   lint:
-    name: ⬣ ESLint
+    name: Core-UI ⬣ ESLint
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
@@ -27,10 +27,10 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: 🔬 Lint
-        run: yarn lint:strict
+        run: yarn core:lint:strict
 
   typecheck:
-    name: ʦ TypeScript
+    name: Core-UI ʦ TypeScript
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
@@ -45,10 +45,10 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: 🔎 Type check
-        run: yarn typecheck
+        run: yarn core:typecheck
 
   prettier:
-    name: 💅 Prettier
+    name: Core-UI 💅 Prettier
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
@@ -63,22 +63,4 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: 💅 Prettier check
-        run: yarn format:check
-
-  # test:
-  #   name: 🃏 Test
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: ⬇️ Checkout repo
-  #       uses: actions/checkout@v2
-
-  #     - name: ⎔ Setup node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 16
-
-  #     - name: 📥 Download deps
-  #       uses: bahmutov/npm-install@v1
-
-  #     - name: 🃏 Run jest
-  #       run: yarn test
+        run: yarn core:format:check

@@ -5,9 +5,11 @@ import "regenerator-runtime/runtime";
 import "@namviet-fe/core-ui/dist/style.css";
 
 import { PostCard } from "@namviet-fe/core-ui";
+import { TranslationDecorators } from "./decorators/TranslationDecorators";
 
 export default {
   title: "@nv-fe/core-ui/PostCard",
+  decorators: [...TranslationDecorators],
 } satisfies StoryDefault<typeof PostCard>;
 
 export const Default: Story = () => (
