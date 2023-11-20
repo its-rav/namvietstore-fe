@@ -12,6 +12,7 @@ import {
   UserIcon,
   FeaturesList,
 } from "@namviet-fe/core-ui";
+import { TranslationDecorators } from "../decorators/TranslationDecorators";
 
 const items: FeaturesListItemType[] = [
   {
@@ -42,6 +43,7 @@ const items: FeaturesListItemType[] = [
 
 export default {
   title: "@nv-fe/core-ui/layout/FeaturesList",
+  decorators: [...TranslationDecorators],
 } satisfies StoryDefault<typeof FeaturesList>;
 
 export const Default: Story = () => (

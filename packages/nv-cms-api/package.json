@@ -1,0 +1,19 @@
+{
+  "name": "@namviet-fe/api",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "generate": "swagger-typescript-api -p ./full_documentation.json --sort-routes --single-http-client --type-suffix DataContract  --responses --route-types --module-name-first-tag --api-class-name NvCmsApi -o ./src/__auto_generated__ -n NvCmsApi.ts",
+    "generate:modular": "yarn generate --modular",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "swagger-typescript-api": "^13.0.3"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ]
+}

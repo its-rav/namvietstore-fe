@@ -1,6 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn format:check
-yarn lint:strict
-yarn typecheck
+yarn core:format:check
+yarn core:lint:strict
+yarn core:typecheck

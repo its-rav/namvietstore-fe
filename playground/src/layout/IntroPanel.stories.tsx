@@ -3,9 +3,10 @@ import React from "react";
 
 import "@namviet-fe/core-ui/dist/style.css";
 
-import { type introPanelItemType, IntroPanel } from "@namviet-fe/core-ui";
+import { type IntroPanelItemType, IntroPanel } from "@namviet-fe/core-ui";
+import { TranslationDecorators } from "../decorators/TranslationDecorators";
 
-const introPanelItem: introPanelItemType = {
+const introPanelItem: IntroPanelItemType = {
   title: "Công ty TNHH Thiết bị nhiệt Nam Việt",
   establisedTime: "Thành lập vào tháng 06 năm 2010",
   description:
@@ -14,6 +15,7 @@ const introPanelItem: introPanelItemType = {
 
 export default {
   title: "@nv-fe/core-ui/layout/IntroPanel",
+  decorators: [...TranslationDecorators],
 } satisfies StoryDefault<typeof IntroPanel>;
 
 export const Default: Story = () => (
