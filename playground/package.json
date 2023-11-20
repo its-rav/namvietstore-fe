@@ -9,6 +9,7 @@
   "license": "ISC",
   "dependencies": {
     "@ladle/react": "^2.15.0",
-    "@namviet-fe/core-ui": "link:./packages/core-components"
+    "@namviet-fe/core-ui": "link:./packages/core-components",
+    "@namviet-fe/api": "link:./packages/nv-cms-api"
   }
 }

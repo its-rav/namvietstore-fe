@@ -5,6 +5,7 @@ import "regenerator-runtime/runtime";
 import "@namviet-fe/core-ui/dist/style.css";
 
 import { type StatisticItemType, StatisticSection } from "@namviet-fe/core-ui";
+import { TranslationDecorators } from "../decorators/TranslationDecorators";
 
 const statisticItems: StatisticItemType[] = [
   {
@@ -27,6 +28,7 @@ const statisticItems: StatisticItemType[] = [
 
 export default {
   title: "@nv-fe/core-ui/layout/StatisticSection",
+  decorators: [...TranslationDecorators],
 } satisfies StoryDefault<typeof StatisticSection>;
 
 export const Default: Story = () => (
