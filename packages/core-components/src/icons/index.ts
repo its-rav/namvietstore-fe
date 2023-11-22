@@ -1,3 +1,5 @@
+export { ReactComponent as CloseIcon } from './close.svg';
+export { ReactComponent as DropDownIcon } from './dropdown.svg';
 export { ReactComponent as EarthIcon } from './earth.svg';
 export { ReactComponent as EnIcon } from './enflag.svg';
 export { ReactComponent as HeadphonesIcon } from './headphones.svg';
