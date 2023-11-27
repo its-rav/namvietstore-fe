@@ -5,11 +5,7 @@ import React from "react";
 import "regenerator-runtime/runtime";
 import "@namviet-fe/core-ui/dist/style.css";
 
-import {
-  SearchBarMobile,
-  BlackSearchIcon,
-  BlackHamburgerIcon,
-} from "@namviet-fe/core-ui";
+import { SearchBarMobile } from "@namviet-fe/core-ui";
 
 export default {
   title: "@nv-fe/core-ui/SearchBarMobile",
@@ -26,8 +22,6 @@ const toggleSideBar = () => {
 
 export const Default: Story = () => (
   <SearchBarMobile
-    searchIcon={<BlackSearchIcon />}
-    sideBarIcon={<BlackHamburgerIcon />}
     placeholder="Tìm kiếm sản phẩm"
     handleSubmit={handleSubmit}
     toggleSideBar={toggleSideBar}
