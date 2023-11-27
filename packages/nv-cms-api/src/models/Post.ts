@@ -85,7 +85,7 @@ export class Post<SecurityDataType = unknown> {
       /** Locale to apply */
       locale?: string;
     },
-    params: RequestParams = {},
+    params: RequestParams = {}
   ) =>
     this.http.request<PostListResponseDataContract, ErrorDataContract>({
       path: `/posts`,
@@ -155,7 +155,11 @@ export class Post<SecurityDataType = unknown> {
    * @response `404` `ErrorDataContract` Not Found
    * @response `500` `ErrorDataContract` Internal Server Error
    */
-  postPostsIdLocalizations = (id: number, data: PostLocalizationRequestDataContract, params: RequestParams = {}) =>
+  postPostsIdLocalizations = (
+    id: number,
+    data: PostLocalizationRequestDataContract,
+    params: RequestParams = {}
+  ) =>
     this.http.request<PostLocalizationResponseDataContract, ErrorDataContract>({
       path: `/posts/${id}/localizations`,
       method: "POST",
@@ -179,7 +183,11 @@ export class Post<SecurityDataType = unknown> {
    * @response `404` `ErrorDataContract` Not Found
    * @response `500` `ErrorDataContract` Internal Server Error
    */
-  putPostsId = (id: number, data: PostRequestDataContract, params: RequestParams = {}) =>
+  putPostsId = (
+    id: number,
+    data: PostRequestDataContract,
+    params: RequestParams = {}
+  ) =>
     this.http.request<PostResponseDataContract, ErrorDataContract>({
       path: `/posts/${id}`,
       method: "PUT",
