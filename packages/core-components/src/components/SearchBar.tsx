@@ -1,14 +1,14 @@
 import React from 'react';
 
+import { SearchIcon } from '../icons';
+
 type SearchBarProps = {
   handleSubmit: () => void;
-  searchIcon: React.ReactNode;
   placeholders: string;
 };
 
 const SearchBar: React.FC<SearchBarProps> = ({
   handleSubmit,
-  searchIcon,
   placeholders,
 }) => {
   return (
@@ -22,7 +22,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         placeholder={placeholders}
       />
       <button type='submit' className='h-full w-12 bg-primary'>
-        <i>{searchIcon}</i>
+        <SearchIcon />
       </button>
     </form>
   );
