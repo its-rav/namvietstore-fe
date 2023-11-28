@@ -40,12 +40,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         type='button'
         disabled={disabled}
         className={clsxm(
-          'flex items-center justify-evenly rounded-xs font-primary text-white sm:text-xs md:text-md text-justify disabled:cursor-not-allowed',
+          'flex items-center rounded-xs font-primary text-white sm:text-xs md:text-md text-justify disabled:cursor-not-allowed',
           isLoading &&
             'relative text-transparent transition-none hover:text-transparent disabled:cursor-wait',
-          buttonType === 'category'
-            ? 'md:h-14 md:w-64'
-            : 'md:h-10 md:w-28 sm:h-8 sm:w-20',
+          buttonType === 'category' ? 'md:px-8 md:py-4' : 'md:px-3 md:py-3',
           backgroundColor === 'secondary'
             ? 'bg-secondary hover:bg-secondary-800 active:bg-secondary-700'
             : 'bg-primary hover:bg-primary-800 active:bg-primary-700',
@@ -64,10 +62,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             <ImSpinner2 className='animate-spin' />
           </div>
         )}
-        {leftIcon && <div className='md:w-5 md:5 sm:w-4 sm:4'>{leftIcon}</div>}
+        {leftIcon && (
+          <div className='md:w-5 md:5 sm:w-4 sm:h-4 md:mr-4'>{leftIcon}</div>
+        )}
         <div>{children}</div>
         {rightIcon && (
-          <div className='md:w-5 md:h-5 sm:w-4 sm:h-4'>{rightIcon}</div>
+          <div className='md:w-5 md:h-5 sm:w-4 sm:h-4 md:ml-4'>{rightIcon}</div>
         )}
       </button>
     );
