@@ -9,7 +9,10 @@
  * ---------------------------------------------------------------
  */
 
-import { ErrorDataContract, UsersPermissionsUserRegistrationDataContract } from "./data-contracts";
+import {
+  ErrorDataContract,
+  UsersPermissionsUserRegistrationDataContract,
+} from "./data-contracts";
 import { ContentType, HttpClient, RequestParams } from "./http-client";
 
 export class UsersPermissionsAuth<SecurityDataType = unknown> {
@@ -31,7 +34,10 @@ export class UsersPermissionsAuth<SecurityDataType = unknown> {
    * @response `default` `ErrorDataContract` Error
    */
   callbackDetail = (provider: string, params: RequestParams = {}) =>
-    this.http.request<UsersPermissionsUserRegistrationDataContract, ErrorDataContract>({
+    this.http.request<
+      UsersPermissionsUserRegistrationDataContract,
+      ErrorDataContract
+    >({
       path: `/auth/${provider}/callback`,
       method: "GET",
       secure: true,
@@ -55,9 +61,12 @@ export class UsersPermissionsAuth<SecurityDataType = unknown> {
       currentPassword: string;
       passwordConfirmation: string;
     },
-    params: RequestParams = {},
+    params: RequestParams = {}
   ) =>
-    this.http.request<UsersPermissionsUserRegistrationDataContract, ErrorDataContract>({
+    this.http.request<
+      UsersPermissionsUserRegistrationDataContract,
+      ErrorDataContract
+    >({
       path: `/auth/change-password`,
       method: "POST",
       body: data,
@@ -100,7 +109,7 @@ export class UsersPermissionsAuth<SecurityDataType = unknown> {
       /** confirmation token received by email */
       confirmation?: string;
     },
-    params: RequestParams = {},
+    params: RequestParams = {}
   ) =>
     this.http.request<any, void | ErrorDataContract>({
       path: `/auth/email-confirmation`,
@@ -127,7 +136,7 @@ export class UsersPermissionsAuth<SecurityDataType = unknown> {
     data: {
       email?: string;
     },
-    params: RequestParams = {},
+    params: RequestParams = {}
   ) =>
     this.http.request<
       {
@@ -159,9 +168,12 @@ export class UsersPermissionsAuth<SecurityDataType = unknown> {
       identifier?: string;
       password?: string;
     },
-    params: RequestParams = {},
+    params: RequestParams = {}
   ) =>
-    this.http.request<UsersPermissionsUserRegistrationDataContract, ErrorDataContract>({
+    this.http.request<
+      UsersPermissionsUserRegistrationDataContract,
+      ErrorDataContract
+    >({
       path: `/auth/local`,
       method: "POST",
       body: data,
@@ -187,9 +199,12 @@ export class UsersPermissionsAuth<SecurityDataType = unknown> {
       email?: string;
       password?: string;
     },
-    params: RequestParams = {},
+    params: RequestParams = {}
   ) =>
-    this.http.request<UsersPermissionsUserRegistrationDataContract, ErrorDataContract>({
+    this.http.request<
+      UsersPermissionsUserRegistrationDataContract,
+      ErrorDataContract
+    >({
       path: `/auth/local/register`,
       method: "POST",
       body: data,
@@ -215,9 +230,12 @@ export class UsersPermissionsAuth<SecurityDataType = unknown> {
       passwordConfirmation?: string;
       code?: string;
     },
-    params: RequestParams = {},
+    params: RequestParams = {}
   ) =>
-    this.http.request<UsersPermissionsUserRegistrationDataContract, ErrorDataContract>({
+    this.http.request<
+      UsersPermissionsUserRegistrationDataContract,
+      ErrorDataContract
+    >({
       path: `/auth/reset-password`,
       method: "POST",
       body: data,
@@ -245,7 +263,7 @@ export class UsersPermissionsAuth<SecurityDataType = unknown> {
     data: {
       email?: string;
     },
-    params: RequestParams = {},
+    params: RequestParams = {}
   ) =>
     this.http.request<
       {

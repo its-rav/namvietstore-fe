@@ -84,7 +84,7 @@ export class GeneralSetting<SecurityDataType = unknown> {
       /** Locale to apply */
       locale?: string;
     },
-    params: RequestParams = {},
+    params: RequestParams = {}
   ) =>
     this.http.request<GeneralSettingResponseDataContract, ErrorDataContract>({
       path: `/general-setting`,
@@ -108,8 +108,14 @@ export class GeneralSetting<SecurityDataType = unknown> {
    * @response `404` `ErrorDataContract` Not Found
    * @response `500` `ErrorDataContract` Internal Server Error
    */
-  postGeneralSettingLocalizations = (data: GeneralSettingLocalizationRequestDataContract, params: RequestParams = {}) =>
-    this.http.request<GeneralSettingLocalizationResponseDataContract, ErrorDataContract>({
+  postGeneralSettingLocalizations = (
+    data: GeneralSettingLocalizationRequestDataContract,
+    params: RequestParams = {}
+  ) =>
+    this.http.request<
+      GeneralSettingLocalizationResponseDataContract,
+      ErrorDataContract
+    >({
       path: `/general-setting/localizations`,
       method: "POST",
       body: data,
@@ -132,7 +138,10 @@ export class GeneralSetting<SecurityDataType = unknown> {
    * @response `404` `ErrorDataContract` Not Found
    * @response `500` `ErrorDataContract` Internal Server Error
    */
-  putGeneralSetting = (data: GeneralSettingRequestDataContract, params: RequestParams = {}) =>
+  putGeneralSetting = (
+    data: GeneralSettingRequestDataContract,
+    params: RequestParams = {}
+  ) =>
     this.http.request<GeneralSettingResponseDataContract, ErrorDataContract>({
       path: `/general-setting`,
       method: "PUT",
