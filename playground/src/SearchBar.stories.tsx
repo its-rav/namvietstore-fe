@@ -20,6 +20,6 @@ export const Default: Story = () => (
   <SearchBar
     searchIcon={<SearchIcon />}
     handleSubmit={handleSubmit}
-    placeholders="Search all products..."
+    placeholder="Search all products..."
   />
 );
