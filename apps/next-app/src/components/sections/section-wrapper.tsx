@@ -6,11 +6,11 @@ export type SectionWrapperProps = PropsWithChildren<{
   isFullWidth?: boolean;
 }>;
 
-const SectionWrapper = ({
+export default function SectionWrapper({
   isFullWidth = false,
   background,
   children,
-}: SectionWrapperProps) => {
+}: SectionWrapperProps){
   return (
     <div
       className={`section-wrapper ${isFullWidth && 'full-width'}`}
@@ -20,5 +20,3 @@ const SectionWrapper = ({
     </div>
   );
 };
-
-export default SectionWrapper;
