@@ -22,7 +22,7 @@ const contactTableItem: ContactTableItemType = {
 };
 
 export const Default: Story = () => (
-  <div style={{ padding: "20px", backgroundColor: "#002651" }}>
+  <div className="bg-secondary" style={{ padding: "20px" }}>
     <ContactTable
       contactTableItem={contactTableItem}
       stamp={
