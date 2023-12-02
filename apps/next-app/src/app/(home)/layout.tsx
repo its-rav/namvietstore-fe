@@ -17,14 +17,17 @@ export default function HomeLayout(props: HomeLayoutProps) {
   const { children, brandMarquee, statistics } = props;
   return (
     <>
-      <main>{children}</main>
-      <SectionWrapper background='rgb(133 0 0)'>
-        <>{statistics}</>
-      </SectionWrapper>
+      <main>
+        {children}
 
-      <SectionWrapper background='transparent' isFullWidth={true}>
-        <>{brandMarquee}</>
-      </SectionWrapper>
+        <SectionWrapper background='rgb(133 0 0)' py='large'>
+          <>{statistics}</>
+        </SectionWrapper>
+
+        <SectionWrapper background='transparent' py='large' isFullWidth={true}>
+          <>{brandMarquee}</>
+        </SectionWrapper>
+      </main>
     </>
   );
 }
