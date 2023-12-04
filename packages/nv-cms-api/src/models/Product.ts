@@ -85,7 +85,7 @@ export class Product<SecurityDataType = unknown> {
       /** Locale to apply */
       locale?: string;
     },
-    params: RequestParams = {},
+    params: RequestParams = {}
   ) =>
     this.http.request<ProductListResponseDataContract, ErrorDataContract>({
       path: `/products`,
@@ -131,7 +131,10 @@ export class Product<SecurityDataType = unknown> {
    * @response `404` `ErrorDataContract` Not Found
    * @response `500` `ErrorDataContract` Internal Server Error
    */
-  postProducts = (data: ProductRequestDataContract, params: RequestParams = {}) =>
+  postProducts = (
+    data: ProductRequestDataContract,
+    params: RequestParams = {}
+  ) =>
     this.http.request<ProductResponseDataContract, ErrorDataContract>({
       path: `/products`,
       method: "POST",
@@ -158,9 +161,12 @@ export class Product<SecurityDataType = unknown> {
   postProductsIdLocalizations = (
     id: number,
     data: ProductLocalizationRequestDataContract,
-    params: RequestParams = {},
+    params: RequestParams = {}
   ) =>
-    this.http.request<ProductLocalizationResponseDataContract, ErrorDataContract>({
+    this.http.request<
+      ProductLocalizationResponseDataContract,
+      ErrorDataContract
+    >({
       path: `/products/${id}/localizations`,
       method: "POST",
       body: data,
@@ -183,7 +189,11 @@ export class Product<SecurityDataType = unknown> {
    * @response `404` `ErrorDataContract` Not Found
    * @response `500` `ErrorDataContract` Internal Server Error
    */
-  putProductsId = (id: number, data: ProductRequestDataContract, params: RequestParams = {}) =>
+  putProductsId = (
+    id: number,
+    data: ProductRequestDataContract,
+    params: RequestParams = {}
+  ) =>
     this.http.request<ProductResponseDataContract, ErrorDataContract>({
       path: `/products/${id}`,
       method: "PUT",

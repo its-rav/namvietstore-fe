@@ -8,6 +8,9 @@ import PostCard from '@/components/PostCard';
 import SearchBar from '@/components/SearchBar';
 
 export { PostCard };
+import SearchBarMobile from '@/components/SearchBarMobile';
+
+export { SearchBarMobile };
 export { type FeaturesCardItemType, FeaturesCard };
 export { SearchBar };
 
