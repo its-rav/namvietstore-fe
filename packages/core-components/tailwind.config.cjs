@@ -52,6 +52,7 @@ module.exports = {
         'primary-800': '#be0000',
         'primary-900': '#850000',
         'primary-950': '#560000',
+        secondary: '#002651',
       },
       spacing: {
         sm: '4px',
@@ -80,5 +81,13 @@ module.exports = {
       },
     },
   },
+  safelist: [
+    {
+      pattern: /(mt|mb|mr|ml|my|mx|px|py|pt|pb|pl|pr)-[0-9]+/,
+    },
+    {
+      pattern: /(bg)-(primary|secondary)(-(50|100|200|300|400|500|600|700|800|900|950))?/,
+    },
+  ],
   plugins: [],
 };
