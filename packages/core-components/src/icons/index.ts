@@ -1,3 +1,5 @@
+export { ReactComponent as BlackHamburgerIcon } from './blackhamburger.svg';
+export { ReactComponent as BlackSearchIcon } from './blacksearch.svg';
 export { ReactComponent as EarthIcon } from './earth.svg';
 export { ReactComponent as EnIcon } from './enflag.svg';
 export { ReactComponent as HamburgerIcon } from './hamburger.svg';
