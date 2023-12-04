@@ -92,5 +92,14 @@ module.exports = {
       },
     },
   },
+  safelist: [
+    {
+      pattern: /(mt|mb|mr|ml|my|mx|px|py|pt|pb|pl|pr)-[0-9]+/,
+    },
+    {
+      pattern:
+        /(bg)-(primary|secondary)(-(50|100|200|300|400|500|600|700|800|900|950))?/,
+    },
+  ],
   plugins: [],
 };
