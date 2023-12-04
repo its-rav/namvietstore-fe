@@ -4012,16 +4012,22 @@ export interface FullRequestParams extends Omit<RequestInit, "body"> {
   cancelToken?: CancelToken;
 }
 
-export type RequestParams = Omit<FullRequestParams, "body" | "method" | "query" | "path">;
+export type RequestParams = Omit<
+  FullRequestParams,
+  "body" | "method" | "query" | "path"
+>;
 
 export interface ApiConfig<SecurityDataType = unknown> {
   baseUrl?: string;
   baseApiParams?: Omit<RequestParams, "baseUrl" | "cancelToken" | "signal">;
-  securityWorker?: (securityData: SecurityDataType | null) => Promise<RequestParams | void> | RequestParams | void;
+  securityWorker?: (
+    securityData: SecurityDataType | null
+  ) => Promise<RequestParams | void> | RequestParams | void;
   customFetch?: typeof fetch;
 }
 
-export interface HttpResponse<D extends unknown, E extends unknown = unknown> extends Response {
+export interface HttpResponse<D extends unknown, E extends unknown = unknown>
+  extends Response {
   data: D;
   error: E;
 }
@@ -4040,7 +4046,8 @@ export class HttpClient<SecurityDataType = unknown> {
   private securityData: SecurityDataType | null = null;
   private securityWorker?: ApiConfig<SecurityDataType>["securityWorker"];
   private abortControllers = new Map<CancelToken, AbortController>();
-  private customFetch = (...fetchParams: Parameters<typeof fetch>) => fetch(...fetchParams);
+  private customFetch = (...fetchParams: Parameters<typeof fetch>) =>
+    fetch(...fetchParams);
 
   private baseApiParams: RequestParams = {
     credentials: "same-origin",
@@ -4059,7 +4066,9 @@ export class HttpClient<SecurityDataType = unknown> {
 
   protected encodeQueryParam(key: string, value: any) {
     const encodedKey = encodeURIComponent(key);
-    return `${encodedKey}=${encodeURIComponent(typeof value === "number" ? value : `${value}`)}`;
+    return `${encodedKey}=${encodeURIComponent(
+      typeof value === "number" ? value : `${value}`
+    )}`;
   }
 
   protected addQueryParam(query: QueryParamsType, key: string) {
@@ -4073,9 +4082,15 @@ export class HttpClient<SecurityDataType = unknown> {
 
   protected toQueryString(rawQuery?: QueryParamsType): string {
     const query = rawQuery || {};
-    const keys = Object.keys(query).filter((key) => "undefined" !== typeof query[key]);
+    const keys = Object.keys(query).filter(
+      (key) => "undefined" !== typeof query[key]
+    );
     return keys
-      .map((key) => (Array.isArray(query[key]) ? this.addArrayQueryParam(query, key) : this.addQueryParam(query, key)))
+      .map((key) =>
+        Array.isArray(query[key])
+          ? this.addArrayQueryParam(query, key)
+          : this.addQueryParam(query, key)
+      )
       .join("&");
   }
 
@@ -4086,8 +4101,13 @@ export class HttpClient<SecurityDataType = unknown> {
 
   private contentFormatters: Record<ContentType, (input: any) => any> = {
     [ContentType.Json]: (input: any) =>
-      input !== null && (typeof input === "object" || typeof input === "string") ? JSON.stringify(input) : input,
-    [ContentType.Text]: (input: any) => (input !== null && typeof input !== "string" ? JSON.stringify(input) : input),
+      input !== null && (typeof input === "object" || typeof input === "string")
+        ? JSON.stringify(input)
+        : input,
+    [ContentType.Text]: (input: any) =>
+      input !== null && typeof input !== "string"
+        ? JSON.stringify(input)
+        : input,
     [ContentType.FormData]: (input: any) =>
       Object.keys(input || {}).reduce((formData, key) => {
         const property = input[key];
@@ -4097,14 +4117,17 @@ export class HttpClient<SecurityDataType = unknown> {
             ? property
             : typeof property === "object" && property !== null
             ? JSON.stringify(property)
-            : `${property}`,
+            : `${property}`
         );
         return formData;
       }, new FormData()),
     [ContentType.UrlEncoded]: (input: any) => this.toQueryString(input),
   };
 
-  protected mergeRequestParams(params1: RequestParams, params2?: RequestParams): RequestParams {
+  protected mergeRequestParams(
+    params1: RequestParams,
+    params2?: RequestParams
+  ): RequestParams {
     return {
       ...this.baseApiParams,
       ...params1,
@@ -4117,7 +4140,9 @@ export class HttpClient<SecurityDataType = unknown> {
     };
   }
 
-  protected createAbortSignal = (cancelToken: CancelToken): AbortSignal | undefined => {
+  protected createAbortSignal = (
+    cancelToken: CancelToken
+  ): AbortSignal | undefined => {
     if (this.abortControllers.has(cancelToken)) {
       const abortController = this.abortControllers.get(cancelToken);
       if (abortController) {
@@ -4161,15 +4186,28 @@ export class HttpClient<SecurityDataType = unknown> {
     const payloadFormatter = this.contentFormatters[type || ContentType.Json];
     const responseFormat = format || requestParams.format;
 
-    return this.customFetch(`${baseUrl || this.baseUrl || ""}${path}${queryString ? `?${queryString}` : ""}`, {
-      ...requestParams,
-      headers: {
-        ...(requestParams.headers || {}),
-        ...(type && type !== ContentType.FormData ? { "Content-Type": type } : {}),
-      },
-      signal: (cancelToken ? this.createAbortSignal(cancelToken) : requestParams.signal) || null,
-      body: typeof body === "undefined" || body === null ? null : payloadFormatter(body),
-    }).then(async (response) => {
+    return this.customFetch(
+      `${baseUrl || this.baseUrl || ""}${path}${
+        queryString ? `?${queryString}` : ""
+      }`,
+      {
+        ...requestParams,
+        headers: {
+          ...(requestParams.headers || {}),
+          ...(type && type !== ContentType.FormData
+            ? { "Content-Type": type }
+            : {}),
+        },
+        signal:
+          (cancelToken
+            ? this.createAbortSignal(cancelToken)
+            : requestParams.signal) || null,
+        body:
+          typeof body === "undefined" || body === null
+            ? null
+            : payloadFormatter(body),
+      }
+    ).then(async (response) => {
       const r = response as HttpResponse<T, E>;
       r.data = null as unknown as T;
       r.error = null as unknown as E;
@@ -4277,7 +4315,7 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         /** Locale to apply */
         locale?: string;
       },
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
       this.http.request<BrandListResponseDataContract, ErrorDataContract>({
         path: `/brands`,
@@ -4350,8 +4388,15 @@ export class NvCmsApi<SecurityDataType extends unknown> {
      * @response `404` `ErrorDataContract` Not Found
      * @response `500` `ErrorDataContract` Internal Server Error
      */
-    postBrandsIdLocalizations: (id: number, data: BrandLocalizationRequestDataContract, params: RequestParams = {}) =>
-      this.http.request<BrandLocalizationResponseDataContract, ErrorDataContract>({
+    postBrandsIdLocalizations: (
+      id: number,
+      data: BrandLocalizationRequestDataContract,
+      params: RequestParams = {}
+    ) =>
+      this.http.request<
+        BrandLocalizationResponseDataContract,
+        ErrorDataContract
+      >({
         path: `/brands/${id}/localizations`,
         method: "POST",
         body: data,
@@ -4375,7 +4420,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
      * @response `404` `ErrorDataContract` Not Found
      * @response `500` `ErrorDataContract` Internal Server Error
      */
-    putBrandsId: (id: number, data: BrandRequestDataContract, params: RequestParams = {}) =>
+    putBrandsId: (
+      id: number,
+      data: BrandRequestDataContract,
+      params: RequestParams = {}
+    ) =>
       this.http.request<BrandResponseDataContract, ErrorDataContract>({
         path: `/brands/${id}`,
         method: "PUT",
@@ -4447,7 +4496,7 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         /** Locale to apply */
         locale?: string;
       },
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
       this.http.request<CategoryListResponseDataContract, ErrorDataContract>({
         path: `/categories`,
@@ -4495,7 +4544,10 @@ export class NvCmsApi<SecurityDataType extends unknown> {
      * @response `404` `ErrorDataContract` Not Found
      * @response `500` `ErrorDataContract` Internal Server Error
      */
-    postCategories: (data: CategoryRequestDataContract, params: RequestParams = {}) =>
+    postCategories: (
+      data: CategoryRequestDataContract,
+      params: RequestParams = {}
+    ) =>
       this.http.request<CategoryResponseDataContract, ErrorDataContract>({
         path: `/categories`,
         method: "POST",
@@ -4523,9 +4575,12 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     postCategoriesIdLocalizations: (
       id: number,
       data: CategoryLocalizationRequestDataContract,
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
-      this.http.request<CategoryLocalizationResponseDataContract, ErrorDataContract>({
+      this.http.request<
+        CategoryLocalizationResponseDataContract,
+        ErrorDataContract
+      >({
         path: `/categories/${id}/localizations`,
         method: "POST",
         body: data,
@@ -4549,7 +4604,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
      * @response `404` `ErrorDataContract` Not Found
      * @response `500` `ErrorDataContract` Internal Server Error
      */
-    putCategoriesId: (id: number, data: CategoryRequestDataContract, params: RequestParams = {}) =>
+    putCategoriesId: (
+      id: number,
+      data: CategoryRequestDataContract,
+      params: RequestParams = {}
+    ) =>
       this.http.request<CategoryResponseDataContract, ErrorDataContract>({
         path: `/categories/${id}`,
         method: "PUT",
@@ -4621,7 +4680,7 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         /** Locale to apply */
         locale?: string;
       },
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
       this.http.request<GeneralSettingResponseDataContract, ErrorDataContract>({
         path: `/general-setting`,
@@ -4648,9 +4707,12 @@ export class NvCmsApi<SecurityDataType extends unknown> {
      */
     postGeneralSettingLocalizations: (
       data: GeneralSettingLocalizationRequestDataContract,
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
-      this.http.request<GeneralSettingLocalizationResponseDataContract, ErrorDataContract>({
+      this.http.request<
+        GeneralSettingLocalizationResponseDataContract,
+        ErrorDataContract
+      >({
         path: `/general-setting/localizations`,
         method: "POST",
         body: data,
@@ -4674,7 +4736,10 @@ export class NvCmsApi<SecurityDataType extends unknown> {
      * @response `404` `ErrorDataContract` Not Found
      * @response `500` `ErrorDataContract` Internal Server Error
      */
-    putGeneralSetting: (data: GeneralSettingRequestDataContract, params: RequestParams = {}) =>
+    putGeneralSetting: (
+      data: GeneralSettingRequestDataContract,
+      params: RequestParams = {}
+    ) =>
       this.http.request<GeneralSettingResponseDataContract, ErrorDataContract>({
         path: `/general-setting`,
         method: "PUT",
@@ -4746,7 +4811,7 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         /** Locale to apply */
         locale?: string;
       },
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
       this.http.request<PostListResponseDataContract, ErrorDataContract>({
         path: `/posts`,
@@ -4819,8 +4884,15 @@ export class NvCmsApi<SecurityDataType extends unknown> {
      * @response `404` `ErrorDataContract` Not Found
      * @response `500` `ErrorDataContract` Internal Server Error
      */
-    postPostsIdLocalizations: (id: number, data: PostLocalizationRequestDataContract, params: RequestParams = {}) =>
-      this.http.request<PostLocalizationResponseDataContract, ErrorDataContract>({
+    postPostsIdLocalizations: (
+      id: number,
+      data: PostLocalizationRequestDataContract,
+      params: RequestParams = {}
+    ) =>
+      this.http.request<
+        PostLocalizationResponseDataContract,
+        ErrorDataContract
+      >({
         path: `/posts/${id}/localizations`,
         method: "POST",
         body: data,
@@ -4844,7 +4916,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
      * @response `404` `ErrorDataContract` Not Found
      * @response `500` `ErrorDataContract` Internal Server Error
      */
-    putPostsId: (id: number, data: PostRequestDataContract, params: RequestParams = {}) =>
+    putPostsId: (
+      id: number,
+      data: PostRequestDataContract,
+      params: RequestParams = {}
+    ) =>
       this.http.request<PostResponseDataContract, ErrorDataContract>({
         path: `/posts/${id}`,
         method: "PUT",
@@ -4916,7 +4992,7 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         /** Locale to apply */
         locale?: string;
       },
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
       this.http.request<ProductListResponseDataContract, ErrorDataContract>({
         path: `/products`,
@@ -4964,7 +5040,10 @@ export class NvCmsApi<SecurityDataType extends unknown> {
      * @response `404` `ErrorDataContract` Not Found
      * @response `500` `ErrorDataContract` Internal Server Error
      */
-    postProducts: (data: ProductRequestDataContract, params: RequestParams = {}) =>
+    postProducts: (
+      data: ProductRequestDataContract,
+      params: RequestParams = {}
+    ) =>
       this.http.request<ProductResponseDataContract, ErrorDataContract>({
         path: `/products`,
         method: "POST",
@@ -4992,9 +5071,12 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     postProductsIdLocalizations: (
       id: number,
       data: ProductLocalizationRequestDataContract,
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
-      this.http.request<ProductLocalizationResponseDataContract, ErrorDataContract>({
+      this.http.request<
+        ProductLocalizationResponseDataContract,
+        ErrorDataContract
+      >({
         path: `/products/${id}/localizations`,
         method: "POST",
         body: data,
@@ -5018,7 +5100,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
      * @response `404` `ErrorDataContract` Not Found
      * @response `500` `ErrorDataContract` Internal Server Error
      */
-    putProductsId: (id: number, data: ProductRequestDataContract, params: RequestParams = {}) =>
+    putProductsId: (
+      id: number,
+      data: ProductRequestDataContract,
+      params: RequestParams = {}
+    ) =>
       this.http.request<ProductResponseDataContract, ErrorDataContract>({
         path: `/products/${id}`,
         method: "PUT",
@@ -5105,7 +5191,7 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         field?: string;
         files: File[];
       },
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
       this.http.request<UploadFileDataContract[], any>({
         path: `/upload`,
@@ -5141,7 +5227,7 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         /** @format binary */
         files?: File;
       },
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
       this.http.request<UploadFileDataContract[], any>({
         path: `/upload?id=${id}`,
@@ -5167,7 +5253,10 @@ export class NvCmsApi<SecurityDataType extends unknown> {
      * @response `default` `ErrorDataContract` Error
      */
     callbackDetail: (provider: string, params: RequestParams = {}) =>
-      this.http.request<UsersPermissionsUserRegistrationDataContract, ErrorDataContract>({
+      this.http.request<
+        UsersPermissionsUserRegistrationDataContract,
+        ErrorDataContract
+      >({
         path: `/auth/${provider}/callback`,
         method: "GET",
         secure: true,
@@ -5192,9 +5281,12 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         currentPassword: string;
         passwordConfirmation: string;
       },
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
-      this.http.request<UsersPermissionsUserRegistrationDataContract, ErrorDataContract>({
+      this.http.request<
+        UsersPermissionsUserRegistrationDataContract,
+        ErrorDataContract
+      >({
         path: `/auth/change-password`,
         method: "POST",
         body: data,
@@ -5239,7 +5331,7 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         /** confirmation token received by email */
         confirmation?: string;
       },
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
       this.http.request<any, void | ErrorDataContract>({
         path: `/auth/email-confirmation`,
@@ -5267,7 +5359,7 @@ export class NvCmsApi<SecurityDataType extends unknown> {
       data: {
         email?: string;
       },
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
       this.http.request<
         {
@@ -5300,9 +5392,12 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         identifier?: string;
         password?: string;
       },
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
-      this.http.request<UsersPermissionsUserRegistrationDataContract, ErrorDataContract>({
+      this.http.request<
+        UsersPermissionsUserRegistrationDataContract,
+        ErrorDataContract
+      >({
         path: `/auth/local`,
         method: "POST",
         body: data,
@@ -5329,9 +5424,12 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         email?: string;
         password?: string;
       },
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
-      this.http.request<UsersPermissionsUserRegistrationDataContract, ErrorDataContract>({
+      this.http.request<
+        UsersPermissionsUserRegistrationDataContract,
+        ErrorDataContract
+      >({
         path: `/auth/local/register`,
         method: "POST",
         body: data,
@@ -5358,9 +5456,12 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         passwordConfirmation?: string;
         code?: string;
       },
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
-      this.http.request<UsersPermissionsUserRegistrationDataContract, ErrorDataContract>({
+      this.http.request<
+        UsersPermissionsUserRegistrationDataContract,
+        ErrorDataContract
+      >({
         path: `/auth/reset-password`,
         method: "POST",
         body: data,
@@ -5389,7 +5490,7 @@ export class NvCmsApi<SecurityDataType extends unknown> {
       data: {
         email?: string;
       },
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
       this.http.request<
         {
@@ -5497,7 +5598,7 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         type?: string;
         permissions?: UsersPermissionsPermissionsTreeDataContract;
       },
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
       this.http.request<
         {
@@ -5624,7 +5725,7 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         type?: string;
         permissions?: UsersPermissionsPermissionsTreeDataContract;
       },
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
       this.http.request<
         {
@@ -5660,7 +5761,7 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         username: string;
         password: string;
       },
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
       this.http.request<
         UsersPermissionsUserDataContract & {
@@ -5758,7 +5859,7 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         username: string;
         password: string;
       },
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
       this.http.request<
         UsersPermissionsUserDataContract & {
