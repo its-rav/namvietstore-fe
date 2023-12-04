@@ -11,15 +11,18 @@ export default {
   title: "@nv-fe/core-ui/SearchBar",
 } satisfies StoryDefault<typeof SearchBar>;
 
-const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  window.alert("Redirect");
+const onQueryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  console.log(e.target.value);
+};
+
+const onClick = () => {
+  window.alert("Redirect to search results");
 };
 
 export const Default: Story = () => (
   <SearchBar
-    searchIcon={<SearchIcon />}
-    handleSubmit={handleSubmit}
     placeholder="Search all products..."
+    onQueryChange={onQueryChange}
+    onClick={onClick}
   />
 );
