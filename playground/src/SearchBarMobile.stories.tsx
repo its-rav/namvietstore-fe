@@ -11,9 +11,8 @@ export default {
   title: "@nv-fe/core-ui/SearchBarMobile",
 } satisfies StoryDefault<typeof SearchBarMobile>;
 
-const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  event.preventDefault();
-  window.alert("Submit");
+const onClick = () => {
+  window.alert("Redirect");
 };
 
 const toggleSideBar = () => {
@@ -23,7 +22,7 @@ const toggleSideBar = () => {
 export const Default: Story = () => (
   <SearchBarMobile
     placeholder="Tìm kiếm sản phẩm"
-    handleSubmit={handleSubmit}
     toggleSideBar={toggleSideBar}
+    onClick={onClick}
   />
 );

@@ -5,35 +5,30 @@ import { BlackHamburgerIcon } from '../icons';
 
 type SearchBarMobileProps = {
   placeholder: string;
-  handleSubmit: () => void;
+  onClick?: () => void;
   toggleSideBar: () => void;
 };
 
-const SearchBarMobile: React.FC<SearchBarMobileProps> = ({
-  placeholder,
-  handleSubmit,
-  toggleSideBar,
-}) => {
+const SearchBarMobile = React.forwardRef<
+  HTMLInputElement,
+  SearchBarMobileProps
+>(({ placeholder, onClick, toggleSideBar }, ref) => {
   return (
-    <div className='flex border-solid border-2 h-16 shadow-md items-center border-gray-200 px-4 py-4 w-full'>
+    <div className='flex w-full border-solid border-2 h-16 shadow-md items-center border-gray-200 px-4 py-4 font-primary text-sm leading-6 font-medium'>
       <button className='w-11' onClick={toggleSideBar}>
         <BlackHamburgerIcon />
       </button>
-      <form
-        onSubmit={handleSubmit}
-        className='h-full w-full flex font-primary text-sm leading-6 font-medium'
-      >
-        <input
-          type='text'
-          className='appearance-none w-full pl-6'
-          placeholder={placeholder}
-        />
-        <button type='submit' className='w-11'>
-          <BlackSearchIcon />
-        </button>
-      </form>
+      <input
+        type='text'
+        className='appearance-none w-full pl-6 h-full'
+        placeholder={placeholder}
+        ref={ref}
+      />
+      <button className='w-11' onClick={onClick}>
+        <BlackSearchIcon />
+      </button>
     </div>
   );
-};
+});
 
 export default SearchBarMobile;
