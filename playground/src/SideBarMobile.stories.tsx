@@ -32,8 +32,28 @@ const items: SideBarMobileItemProps[] = [
     url: "/products",
     subItems: [
       {
-        title: "Danh sách sản phẩm",
-        url: "/products",
+        title: "Đầu đốt",
+        url: "/#",
+        subItems: [
+          {
+            title: "Đầu đốt theo hãng",
+            url: "/#",
+            subItems: [
+              {
+                title: "Madas",
+                url: "/#",
+              },
+              {
+                title: "Blowtherm",
+                url: "/#",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "Đầu đốt",
+        url: "/#",
       },
     ],
   },
@@ -43,15 +63,20 @@ const items: SideBarMobileItemProps[] = [
   },
 ];
 
-const handleOnClick = () => {
+const handleClosedBtnClick = () => {
   window.alert("closed");
+};
+
+const handleOnSideBarItemClick = () => {
+  window.alert("redirect");
 };
 
 export const Default: Story = () => (
   <SideBarMobile
     closeButtonIcon={<CloseIcon />}
     items={items}
-    onClick={handleOnClick}
+    onCloseBtnClick={handleClosedBtnClick}
+    onSideBarItemClick={handleOnSideBarItemClick}
     dropDownIcon={<DropDownIcon />}
   />
 );
