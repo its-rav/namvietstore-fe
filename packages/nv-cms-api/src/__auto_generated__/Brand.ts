@@ -85,7 +85,7 @@ export class Brand<SecurityDataType = unknown> {
       /** Locale to apply */
       locale?: string;
     },
-    params: RequestParams = {},
+    params: RequestParams = {}
   ) =>
     this.http.request<BrandListResponseDataContract, ErrorDataContract>({
       path: `/brands`,
@@ -155,16 +155,22 @@ export class Brand<SecurityDataType = unknown> {
    * @response `404` `ErrorDataContract` Not Found
    * @response `500` `ErrorDataContract` Internal Server Error
    */
-  postBrandsIdLocalizations = (id: number, data: BrandLocalizationRequestDataContract, params: RequestParams = {}) =>
-    this.http.request<BrandLocalizationResponseDataContract, ErrorDataContract>({
-      path: `/brands/${id}/localizations`,
-      method: "POST",
-      body: data,
-      secure: true,
-      type: ContentType.Json,
-      format: "json",
-      ...params,
-    });
+  postBrandsIdLocalizations = (
+    id: number,
+    data: BrandLocalizationRequestDataContract,
+    params: RequestParams = {}
+  ) =>
+    this.http.request<BrandLocalizationResponseDataContract, ErrorDataContract>(
+      {
+        path: `/brands/${id}/localizations`,
+        method: "POST",
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }
+    );
   /**
    * No description
    *
@@ -179,7 +185,11 @@ export class Brand<SecurityDataType = unknown> {
    * @response `404` `ErrorDataContract` Not Found
    * @response `500` `ErrorDataContract` Internal Server Error
    */
-  putBrandsId = (id: number, data: BrandRequestDataContract, params: RequestParams = {}) =>
+  putBrandsId = (
+    id: number,
+    data: BrandRequestDataContract,
+    params: RequestParams = {}
+  ) =>
     this.http.request<BrandResponseDataContract, ErrorDataContract>({
       path: `/brands/${id}`,
       method: "PUT",
