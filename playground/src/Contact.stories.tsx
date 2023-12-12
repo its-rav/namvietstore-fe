@@ -29,7 +29,7 @@ export const Default: Story = () => (
       backgroundColor: "#E3E3E3",
     }}
   >
-    <div style={{ width: "40%", backgroundColor: "white" }}>
+    <div style={{ backgroundColor: "white" }}>
       <Contact contactItem={contactItem} />
     </div>
   </div>
