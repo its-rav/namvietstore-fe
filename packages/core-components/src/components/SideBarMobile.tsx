@@ -11,7 +11,7 @@ type SideBarMobileProps = {
 export type SideBarMobileItemProps = {
   title: string;
   url: string;
-  icon?: React.ReactNode;
+  dropDownIcon?: React.ReactNode;
   onSideBarItemClick?: () => void;
   subItems?: SideBarMobileItemProps[];
 };
@@ -19,7 +19,7 @@ export type SideBarMobileItemProps = {
 const SideBarMobileItem: React.FC<SideBarMobileItemProps> = ({
   title,
   onSideBarItemClick,
-  icon,
+  dropDownIcon,
   subItems,
 }) => {
   const [open, setOpen] = React.useState(false);
@@ -31,11 +31,11 @@ const SideBarMobileItem: React.FC<SideBarMobileItemProps> = ({
   const renderSubItems = () => {
     if (subItems && subItems.length > 0 && open) {
       return (
-        <ul className='pl-6'>
+        <ul className={`pl-6`}>
           {subItems.map((subItem) => (
             <SideBarMobileItem
               key={subItem.title}
-              icon={icon}
+              dropDownIcon={dropDownIcon}
               onSideBarItemClick={onSideBarItemClick}
               {...subItem}
             />
@@ -54,7 +54,13 @@ const SideBarMobileItem: React.FC<SideBarMobileItemProps> = ({
           className='flex w-full items-center justify-between'
         >
           {title}
-          <i className='w-10 h-10'>{icon}</i>
+          <i
+            className={`w-10 h-10 rotate-90 transition-transform ${
+              open ? 'rotate-0' : ''
+            }`}
+          >
+            {dropDownIcon}
+          </i>
         </button>
       ) : (
         <button onClick={onSideBarItemClick}>{title}</button>
@@ -81,7 +87,7 @@ const SideBarMobile: React.FC<SideBarMobileProps> = ({
       {items.map((item) => (
         <SideBarMobileItem
           key={item.title}
-          icon={dropDownIcon}
+          dropDownIcon={dropDownIcon}
           onSideBarItemClick={onSideBarItemClick}
           {...item}
         />
