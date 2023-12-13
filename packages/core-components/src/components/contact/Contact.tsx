@@ -1,6 +1,4 @@
 import React from 'react';
-
-import { useI18nContext } from '@/i18n/i18n-react';
 import {
   AddressIcon,
   EmailIcon,
@@ -24,9 +22,8 @@ type ContactProps = {
 };
 
 const Contact: React.FC<ContactProps> = ({ contactItem }) => {
-  const { LL: t } = useI18nContext();
   return (
-    <div className='font-primary leading-normal font-normal text-base md:w-2/5 sm:w-full'>
+    <div className='font-primary leading-normal font-normal text-base px-6 py-3 mb-6'>
       <div className='grid grid-cols-12 gap-x-4 gap-y-8'>
         <div className='col-span-5 flex'>
           <div className='w-7'>

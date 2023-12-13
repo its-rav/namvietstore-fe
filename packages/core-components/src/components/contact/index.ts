@@ -4,4 +4,4 @@ export {
   type ContactItemType,
   Contact,
   ContactForm,
-};
+}

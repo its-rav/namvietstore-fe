@@ -1,12 +1,16 @@
 import type { Story, StoryDefault } from "@ladle/react";
 import React from "react";
 
-import { Contact, type ContactItemType } from "@namviet-fe/core-ui";
+import {
+  Contact,
+  ContactForm,
+  type ContactItemType,
+} from "@namviet-fe/core-ui";
 import "@namviet-fe/core-ui/dist/style.css";
-import { TranslationDecorators } from "./decorators/TranslationDecorators";
+import { TranslationDecorators } from "../decorators/TranslationDecorators";
 
 export default {
-  title: "@nv-fe/core-ui/Contact",
+  title: "@nv-fe/core-ui/contact/ContactComponent",
   decorators: [...TranslationDecorators],
 } satisfies StoryDefault<typeof Contact>;
 
@@ -25,12 +29,15 @@ export const Default: Story = () => (
   <div
     style={{
       width: "100%",
-      padding: "20px",
-      backgroundColor: "#E3E3E3",
     }}
+    className="grid grid-cols-12 gap-4"
   >
-    <div style={{ backgroundColor: "white" }}>
+    <div className="md:col-span-5 sm:col-span-12">
       <Contact contactItem={contactItem} />
     </div>
+    <div
+      className="md:col-span-7 sm:col-span-12"
+      style={{ backgroundColor: "#F3F3F3" }}
+    ></div>
   </div>
 );
