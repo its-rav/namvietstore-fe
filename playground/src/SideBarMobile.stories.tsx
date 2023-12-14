@@ -74,7 +74,7 @@ const handleOnSideBarItemClick = () => {
 export const Default: Story = () => (
   <SideBarMobile
     closeButtonIcon={<CloseIcon />}
-    items={items}
+    sideBarItems={items}
     onCloseBtnClick={handleClosedBtnClick}
     onSideBarItemClick={handleOnSideBarItemClick}
     dropDownIcon={<DropDownIcon />}

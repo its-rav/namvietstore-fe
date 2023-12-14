@@ -5,7 +5,7 @@ type SideBarMobileProps = {
   onCloseBtnClick: () => void;
   onSideBarItemClick: () => void;
   dropDownIcon?: React.ReactNode;
-  items: SideBarMobileItemProps[];
+  sideBarItems: SideBarMobileItemProps[];
 };
 
 export type SideBarMobileItemProps = {
@@ -22,14 +22,14 @@ const SideBarMobileItem: React.FC<SideBarMobileItemProps> = ({
   dropDownIcon,
   subItems,
 }) => {
-  const [open, setOpen] = React.useState(false);
+  const [itemOpen, setItemOpen] = React.useState(false);
 
   const openSubItems = () => {
-    setOpen(!open);
+    setItemOpen(!itemOpen);
   };
 
   const renderSubItems = () => {
-    if (subItems && subItems.length > 0 && open) {
+    if (subItems && subItems.length > 0 && itemOpen) {
       return (
         <ul className={`pl-6`}>
           {subItems.map((subItem) => (
@@ -55,8 +55,8 @@ const SideBarMobileItem: React.FC<SideBarMobileItemProps> = ({
         >
           {title}
           <i
-            className={`w-10 h-10 rotate-90 transition-transform ${
-              open ? 'rotate-0' : ''
+            className={`w-10 h-10 transition-transform ${
+              itemOpen ? 'rotate-90' : ''
             }`}
           >
             {dropDownIcon}
@@ -74,7 +74,7 @@ const SideBarMobile: React.FC<SideBarMobileProps> = ({
   onCloseBtnClick,
   onSideBarItemClick,
   closeButtonIcon,
-  items,
+  sideBarItems,
   dropDownIcon,
 }) => {
   return (
@@ -84,12 +84,12 @@ const SideBarMobile: React.FC<SideBarMobileProps> = ({
           <i>{closeButtonIcon}</i>
         </button>
       </div>
-      {items.map((item) => (
+      {sideBarItems.map((sideBarItem) => (
         <SideBarMobileItem
-          key={item.title}
+          key={sideBarItem.title}
           dropDownIcon={dropDownIcon}
           onSideBarItemClick={onSideBarItemClick}
-          {...item}
+          {...sideBarItem}
         />
       ))}
     </div>
