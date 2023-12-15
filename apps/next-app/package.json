@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@namviet-fe/core-ui": "file:../../packages/core-components",
+    "@namviet-fe/core-ui": "link:./packages/core-components",
     "@types/node": "20.3.3",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",

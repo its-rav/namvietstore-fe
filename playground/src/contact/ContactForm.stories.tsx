@@ -17,8 +17,8 @@ export const Default: Story = () => (
     }}
     className="grid grid-cols-12 gap-4"
   >
-    <div className="md:col-span-5 sm:col-span-12"></div>
-    <div className="md:col-span-7 sm:col-span-12">
+    <div className="col-span-5"></div>
+    <div className="col-span-7">
       <ContactForm />
     </div>
   </div>
