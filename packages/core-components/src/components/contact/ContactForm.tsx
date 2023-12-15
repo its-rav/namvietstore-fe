@@ -2,13 +2,13 @@ import React from 'react';
 import { Button } from '../buttons';
 import ReCAPTCHA from 'react-google-recaptcha';
 
-export type ContactFormType = {};
+export type ContactFormItemType = {};
 
 type ContactFormProps = {
-  contactForm?: ContactFormType;
+  contactFormItem?: ContactFormItemType;
 };
 
-const ContactForm: React.FC<ContactFormProps> = ({ contactForm }) => {
+const ContactForm: React.FC<ContactFormProps> = ({ contactFormItem }) => {
   const onChange = () => {};
   return (
     <div
