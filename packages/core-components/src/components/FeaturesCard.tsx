@@ -7,7 +7,7 @@ export type FeaturesCardItemType = {
 };
 
 type FeaturesCardProps = {
-  featuresCardItem: FeaturesCardItemType;
+  featuresCardItem?: FeaturesCardItemType;
 };
 
 const FeaturesCard: React.FC<FeaturesCardProps> = ({ featuresCardItem }) => {
