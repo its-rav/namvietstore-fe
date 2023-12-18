@@ -11,11 +11,9 @@ import {
   SideBarMobileItemProps,
   DropDownIcon,
 } from "@namviet-fe/core-ui";
-import { TranslationDecorators } from "./decorators/TranslationDecorators";
 
 export default {
   title: "@nv-fe/core-ui/SideBarMobile",
-  decorators: [...TranslationDecorators],
 } satisfies StoryDefault<typeof SideBarMobile>;
 
 const items: SideBarMobileItemProps[] = [
