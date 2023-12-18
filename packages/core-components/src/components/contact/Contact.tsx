@@ -23,7 +23,7 @@ type ContactProps = {
 
 const Contact: React.FC<ContactProps> = ({ contactItem }) => {
   return (
-    <div className='font-primary leading-normal font-normal text-base px-6 py-3 mb-6'>
+    <div className='font-primary leading-normal font-normal text-base'>
       <div className='grid grid-cols-12 gap-x-4 gap-y-8'>
         <div className='col-span-5 flex'>
           <div className='w-7'>
@@ -35,13 +35,21 @@ const Contact: React.FC<ContactProps> = ({ contactItem }) => {
         </div>
         <div className=' col-span-7 grid-cols-1'>
           {contactItem?.phones ? (
-            contactItem.phones.map((phone, index) => {
-              return (
-                <p className='mt-1 md:font-normal sm:font-bold' key={index}>
-                  {phone}
-                </p>
-              );
-            })
+            <>
+              {contactItem.phones.map((phone, index) => {
+                return (
+                  <p
+                    className='mt-1 font-bold md:font-normal hidden md:block'
+                    key={index}
+                  >
+                    {phone}
+                  </p>
+                );
+              })}
+              <p className='mt-1 font-bold md:font-normal block md:hidden'>
+                {contactItem.phones.join(' - ')}
+              </p>
+            </>
           ) : (
             <></>
           )}
