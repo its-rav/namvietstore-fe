@@ -10,7 +10,6 @@ import {
   type FeaturesCardItemType,
   ProductIcon,
 } from "@namviet-fe/core-ui";
-import { TranslationDecorators } from "./decorators/TranslationDecorators";
 
 const featuresCardItem: FeaturesCardItemType = {
   icon: <ProductIcon />,
@@ -20,7 +19,6 @@ const featuresCardItem: FeaturesCardItemType = {
 
 export default {
   title: "@nv-fe/core-ui/FeaturesCard",
-  decorators: [...TranslationDecorators],
 } satisfies StoryDefault<typeof FeaturesCard>;
 
 export const Default: Story = () => (
