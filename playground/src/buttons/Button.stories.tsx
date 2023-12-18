@@ -6,10 +6,8 @@ import { WhitePlusIcon, HamburgerIcon } from "@namviet-fe/core-ui";
 import { Button, type ButtonProps } from "@namviet-fe/core-ui";
 import "regenerator-runtime/runtime";
 import "@namviet-fe/core-ui/dist/style.css";
-import { TranslationDecorators } from "../decorators/TranslationDecorators";
 export default {
   title: "@nv-fe/core-ui/buttons/Button",
-  decorators: [...TranslationDecorators],
 } satisfies StoryDefault<typeof Button>;
 
 export const Default: Story<ButtonProps> = () => (
