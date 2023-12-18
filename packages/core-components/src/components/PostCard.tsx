@@ -1,8 +1,10 @@
 import React from 'react';
 
+import FormatMessage from '@/lib/translations/components/FormatMessage';
+import { Intlable } from '@/lib/translations/types';
+
 import Button from '@/components/buttons/Button';
 
-import { useI18nContext } from '@/i18n/i18n-react';
 import { WhitePlusIcon } from '@/icons';
 
 type PostCardProps = {
@@ -11,7 +13,7 @@ type PostCardProps = {
   title?: string;
   description?: string;
   onClick?: () => void;
-};
+} & Intlable;
 
 const PostCard: React.FC<PostCardProps> = ({
   className,
@@ -19,8 +21,8 @@ const PostCard: React.FC<PostCardProps> = ({
   title,
   description,
   onClick,
+  lang,
 }) => {
-  const { LL: t } = useI18nContext();
   return (
     <div
       className={`flex flex-col md:w-80 sm:w-60 font-primary gap-3 ${className}`}
@@ -37,7 +39,13 @@ const PostCard: React.FC<PostCardProps> = ({
         </p>
       </div>
       <Button
-        children={`${t.postCard.readMore()}`}
+        children={
+          <FormatMessage
+            id='postCard.readMore'
+            defaultMessage='Read more'
+            lang={lang}
+          />
+        }
         rightIcon={<WhitePlusIcon />}
         onClick={onClick}
       />
