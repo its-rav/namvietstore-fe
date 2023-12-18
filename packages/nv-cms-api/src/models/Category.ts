@@ -85,7 +85,7 @@ export class Category<SecurityDataType = unknown> {
       /** Locale to apply */
       locale?: string;
     },
-    params: RequestParams = {},
+    params: RequestParams = {}
   ) =>
     this.http.request<CategoryListResponseDataContract, ErrorDataContract>({
       path: `/categories`,
@@ -131,7 +131,10 @@ export class Category<SecurityDataType = unknown> {
    * @response `404` `ErrorDataContract` Not Found
    * @response `500` `ErrorDataContract` Internal Server Error
    */
-  postCategories = (data: CategoryRequestDataContract, params: RequestParams = {}) =>
+  postCategories = (
+    data: CategoryRequestDataContract,
+    params: RequestParams = {}
+  ) =>
     this.http.request<CategoryResponseDataContract, ErrorDataContract>({
       path: `/categories`,
       method: "POST",
@@ -158,9 +161,12 @@ export class Category<SecurityDataType = unknown> {
   postCategoriesIdLocalizations = (
     id: number,
     data: CategoryLocalizationRequestDataContract,
-    params: RequestParams = {},
+    params: RequestParams = {}
   ) =>
-    this.http.request<CategoryLocalizationResponseDataContract, ErrorDataContract>({
+    this.http.request<
+      CategoryLocalizationResponseDataContract,
+      ErrorDataContract
+    >({
       path: `/categories/${id}/localizations`,
       method: "POST",
       body: data,
@@ -183,7 +189,11 @@ export class Category<SecurityDataType = unknown> {
    * @response `404` `ErrorDataContract` Not Found
    * @response `500` `ErrorDataContract` Internal Server Error
    */
-  putCategoriesId = (id: number, data: CategoryRequestDataContract, params: RequestParams = {}) =>
+  putCategoriesId = (
+    id: number,
+    data: CategoryRequestDataContract,
+    params: RequestParams = {}
+  ) =>
     this.http.request<CategoryResponseDataContract, ErrorDataContract>({
       path: `/categories/${id}`,
       method: "PUT",
