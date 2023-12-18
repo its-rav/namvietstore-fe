@@ -4,14 +4,22 @@ import { ContactForm, Contact, ContactMap } from '@namviet-fe/core-ui';
 export default function ContactPage() {
   return (
     <section className='max-w-7xl mx-auto'>
-      <div className=' text-lg sm:text-xl text-center py-6 mb-7'>
-        <p className='hidden mr-3 sm:inline font-medium'>Liên hệ</p>
+      <div className='hidden md:block text-2xl/6 text-center py-5 mb-7'>
+        <p className='inline font-medium mr-3'>Liên hệ</p>
         <p className='inline font-bold' style={{ color: '#850000' }}>
           Công ty TNHH Thiết bị nhiệt Nam Việt
         </p>
       </div>
-      <div className='grid grid-cols-12 gap-4 mb-14'>
-        <div className='col-span-12 sm:col-span-5'>
+      <div className='block md:hidden text-lg/6 text-center py-3'>
+        <p className='inline font-medium mr-3' style={{ color: '#002651' }}>
+          Công ty TNHH
+        </p>
+        <p className='inline font-bold' style={{ color: '#850000' }}>
+          Thiết Bị Nhiệt Nam Việt
+        </p>
+      </div>
+      <div className='grid grid-cols-12 gap-x-4'>
+        <div className='col-span-12 md:col-span-5 px-5 py-4'>
           <Contact
             contactItem={{
               phones: ['0969615251', '0969615252'],
@@ -25,14 +33,11 @@ export default function ContactPage() {
             }}
           />
         </div>
-        <div
-          className='col-span-12 sm:col-span-7'
-          style={{ backgroundColor: '#F3F3F3' }}
-        >
+        <div className='col-span-12 md:col-span-7 px-5 py-4'>
           <ContactForm />
         </div>
       </div>
-      <div className='pb-32 hidden sm:block'>
+      <div className='pb-32 pt-14 hidden md:block px-5 py-4'>
         <ContactMap
           contactMapItem={{
             srcMap:
