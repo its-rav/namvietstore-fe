@@ -1,13 +1,8 @@
-import React, { useRef } from 'react';
-import { Button } from '../buttons';
+import React, { useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { Button } from '../buttons';
 
-export type ContactFormItemType = {};
-
-type ContactFormProps = {
-  contactFormItem?: ContactFormItemType;
-};
-type InfoContactFormType = {
+export type InfoContactFormType = {
   [key: string]: string;
   username: string;
   companyName: string;
@@ -16,7 +11,16 @@ type InfoContactFormType = {
   text: string;
 };
 
-const ContactForm: React.FC<ContactFormProps> = ({ contactFormItem }) => {
+type ContactFormProps = {
+  submitForm: (data: InfoContactFormType) => void;
+  sitekey: string;
+};
+
+const ContactForm: React.FC<ContactFormProps> = ({
+  submitForm,
+  sitekey = '6Leo6C8pAAAAAKHtfDMqa2YZLYf6D1VNVQKcixha',
+}) => {
+  const [reCapchaToken, setReCapchaToken] = useState<string | null>('');
   const infoContactForm: React.MutableRefObject<InfoContactFormType> = useRef({
     username: '',
     companyName: '',
@@ -30,9 +34,16 @@ const ContactForm: React.FC<ContactFormProps> = ({ contactFormItem }) => {
     const { name, value } = e.target;
     infoContactForm.current[name] = value;
   };
-  const submitForm = function (e: React.FormEvent<HTMLFormElement>) {
+  const onChangeReCapcha = (token: string | null) => {
+    setReCapchaToken(token);
+    console.log(token);
+  };
+  const onExpiredReCapcha = () => {
+    setReCapchaToken('');
+  };
+  const onSubmit = function (e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log('infoContactForm', infoContactForm.current);
+    submitForm(infoContactForm.current);
   };
 
   return (
@@ -42,7 +53,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ contactFormItem }) => {
     >
       <h2 className='font-bold text-xl'>Liên hệ</h2>
       <p>Các trường hợp bắt buộc được đánh dấu *</p>
-      <form onSubmit={submitForm}>
+      <form onSubmit={onSubmit}>
         <div className='grid grid-cols-2 gap-1.5 py-3.5'>
           <input
             type='text'
@@ -85,14 +96,21 @@ const ContactForm: React.FC<ContactFormProps> = ({ contactFormItem }) => {
             onChange={onChangeInput}
           />
           <ReCAPTCHA
-            sitekey='6Leo6C8pAAAAAKHtfDMqa2YZLYf6D1VNVQKcixha'
+            sitekey={sitekey}
             style={{
               transform: 'scale(0.77)',
               transformOrigin: '0 0',
             }}
+            onChange={onChangeReCapcha}
+            onExpired={onExpiredReCapcha}
           />
         </div>
-        <Button type='submit'>Gửi</Button>
+        <Button
+          type='submit'
+          disabled={reCapchaToken === null || reCapchaToken.trim() === ''}
+        >
+          Gửi
+        </Button>
       </form>
     </div>
   );
