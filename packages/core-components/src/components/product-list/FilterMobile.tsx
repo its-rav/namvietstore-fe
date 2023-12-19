@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { FilterItemType } from './FilterItem';
 
-export type FilterMobileType = {
+export type FilterGroupType = {
+  sortItems: string[];
   filterItems: FilterItemType[];
 };
 
 type FilterMobileProps = {
-  filterMobileItem: FilterMobileType;
+  filterMobileItems: FilterGroupType;
 };
 
-const FilterMobile: React.FC<FilterMobileProps> = ({ filterMobileItem }) => {
+const FilterMobile: React.FC<FilterMobileProps> = ({ filterMobileItems }) => {
   const [isOpenSort, setIsOpenSort] = useState(false);
   const [isOpenFilter, setIsOpenFilter] = useState(false);
   const [itemsSelected, setItemsSelected] = useState<string[]>([]);
@@ -26,15 +27,11 @@ const FilterMobile: React.FC<FilterMobileProps> = ({ filterMobileItem }) => {
     setIsOpenSort(!isOpenSort);
   };
 
-  const checkFilter = () => {
-    setIsOpenFilter(!isOpenFilter);
-  };
-
   const handleFilter = (items: string[]) => {
     console.log(items);
   };
 
-  return filterMobileItem?.filterItems ? (
+  return (
     <div>
       <div className='flex justify-between py-5 font-medium text-sm/4 border-b'>
         <button className='flex items-center px-3' onClick={checkSort}>
@@ -66,7 +63,6 @@ const FilterMobile: React.FC<FilterMobileProps> = ({ filterMobileItem }) => {
               />
             </svg>
           </button>
-
           <button
             className='flex items-center px-3'
             onClick={() => {
@@ -89,26 +85,25 @@ const FilterMobile: React.FC<FilterMobileProps> = ({ filterMobileItem }) => {
           </button>
         </div>
       </div>
-      {isOpenSort ? (
+      {filterMobileItems?.sortItems && isOpenSort ? (
         <div className='relative'>
           <ul className='bg-white divide-y text-sm font-normal w-full z-0 absolute opacity-100 top-0 transition-all ease-in duration-500'>
-            <li className='px-3 py-5 hover:bg-gray-200 cursor-pointer '>
-              <p>Khuyến mãi tốt nhất</p>
-            </li>
-            <li className='px-3 py-5 hover:bg-gray-200 cursor-pointer'>
-              <p>Giá tăng dần</p>
-            </li>
-            <li className='px-3 py-5 hover:bg-gray-200 cursor-pointer'>
-              <p>Giá giảm dần</p>
-            </li>
-            <li className='px-3 py-5 hover:bg-gray-200 cursor-pointer'>
-              <p>Sản phẩm bán chạy nhất</p>
-            </li>
+            {filterMobileItems.sortItems.map((item, index) => {
+              return (
+                <li
+                  key={index}
+                  className='px-3 py-5 hover:bg-gray-200 cursor-pointer '
+                >
+                  <p>{item}</p>
+                </li>
+              );
+            })}
           </ul>
         </div>
       ) : (
         <></>
       )}
+
       {isOpenFilter ? (
         <div className='grid grid-cols-1 z-10 h-screen w-3/4 px-6 divide-y bg-white border-gray-200 content-between fixed top-0 right-0'>
           <button
@@ -133,47 +128,53 @@ const FilterMobile: React.FC<FilterMobileProps> = ({ filterMobileItem }) => {
               />
             </svg>
           </button>
-          {filterMobileItem.filterItems.map(
-            (filterItem: FilterItemType, index) => {
-              return (
-                <div key={index} className='py-6 grid-cols-1 '>
-                  <div className='text-sm font-normal'>
-                    <p className='font-semibold'>{filterItem.filterType}</p>
-                    <div className='grid grid-cols-2 gap-3 mt-5 text-center'>
-                      {filterItem.filterOptions.map((item) => {
-                        return itemsSelected.includes(item) ? (
-                          <button
-                            id={item}
-                            key={item}
-                            style={{
-                              borderColor:
-                                'rgb(29 78 216 / var(--tw-border-opacity))',
-                            }}
-                            className=' cursor-pointer rounded-md border-[1px] border-gray-200 border-solid p-3'
-                            onClick={() => {
-                              handleCheck(item);
-                            }}
-                          >
-                            {item}
-                          </button>
-                        ) : (
-                          <button
-                            id={item}
-                            key={item}
-                            className='cursor-pointer rounded-md border-[1px] border-gray-200 border-solid p-3'
-                            onClick={() => {
-                              handleCheck(item);
-                            }}
-                          >
-                            {item}
-                          </button>
-                        );
-                      })}
+          {filterMobileItems?.filterItems ? (
+            <>
+              {filterMobileItems.filterItems.map(
+                (filterItem: FilterItemType, index) => {
+                  return (
+                    <div key={index} className='py-6 grid-cols-1 '>
+                      <div className='text-sm font-normal'>
+                        <p className='font-semibold'>{filterItem.filterType}</p>
+                        <div className='grid grid-cols-2 gap-3 mt-5 text-center'>
+                          {filterItem.filterOptions.map((item) => {
+                            return itemsSelected.includes(item) ? (
+                              <button
+                                id={item}
+                                key={item}
+                                style={{
+                                  borderColor:
+                                    'rgb(29 78 216 / var(--tw-border-opacity))',
+                                }}
+                                className=' cursor-pointer rounded-md border-[1px] border-gray-200 border-solid p-3'
+                                onClick={() => {
+                                  handleCheck(item);
+                                }}
+                              >
+                                {item}
+                              </button>
+                            ) : (
+                              <button
+                                id={item}
+                                key={item}
+                                className='cursor-pointer rounded-md border-[1px] border-gray-200 border-solid p-3'
+                                onClick={() => {
+                                  handleCheck(item);
+                                }}
+                              >
+                                {item}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              );
-            }
+                  );
+                }
+              )}
+            </>
+          ) : (
+            <></>
           )}
           <div className='grid-cols-1 py-6 text-right'>
             <button
@@ -200,8 +201,6 @@ const FilterMobile: React.FC<FilterMobileProps> = ({ filterMobileItem }) => {
         <></>
       )}
     </div>
-  ) : (
-    <></>
   );
 };
 export default FilterMobile;

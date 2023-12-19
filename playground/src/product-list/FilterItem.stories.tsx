@@ -21,7 +21,7 @@ export const Default: Story = () => (
     <div className="w-56">
       <div className="mb-14">
         <FilterItem
-          filterItem={{
+          filterItems={{
             filterType: "Loại bếp",
             filterOptions: [
               "Bếp hồng ngoại",
@@ -35,7 +35,7 @@ export const Default: Story = () => (
       </div>
       <div>
         <FilterItem
-          filterItem={{
+          filterItems={{
             filterType: "Loại lò vi sóng",
             filterOptions: [
               "Bàn nướng điện",

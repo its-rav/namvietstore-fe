@@ -4,17 +4,17 @@ export type FilterItemType = {
   filterType: string;
   filterOptions: string[];
 };
-type FilterProps = {
-  filterItem: FilterItemType;
+type FilterItemProps = {
+  filterItems: FilterItemType;
 };
 
-const FilterItem: React.FC<FilterProps> = ({ filterItem }) => {
+const FilterItem: React.FC<FilterItemProps> = ({ filterItems }) => {
   const [isOpen, setIsOpen] = useState(false);
-  return filterItem?.filterType && filterItem?.filterOptions ? (
+  return filterItems?.filterType && filterItems?.filterOptions ? (
     <div className='font-primary'>
       <div className='text-lg/5 font-light'>
         <p className='font-semibold' style={{ color: '#850000' }}>
-          {filterItem.filterType}
+          {filterItems.filterType}
         </p>
         <button
           id='dropdownButton'
@@ -67,7 +67,7 @@ const FilterItem: React.FC<FilterProps> = ({ filterItem }) => {
                 color: 'rgba(125, 125, 125, 0.9)',
               }}
             >
-              {filterItem.filterOptions.map((item, index) => {
+              {filterItems.filterOptions.map((item, index) => {
                 return (
                   <li key={index}>
                     <p className='block p-4 hover:bg-gray-200 cursor-pointer'>

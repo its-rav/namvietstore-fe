@@ -1,16 +1,16 @@
 import type { Story, StoryDefault } from "@ladle/react";
 import React from "react";
 
-import { FilterMobile, type FilterGroupType } from "@namviet-fe/core-ui";
+import { FilterComponent, type FilterGroupType } from "@namviet-fe/core-ui";
 import "@namviet-fe/core-ui/dist/style.css";
 import { TranslationDecorators } from "../decorators/TranslationDecorators";
 
 export default {
-  title: "@nv-fe/core-ui/product-list/Filter-Mobile",
+  title: "@nv-fe/core-ui/product-list/Filter-Component",
   decorators: [...TranslationDecorators],
-} satisfies StoryDefault<typeof FilterMobile>;
+} satisfies StoryDefault<typeof FilterComponent>;
 
-const filterMobileItems: FilterGroupType = {
+const filterGroupItems: FilterGroupType = {
   sortItems: [
     "Khuyến mãi tốt nhất",
     "Giá tăng dần",
@@ -48,11 +48,10 @@ export const Default: Story = () => (
   <div
     style={{
       height: "80vh",
+      padding: "20px",
     }}
     className="w-full bg-gray-100"
   >
-    <div className="" style={{ backgroundColor: "white" }}>
-      <FilterMobile filterMobileItems={filterMobileItems} />
-    </div>
+    <FilterComponent filterGroupItems={filterGroupItems} />
   </div>
 );
