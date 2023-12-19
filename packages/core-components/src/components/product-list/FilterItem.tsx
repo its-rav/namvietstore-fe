@@ -12,8 +12,7 @@ const FilterItem: React.FC<FilterProps> = ({ filterItem }) => {
   const [isOpen, setIsOpen] = useState(false);
   return filterItem?.filterType && filterItem?.filterOptions ? (
     <div className='font-primary'>
-      {/* Web view  */}
-      <div className='hidden md:block text-lg/5 font-light'>
+      <div className='text-lg/5 font-light'>
         <p className='font-semibold' style={{ color: '#850000' }}>
           {filterItem.filterType}
         </p>
@@ -71,9 +70,9 @@ const FilterItem: React.FC<FilterProps> = ({ filterItem }) => {
               {filterItem.filterOptions.map((item, index) => {
                 return (
                   <li key={index}>
-                    <a href='#' className='block p-4 hover:bg-gray-200'>
+                    <p className='block p-4 hover:bg-gray-200 cursor-pointer'>
                       {item}
-                    </a>
+                    </p>
                   </li>
                 );
               })}
@@ -82,22 +81,6 @@ const FilterItem: React.FC<FilterProps> = ({ filterItem }) => {
         ) : (
           <></>
         )}
-      </div>
-      {/* Mobile view */}
-      <div className='block md:hidden text-sm font-normal'>
-        <p className='font-semibold'>{filterItem.filterType}</p>
-        <div className='grid grid-cols-2 gap-3 mt-5 text-center'>
-          {filterItem.filterOptions.map((item, index) => {
-            return (
-              <p
-                key={index}
-                className='rounded-md border-[1px] border-gray-200 border-solid p-3'
-              >
-                {item}
-              </p>
-            );
-          })}
-        </div>
       </div>
     </div>
   ) : (

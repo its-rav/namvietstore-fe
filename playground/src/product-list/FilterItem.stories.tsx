@@ -16,9 +16,9 @@ export const Default: Story = () => (
       height: "80vh",
       padding: "20px",
     }}
-    className="w-full bg-white"
+    className="w-full bg-gray-100"
   >
-    <div className="md:w-56">
+    <div className="w-56">
       <div className="mb-14">
         <FilterItem
           filterItem={{
@@ -43,7 +43,7 @@ export const Default: Story = () => (
               "Lò nướng",
               "Lò vi sóng cơ",
               "Lò vi sóng điện tử",
-              "Lò vi sóng, nướng ết hợp",
+              "Lò vi sóng, nướng kết hợp",
               "Máy nướng bánh mì",
               "Vỉ nướng",
             ],
