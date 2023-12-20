@@ -1,14 +1,26 @@
 import React, { useState } from 'react';
 
+export type OptionType = {
+  optionId: number;
+  optionName: string;
+};
+
 export type FilterItemType = {
+  filterId?: number;
   filterType: string;
-  filterOptions: string[];
+  filterOptions: OptionType[];
 };
 type FilterItemProps = {
   filterItems: FilterItemType;
+  sortApplied: OptionType;
+  onClickSort?: (sortId: number) => void;
 };
 
-const FilterItem: React.FC<FilterItemProps> = ({ filterItems }) => {
+const FilterItem: React.FC<FilterItemProps> = ({
+  filterItems,
+  sortApplied,
+  onClickSort,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   return filterItems?.filterType && filterItems?.filterOptions ? (
     <div className='font-primary'>
@@ -67,11 +79,22 @@ const FilterItem: React.FC<FilterItemProps> = ({ filterItems }) => {
                 color: 'rgba(125, 125, 125, 0.9)',
               }}
             >
-              {filterItems.filterOptions.map((item, index) => {
-                return (
-                  <li key={index}>
+              {filterItems.filterOptions.map((item) => {
+                return item.optionId === sortApplied.optionId ? (
+                  <li key={item.optionId}>
+                    <p className='block p-4' style={{ color: '#850000' }}>
+                      {item.optionName}
+                    </p>
+                  </li>
+                ) : (
+                  <li
+                    key={item.optionId}
+                    onClick={() => {
+                      onClickSort?.(item.optionId);
+                    }}
+                  >
                     <p className='block p-4 hover:bg-gray-200 cursor-pointer'>
-                      {item}
+                      {item.optionName}
                     </p>
                   </li>
                 );

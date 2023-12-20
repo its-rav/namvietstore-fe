@@ -1,35 +1,48 @@
-import React, { useState } from 'react';
-import { FilterItemType } from './FilterItem';
+import React, { useEffect, useState } from 'react';
+import { FilterItemType, OptionType } from './FilterItem';
 
 export type FilterGroupType = {
-  sortItems: string[];
+  sortItems: OptionType[];
   filterItems: FilterItemType[];
 };
 
 type FilterMobileProps = {
   filterMobileItems: FilterGroupType;
+  sortApplied: OptionType;
+  itemIdsSelected: number[];
+  onClickSort?: (sortId: number) => void;
+  onClickApplyFilter?: () => void;
+  onClickClearFilter?: () => void;
+  onClickCheck?: (filterId: number) => void;
 };
 
-const FilterMobile: React.FC<FilterMobileProps> = ({ filterMobileItems }) => {
+const FilterMobile: React.FC<FilterMobileProps> = ({
+  filterMobileItems,
+  sortApplied,
+  itemIdsSelected,
+  onClickSort,
+  onClickApplyFilter,
+  onClickClearFilter,
+  onClickCheck,
+}) => {
   const [isOpenSort, setIsOpenSort] = useState(false);
   const [isOpenFilter, setIsOpenFilter] = useState(false);
-  const [itemsSelected, setItemsSelected] = useState<string[]>([]);
-
-  const handleCheck = (item: string) => {
-    if (!itemsSelected.includes(item)) {
-      setItemsSelected([...itemsSelected, item]);
-    } else {
-      setItemsSelected(itemsSelected.filter((newItem) => newItem !== item));
-    }
-  };
 
   const checkSort = () => {
     setIsOpenSort(!isOpenSort);
   };
 
-  const handleFilter = (items: string[]) => {
-    console.log(items);
-  };
+  useEffect(() => {
+    setIsOpenSort(false);
+  }, [sortApplied]);
+
+  useEffect(() => {
+    setIsOpenSort(false);
+  }, [isOpenFilter]);
+
+  useEffect(() => {
+    setIsOpenFilter(false);
+  }, [itemIdsSelected]);
 
   return (
     <div>
@@ -88,13 +101,20 @@ const FilterMobile: React.FC<FilterMobileProps> = ({ filterMobileItems }) => {
       {filterMobileItems?.sortItems && isOpenSort ? (
         <div className='relative'>
           <ul className='bg-white divide-y text-sm font-normal w-full z-0 absolute opacity-100 top-0 transition-all ease-in duration-500'>
-            {filterMobileItems.sortItems.map((item, index) => {
-              return (
+            {filterMobileItems.sortItems.map((item) => {
+              return item.optionId === sortApplied.optionId ? (
+                <li key={item.optionId} className='px-3 py-5 text-blue-600'>
+                  <p>{item.optionName}</p>
+                </li>
+              ) : (
                 <li
-                  key={index}
-                  className='px-3 py-5 hover:bg-gray-200 cursor-pointer '
+                  key={item.optionId}
+                  className='px-3 py-5 hover:bg-gray-200 cursor-pointer'
+                  onClick={() => {
+                    onClickSort?.(item.optionId);
+                  }}
                 >
-                  <p>{item}</p>
+                  <p>{item.optionName}</p>
                 </li>
               );
             })}
@@ -131,38 +151,39 @@ const FilterMobile: React.FC<FilterMobileProps> = ({ filterMobileItems }) => {
           {filterMobileItems?.filterItems ? (
             <>
               {filterMobileItems.filterItems.map(
-                (filterItem: FilterItemType, index) => {
+                (filterItem: FilterItemType) => {
                   return (
-                    <div key={index} className='py-6 grid-cols-1 '>
+                    <div
+                      key={filterItem.filterId}
+                      className='py-6 grid-cols-1 '
+                    >
                       <div className='text-sm font-normal'>
                         <p className='font-semibold'>{filterItem.filterType}</p>
                         <div className='grid grid-cols-2 gap-3 mt-5 text-center'>
                           {filterItem.filterOptions.map((item) => {
-                            return itemsSelected.includes(item) ? (
+                            return itemIdsSelected.includes(item.optionId) ? (
                               <button
-                                id={item}
-                                key={item}
+                                key={item.optionId}
                                 style={{
                                   borderColor:
                                     'rgb(29 78 216 / var(--tw-border-opacity))',
                                 }}
                                 className=' cursor-pointer rounded-md border-[1px] border-gray-200 border-solid p-3'
                                 onClick={() => {
-                                  handleCheck(item);
+                                  onClickCheck?.(item.optionId);
                                 }}
                               >
-                                {item}
+                                {item.optionName}
                               </button>
                             ) : (
                               <button
-                                id={item}
-                                key={item}
+                                key={item.optionId}
                                 className='cursor-pointer rounded-md border-[1px] border-gray-200 border-solid p-3'
                                 onClick={() => {
-                                  handleCheck(item);
+                                  onClickCheck?.(item.optionId);
                                 }}
                               >
-                                {item}
+                                {item.optionName}
                               </button>
                             );
                           })}
@@ -180,18 +201,14 @@ const FilterMobile: React.FC<FilterMobileProps> = ({ filterMobileItems }) => {
             <button
               type='button'
               className='text-blue-700 border border-blue-700 hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md px-5 py-2.5 text-center'
-              onClick={() => {
-                setIsOpenFilter(false);
-              }}
+              onClick={onClickClearFilter}
             >
               Xóa bộ lọc
             </button>
             <button
               type='button'
               className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md px-5 py-2.5 ml-3'
-              onClick={() => {
-                handleFilter(itemsSelected);
-              }}
+              onClick={onClickApplyFilter}
             >
               Áp dụng
             </button>
