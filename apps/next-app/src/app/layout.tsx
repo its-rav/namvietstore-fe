@@ -1,6 +1,4 @@
 'use client';
-
-import { IntlContextProvider } from '@namviet-fe/core-ui';
 import { Metadata } from 'next';
 
 import '@/styles/global.css';
@@ -26,11 +24,9 @@ const HtmlWrapper = ({ children }: { children: React.ReactNode }) => {
 
 export default function RootLayout({ children, footer }: RootLayoutProps) {
   return (
-    <IntlContextProvider defaultLocale={'en'}>
-      <HtmlWrapper>
-        {children}
-        {footer}
-      </HtmlWrapper>
-    </IntlContextProvider>
+    <HtmlWrapper>
+      {children}
+      {footer}
+    </HtmlWrapper>
   );
 }
