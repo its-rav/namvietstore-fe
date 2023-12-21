@@ -1,11 +1,9 @@
 import type { Story, StoryDefault } from "@ladle/react";
-
-import React from "react";
-
-import "regenerator-runtime/runtime";
-import "@namviet-fe/core-ui/dist/style.css";
-
 import { SearchBarMobile } from "@namviet-fe/core-ui";
+import React from "react";
+import "regenerator-runtime/runtime";
+
+import "@namviet-fe/core-ui/dist/style.css";
 
 export default {
   title: "@nv-fe/core-ui/SearchBarMobile",
@@ -14,6 +12,7 @@ export default {
 const onClick = () => {
   window.alert("Redirect");
 };
+
 
 const toggleSideBar = () => {
   window.alert("toggleSideBar");

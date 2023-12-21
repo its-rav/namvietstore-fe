@@ -1,7 +1,7 @@
 import type { Story, StoryDefault } from "@ladle/react";
+import { type ContactTableItemType, ContactTable } from "@namviet-fe/core-ui";
 import React from "react";
 
-import { ContactTable, type ContactTableItemType } from "@namviet-fe/core-ui";
 import "@namviet-fe/core-ui/dist/style.css";
 
 export default {

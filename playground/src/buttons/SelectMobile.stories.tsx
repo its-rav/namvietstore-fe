@@ -1,10 +1,9 @@
 import type { Story, StoryDefault } from "@ladle/react";
-
-import React from "react";
 import { LanguageSelectButtonMobile } from "@namviet-fe/core-ui";
-import { ViIcon, EarthIcon } from "@namviet-fe/core-ui";
-
+import { EarthIcon,ViIcon } from "@namviet-fe/core-ui";
+import React from "react";
 import "regenerator-runtime/runtime";
+
 import "@namviet-fe/core-ui/dist/style.css";
 
 export default {

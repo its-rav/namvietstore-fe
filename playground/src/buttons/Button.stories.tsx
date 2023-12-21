@@ -1,10 +1,9 @@
-import React from "react";
-
 import type { Story, StoryDefault } from "@ladle/react";
 import { WhitePlusIcon } from "@namviet-fe/core-ui";
-
-import { Button, type ButtonProps } from "@namviet-fe/core-ui";
+import { type ButtonProps,Button } from "@namviet-fe/core-ui";
+import React from "react";
 import "regenerator-runtime/runtime";
+
 import "@namviet-fe/core-ui/dist/style.css";
 export default {
   title: "@nv-fe/core-ui/buttons/Button",
