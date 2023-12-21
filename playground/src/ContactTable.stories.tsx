@@ -3,11 +3,9 @@ import React from "react";
 
 import { ContactTable, type ContactTableItemType } from "@namviet-fe/core-ui";
 import "@namviet-fe/core-ui/dist/style.css";
-import { TranslationDecorators } from "./decorators/TranslationDecorators";
 
 export default {
   title: "@nv-fe/core-ui/ContactTable",
-  decorators: [...TranslationDecorators],
 } satisfies StoryDefault<typeof ContactTable>;
 
 const contactTableItem: ContactTableItemType = {
@@ -21,7 +19,7 @@ const contactTableItem: ContactTableItemType = {
   email: "thaiduong.huynh@gmail.com",
 };
 
-export const Default: Story = () => (
+export const Default: Story = (args) => (
   <div className="bg-secondary" style={{ padding: "20px" }}>
     <ContactTable
       contactTableItem={contactTableItem}
@@ -33,6 +31,8 @@ export const Default: Story = () => (
           alt="Bo Cong Thuong Stamp"
         />
       }
+      
+      {...args}
     />
   </div>
 );

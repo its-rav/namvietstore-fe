@@ -5,11 +5,9 @@ import "regenerator-runtime/runtime";
 import "@namviet-fe/core-ui/dist/style.css";
 
 import { MarqueeSection, type MarqueeItemType } from "@namviet-fe/core-ui";
-import { TranslationDecorators } from "../decorators/TranslationDecorators";
 
 export default {
   title: "@nv-fe/core-ui/layout/MarqueeSection",
-  decorators: [...TranslationDecorators],
 } satisfies StoryDefault<typeof MarqueeSection>;
 
 const sampleContent: MarqueeItemType[] = [

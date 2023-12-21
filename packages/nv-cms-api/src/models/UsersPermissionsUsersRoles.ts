@@ -110,7 +110,7 @@ export class UsersPermissionsUsersRoles<SecurityDataType = unknown> {
       type?: string;
       permissions?: UsersPermissionsPermissionsTreeDataContract;
     },
-    params: RequestParams = {},
+    params: RequestParams = {}
   ) =>
     this.http.request<
       {
@@ -233,7 +233,7 @@ export class UsersPermissionsUsersRoles<SecurityDataType = unknown> {
       type?: string;
       permissions?: UsersPermissionsPermissionsTreeDataContract;
     },
-    params: RequestParams = {},
+    params: RequestParams = {}
   ) =>
     this.http.request<
       {
@@ -268,7 +268,7 @@ export class UsersPermissionsUsersRoles<SecurityDataType = unknown> {
       username: string;
       password: string;
     },
-    params: RequestParams = {},
+    params: RequestParams = {}
   ) =>
     this.http.request<
       UsersPermissionsUserDataContract & {
@@ -362,7 +362,7 @@ export class UsersPermissionsUsersRoles<SecurityDataType = unknown> {
       username: string;
       password: string;
     },
-    params: RequestParams = {},
+    params: RequestParams = {}
   ) =>
     this.http.request<
       UsersPermissionsUserDataContract & {

@@ -91,7 +91,7 @@ export class UploadFile<SecurityDataType = unknown> {
       field?: string;
       files: File[];
     },
-    params: RequestParams = {},
+    params: RequestParams = {}
   ) =>
     this.http.request<UploadFileDataContract[], any>({
       path: `/upload`,
@@ -126,7 +126,7 @@ export class UploadFile<SecurityDataType = unknown> {
       /** @format binary */
       files?: File;
     },
-    params: RequestParams = {},
+    params: RequestParams = {}
   ) =>
     this.http.request<UploadFileDataContract[], any>({
       path: `/upload?id=${id}`,
