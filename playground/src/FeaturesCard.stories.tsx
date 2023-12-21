@@ -32,17 +32,3 @@ export const Default: Story = () => (
     <FeaturesCard featuresCardItem={featuresCardItem} />
   </div>
 );
-
-export const NoContent: Story = () => (
-  <div
-    style={{
-      width: "100%",
-      padding: "20px",
-      backgroundColor: "black",
-      justifyContent: "center",
-      display: "flex",
-    }}
-  >
-    <FeaturesCard  />
-  </div>
-);
