@@ -12,20 +12,26 @@ export const metadata: Metadata = {
 type RootLayoutProps = {
   children: React.ReactNode;
   footer: React.ReactNode;
+  topbar: React.ReactNode;
 };
 
 const HtmlWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang='en'>
-      <body>{children}</body>
+      <body className='relative'>{children}</body>
     </html>
   );
 };
 
-export default function RootLayout({ children, footer }: RootLayoutProps) {
+export default function RootLayout({
+  children,
+  footer,
+  topbar,
+}: RootLayoutProps) {
   return (
     <HtmlWrapper>
-      {children}
+      {topbar}
+      <main className='pt-[60px]'>{children}</main>
       {footer}
     </HtmlWrapper>
   );
