@@ -11,34 +11,34 @@ export default {
 } satisfies StoryDefault<typeof FilterItem>;
 
 const filterItems = {
-  filterId: 1,
+  filterId: "1",
   filterType: "Loại bếp",
   filterOptions: [
     {
-      optionId: 101,
+      optionId: "101",
       optionName: "Bếp hồng ngoại",
     },
     {
-      optionId: 102,
+      optionId: "102",
       optionName: "Bếp từ 3 vùng nấu trở lên",
     },
     {
-      optionId: 103,
+      optionId: "103",
       optionName: "Bếp từ đôi",
     },
     {
-      optionId: 104,
+      optionId: "104",
       optionName: "Bếp từ đơn",
     },
   ],
 };
 
 const sortApplied = {
-  optionId: 104,
+  optionId: "104",
   optionName: "Bếp từ đơn",
 };
 
-const onClickSort = (sortId: number) => {
+const onClickSort = (sortId: string) => {
   console.log("sortId", sortId);
 };
 

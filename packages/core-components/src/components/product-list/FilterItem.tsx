@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 
 export type OptionType = {
-  optionId: number;
+  optionId: string;
   optionName: string;
 };
 
 export type FilterItemType = {
-  filterId?: number;
+  filterId?: string;
   filterType: string;
   filterOptions: OptionType[];
 };
 type FilterItemProps = {
   filterItems: FilterItemType;
   sortApplied: OptionType;
-  onClickSort?: (sortId: number) => void;
+  onClickSort?: (sortId: string) => void;
 };
 
 const FilterItem: React.FC<FilterItemProps> = ({

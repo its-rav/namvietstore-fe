@@ -5,12 +5,12 @@ import FilterItem, { OptionType } from './FilterItem';
 type FilterProps = {
   filterGroupItems: FilterGroupType;
   sortApplied: OptionType;
-  itemIdsSelected: number[];
-  onClickSortWeb?: (sortId: number) => void;
-  onClickSortMobile?: (sortId: number) => void;
+  itemIdsSelected: string[];
+  onClickSortWeb?: (sortId: string) => void;
+  onClickSortMobile?: (sortId: string) => void;
   onClickApplyFilter?: () => void;
   onClickClearFilter?: () => void;
-  onClickCheck?: (filterId: number) => void;
+  onClickCheck?: (filterId: string) => void;
 };
 
 const FilterComponent: React.FC<FilterProps> = ({

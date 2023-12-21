@@ -9,11 +9,11 @@ export type FilterGroupType = {
 type FilterMobileProps = {
   filterMobileItems: FilterGroupType;
   sortApplied: OptionType;
-  itemIdsSelected: number[];
-  onClickSort?: (sortId: number) => void;
+  itemIdsSelected: string[];
+  onClickSort?: (sortId: string) => void;
   onClickApplyFilter?: () => void;
   onClickClearFilter?: () => void;
-  onClickCheck?: (filterId: number) => void;
+  onClickCheck?: (filterId: string) => void;
 };
 
 const FilterMobile: React.FC<FilterMobileProps> = ({
@@ -45,7 +45,7 @@ const FilterMobile: React.FC<FilterMobileProps> = ({
   }, [itemIdsSelected]);
 
   return (
-    <div>
+    <div className=''>
       <div className='flex justify-between py-5 font-medium text-sm/4 border-b'>
         <button className='flex items-center px-3' onClick={checkSort}>
           <p className='pr-4'>Sắp xếp</p>
@@ -98,6 +98,7 @@ const FilterMobile: React.FC<FilterMobileProps> = ({
           </button>
         </div>
       </div>
+      {/* List Sort */}
       {filterMobileItems?.sortItems && isOpenSort ? (
         <div className='relative'>
           <ul className='bg-white divide-y text-sm font-normal w-full z-0 absolute opacity-100 top-0 transition-all ease-in duration-500'>
@@ -123,95 +124,99 @@ const FilterMobile: React.FC<FilterMobileProps> = ({
       ) : (
         <></>
       )}
-
+      {/* List Filter */}
       {isOpenFilter ? (
-        <div className='grid grid-cols-1 z-10 h-screen w-3/4 px-6 divide-y bg-white border-gray-200 content-between fixed top-0 right-0'>
-          <button
-            className='absolute top-7 right-7'
-            onClick={() => {
-              setIsOpenFilter(false);
-            }}
-          >
-            <svg
-              className='w-4 h-4'
-              aria-hidden='true'
-              xmlns='http://www.w3.org/2000/svg'
-              fill='none'
-              viewBox='0 0 14 14'
+        <div className='fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm'>
+          <div className='absolute top-0 right-0 grid grid-cols-1 z-10 w-3/4 px-6 divide-y bg-white border-gray-200 content-between'>
+            <button
+              className='absolute top-7 right-7'
+              onClick={() => {
+                setIsOpenFilter(false);
+              }}
             >
-              <path
-                stroke='currentColor'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='2'
-                d='m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6'
-              />
-            </svg>
-          </button>
-          {filterMobileItems?.filterItems ? (
-            <>
-              {filterMobileItems.filterItems.map(
-                (filterItem: FilterItemType) => {
-                  return (
-                    <div
-                      key={filterItem.filterId}
-                      className='py-6 grid-cols-1 '
-                    >
-                      <div className='text-sm font-normal'>
-                        <p className='font-semibold'>{filterItem.filterType}</p>
-                        <div className='grid grid-cols-2 gap-3 mt-5 text-center'>
-                          {filterItem.filterOptions.map((item) => {
-                            return itemIdsSelected.includes(item.optionId) ? (
-                              <button
-                                key={item.optionId}
-                                style={{
-                                  borderColor:
-                                    'rgb(29 78 216 / var(--tw-border-opacity))',
-                                }}
-                                className=' cursor-pointer rounded-md border-[1px] border-gray-200 border-solid p-3'
-                                onClick={() => {
-                                  onClickCheck?.(item.optionId);
-                                }}
-                              >
-                                {item.optionName}
-                              </button>
-                            ) : (
-                              <button
-                                key={item.optionId}
-                                className='cursor-pointer rounded-md border-[1px] border-gray-200 border-solid p-3'
-                                onClick={() => {
-                                  onClickCheck?.(item.optionId);
-                                }}
-                              >
-                                {item.optionName}
-                              </button>
-                            );
-                          })}
+              <svg
+                className='w-4 h-4'
+                aria-hidden='true'
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 14 14'
+              >
+                <path
+                  stroke='currentColor'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='2'
+                  d='m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6'
+                />
+              </svg>
+            </button>
+            {filterMobileItems?.filterItems ? (
+              <>
+                {filterMobileItems.filterItems.map(
+                  (filterItem: FilterItemType) => {
+                    return (
+                      <div
+                        key={filterItem.filterId}
+                        className='py-6 grid-cols-1 '
+                      >
+                        <div className='text-sm font-normal'>
+                          <p className='font-semibold'>
+                            {filterItem.filterType}
+                          </p>
+                          <div className='grid grid-cols-2 gap-3 mt-5 text-center'>
+                            {filterItem.filterOptions.map((item) => {
+                              return itemIdsSelected.includes(item.optionId) ? (
+                                <button
+                                  key={item.optionId}
+                                  style={{
+                                    borderColor:
+                                      'rgb(29 78 216 / var(--tw-border-opacity))',
+                                  }}
+                                  className=' cursor-pointer rounded-md border-[1px] border-gray-200 border-solid p-3'
+                                  onClick={() => {
+                                    onClickCheck?.(item.optionId);
+                                  }}
+                                >
+                                  {item.optionName}
+                                </button>
+                              ) : (
+                                <button
+                                  key={item.optionId}
+                                  className='cursor-pointer rounded-md border-[1px] border-gray-200 border-solid p-3'
+                                  onClick={() => {
+                                    onClickCheck?.(item.optionId);
+                                  }}
+                                >
+                                  {item.optionName}
+                                </button>
+                              );
+                            })}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                }
-              )}
-            </>
-          ) : (
-            <></>
-          )}
-          <div className='grid-cols-1 py-6 text-right'>
-            <button
-              type='button'
-              className='text-blue-700 border border-blue-700 hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md px-5 py-2.5 text-center'
-              onClick={onClickClearFilter}
-            >
-              Xóa bộ lọc
-            </button>
-            <button
-              type='button'
-              className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md px-5 py-2.5 ml-3'
-              onClick={onClickApplyFilter}
-            >
-              Áp dụng
-            </button>
+                    );
+                  }
+                )}
+              </>
+            ) : (
+              <></>
+            )}
+            <div className='grid-cols-1 py-6 text-right'>
+              <button
+                type='button'
+                className='text-blue-700 border border-blue-700 hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md px-5 py-2.5 text-center'
+                onClick={onClickClearFilter}
+              >
+                Xóa bộ lọc
+              </button>
+              <button
+                type='button'
+                className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md px-5 py-2.5 ml-3'
+                onClick={onClickApplyFilter}
+              >
+                Áp dụng
+              </button>
+            </div>
           </div>
         </div>
       ) : (

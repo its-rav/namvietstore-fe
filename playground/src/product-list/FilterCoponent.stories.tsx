@@ -13,63 +13,63 @@ export default {
 const filterGroupItems: FilterGroupType = {
   sortItems: [
     {
-      optionId: 12,
+      optionId: "12",
       optionName: "Khuyến mãi tốt nhất",
     },
     {
-      optionId: 13,
+      optionId: "13",
       optionName: "Giá tăng dần",
     },
     {
-      optionId: 14,
+      optionId: "14",
       optionName: "Giá giảm dần",
     },
     {
-      optionId: 15,
+      optionId: "15",
       optionName: "Sản phẩm bán chạy nhất",
     },
   ],
   filterItems: [
     {
-      filterId: 1,
+      filterId: "1",
       filterType: "Loại bếp",
       filterOptions: [
         {
-          optionId: 101,
+          optionId: "101",
           optionName: "Bếp hồng ngoại",
         },
         {
-          optionId: 102,
+          optionId: "102",
           optionName: "Bếp từ 3 vùng nấu trở lên",
         },
         {
-          optionId: 103,
+          optionId: "103",
           optionName: "Bếp từ đôi",
         },
         {
-          optionId: 104,
+          optionId: "104",
           optionName: "Bếp từ đơn",
         },
       ],
     },
     {
-      filterId: 2,
+      filterId: "2",
       filterType: "Loại bếp",
       filterOptions: [
         {
-          optionId: 201,
+          optionId: "201",
           optionName: "Bếp hồng ngoại",
         },
         {
-          optionId: 202,
+          optionId: "202",
           optionName: "Bếp từ 3 vùng nấu trở lên",
         },
         {
-          optionId: 203,
+          optionId: "203",
           optionName: "Bếp từ đôi",
         },
         {
-          optionId: 204,
+          optionId: "204",
           optionName: "Bếp từ đơn",
         },
       ],
@@ -78,17 +78,17 @@ const filterGroupItems: FilterGroupType = {
 };
 
 const sortApplied = {
-  optionId: 14,
+  optionId: "14",
   optionName: "Giá giảm dần",
 };
 
-const itemIdsSelected = [102, 201, 204];
+const itemIdsSelected = ["102", "201", "204"];
 
-const onClickSortWeb = (sortId: number) => {
+const onClickSortWeb = (sortId: string) => {
   console.log("SortWeb", sortId);
 };
 
-const onClickSortMobile = (sortId: number) => {
+const onClickSortMobile = (sortId: string) => {
   console.log("SortMobile", sortId);
 };
 
@@ -100,7 +100,7 @@ const onClickClearFilter = () => {
   console.log("ClearAll");
 };
 
-const onClickCheck = (filterId: number) => {
+const onClickCheck = (filterId: string) => {
   console.log("Check", filterId);
 };
 
