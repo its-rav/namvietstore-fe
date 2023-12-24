@@ -1,7 +1,7 @@
 import type { Story, StoryDefault } from '@ladle/react';
 import {
-  ProductSummary,
   type ProductSummaryItemType,
+  ProductSummary,
 } from '@namviet-fe/core-ui';
 import React from 'react';
 
