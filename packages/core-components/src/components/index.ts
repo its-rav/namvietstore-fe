@@ -19,5 +19,6 @@ export { SearchBar };
 export { type ContactTableItemType, ContactTable };
 export * from './buttons';
 export * from './sections';
+export * from './product-detail';
 
 export { TopBar };
