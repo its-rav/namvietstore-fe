@@ -5,7 +5,7 @@ import React from 'react';
 import '@namviet-fe/core-ui/dist/style.css';
 
 export default {
-  title: '@nv-fe/core-ui/ProductCarousel',
+  title: '@nv-fe/core-ui/product-detail/ProductCarousel',
 } satisfies StoryDefault<typeof ProductCarousel>;
 
 const productImgItem: ProductImgItemType[] = [
@@ -20,7 +20,10 @@ const productImgItem: ProductImgItemType[] = [
 ];
 
 export const Default: Story = () => (
-  <div className='' style={{ padding: '20px' }}>
-    <ProductCarousel productImgItem={productImgItem} />
+  <div className='grid grid-cols-3' style={{ padding: '20px' }}>
+    <div className='col-span-3 md:col-span-1'>
+      <ProductCarousel productImgItem={productImgItem} />
+    </div>
+    <div className='col-span-3 md:col-span-2'></div>
   </div>
 );
