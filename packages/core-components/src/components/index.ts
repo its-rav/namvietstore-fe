@@ -12,11 +12,11 @@ import TopBar from './topbar/TopBar';
 
 export { PostCard };
 
-export { type FeaturesCardItemType,FeaturesCard, SearchBar, SearchBarMobile };
+export { type FeaturesCardItemType, FeaturesCard, SearchBar, SearchBarMobile };
 
 export * from './buttons';
 export * from './sections';
-export { type ContactTableItemType,ContactTable };
+export { type ContactTableItemType, ContactTable };
 
 export * from './contact';
 export { TopBar };

@@ -14,4 +14,5 @@ export {
   type InfoContactFormType,
   Contact,
   ContactForm,
-  ContactMap};
+  ContactMap,
+};
