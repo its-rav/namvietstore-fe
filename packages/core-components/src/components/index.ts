@@ -22,3 +22,5 @@ export { type ContactTableItemType, ContactTable };
 
 export * from './contact';
 export { TopBar };
+
+export * from './product-list';
