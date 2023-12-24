@@ -9,10 +9,9 @@ import ContactMap, {
 } from '@/components/contact/ContactMap';
 
 export {
-  Contact,
-  ContactForm,
-  ContactMap,
   type ContactItemType,
   type ContactMapItemType,
   type InfoContactFormType,
-};
+  Contact,
+  ContactForm,
+  ContactMap};
