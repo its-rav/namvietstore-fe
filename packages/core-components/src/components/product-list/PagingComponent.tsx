@@ -1,48 +1,42 @@
 import React from 'react';
-import ProductItem, { ProductItemType } from './ProductItem';
-import Pagination, { PaginationType } from './Pagination';
 
-type PagingComponentProps = {
+import Pagination, { PaginationType } from './Pagination';
+import ProductItem, { ProductItemType } from './ProductItem';
+
+export type PagingComponentProps = {
   productItems: ProductItemType[];
-  showLayoutList?: boolean;
   onClickItem?: (id: string) => void;
   paginationPage: PaginationType;
-  handlePageClick?: (selectedItem: { selected: number }) => void;
-  onClickPreviousButton?: (previousPage: number) => void;
-  onClickNextButton?: (nextPage: number) => void;
-  onChangePage?: React.ChangeEventHandler<HTMLSelectElement>;
+  handlePageClick?: (page: number) => void;
+  classItem?: string;
+  classImg?: string;
+  classContent?: string;
+  classPaging?: string;
 };
 
 const PagingComponent: React.FC<PagingComponentProps> = ({
   productItems,
-  showLayoutList = false,
   onClickItem,
   paginationPage,
   handlePageClick,
-  onClickPreviousButton,
-  onClickNextButton,
-  onChangePage,
+  classItem = 'flex flex-col',
+  classImg = 'basis-full object-contain',
+  classContent = 'basis-full',
+  classPaging = 'grid grid-cols-4 gap-3',
 }) => {
   return (
     <div>
-      <div className='grid grid-cols-12 gap-3'>
+      <div className={classPaging}>
         {productItems.map((item) => {
-          return showLayoutList ? (
-            <div key={item.productId} className='col-span-12'>
-              <ProductItem
-                productItem={item}
-                showLayoutList={showLayoutList}
-                onClick={onClickItem}
-              />
-            </div>
-          ) : (
-            <div key={item.productId} className='col-span-6 md:col-span-4'>
-              <ProductItem
-                productItem={item}
-                showLayoutList={showLayoutList}
-                onClick={onClickItem}
-              />
-            </div>
+          return (
+            <ProductItem
+              key={item.productId}
+              productItem={item}
+              onClick={onClickItem}
+              classItem={classItem}
+              classImg={classImg}
+              classContent={classContent}
+            />
           );
         })}
       </div>
@@ -51,9 +45,6 @@ const PagingComponent: React.FC<PagingComponentProps> = ({
           <Pagination
             paginationPage={paginationPage}
             handlePageClick={handlePageClick}
-            onClickPreviousButton={onClickPreviousButton}
-            onClickNextButton={onClickNextButton}
-            onChangePage={onChangePage}
           />
         ) : (
           <div>&ensp;</div>

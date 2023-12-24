@@ -2,41 +2,32 @@
 
 import {
   PaginationType,
-  ProductItemType,
   PagingComponent,
-  Button,
+  ProductItemType,
 } from '@namviet-fe/core-ui';
-import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useState } from 'react';
+import { URLSearchParams } from 'url';
 
 export default function ProductsPage() {
   const router = useRouter();
   const [showLayoutList, setShowLayoutList] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-
-  useEffect(() => {
-    console.log(currentPage);
-  }, [currentPage]);
-  const onClickItem = (productId: string) => {};
-
-  const handlePageClick = (selectedItem: { selected: number }) => {
-    setCurrentPage(selectedItem.selected + 1);
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const pageParamName = 'page';
+  const totalPageParamName = 'total';
+  const onClickItem = (productId: string) => {
+    router.replace(`${pathname}/${productId}`);
   };
 
-  const onClickPreviousButton = () => {
-    setCurrentPage(currentPage - 1);
+  const handlePageClick = (page: number) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set(pageParamName, page.toString());
+    router.replace(`${pathname}?${params.toString()}`);
   };
 
-  const onClickNextButton = () => {
-    setCurrentPage(currentPage + 1);
-  };
-
-  const onChangePage: React.ChangeEventHandler<HTMLSelectElement> = (event) => {
-    setCurrentPage(+event.target.value);
-  };
-
-  const title: string = 'Dầu đốt';
-  const quantity: number = 16;
+  const title = 'Dầu đốt';
+  const quantity = 16;
   const productItems: ProductItemType[] = [
     {
       productId: '101',
@@ -80,20 +71,13 @@ export default function ProductsPage() {
     },
   ];
   const paginationPage: PaginationType = {
-    totalPages: 100,
-    currentPage,
+    totalPages: parseInt(searchParams.get(totalPageParamName) ?? '1'),
+    currentPage: parseInt(searchParams.get(pageParamName) ?? '1'),
   };
 
   return (
     <div className='bg-[#F5F5F5]'>
       <div className='max-w-7xl mx-auto w-full '>
-        <Button
-          onClick={() => {
-            router.push('/');
-          }}
-        >
-          Homepage
-        </Button>
         <div className='grid grid-cols-12'>
           <div className='col-span-12 md:col-span-3'></div>
           <div className='col-span-12 md:col-span-9 px-[5px] md:px-0 py-[10px] md:py-[30px] flex items-center font-[Roboto]'>
@@ -106,13 +90,21 @@ export default function ProductsPage() {
           <div className='col-span-12 md:col-span-9'>
             <PagingComponent
               productItems={productItems}
-              showLayoutList={showLayoutList}
               onClickItem={onClickItem}
               paginationPage={paginationPage}
               handlePageClick={handlePageClick}
-              onClickPreviousButton={onClickPreviousButton}
-              onClickNextButton={onClickNextButton}
-              onChangePage={onChangePage}
+              classItem={showLayoutList ? 'flex flex-row' : 'flex flex-col'}
+              classImg={
+                showLayoutList
+                  ? 'basis-2/5 object-contain'
+                  : 'bais-full object-contain'
+              }
+              classContent={showLayoutList ? 'basis-3/5' : 'bais-full'}
+              classPaging={
+                showLayoutList
+                  ? 'grid gap-3 grid-cols-1'
+                  : 'grid gap-3 grid-cols-2 md:grid-cols-4'
+              }
             />
           </div>
         </div>

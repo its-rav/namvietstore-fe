@@ -1,13 +1,15 @@
-import Pagination, {type PaginationType} from '@/components/product-list/Pagination';
+import Pagination, {
+  type PaginationType,
+} from '@/components/product-list/Pagination';
+import PagingComponent from '@/components/product-list/PagingComponent';
 import ProductItem, {
   type ProductItemType,
 } from '@/components/product-list/ProductItem';
-import PagingComponent from '@/components/product-list/PagingComponent';
 
 export {
-  ProductItem,
+  type PaginationType,
   type ProductItemType,
   Pagination,
-  type PaginationType,
   PagingComponent,
+  ProductItem,
 };

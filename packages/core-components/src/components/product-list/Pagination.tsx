@@ -8,10 +8,7 @@ export type PaginationType = {
 
 type PaginationProps = {
   paginationPage: PaginationType;
-  handlePageClick?: (selectedItem: { selected: number }) => void;
-  onClickPreviousButton?: (previousPage: number) => void;
-  onClickNextButton?: (nextPage: number) => void;
-  onChangePage?: React.ChangeEventHandler<HTMLSelectElement>;
+  handlePageClick?: (page: number) => void;
 };
 
 const previousButton = (
@@ -50,20 +47,20 @@ const breakLabel = (
 const Pagination: React.FC<PaginationProps> = ({
   paginationPage,
   handlePageClick,
-  onClickPreviousButton,
-  onClickNextButton,
-  onChangePage,
 }) => {
   const showNextButton =
     paginationPage.currentPage !== paginationPage.totalPages;
   const showPreviousButton = paginationPage.currentPage !== 1;
+
   return (
     <div className='flex justify-center'>
       <ReactPaginate
         forcePage={paginationPage.currentPage - 1}
         breakLabel={breakLabel}
         nextLabel={showNextButton ? nextButton : null}
-        onPageChange={handlePageClick}
+        onPageChange={(selectedItem) => {
+          handlePageClick?.(selectedItem.selected);
+        }}
         pageRangeDisplayed={3}
         pageCount={paginationPage.totalPages}
         previousLabel={showPreviousButton ? previousButton : null}
@@ -74,44 +71,32 @@ const Pagination: React.FC<PaginationProps> = ({
         activeClassName='!bg-[#850000] text-white shadow-md shadow-gray-900/10 transition-all focus:opacity-[0.85] focus:shadow-none hover:bg-red-900'
       />
       <div className='flex md:hidden gap-[5px] font-primary text-sm/4 font-normal'>
-        {showPreviousButton ? (
-          <button
-            className='bg-[#850000] relative h-[36px] w-[60px] rounded-[2px] text-center align-middle  text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none'
-            type='button'
-            onClick={() => {
-              onClickPreviousButton?.(paginationPage.currentPage - 1);
-            }}
-          >
-            <span className='absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'>
-              Trước
-            </span>
-          </button>
-        ) : (
-          <button
-            disabled
-            className='bg-gray-900/10 relative h-[36px] w-[60px] rounded-[2px] text-center align-middle  text-white shadow-md shadow-gray-900/10 transition-all'
-            type='button'
-          >
-            <span className='absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'>
-              Trước
-            </span>
-          </button>
-        )}
+        <button
+          disabled={!showPreviousButton}
+          className='bg-[#850000] relative h-[36px] w-[60px] rounded-[2px] text-center align-middle  text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none'
+          type='button'
+          onClick={() => {
+            handlePageClick?.(paginationPage.currentPage - 1);
+          }}
+        >
+          <span className='absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'>
+            Trước
+          </span>
+        </button>
         <div className='grid '>
           <select
             defaultValue={paginationPage.currentPage}
-            onChange={onChangePage}
+            onChange={(e) => {
+              e.preventDefault();
+              handlePageClick?.(parseInt(e.target.value));
+            }}
             className='appearance-none row-start-1 col-start-1 bg-white px-[10px] border-[#575757] border-[1px] h-[36px] w-[60px] rounded-[2px]  text-[#575757] transition-all'
           >
             {Array.from(
               { length: paginationPage.totalPages },
               (_, i) => i + 1
             ).map((page: number) => {
-              return page === paginationPage.currentPage ? (
-                <option selected key={page} value={page}>
-                  {page}
-                </option>
-              ) : (
+              return (
                 <option key={page} value={page}>
                   {page}
                 </option>
@@ -135,29 +120,18 @@ const Pagination: React.FC<PaginationProps> = ({
             />
           </svg>
         </div>
-        {showNextButton ? (
-          <button
-            className='bg-[#850000] relative h-[36px] w-[60px] rounded-[2px] text-center align-middle  text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none'
-            type='button'
-            onClick={() => {
-              onClickNextButton?.(paginationPage.currentPage + 1);
-            }}
-          >
-            <span className='absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'>
-              Sau
-            </span>
-          </button>
-        ) : (
-          <button
-            disabled
-            className='bg-gray-900/10 relative h-[36px] w-[60px] rounded-[2px] text-center align-middle  text-white shadow-md shadow-gray-900/10 transition-all'
-            type='button'
-          >
-            <span className='absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'>
-              Sau
-            </span>
-          </button>
-        )}
+        <button
+          disabled={!showNextButton}
+          className='bg-[#850000] relative h-[36px] w-[60px] rounded-[2px] text-center align-middle  text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none'
+          type='button'
+          onClick={() => {
+            handlePageClick?.(paginationPage.currentPage + 1);
+          }}
+        >
+          <span className='absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'>
+            Sau
+          </span>
+        </button>
       </div>
     </div>
   );
