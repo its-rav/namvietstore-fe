@@ -37,7 +37,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
   };
   const onChangeReCapcha = (token: string | null) => {
     setReCapchaToken(token);
-    console.log(token);
   };
   const onExpiredReCapcha = () => {
     setReCapchaToken('');
