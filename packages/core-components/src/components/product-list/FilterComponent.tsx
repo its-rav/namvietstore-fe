@@ -1,47 +1,44 @@
 import React from 'react';
+
+import FilterItem from './FilterItem';
 import FilterMobile, { FilterGroupType } from './FilterMobile';
-import FilterItem, { OptionType } from './FilterItem';
 
 type FilterProps = {
   filterGroupItems: FilterGroupType;
-  sortApplied: OptionType;
-  itemIdsSelected: string[];
-  onClickSortWeb?: (sortId: string) => void;
-  onClickSortMobile?: (sortId: string) => void;
-  onClickApplyFilter?: () => void;
-  onClickClearFilter?: () => void;
-  onClickCheck?: (filterId: string) => void;
+  onClickSortAndFilter: (sortParams: string[]) => void;
+  applyFilterTitle: string;
+  clearFilterTitle: string;
+  filterTitle: string;
+  onChangePageLayout: (isList: boolean) => void;
 };
 
 const FilterComponent: React.FC<FilterProps> = ({
   filterGroupItems,
-  sortApplied,
-  itemIdsSelected,
-  onClickSortWeb,
-  onClickSortMobile,
-  onClickApplyFilter,
-  onClickClearFilter,
-  onClickCheck,
+  applyFilterTitle,
+  clearFilterTitle,
+  filterTitle,
+  onClickSortAndFilter,
+  onChangePageLayout,
 }) => {
   return (
-    <div>
+    <>
       <div className='hidden md:block'>
-        <div className='mb-12'>
-          <FilterItem
-            filterItems={{
-              filterType: 'Sắp xếp',
-              filterOptions: filterGroupItems.sortItems,
-            }}
-            sortApplied={sortApplied}
-          />
-        </div>
+        {filterGroupItems.sortItems ? (
+          <div key={filterGroupItems.sortItems.filterId} className='mb-12'>
+            <FilterItem
+              filterItems={filterGroupItems.sortItems}
+              onClickSort={onClickSortAndFilter}
+            ></FilterItem>
+          </div>
+        ) : (
+          <></>
+        )}
         {filterGroupItems.filterItems.map((item) => {
           return (
             <div key={item.filterId} className='mb-12'>
               <FilterItem
                 filterItems={item}
-                sortApplied={sortApplied}
-                onClickSort={onClickSortWeb}
+                onClickSort={onClickSortAndFilter}
               ></FilterItem>
             </div>
           );
@@ -50,15 +47,14 @@ const FilterComponent: React.FC<FilterProps> = ({
       <div className='block md:hidden'>
         <FilterMobile
           filterMobileItems={filterGroupItems}
-          sortApplied={sortApplied}
-          itemIdsSelected={itemIdsSelected}
-          onClickSort={onClickSortMobile}
-          onClickApplyFilter={onClickApplyFilter}
-          onClickClearFilter={onClickClearFilter}
-          onClickCheck={onClickCheck}
+          applyFilterTitle={applyFilterTitle}
+          clearFilterTitle={clearFilterTitle}
+          filterTitle={filterTitle}
+          onClickApplySortFilter={onClickSortAndFilter}
+          onChangePageLayout={onChangePageLayout}
         />
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,6 +1,6 @@
 'use clients';
 import type { Story, StoryDefault } from '@ladle/react';
-import { ProductItem, type ProductItemType } from '@namviet-fe/core-ui';
+import { type ProductItemType,ProductItem } from '@namviet-fe/core-ui';
 import React from 'react';
 
 import '@namviet-fe/core-ui/dist/style.css';
