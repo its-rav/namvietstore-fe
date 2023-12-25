@@ -11,7 +11,7 @@ export default {
   title: '@nv-fe/core-ui/product-detail/ProductSummary',
 } satisfies StoryDefault<typeof ProductSummary>;
 
-const productSummaryItem: ProductSummary = {
+const productSummaryItem: ProductSummaryItemType = {
   title: 'Đầu đốt Blowtherm Diesel Burner',
   brand: 'Blowtherm',
   productId: 'MA01',

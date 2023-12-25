@@ -38,7 +38,6 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
           },
         };
       });
-    console.log(images);
     return (
       <div className=''>
         <ImageGallery

@@ -4,6 +4,10 @@ import ProductCarousel, {
 import ProductSummary, {
     type ProductSummaryItemType,
   } from '@/components/product-detail/ProductSummary';
+import ProductSpecifications, {
+    type ProductSpecificationsItemType,
+    type ProductSpecificationsGroupType
+  } from '@/components/product-detail/ProductSpecifications';
 
 
   export {
@@ -11,4 +15,7 @@ import ProductSummary, {
     type ProductImgItemType,
     ProductSummary,
     type ProductSummaryItemType,
+    ProductSpecifications,
+    type ProductSpecificationsItemType,
+    type ProductSpecificationsGroupType,
   };
