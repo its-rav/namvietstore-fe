@@ -45,7 +45,7 @@ jobs:
         with:
           filters: |
             core-ui:
-              - 'packages/core-ui/**'
+              - 'packages/core-components/**'
 
       - name: 🔎 Type check
         if: steps.path-filter.outputs.core-ui == 'true'
