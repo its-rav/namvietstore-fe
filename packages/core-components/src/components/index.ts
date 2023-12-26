@@ -5,13 +5,20 @@ import FeaturesCard, {
   type FeaturesCardItemType,
 } from '@/components/FeaturesCard';
 import PostCard from '@/components/PostCard';
+import SearchBar from '@/components/SearchBar';
 import SearchBarMobile from '@/components/SearchBarMobile';
 
 import SideBarMobile from './SideBarMobile';
 export { SideBarMobile };
+import TopBar from './topbar/TopBar';
+
 export { PostCard };
-export { SearchBarMobile };
-export { type FeaturesCardItemType, FeaturesCard };
-export { type ContactTableItemType, ContactTable };
+
+export { type FeaturesCardItemType, FeaturesCard, SearchBar, SearchBarMobile };
+
 export * from './buttons';
 export * from './sections';
+export { type ContactTableItemType, ContactTable };
+
+export * from './contact';
+export { TopBar };
