@@ -1,5 +1,5 @@
 export default {
-  stories: "src/**/*.stories.{js,jsx,ts,tsx}",
+  stories: 'src/**/*.stories.{js,jsx,ts,tsx}',
 
   addons: {
     width: {
@@ -28,7 +28,7 @@ export default {
     },
     mode: {
       enabled: true,
-      defaultState: "full",
+      defaultState: 'full',
     },
     rtl: {
       enabled: true,
@@ -40,7 +40,7 @@ export default {
     },
     theme: {
       enabled: true,
-      defaultState: "black",
+      defaultState: 'black',
     },
   },
 };

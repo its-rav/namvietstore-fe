@@ -1,6 +1,8 @@
 export { ReactComponent as AddressIcon } from './address.svg';
 export { ReactComponent as BlackHamburgerIcon } from './blackhamburger.svg';
 export { ReactComponent as BlackSearchIcon } from './blacksearch.svg';
+export { ReactComponent as CloseIcon } from './close.svg';
+export { ReactComponent as DropDownIcon } from './dropdown.svg';
 export { ReactComponent as EarthIcon } from './earth.svg';
 export { ReactComponent as EmailIcon } from './email.svg';
 export { ReactComponent as EnIcon } from './enflag.svg';
