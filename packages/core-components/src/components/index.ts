@@ -6,18 +6,17 @@ import FeaturesCard, {
 } from '@/components/FeaturesCard';
 import PostCard from '@/components/PostCard';
 import SearchBar from '@/components/SearchBar';
+import SearchBarMobile from '@/components/SearchBarMobile';
 
 import TopBar from './topbar/TopBar';
 
 export { PostCard };
-import SearchBarMobile from '@/components/SearchBarMobile';
 
-export { SearchBarMobile };
-export { type FeaturesCardItemType, FeaturesCard };
-export { SearchBar };
+export { type FeaturesCardItemType, FeaturesCard, SearchBar, SearchBarMobile };
 
-export { type ContactTableItemType, ContactTable };
 export * from './buttons';
 export * from './sections';
+export { type ContactTableItemType, ContactTable };
 
+export * from './contact';
 export { TopBar };
