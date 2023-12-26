@@ -47,11 +47,11 @@ jobs:
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
 
-      - name: check modified files
+      - name: Check modified files
         id: check_files
         run: |
           echo "=============== list modified files ==============="
-          git diff --name-only HEAD^ HEAD
+          git diff --name-only 'HEAD^' 'HEAD'
           
           echo "========== check paths of modified files =========="
           git diff --name-only HEAD^ HEAD &gt; files.txt
@@ -68,6 +68,7 @@ jobs:
           done &lt; files.txt
 
       - name: 🔎 Type check
+        if: needs.check.outputs.run_job == 'true'
         run: yarn core:typecheck
 
   prettier:
