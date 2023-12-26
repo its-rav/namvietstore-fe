@@ -12,8 +12,8 @@
 import {
   ErrorDataContract,
   UsersPermissionsUserRegistrationDataContract,
-} from "./data-contracts";
-import { ContentType, HttpClient, RequestParams } from "./http-client";
+} from './data-contracts';
+import { ContentType, HttpClient, RequestParams } from './http-client';
 
 export class UsersPermissionsAuth<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -39,9 +39,9 @@ export class UsersPermissionsAuth<SecurityDataType = unknown> {
       ErrorDataContract
     >({
       path: `/auth/${provider}/callback`,
-      method: "GET",
+      method: 'GET',
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -68,11 +68,11 @@ export class UsersPermissionsAuth<SecurityDataType = unknown> {
       ErrorDataContract
     >({
       path: `/auth/change-password`,
-      method: "POST",
+      method: 'POST',
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -89,7 +89,7 @@ export class UsersPermissionsAuth<SecurityDataType = unknown> {
   connectDetail = (provider: string, params: RequestParams = {}) =>
     this.http.request<any, void | ErrorDataContract>({
       path: `/connect/${provider}`,
-      method: "GET",
+      method: 'GET',
       secure: true,
       ...params,
     });
@@ -113,7 +113,7 @@ export class UsersPermissionsAuth<SecurityDataType = unknown> {
   ) =>
     this.http.request<any, void | ErrorDataContract>({
       path: `/auth/email-confirmation`,
-      method: "GET",
+      method: 'GET',
       query: query,
       secure: true,
       ...params,
@@ -140,16 +140,16 @@ export class UsersPermissionsAuth<SecurityDataType = unknown> {
   ) =>
     this.http.request<
       {
-        ok?: "true";
+        ok?: 'true';
       },
       ErrorDataContract
     >({
       path: `/auth/forgot-password`,
-      method: "POST",
+      method: 'POST',
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -175,11 +175,11 @@ export class UsersPermissionsAuth<SecurityDataType = unknown> {
       ErrorDataContract
     >({
       path: `/auth/local`,
-      method: "POST",
+      method: 'POST',
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -206,11 +206,11 @@ export class UsersPermissionsAuth<SecurityDataType = unknown> {
       ErrorDataContract
     >({
       path: `/auth/local/register`,
-      method: "POST",
+      method: 'POST',
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -237,11 +237,11 @@ export class UsersPermissionsAuth<SecurityDataType = unknown> {
       ErrorDataContract
     >({
       path: `/auth/reset-password`,
-      method: "POST",
+      method: 'POST',
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -268,16 +268,16 @@ export class UsersPermissionsAuth<SecurityDataType = unknown> {
     this.http.request<
       {
         email?: string;
-        sent?: "true";
+        sent?: 'true';
       },
       ErrorDataContract
     >({
       path: `/auth/send-email-confirmation`,
-      method: "POST",
+      method: 'POST',
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
     });
 }

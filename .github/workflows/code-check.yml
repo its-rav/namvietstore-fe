@@ -4,7 +4,10 @@ on:
   push:
     branches:
       - main
-  pull_request: {}
+  pull_request: 
+    branches:
+      - develop
+    types: [opened, synchronize, reopened]
 
 concurrency:
   group: ${{ github.job }}-${{ github.ref }}
@@ -12,55 +15,53 @@ concurrency:
 
 jobs:
   lint:
-    name: Core-UI ⬣ ESLint
+    name: ⬣ ESLint
     runs-on: ubuntu-latest
     steps:
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@v2
-
-      - name: ⎔ Setup node
+      - uses: actions/checkout@v4
+      - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
-
-      - name: 📥 Download deps
-        uses: bahmutov/npm-install@v1
-
+          node-version: '16.x'
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
       - name: 🔬 Lint
-        run: yarn core:lint:strict
+        run: yarn lint
 
   typecheck:
     name: Core-UI ʦ TypeScript
     runs-on: ubuntu-latest
     steps:
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@v2
-
-      - name: ⎔ Setup node
+      - uses: actions/checkout@v4
+      - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: '16.x'
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
 
-      - name: 📥 Download deps
-        uses: bahmutov/npm-install@v1
+      - uses: dorny/paths-filter@v2
+        id: path-filter
+        with:
+          filters: |
+            core-ui:
+              - 'packages/core-components/**/*'
 
       - name: 🔎 Type check
+        if: steps.path-filter.outputs.core-ui == 'true'
         run: yarn core:typecheck
 
   prettier:
-    name: Core-UI 💅 Prettier
+    name: 💅 Prettier
     runs-on: ubuntu-latest
     steps:
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@v2
-
-      - name: ⎔ Setup node
+      - uses: actions/checkout@v4
+      - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
-
-      - name: 📥 Download deps
-        uses: bahmutov/npm-install@v1
+          node-version: '16.x'
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
 
       - name: 💅 Prettier check
-        run: yarn core:format:check
+        run: yarn format:check

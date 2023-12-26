@@ -327,7 +327,7 @@ export interface BrandDataContract {
           };
           metaSocial?: {
             id?: number;
-            socialNetwork?: "Facebook" | "Twitter";
+            socialNetwork?: 'Facebook' | 'Twitter';
             title?: string;
             description?: string;
             image?: {
@@ -560,7 +560,7 @@ export interface BrandDataContract {
                 };
                 metaSocial?: {
                   id?: number;
-                  socialNetwork?: "Facebook" | "Twitter";
+                  socialNetwork?: 'Facebook' | 'Twitter';
                   title?: string;
                   description?: string;
                   image?: {
@@ -685,7 +685,7 @@ export interface BrandDataContract {
                 | {
                     id?: number;
                     __component?: string;
-                    socialNetwork?: "Facebook" | "Twitter";
+                    socialNetwork?: 'Facebook' | 'Twitter';
                     title?: string;
                     description?: string;
                     image?: {
@@ -800,7 +800,7 @@ export interface BrandDataContract {
                     };
                     metaSocial?: {
                       id?: number;
-                      socialNetwork?: "Facebook" | "Twitter";
+                      socialNetwork?: 'Facebook' | 'Twitter';
                       title?: string;
                       description?: string;
                       image?: {
@@ -1289,7 +1289,7 @@ export interface CategoryDataContract {
           };
           metaSocial?: {
             id?: number;
-            socialNetwork?: "Facebook" | "Twitter";
+            socialNetwork?: 'Facebook' | 'Twitter';
             title?: string;
             description?: string;
             image?: {
@@ -1522,7 +1522,7 @@ export interface CategoryDataContract {
                 };
                 metaSocial?: {
                   id?: number;
-                  socialNetwork?: "Facebook" | "Twitter";
+                  socialNetwork?: 'Facebook' | 'Twitter';
                   title?: string;
                   description?: string;
                   image?: {
@@ -1647,7 +1647,7 @@ export interface CategoryDataContract {
                 | {
                     id?: number;
                     __component?: string;
-                    socialNetwork?: "Facebook" | "Twitter";
+                    socialNetwork?: 'Facebook' | 'Twitter';
                     title?: string;
                     description?: string;
                     image?: {
@@ -1762,7 +1762,7 @@ export interface CategoryDataContract {
                     };
                     metaSocial?: {
                       id?: number;
-                      socialNetwork?: "Facebook" | "Twitter";
+                      socialNetwork?: 'Facebook' | 'Twitter';
                       title?: string;
                       description?: string;
                       image?: {
@@ -2227,7 +2227,7 @@ export interface SharedSeoComponentDataContract {
   };
   metaSocial?: {
     id?: number;
-    socialNetwork?: "Facebook" | "Twitter";
+    socialNetwork?: 'Facebook' | 'Twitter';
     title?: string;
     description?: string;
     image?: {
@@ -2304,7 +2304,7 @@ export interface ProductAdditionalPropertyComponentDataContract {
 
 export interface SharedMetaSocialComponentDataContract {
   id?: number;
-  socialNetwork?: "Facebook" | "Twitter";
+  socialNetwork?: 'Facebook' | 'Twitter';
   title?: string;
   description?: string;
   image?: {
@@ -3273,7 +3273,7 @@ export interface ProductDataContract {
                 };
                 metaSocial?: {
                   id?: number;
-                  socialNetwork?: "Facebook" | "Twitter";
+                  socialNetwork?: 'Facebook' | 'Twitter';
                   title?: string;
                   description?: string;
                   image?: {
@@ -3476,7 +3476,7 @@ export interface ProductDataContract {
                       };
                       metaSocial?: {
                         id?: number;
-                        socialNetwork?: "Facebook" | "Twitter";
+                        socialNetwork?: 'Facebook' | 'Twitter';
                         title?: string;
                         description?: string;
                         image?: {
@@ -3601,7 +3601,7 @@ export interface ProductDataContract {
                       | {
                           id?: number;
                           __component?: string;
-                          socialNetwork?: "Facebook" | "Twitter";
+                          socialNetwork?: 'Facebook' | 'Twitter';
                           title?: string;
                           description?: string;
                           image?: {
@@ -3716,7 +3716,7 @@ export interface ProductDataContract {
                           };
                           metaSocial?: {
                             id?: number;
-                            socialNetwork?: "Facebook" | "Twitter";
+                            socialNetwork?: 'Facebook' | 'Twitter';
                             title?: string;
                             description?: string;
                             image?: {

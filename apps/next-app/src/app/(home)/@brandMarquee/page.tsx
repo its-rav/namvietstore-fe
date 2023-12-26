@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import { MarqueeSection } from '@namviet-fe/core-ui';
 
 export default function BrandMarquee() {

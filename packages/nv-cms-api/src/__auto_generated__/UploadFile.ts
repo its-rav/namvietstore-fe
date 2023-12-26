@@ -9,8 +9,8 @@
  * ---------------------------------------------------------------
  */
 
-import { UploadFileDataContract } from "./data-contracts";
-import { ContentType, HttpClient, RequestParams } from "./http-client";
+import { UploadFileDataContract } from './data-contracts';
+import { ContentType, HttpClient, RequestParams } from './http-client';
 
 export class UploadFile<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -31,9 +31,9 @@ export class UploadFile<SecurityDataType = unknown> {
   filesDelete = (id: string, params: RequestParams = {}) =>
     this.http.request<UploadFileDataContract, any>({
       path: `/upload/files/${id}`,
-      method: "DELETE",
+      method: 'DELETE',
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -48,9 +48,9 @@ export class UploadFile<SecurityDataType = unknown> {
   filesDetail = (id: string, params: RequestParams = {}) =>
     this.http.request<UploadFileDataContract, any>({
       path: `/upload/files/${id}`,
-      method: "GET",
+      method: 'GET',
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -65,9 +65,9 @@ export class UploadFile<SecurityDataType = unknown> {
   filesList = (params: RequestParams = {}) =>
     this.http.request<UploadFileDataContract[], any>({
       path: `/upload/files`,
-      method: "GET",
+      method: 'GET',
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -95,11 +95,11 @@ export class UploadFile<SecurityDataType = unknown> {
   ) =>
     this.http.request<UploadFileDataContract[], any>({
       path: `/upload`,
-      method: "POST",
+      method: 'POST',
       body: data,
       secure: true,
       type: ContentType.FormData,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -130,12 +130,12 @@ export class UploadFile<SecurityDataType = unknown> {
   ) =>
     this.http.request<UploadFileDataContract[], any>({
       path: `/upload?id=${id}`,
-      method: "POST",
+      method: 'POST',
       query: query,
       body: data,
       secure: true,
       type: ContentType.FormData,
-      format: "json",
+      format: 'json',
       ...params,
     });
 }

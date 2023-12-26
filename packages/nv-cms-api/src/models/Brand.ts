@@ -16,8 +16,8 @@ import {
   BrandRequestDataContract,
   BrandResponseDataContract,
   ErrorDataContract,
-} from "./data-contracts";
-import { ContentType, HttpClient, RequestParams } from "./http-client";
+} from './data-contracts';
+import { ContentType, HttpClient, RequestParams } from './http-client';
 
 export class Brand<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -43,9 +43,9 @@ export class Brand<SecurityDataType = unknown> {
   deleteBrandsId = (id: number, params: RequestParams = {}) =>
     this.http.request<number, ErrorDataContract>({
       path: `/brands/${id}`,
-      method: "DELETE",
+      method: 'DELETE',
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -67,15 +67,15 @@ export class Brand<SecurityDataType = unknown> {
       /** Sort by attributes ascending (asc) or descending (desc) */
       sort?: string;
       /** Return page/pageSize (default: true) */
-      "pagination[withCount]"?: boolean;
+      'pagination[withCount]'?: boolean;
       /** Page number (default: 0) */
-      "pagination[page]"?: number;
+      'pagination[page]'?: number;
       /** Page size (default: 25) */
-      "pagination[pageSize]"?: number;
+      'pagination[pageSize]'?: number;
       /** Offset value (default: 0) */
-      "pagination[start]"?: number;
+      'pagination[start]'?: number;
       /** Number of entities to return (default: 25) */
-      "pagination[limit]"?: number;
+      'pagination[limit]'?: number;
       /** Fields to return (ex: title,author) */
       fields?: string;
       /** Relations to return */
@@ -89,10 +89,10 @@ export class Brand<SecurityDataType = unknown> {
   ) =>
     this.http.request<BrandListResponseDataContract, ErrorDataContract>({
       path: `/brands`,
-      method: "GET",
+      method: 'GET',
       query: query,
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -112,9 +112,9 @@ export class Brand<SecurityDataType = unknown> {
   getBrandsId = (id: number, params: RequestParams = {}) =>
     this.http.request<BrandResponseDataContract, ErrorDataContract>({
       path: `/brands/${id}`,
-      method: "GET",
+      method: 'GET',
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -134,11 +134,11 @@ export class Brand<SecurityDataType = unknown> {
   postBrands = (data: BrandRequestDataContract, params: RequestParams = {}) =>
     this.http.request<BrandResponseDataContract, ErrorDataContract>({
       path: `/brands`,
-      method: "POST",
+      method: 'POST',
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -163,11 +163,11 @@ export class Brand<SecurityDataType = unknown> {
     this.http.request<BrandLocalizationResponseDataContract, ErrorDataContract>(
       {
         path: `/brands/${id}/localizations`,
-        method: "POST",
+        method: 'POST',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }
     );
@@ -192,11 +192,11 @@ export class Brand<SecurityDataType = unknown> {
   ) =>
     this.http.request<BrandResponseDataContract, ErrorDataContract>({
       path: `/brands/${id}`,
-      method: "PUT",
+      method: 'PUT',
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
     });
 }
