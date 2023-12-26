@@ -6,7 +6,6 @@ import { FaFlagUsa } from "react-icons/fa";
 import { GiUsaFlag } from "react-icons/gi";
 import "regenerator-runtime/runtime";
 
-import "@namviet-fe/core-ui/dist/style.css";
 
 export default {
   title: "@nv-fe/core-ui/buttons/Select",

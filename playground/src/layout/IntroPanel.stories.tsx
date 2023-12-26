@@ -1,9 +1,6 @@
 import type { Story, StoryDefault } from "@ladle/react";
-import React from "react";
-
-import "@namviet-fe/core-ui/dist/style.css";
-
 import { type IntroPanelItemType, IntroPanel } from "@namviet-fe/core-ui";
+import React from "react";
 
 const introPanelItem: IntroPanelItemType = {
   title: "Công ty TNHH Thiết bị nhiệt Nam Việt",

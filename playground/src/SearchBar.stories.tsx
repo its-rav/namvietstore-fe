@@ -1,11 +1,7 @@
 import type { Story, StoryDefault } from "@ladle/react";
-
+import { SearchBar } from "@namviet-fe/core-ui";
 import React from "react";
-
 import "regenerator-runtime/runtime";
-import "@namviet-fe/core-ui/dist/style.css";
-
-import { SearchBar, SearchIcon } from "@namviet-fe/core-ui";
 
 export default {
   title: "@nv-fe/core-ui/SearchBar",

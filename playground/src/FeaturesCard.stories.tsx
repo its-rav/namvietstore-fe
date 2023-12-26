@@ -7,8 +7,6 @@ import {
 import React from "react";
 import "regenerator-runtime/runtime";
 
-import "@namviet-fe/core-ui/dist/style.css";
-
 const featuresCardItem: FeaturesCardItemType = {
   icon: <ProductIcon />,
   title: "Sản phẩm",

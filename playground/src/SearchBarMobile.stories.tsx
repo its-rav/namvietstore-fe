@@ -3,8 +3,6 @@ import { SearchBarMobile } from "@namviet-fe/core-ui";
 import React from "react";
 import "regenerator-runtime/runtime";
 
-import "@namviet-fe/core-ui/dist/style.css";
-
 export default {
   title: "@nv-fe/core-ui/SearchBarMobile",
 } satisfies StoryDefault<typeof SearchBarMobile>;

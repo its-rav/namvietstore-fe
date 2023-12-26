@@ -1,13 +1,10 @@
 import type { Story, StoryDefault } from "@ladle/react";
+import { type ContactItemType,Contact } from "@namviet-fe/core-ui";
 import React from "react";
 
-import { Contact, type ContactItemType } from "@namviet-fe/core-ui";
-import "@namviet-fe/core-ui/dist/style.css";
-import { TranslationDecorators } from "../decorators/TranslationDecorators";
 
 export default {
   title: "@nv-fe/core-ui/contact/ContactComponent",
-  decorators: [...TranslationDecorators],
 } satisfies StoryDefault<typeof Contact>;
 
 const contactItem: ContactItemType = {

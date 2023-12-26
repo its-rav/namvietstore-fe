@@ -1,17 +1,14 @@
 import type { Story, StoryDefault } from "@ladle/react";
-import React from "react";
-
-import "regenerator-runtime/runtime";
-import "@namviet-fe/core-ui/dist/style.css";
-
 import {
   type FeaturesListItemType,
-  ProductIcon,
+  FeaturesList,
   HeadphonesIcon,
   KeyIcon,
+  ProductIcon,
   UserIcon,
-  FeaturesList,
 } from "@namviet-fe/core-ui";
+import React from "react";
+import "regenerator-runtime/runtime";
 
 const items: FeaturesListItemType[] = [
   {

@@ -1,13 +1,10 @@
 import type { Story, StoryDefault } from "@ladle/react";
+import { ContactMap } from "@namviet-fe/core-ui";
 import React from "react";
 
-import { ContactMap } from "@namviet-fe/core-ui";
-import "@namviet-fe/core-ui/dist/style.css";
-import { TranslationDecorators } from "../decorators/TranslationDecorators";
 
 export default {
   title: "@nv-fe/core-ui/contact/ContactMap",
-  decorators: [...TranslationDecorators],
 } satisfies StoryDefault<typeof ContactMap>;
 
 export const Default: Story = () => (

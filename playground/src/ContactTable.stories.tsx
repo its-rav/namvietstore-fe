@@ -2,8 +2,6 @@ import type { Story, StoryDefault } from "@ladle/react";
 import { type ContactTableItemType, ContactTable } from "@namviet-fe/core-ui";
 import React from "react";
 
-import "@namviet-fe/core-ui/dist/style.css";
-
 export default {
   title: "@nv-fe/core-ui/ContactTable",
 } satisfies StoryDefault<typeof ContactTable>;
