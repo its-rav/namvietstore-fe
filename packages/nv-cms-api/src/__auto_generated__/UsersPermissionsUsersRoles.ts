@@ -14,8 +14,8 @@ import {
   UsersPermissionsPermissionsTreeDataContract,
   UsersPermissionsRoleDataContract,
   UsersPermissionsUserDataContract,
-} from "./data-contracts";
-import { ContentType, HttpClient, RequestParams } from "./http-client";
+} from './data-contracts';
+import { ContentType, HttpClient, RequestParams } from './http-client';
 
 export class UsersPermissionsUsersRoles<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -38,9 +38,9 @@ export class UsersPermissionsUsersRoles<SecurityDataType = unknown> {
   countList = (params: RequestParams = {}) =>
     this.http.request<number, ErrorDataContract>({
       path: `/users/count`,
-      method: "GET",
+      method: 'GET',
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -57,9 +57,9 @@ export class UsersPermissionsUsersRoles<SecurityDataType = unknown> {
   getUsersPermissionsUsersRoles = (params: RequestParams = {}) =>
     this.http.request<UsersPermissionsUserDataContract, ErrorDataContract>({
       path: `/users/me`,
-      method: "GET",
+      method: 'GET',
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -84,9 +84,9 @@ export class UsersPermissionsUsersRoles<SecurityDataType = unknown> {
       ErrorDataContract
     >({
       path: `/users-permissions/permissions`,
-      method: "GET",
+      method: 'GET',
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -114,15 +114,15 @@ export class UsersPermissionsUsersRoles<SecurityDataType = unknown> {
   ) =>
     this.http.request<
       {
-        ok?: "true";
+        ok?: 'true';
       },
       ErrorDataContract
     >({
       path: `/users-permissions/roles`,
-      method: "POST",
+      method: 'POST',
       body: data,
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -142,14 +142,14 @@ export class UsersPermissionsUsersRoles<SecurityDataType = unknown> {
   rolesDelete = (role: string, params: RequestParams = {}) =>
     this.http.request<
       {
-        ok?: "true";
+        ok?: 'true';
       },
       ErrorDataContract
     >({
       path: `/users-permissions/roles/${role}`,
-      method: "DELETE",
+      method: 'DELETE',
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -174,9 +174,9 @@ export class UsersPermissionsUsersRoles<SecurityDataType = unknown> {
       ErrorDataContract
     >({
       path: `/users-permissions/roles/${id}`,
-      method: "GET",
+      method: 'GET',
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -206,9 +206,9 @@ export class UsersPermissionsUsersRoles<SecurityDataType = unknown> {
       ErrorDataContract
     >({
       path: `/users-permissions/roles`,
-      method: "GET",
+      method: 'GET',
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -237,15 +237,15 @@ export class UsersPermissionsUsersRoles<SecurityDataType = unknown> {
   ) =>
     this.http.request<
       {
-        ok?: "true";
+        ok?: 'true';
       },
       ErrorDataContract
     >({
       path: `/users-permissions/roles/${role}`,
-      method: "PUT",
+      method: 'PUT',
       body: data,
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -277,11 +277,11 @@ export class UsersPermissionsUsersRoles<SecurityDataType = unknown> {
       ErrorDataContract
     >({
       path: `/users`,
-      method: "POST",
+      method: 'POST',
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -298,9 +298,9 @@ export class UsersPermissionsUsersRoles<SecurityDataType = unknown> {
   usersDelete = (id: string, params: RequestParams = {}) =>
     this.http.request<UsersPermissionsUserDataContract, ErrorDataContract>({
       path: `/users/${id}`,
-      method: "DELETE",
+      method: 'DELETE',
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -317,9 +317,9 @@ export class UsersPermissionsUsersRoles<SecurityDataType = unknown> {
   usersDetail = (id: string, params: RequestParams = {}) =>
     this.http.request<UsersPermissionsUserDataContract, ErrorDataContract>({
       path: `/users/${id}`,
-      method: "GET",
+      method: 'GET',
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -336,9 +336,9 @@ export class UsersPermissionsUsersRoles<SecurityDataType = unknown> {
   usersList = (params: RequestParams = {}) =>
     this.http.request<UsersPermissionsUserDataContract[], ErrorDataContract>({
       path: `/users`,
-      method: "GET",
+      method: 'GET',
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -371,11 +371,11 @@ export class UsersPermissionsUsersRoles<SecurityDataType = unknown> {
       ErrorDataContract
     >({
       path: `/users/${id}`,
-      method: "PUT",
+      method: 'PUT',
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
     });
 }

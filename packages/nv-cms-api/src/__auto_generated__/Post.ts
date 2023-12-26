@@ -16,8 +16,8 @@ import {
   PostLocalizationResponseDataContract,
   PostRequestDataContract,
   PostResponseDataContract,
-} from "./data-contracts";
-import { ContentType, HttpClient, RequestParams } from "./http-client";
+} from './data-contracts';
+import { ContentType, HttpClient, RequestParams } from './http-client';
 
 export class Post<SecurityDataType = unknown> {
   http: HttpClient<SecurityDataType>;
@@ -43,9 +43,9 @@ export class Post<SecurityDataType = unknown> {
   deletePostsId = (id: number, params: RequestParams = {}) =>
     this.http.request<number, ErrorDataContract>({
       path: `/posts/${id}`,
-      method: "DELETE",
+      method: 'DELETE',
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -67,15 +67,15 @@ export class Post<SecurityDataType = unknown> {
       /** Sort by attributes ascending (asc) or descending (desc) */
       sort?: string;
       /** Return page/pageSize (default: true) */
-      "pagination[withCount]"?: boolean;
+      'pagination[withCount]'?: boolean;
       /** Page number (default: 0) */
-      "pagination[page]"?: number;
+      'pagination[page]'?: number;
       /** Page size (default: 25) */
-      "pagination[pageSize]"?: number;
+      'pagination[pageSize]'?: number;
       /** Offset value (default: 0) */
-      "pagination[start]"?: number;
+      'pagination[start]'?: number;
       /** Number of entities to return (default: 25) */
-      "pagination[limit]"?: number;
+      'pagination[limit]'?: number;
       /** Fields to return (ex: title,author) */
       fields?: string;
       /** Relations to return */
@@ -89,10 +89,10 @@ export class Post<SecurityDataType = unknown> {
   ) =>
     this.http.request<PostListResponseDataContract, ErrorDataContract>({
       path: `/posts`,
-      method: "GET",
+      method: 'GET',
       query: query,
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -112,9 +112,9 @@ export class Post<SecurityDataType = unknown> {
   getPostsId = (id: number, params: RequestParams = {}) =>
     this.http.request<PostResponseDataContract, ErrorDataContract>({
       path: `/posts/${id}`,
-      method: "GET",
+      method: 'GET',
       secure: true,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -134,11 +134,11 @@ export class Post<SecurityDataType = unknown> {
   postPosts = (data: PostRequestDataContract, params: RequestParams = {}) =>
     this.http.request<PostResponseDataContract, ErrorDataContract>({
       path: `/posts`,
-      method: "POST",
+      method: 'POST',
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -162,11 +162,11 @@ export class Post<SecurityDataType = unknown> {
   ) =>
     this.http.request<PostLocalizationResponseDataContract, ErrorDataContract>({
       path: `/posts/${id}/localizations`,
-      method: "POST",
+      method: 'POST',
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
     });
   /**
@@ -190,11 +190,11 @@ export class Post<SecurityDataType = unknown> {
   ) =>
     this.http.request<PostResponseDataContract, ErrorDataContract>({
       path: `/posts/${id}`,
-      method: "PUT",
+      method: 'PUT',
       body: data,
       secure: true,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
     });
 }

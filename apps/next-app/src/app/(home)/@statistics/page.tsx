@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { StatisticSection } from '@namviet-fe/core-ui';
 
