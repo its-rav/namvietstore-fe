@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 
 type RootLayoutProps = {
   children: React.ReactNode;
+  header: React.ReactNode;
   footer: React.ReactNode;
   topbar: React.ReactNode;
 };
@@ -25,12 +26,14 @@ const HtmlWrapper = ({ children }: { children: React.ReactNode }) => {
 
 export default function RootLayout({
   children,
+  header,
   footer,
   topbar,
 }: RootLayoutProps) {
   return (
     <HtmlWrapper>
       {topbar}
+      {header}
       <main className='pt-[60px]'>{children}</main>
       {footer}
     </HtmlWrapper>
