@@ -5,7 +5,7 @@ import clsxm from '@/lib/clsxm';
 
 export type ButtonProps = {
   isLoading?: boolean;
-  backgroundColor?: string;
+  backgroundColor?: 'primary' | 'secondary';
   buttonType?: string;
   isUpperCase?: boolean;
   isBold?: boolean;
