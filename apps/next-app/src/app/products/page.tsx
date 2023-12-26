@@ -14,6 +14,13 @@ export default function ProductsPage() {
       >
         Homepage
       </Button>
+      <Button
+        onClick={() => {
+          router.push('/products/product1');
+        }}
+      >
+        DetailProduct
+      </Button>
       <div>This is Product Page</div>
     </>
   );
