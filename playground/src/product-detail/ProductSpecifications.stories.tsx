@@ -79,14 +79,10 @@ const productSpecificationsGroups: ProductSpecificationsGroupType[] = [
   },
 ];
 
-const onClick = () => {
-  console.log('Liên hệ mua hàng');
-};
-
 export const Default: Story = () => (
   <div className='grid grid-cols-3' style={{ padding: '20px' }}>
-    <div className='col-span-2'></div>
-    <div className='col-span-1'>
+    <div className='col-span-3 md:col-span-2'></div>
+    <div className='col-span-3 md:col-span-1'>
       <ProductSpecifications
         productSpecificationsItems={productSpecificationsItems}
         productSpecificationsGroups={productSpecificationsGroups}

@@ -1,6 +1,7 @@
 import ProductCarousel, {
     type ProductImgItemType,
   } from '@/components/product-detail/ProductCarousel';
+import ProductContent from '@/components/product-detail/ProductContent';
 import ProductSummary, {
     type ProductSummaryItemType,
   } from '@/components/product-detail/ProductSummary';
@@ -18,4 +19,5 @@ import ProductSpecifications, {
     ProductSpecifications,
     type ProductSpecificationsItemType,
     type ProductSpecificationsGroupType,
+    ProductContent,
   };
