@@ -78,7 +78,7 @@ const SideBarMobile: React.FC<SideBarMobileProps> = ({
   dropDownIcon,
 }) => {
   return (
-    <div className='bg-primary fixed top-0 left-0 w-full h-full px-4 flex flex-col items-center py-9 rounded'>
+    <div className='bg-primary fixed top-0 left-0 w-full h-full px-4 flex flex-col items-center py-9'>
       <div className=' w-full'>
         <button
           className='float-right w-12 h-12'
