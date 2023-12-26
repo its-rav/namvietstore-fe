@@ -1,6 +1,6 @@
 import type { Story, StoryDefault } from '@ladle/react';
-import { WhitePlusIcon } from '@namviet-fe/core-ui';
 import { type ButtonProps, Button } from '@namviet-fe/core-ui';
+import { HamburgerIcon, WhitePlusIcon } from '@namviet-fe/core-ui';
 import React from 'react';
 import 'regenerator-runtime/runtime';
 import 'regenerator-runtime/runtime';
