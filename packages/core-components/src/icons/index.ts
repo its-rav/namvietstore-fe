@@ -5,6 +5,7 @@ export { ReactComponent as EarthIcon } from './earth.svg';
 export { ReactComponent as EmailIcon } from './email.svg';
 export { ReactComponent as EnIcon } from './enflag.svg';
 export { ReactComponent as FaxIcon } from './fax.svg';
+export { ReactComponent as HamburgerIcon } from './hamburger.svg';
 export { ReactComponent as HeadphonesIcon } from './headphones.svg';
 export { ReactComponent as SearchIcon } from './ic_round-search.svg';
 export { ReactComponent as KeyIcon } from './key.svg';
