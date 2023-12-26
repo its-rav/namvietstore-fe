@@ -4,7 +4,10 @@ on:
   push:
     branches:
       - main
-  pull_request: {}
+  pull_request: 
+    branches:
+      - develop
+    types: [opened, synchronize, reopened]
 
 concurrency:
   group: ${{ github.job }}-${{ github.ref }}
@@ -12,7 +15,7 @@ concurrency:
 
 jobs:
   lint:
-    name: Core-UI ⬣ ESLint
+    name: ⬣ ESLint
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
@@ -27,7 +30,7 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: 🔬 Lint
-        run: yarn core:lint:strict
+        run: yarn lint
 
   typecheck:
     name: Core-UI ʦ TypeScript
@@ -44,11 +47,31 @@ jobs:
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
 
+      - name: check modified files
+        id: check_files
+        run: |
+          echo "=============== list modified files ==============="
+          git diff --name-only HEAD^ HEAD
+          
+          echo "========== check paths of modified files =========="
+          git diff --name-only HEAD^ HEAD &gt; files.txt
+          while IFS= read -r file
+          do
+            echo $file
+            if [[ $file != packages/core-components/* ]]; then
+              echo "This modified file is not under the 'packages/core-components' folder."
+              echo "::set-output name=run_job::false"
+              break
+            else
+              echo "::set-output name=run_job::true"
+            fi
+          done &lt; files.txt
+
       - name: 🔎 Type check
         run: yarn core:typecheck
 
   prettier:
-    name: Core-UI 💅 Prettier
+    name: 💅 Prettier
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
@@ -63,4 +86,4 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: 💅 Prettier check
-        run: yarn core:format:check
+        run: yarn format:check
