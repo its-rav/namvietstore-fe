@@ -9,16 +9,15 @@ import PostCard from '@/components/PostCard';
 import SearchBar from '@/components/SearchBar';
 
 import SideBarMobile from './SideBarMobile';
-export { SideBarMobile };
 import TopBar from './topbar/TopBar';
+export { SideBarMobile };
 
 export { PostCard };
 
 export { type FeaturesCardItemType, FeaturesCard, MobileHeader, SearchBar };
 
 export * from './buttons';
-export * from './sections';
-export { type ContactTableItemType, ContactTable };
-
 export * from './contact';
-export { TopBar };
+export * from './product-detail';
+export * from './sections';
+export { type ContactTableItemType,ContactTable, TopBar };
