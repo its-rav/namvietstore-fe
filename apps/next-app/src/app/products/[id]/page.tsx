@@ -1,14 +1,14 @@
 'use client';
 
 import {
+  type ProductImgItemType,
+  type ProductSpecificationsGroupType,
+  type ProductSummaryItemType,
   Button,
   ProductCarousel,
   ProductContent,
   ProductSpecifications,
   ProductSummary,
-  type ProductImgItemType,
-  type ProductSpecificationsGroupType,
-  type ProductSummaryItemType,
 } from '@namviet-fe/core-ui';
 import { useRouter } from 'next/navigation';
 

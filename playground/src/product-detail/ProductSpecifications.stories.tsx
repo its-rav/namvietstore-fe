@@ -1,7 +1,7 @@
 import type { Story, StoryDefault } from '@ladle/react';
 import {
-  ProductSpecifications,
   type ProductSpecificationsGroupType,
+  ProductSpecifications,
 } from '@namviet-fe/core-ui';
 import React from 'react';
 
@@ -86,6 +86,7 @@ export const Default: Story = () => (
     <div className='col-span-3 md:!col-span-1'>
       <ProductSpecifications
         title='Thông số kỹ thuật'
+        viewMoreLabel='Xem thêm'
         productSpecificationsGroups={productSpecificationsItems}
       />
     </div>

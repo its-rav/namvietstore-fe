@@ -1,5 +1,5 @@
 import type { Story, StoryDefault } from '@ladle/react';
-import { ProductCarousel, type ProductImgItemType } from '@namviet-fe/core-ui';
+import { type ProductImgItemType, ProductCarousel } from '@namviet-fe/core-ui';
 import React from 'react';
 
 import '@namviet-fe/core-ui/dist/style.css';
@@ -11,11 +11,11 @@ export default {
 const productImgItems: ProductImgItemType[] = [
   { src: 'https://picsum.photos/id/1019/1000/600/', alt: 'hình 1' },
   { src: 'https://picsum.photos/id/1008/1000/600/', alt: 'hình 2' },
-  { alt: 'hình 3' },
+  { alt: 'hình 3', src: '' },
   { src: 'https://picsum.photos/id/1016/1000/600/' },
   { src: 'https://picsum.photos/id/1019/1000/600/', alt: 'hình 5' },
   { src: 'https://picsum.photos/id/1008/1000/600/', alt: 'hình 6' },
-  { alt: 'hình 7' },
+  { alt: 'hình 7', src: '' },
   { src: 'https://picsum.photos/id/1016/1000/600/' },
 ];
 
