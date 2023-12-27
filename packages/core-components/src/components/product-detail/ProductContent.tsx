@@ -6,14 +6,14 @@ type ProductContentProps = {
 
 const ProductContent: React.FC<ProductContentProps> = ({ richText }) => {
   return richText ? (
-    <div>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: richText,
-        }}
-      />
-    </div>
-  ) : null;
+    <div
+      dangerouslySetInnerHTML={{
+        __html: richText,
+      }}
+    />
+  ) : (
+    <></>
+  );
 };
 
 export default ProductContent;

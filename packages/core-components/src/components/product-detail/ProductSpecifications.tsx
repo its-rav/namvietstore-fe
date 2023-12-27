@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
 
 export type ProductSpecificationsItemType = {
-  name?: string;
-  value?: string;
+  name: string;
+  value: string;
 };
 
 export type ProductSpecificationsGroupType = {
-  nameGroup?: string;
-  listItem?: ProductSpecificationsItemType[];
+  nameGroup: string;
+  listItem: ProductSpecificationsItemType[];
 };
 
 type ProductSpecificationsProps = {
-  productSpecificationsItems?: ProductSpecificationsItemType[];
-  productSpecificationsGroups?: ProductSpecificationsGroupType[];
+  title: string;
+  productSpecificationsGroups: ProductSpecificationsGroupType[];
+  viewMoreLabel: string;
 };
 
-let isEvenLine = true;
-
-const renderRow = (name: string, value: string, isGroupName?: boolean) => {
+const renderRow = (
+  name: string,
+  value: string,
+  isEvenLine: boolean,
+  isGroupName?: boolean
+) => {
   return (
     <div
       key={name}
@@ -42,7 +46,8 @@ const renderRow = (name: string, value: string, isGroupName?: boolean) => {
 };
 
 const ProductSpecifications: React.FC<ProductSpecificationsProps> = ({
-  productSpecificationsItems,
+  title,
+  viewMoreLabel = 'Xem thêm nội dung',
   productSpecificationsGroups,
 }) => {
   const [isShowPopUp, setIsShowPopUp] = useState<boolean>(false);
@@ -69,20 +74,22 @@ const ProductSpecifications: React.FC<ProductSpecificationsProps> = ({
                 : 'text-[16px] md:text-[18px] font-bold md:font-medium'
             } text-center mb-[19px]`}
           >
-            Thông số kỹ thuật chính
+            {title}
           </h3>
-          {productSpecificationsItems?.map((item) => {
-            isEvenLine = !isEvenLine;
-            return renderRow(item.name ?? '', item.value ?? '');
-          })}
-          {productSpecificationsGroups?.map((group) => {
-            isEvenLine = !isEvenLine;
+          {productSpecificationsGroups?.map((group, index) => {
             return (
-              <div key={group.nameGroup}>
-                {renderRow(group.nameGroup ?? '', '', true)}
-                {group.listItem?.map((item) => {
-                  isEvenLine = !isEvenLine;
-                  return renderRow(item.name ?? '', item.value ?? '');
+              <div key={`specs-${index}`}>
+                {renderRow(group.nameGroup?.trim() ?? '', '', false, true)}
+                {group.listItem?.map((item, itemIndex) => {
+                  return (
+                    <div key={`specis-detail-${itemIndex}`}>
+                      {renderRow(
+                        item.name ?? '',
+                        item.value ?? '',
+                        itemIndex % 2 === 0
+                      )}
+                    </div>
+                  );
                 })}
               </div>
             );
@@ -122,7 +129,7 @@ const ProductSpecifications: React.FC<ProductSpecificationsProps> = ({
             setIsShowPopUp(true);
           }}
         >
-          <span className='font-medium'>Xem thêm nội dung</span>
+          <span className='font-medium'>{viewMoreLabel}</span>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'

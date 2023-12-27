@@ -1,8 +1,7 @@
 import type { Story, StoryDefault } from '@ladle/react';
 import {
-  type ProductSpecificationsItemType,
-  type ProductSpecificationsGroupType,
   ProductSpecifications,
+  type ProductSpecificationsGroupType,
 } from '@namviet-fe/core-ui';
 import React from 'react';
 
@@ -12,12 +11,14 @@ export default {
   title: '@nv-fe/core-ui/product-detail/ProductSpecifications',
 } satisfies StoryDefault<typeof ProductSpecifications>;
 
-const productSpecificationsItems: ProductSpecificationsItemType[] = [
-  { name: 'Thương hiệu', value: 'SAMSUNG' },
-  { name: 'Bảo hành', value: '12 tháng' },
-];
-
-const productSpecificationsGroups: ProductSpecificationsGroupType[] = [
+const productSpecificationsItems: ProductSpecificationsGroupType[] = [
+  {
+    nameGroup: '',
+    listItem: [
+      { name: 'Thương hiệu', value: 'SAMSUNG' },
+      { name: 'Bảo hành', value: '12 tháng' },
+    ],
+  },
   {
     nameGroup: 'Thông tin chung',
     listItem: [
@@ -81,11 +82,11 @@ const productSpecificationsGroups: ProductSpecificationsGroupType[] = [
 
 export const Default: Story = () => (
   <div className='grid grid-cols-3' style={{ padding: '20px' }}>
-    <div className='col-span-3 md:col-span-2'></div>
-    <div className='col-span-3 md:col-span-1'>
+    <div className='col-span-3 md:!col-span-2'></div>
+    <div className='col-span-3 md:!col-span-1'>
       <ProductSpecifications
-        productSpecificationsItems={productSpecificationsItems}
-        productSpecificationsGroups={productSpecificationsGroups}
+        title='Thông số kỹ thuật'
+        productSpecificationsGroups={productSpecificationsItems}
       />
     </div>
   </div>

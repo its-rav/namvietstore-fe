@@ -1,24 +1,29 @@
 import React from 'react';
-import ImageGallery from 'react-image-gallery';
+import ImageGallery, { ReactImageGalleryItem } from 'react-image-gallery';
+
 import 'react-image-gallery/styles/css/image-gallery.css';
 
 export type ProductImgItemType = {
-  src?: string;
+  src: string;
   alt?: string;
 };
 
 type ProductCarouselProps = {
-  productImgItem: ProductImgItemType[];
+  productImgItems: ProductImgItemType[];
 };
 
 const ProductCarousel: React.FC<ProductCarouselProps> = ({
-  productImgItem,
+  productImgItems,
 }) => {
-  if (productImgItem && productImgItem.filter((item) => item.src).length > 0) {
-    const images: any = productImgItem
+  if (
+    productImgItems &&
+    productImgItems.filter((item) => item.src).length > 0
+  ) {
+    const images: ReactImageGalleryItem[] = productImgItems
       ?.filter((item) => item.src)
-      .map((item) => {
+      .map((item, index) => {
         return {
+          key: `image-${index}`,
           original: `${item.src}`,
           thumbnail: `${item.src}`,
           originalClass:
