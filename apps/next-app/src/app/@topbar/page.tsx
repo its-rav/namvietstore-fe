@@ -4,7 +4,7 @@ import { DropdownButton, EnIcon, TopBar, ViIcon } from '@namviet-fe/core-ui';
 
 export default function Footer() {
   return (
-    <aside className='fixed w-full'>
+    <aside className='fixed w-full z-10'>
       <TopBar
         contact1={{
           name: 'Mr. Duong',
