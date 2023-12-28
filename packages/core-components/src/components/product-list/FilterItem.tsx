@@ -26,9 +26,7 @@ const FilterItem: React.FC<FilterItemProps> = ({
   return filterItems?.filterType && filterItems?.filterOptions ? (
     <div className='font-primary'>
       <div className='text-lg/5 font-light'>
-        <p className='font-semibold' style={{ color: '#850000' }}>
-          {filterItems.title}
-        </p>
+        <p className='font-semibold color-primary'>{filterItems.title}</p>
         <div className='h-[70px]'>
           <button
             id='dropdownButton'
@@ -93,7 +91,7 @@ const FilterItem: React.FC<FilterItemProps> = ({
                 {filterItems.filterOptions.map((item) => {
                   return item.selected ? (
                     <li key={item.optionId}>
-                      <p className='block p-4' style={{ color: '#850000' }}>
+                      <p className='block p-4 color-primary'>
                         {item.optionName}
                       </p>
                     </li>
