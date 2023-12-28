@@ -27,7 +27,7 @@ const ProductItem: React.FC<ProductItemProps> = ({
   return (
     <>
       <div
-        id={productItem.productId}
+        id={`product-item-${productItem.productId}`}
         className={classNames(
           classItem,
           `gap-4 font-primary p-[10px] md:p-6 cursor-pointer bg-white hover:drop-shadow-md`
