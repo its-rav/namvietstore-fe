@@ -89,11 +89,14 @@ const DropdownButton = React.forwardRef<HTMLButtonElement, DropdownButtonProps>(
 
     const { icon, label } = selectedOption;
     return (
-      <Menu as='div' className='relative font-primary inline-block text-left'>
+      <Menu
+        as='div'
+        className='relative font-primary inline-block text-left w-56'
+      >
         <div>
           <Menu.Button ref={ref} className='h-max w-full'>
-            <div className='inline-flex items-center justify-center rounded bg-white sm:test-sm md:text-md lg:text-lg font-regular text-black shadow-sm ring-1 ring-inset ring-primary hover:bg-gray-50'>
-              <div className='inline-flex items-center justify-between gap-x-4 sm:pl-4 sm:pr-3 sm:py-2 lg:pl-5 lg:pr-4 lg:py-3'>
+            <div className='inline-flex items-center justify-center rounded bg-white w-full sm:test-sm md:text-md lg:text-lg font-regular text-black shadow-sm ring-1 ring-inset ring-primary hover:bg-gray-50'>
+              <div className='inline-flex items-center justify-center w-full gap-x-4 sm:pl-4 sm:pr-3 sm:py-2 lg:pl-5 lg:pr-4 lg:py-3'>
                 <div className='w-9'>{icon}</div>
                 {label ?? 'Select'}
               </div>

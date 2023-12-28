@@ -11,9 +11,7 @@ export default {
 } satisfies StoryDefault<DropdownButtonProps>;
 
 export const Default: Story<DropdownButtonProps> = ({ selected, options }) => (
-  <div style={{ float: 'right' }}>
-    <DropdownButton selected={selected} options={options} />
-  </div>
+  <DropdownButton selected={selected} options={options} />
 );
 
 Default.defaultProps = {
@@ -37,11 +35,7 @@ Default.argTypes = {};
 export const LanguageSelect: Story<DropdownButtonProps> = ({
   selected,
   options,
-}) => (
-  <div style={{ float: 'right' }}>
-    <DropdownButton selected={selected} options={options} />
-  </div>
-);
+}) => <DropdownButton selected={selected} options={options} />;
 
 LanguageSelect.defaultProps = {
   selected: 'vn',
