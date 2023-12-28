@@ -17,9 +17,9 @@
     "react-fast-marquee": "^1.6.0",
     "react-google-recaptcha": "^3.1.0",
     "react-icons": "^4.9.0",
+    "react-paginate": "^8.2.0",
     "styled-components": "^6.0.0-rc.3",
     "tailwind-merge": "^1.13.2",
-    "typesafe-i18n": "^5.26.2",
     "vite-plugin-svgr": "^3.2.0"
   },
   "devDependencies": {

@@ -40,7 +40,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         type='button'
         disabled={disabled}
         className={clsxm(
-          'flex items-center rounded-xs font-primary text-white sm:text-xs md:text-md text-justify disabled:cursor-not-allowed',
+          'flex items-center rounded-xs w-fit font-primary text-white sm:text-xs md:text-md text-justify disabled:cursor-not-allowed',
           isLoading &&
             'relative text-transparent transition-none hover:text-transparent disabled:cursor-wait',
           buttonType === 'category' ? 'md:px-8 md:py-4' : 'md:px-3 md:py-3',
