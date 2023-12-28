@@ -47,26 +47,6 @@ jobs:
             core-ui:
               - 'packages/core-components/**/*'
 
-      - name: check modified files
-        id: check_files
-        run: |
-          echo "=============== list modified files ==============="
-          git diff --name-only HEAD^ HEAD
-
-          echo "========== check paths of modified files =========="
-          git diff --name-only HEAD^ HEAD &gt; files.txt
-          while IFS= read -r file
-          do
-            echo $file
-            if [[ $file != packages/core-components/* ]]; then
-              echo "This modified file is not under the 'packages/core-components' folder."
-              echo "::set-output name=run_job::false"
-              break
-            else
-              echo "::set-output name=run_job::true"
-            fi
-          done &lt; files.txt
-
       - name: 🔎 Type check
         if: steps.path-filter.outputs.core-ui == 'true'
         run: yarn core:typecheck
