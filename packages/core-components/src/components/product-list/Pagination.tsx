@@ -8,6 +8,8 @@ export type PaginationType = {
 
 type PaginationProps = {
   paginationPage: PaginationType;
+  previousLabel?: string;
+  nextLabel?: string;
   handlePageClick?: (page: number) => void;
 };
 
@@ -46,6 +48,8 @@ const breakLabel = (
 
 const Pagination: React.FC<PaginationProps> = ({
   paginationPage,
+  previousLabel,
+  nextLabel,
   handlePageClick,
 }) => {
   const showNextButton =
@@ -80,7 +84,7 @@ const Pagination: React.FC<PaginationProps> = ({
           }}
         >
           <span className='absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'>
-            Trước
+            {previousLabel}
           </span>
         </button>
         <div className='grid '>
@@ -129,7 +133,7 @@ const Pagination: React.FC<PaginationProps> = ({
           }}
         >
           <span className='absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'>
-            Sau
+            {nextLabel}
           </span>
         </button>
       </div>

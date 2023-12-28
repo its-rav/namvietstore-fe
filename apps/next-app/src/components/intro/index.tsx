@@ -1,4 +1,4 @@
-import { IntroPanel,IntroPanelItemType } from '@namviet-fe/core-ui';
+import { IntroPanel, IntroPanelItemType } from '@namviet-fe/core-ui';
 
 const IntroSection = () => {
   const introPanelItem: IntroPanelItemType = {

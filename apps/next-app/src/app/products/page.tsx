@@ -219,6 +219,8 @@ export default function ProductsPage() {
                   ? 'grid gap-3 grid-cols-1'
                   : 'grid gap-3 grid-cols-2 md:!grid-cols-4'
               }
+              previousLabel={'Trước'}
+              nextLabel={'Sau'}
             />
           </div>
         </div>

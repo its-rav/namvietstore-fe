@@ -327,7 +327,7 @@ export interface BrandDataContract {
           };
           metaSocial?: {
             id?: number;
-            socialNetwork?: "Facebook" | "Twitter";
+            socialNetwork?: 'Facebook' | 'Twitter';
             title?: string;
             description?: string;
             image?: {
@@ -560,7 +560,7 @@ export interface BrandDataContract {
                 };
                 metaSocial?: {
                   id?: number;
-                  socialNetwork?: "Facebook" | "Twitter";
+                  socialNetwork?: 'Facebook' | 'Twitter';
                   title?: string;
                   description?: string;
                   image?: {
@@ -685,7 +685,7 @@ export interface BrandDataContract {
                 | {
                     id?: number;
                     __component?: string;
-                    socialNetwork?: "Facebook" | "Twitter";
+                    socialNetwork?: 'Facebook' | 'Twitter';
                     title?: string;
                     description?: string;
                     image?: {
@@ -800,7 +800,7 @@ export interface BrandDataContract {
                     };
                     metaSocial?: {
                       id?: number;
-                      socialNetwork?: "Facebook" | "Twitter";
+                      socialNetwork?: 'Facebook' | 'Twitter';
                       title?: string;
                       description?: string;
                       image?: {
@@ -1289,7 +1289,7 @@ export interface CategoryDataContract {
           };
           metaSocial?: {
             id?: number;
-            socialNetwork?: "Facebook" | "Twitter";
+            socialNetwork?: 'Facebook' | 'Twitter';
             title?: string;
             description?: string;
             image?: {
@@ -1522,7 +1522,7 @@ export interface CategoryDataContract {
                 };
                 metaSocial?: {
                   id?: number;
-                  socialNetwork?: "Facebook" | "Twitter";
+                  socialNetwork?: 'Facebook' | 'Twitter';
                   title?: string;
                   description?: string;
                   image?: {
@@ -1647,7 +1647,7 @@ export interface CategoryDataContract {
                 | {
                     id?: number;
                     __component?: string;
-                    socialNetwork?: "Facebook" | "Twitter";
+                    socialNetwork?: 'Facebook' | 'Twitter';
                     title?: string;
                     description?: string;
                     image?: {
@@ -1762,7 +1762,7 @@ export interface CategoryDataContract {
                     };
                     metaSocial?: {
                       id?: number;
-                      socialNetwork?: "Facebook" | "Twitter";
+                      socialNetwork?: 'Facebook' | 'Twitter';
                       title?: string;
                       description?: string;
                       image?: {
@@ -2227,7 +2227,7 @@ export interface SharedSeoComponentDataContract {
   };
   metaSocial?: {
     id?: number;
-    socialNetwork?: "Facebook" | "Twitter";
+    socialNetwork?: 'Facebook' | 'Twitter';
     title?: string;
     description?: string;
     image?: {
@@ -2304,7 +2304,7 @@ export interface ProductAdditionalPropertyComponentDataContract {
 
 export interface SharedMetaSocialComponentDataContract {
   id?: number;
-  socialNetwork?: "Facebook" | "Twitter";
+  socialNetwork?: 'Facebook' | 'Twitter';
   title?: string;
   description?: string;
   image?: {
@@ -3273,7 +3273,7 @@ export interface ProductDataContract {
                 };
                 metaSocial?: {
                   id?: number;
-                  socialNetwork?: "Facebook" | "Twitter";
+                  socialNetwork?: 'Facebook' | 'Twitter';
                   title?: string;
                   description?: string;
                   image?: {
@@ -3476,7 +3476,7 @@ export interface ProductDataContract {
                       };
                       metaSocial?: {
                         id?: number;
-                        socialNetwork?: "Facebook" | "Twitter";
+                        socialNetwork?: 'Facebook' | 'Twitter';
                         title?: string;
                         description?: string;
                         image?: {
@@ -3601,7 +3601,7 @@ export interface ProductDataContract {
                       | {
                           id?: number;
                           __component?: string;
-                          socialNetwork?: "Facebook" | "Twitter";
+                          socialNetwork?: 'Facebook' | 'Twitter';
                           title?: string;
                           description?: string;
                           image?: {
@@ -3716,7 +3716,7 @@ export interface ProductDataContract {
                           };
                           metaSocial?: {
                             id?: number;
-                            socialNetwork?: "Facebook" | "Twitter";
+                            socialNetwork?: 'Facebook' | 'Twitter';
                             title?: string;
                             description?: string;
                             image?: {
@@ -3991,9 +3991,9 @@ export type UsersPermissionsPermissionsTreeDataContract = Record<
 >;
 
 export type QueryParamsType = Record<string | number, any>;
-export type ResponseFormat = keyof Omit<Body, "body" | "bodyUsed">;
+export type ResponseFormat = keyof Omit<Body, 'body' | 'bodyUsed'>;
 
-export interface FullRequestParams extends Omit<RequestInit, "body"> {
+export interface FullRequestParams extends Omit<RequestInit, 'body'> {
   /** set parameter to `true` for call `securityWorker` for this request */
   secure?: boolean;
   /** request path */
@@ -4014,12 +4014,12 @@ export interface FullRequestParams extends Omit<RequestInit, "body"> {
 
 export type RequestParams = Omit<
   FullRequestParams,
-  "body" | "method" | "query" | "path"
+  'body' | 'method' | 'query' | 'path'
 >;
 
 export interface ApiConfig<SecurityDataType = unknown> {
   baseUrl?: string;
-  baseApiParams?: Omit<RequestParams, "baseUrl" | "cancelToken" | "signal">;
+  baseApiParams?: Omit<RequestParams, 'baseUrl' | 'cancelToken' | 'signal'>;
   securityWorker?: (
     securityData: SecurityDataType | null
   ) => Promise<RequestParams | void> | RequestParams | void;
@@ -4035,25 +4035,25 @@ export interface HttpResponse<D extends unknown, E extends unknown = unknown>
 type CancelToken = Symbol | string | number;
 
 export enum ContentType {
-  Json = "application/json",
-  FormData = "multipart/form-data",
-  UrlEncoded = "application/x-www-form-urlencoded",
-  Text = "text/plain",
+  Json = 'application/json',
+  FormData = 'multipart/form-data',
+  UrlEncoded = 'application/x-www-form-urlencoded',
+  Text = 'text/plain',
 }
 
 export class HttpClient<SecurityDataType = unknown> {
-  public baseUrl: string = "http://localhost:1337/api";
+  public baseUrl: string = 'http://localhost:1337/api';
   private securityData: SecurityDataType | null = null;
-  private securityWorker?: ApiConfig<SecurityDataType>["securityWorker"];
+  private securityWorker?: ApiConfig<SecurityDataType>['securityWorker'];
   private abortControllers = new Map<CancelToken, AbortController>();
   private customFetch = (...fetchParams: Parameters<typeof fetch>) =>
     fetch(...fetchParams);
 
   private baseApiParams: RequestParams = {
-    credentials: "same-origin",
+    credentials: 'same-origin',
     headers: {},
-    redirect: "follow",
-    referrerPolicy: "no-referrer",
+    redirect: 'follow',
+    referrerPolicy: 'no-referrer',
   };
 
   constructor(apiConfig: ApiConfig<SecurityDataType> = {}) {
@@ -4067,7 +4067,7 @@ export class HttpClient<SecurityDataType = unknown> {
   protected encodeQueryParam(key: string, value: any) {
     const encodedKey = encodeURIComponent(key);
     return `${encodedKey}=${encodeURIComponent(
-      typeof value === "number" ? value : `${value}`
+      typeof value === 'number' ? value : `${value}`
     )}`;
   }
 
@@ -4077,13 +4077,13 @@ export class HttpClient<SecurityDataType = unknown> {
 
   protected addArrayQueryParam(query: QueryParamsType, key: string) {
     const value = query[key];
-    return value.map((v: any) => this.encodeQueryParam(key, v)).join("&");
+    return value.map((v: any) => this.encodeQueryParam(key, v)).join('&');
   }
 
   protected toQueryString(rawQuery?: QueryParamsType): string {
     const query = rawQuery || {};
     const keys = Object.keys(query).filter(
-      (key) => "undefined" !== typeof query[key]
+      (key) => 'undefined' !== typeof query[key]
     );
     return keys
       .map((key) =>
@@ -4091,21 +4091,21 @@ export class HttpClient<SecurityDataType = unknown> {
           ? this.addArrayQueryParam(query, key)
           : this.addQueryParam(query, key)
       )
-      .join("&");
+      .join('&');
   }
 
   protected addQueryParams(rawQuery?: QueryParamsType): string {
     const queryString = this.toQueryString(rawQuery);
-    return queryString ? `?${queryString}` : "";
+    return queryString ? `?${queryString}` : '';
   }
 
   private contentFormatters: Record<ContentType, (input: any) => any> = {
     [ContentType.Json]: (input: any) =>
-      input !== null && (typeof input === "object" || typeof input === "string")
+      input !== null && (typeof input === 'object' || typeof input === 'string')
         ? JSON.stringify(input)
         : input,
     [ContentType.Text]: (input: any) =>
-      input !== null && typeof input !== "string"
+      input !== null && typeof input !== 'string'
         ? JSON.stringify(input)
         : input,
     [ContentType.FormData]: (input: any) =>
@@ -4115,7 +4115,7 @@ export class HttpClient<SecurityDataType = unknown> {
           key,
           property instanceof Blob
             ? property
-            : typeof property === "object" && property !== null
+            : typeof property === 'object' && property !== null
             ? JSON.stringify(property)
             : `${property}`
         );
@@ -4177,7 +4177,7 @@ export class HttpClient<SecurityDataType = unknown> {
     ...params
   }: FullRequestParams): Promise<HttpResponse<T, E>> => {
     const secureParams =
-      ((typeof secure === "boolean" ? secure : this.baseApiParams.secure) &&
+      ((typeof secure === 'boolean' ? secure : this.baseApiParams.secure) &&
         this.securityWorker &&
         (await this.securityWorker(this.securityData))) ||
       {};
@@ -4187,15 +4187,15 @@ export class HttpClient<SecurityDataType = unknown> {
     const responseFormat = format || requestParams.format;
 
     return this.customFetch(
-      `${baseUrl || this.baseUrl || ""}${path}${
-        queryString ? `?${queryString}` : ""
+      `${baseUrl || this.baseUrl || ''}${path}${
+        queryString ? `?${queryString}` : ''
       }`,
       {
         ...requestParams,
         headers: {
           ...(requestParams.headers || {}),
           ...(type && type !== ContentType.FormData
-            ? { "Content-Type": type }
+            ? { 'Content-Type': type }
             : {}),
         },
         signal:
@@ -4203,7 +4203,7 @@ export class HttpClient<SecurityDataType = unknown> {
             ? this.createAbortSignal(cancelToken)
             : requestParams.signal) || null,
         body:
-          typeof body === "undefined" || body === null
+          typeof body === 'undefined' || body === null
             ? null
             : payloadFormatter(body),
       }
@@ -4272,9 +4272,9 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     deleteBrandsId: (id: number, params: RequestParams = {}) =>
       this.http.request<number, ErrorDataContract>({
         path: `/brands/${id}`,
-        method: "DELETE",
+        method: 'DELETE',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -4297,15 +4297,15 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         /** Sort by attributes ascending (asc) or descending (desc) */
         sort?: string;
         /** Return page/pageSize (default: true) */
-        "pagination[withCount]"?: boolean;
+        'pagination[withCount]'?: boolean;
         /** Page number (default: 0) */
-        "pagination[page]"?: number;
+        'pagination[page]'?: number;
         /** Page size (default: 25) */
-        "pagination[pageSize]"?: number;
+        'pagination[pageSize]'?: number;
         /** Offset value (default: 0) */
-        "pagination[start]"?: number;
+        'pagination[start]'?: number;
         /** Number of entities to return (default: 25) */
-        "pagination[limit]"?: number;
+        'pagination[limit]'?: number;
         /** Fields to return (ex: title,author) */
         fields?: string;
         /** Relations to return */
@@ -4319,10 +4319,10 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     ) =>
       this.http.request<BrandListResponseDataContract, ErrorDataContract>({
         path: `/brands`,
-        method: "GET",
+        method: 'GET',
         query: query,
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -4343,9 +4343,9 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     getBrandsId: (id: number, params: RequestParams = {}) =>
       this.http.request<BrandResponseDataContract, ErrorDataContract>({
         path: `/brands/${id}`,
-        method: "GET",
+        method: 'GET',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -4366,11 +4366,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     postBrands: (data: BrandRequestDataContract, params: RequestParams = {}) =>
       this.http.request<BrandResponseDataContract, ErrorDataContract>({
         path: `/brands`,
-        method: "POST",
+        method: 'POST',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -4398,11 +4398,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         ErrorDataContract
       >({
         path: `/brands/${id}/localizations`,
-        method: "POST",
+        method: 'POST',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -4427,11 +4427,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     ) =>
       this.http.request<BrandResponseDataContract, ErrorDataContract>({
         path: `/brands/${id}`,
-        method: "PUT",
+        method: 'PUT',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
   };
@@ -4453,9 +4453,9 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     deleteCategoriesId: (id: number, params: RequestParams = {}) =>
       this.http.request<number, ErrorDataContract>({
         path: `/categories/${id}`,
-        method: "DELETE",
+        method: 'DELETE',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -4478,15 +4478,15 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         /** Sort by attributes ascending (asc) or descending (desc) */
         sort?: string;
         /** Return page/pageSize (default: true) */
-        "pagination[withCount]"?: boolean;
+        'pagination[withCount]'?: boolean;
         /** Page number (default: 0) */
-        "pagination[page]"?: number;
+        'pagination[page]'?: number;
         /** Page size (default: 25) */
-        "pagination[pageSize]"?: number;
+        'pagination[pageSize]'?: number;
         /** Offset value (default: 0) */
-        "pagination[start]"?: number;
+        'pagination[start]'?: number;
         /** Number of entities to return (default: 25) */
-        "pagination[limit]"?: number;
+        'pagination[limit]'?: number;
         /** Fields to return (ex: title,author) */
         fields?: string;
         /** Relations to return */
@@ -4500,10 +4500,10 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     ) =>
       this.http.request<CategoryListResponseDataContract, ErrorDataContract>({
         path: `/categories`,
-        method: "GET",
+        method: 'GET',
         query: query,
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -4524,9 +4524,9 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     getCategoriesId: (id: number, params: RequestParams = {}) =>
       this.http.request<CategoryResponseDataContract, ErrorDataContract>({
         path: `/categories/${id}`,
-        method: "GET",
+        method: 'GET',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -4550,11 +4550,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     ) =>
       this.http.request<CategoryResponseDataContract, ErrorDataContract>({
         path: `/categories`,
-        method: "POST",
+        method: 'POST',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -4582,11 +4582,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         ErrorDataContract
       >({
         path: `/categories/${id}/localizations`,
-        method: "POST",
+        method: 'POST',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -4611,11 +4611,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     ) =>
       this.http.request<CategoryResponseDataContract, ErrorDataContract>({
         path: `/categories/${id}`,
-        method: "PUT",
+        method: 'PUT',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
   };
@@ -4637,9 +4637,9 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     deleteGeneralSetting: (params: RequestParams = {}) =>
       this.http.request<number, ErrorDataContract>({
         path: `/general-setting`,
-        method: "DELETE",
+        method: 'DELETE',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -4662,15 +4662,15 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         /** Sort by attributes ascending (asc) or descending (desc) */
         sort?: string;
         /** Return page/pageSize (default: true) */
-        "pagination[withCount]"?: boolean;
+        'pagination[withCount]'?: boolean;
         /** Page number (default: 0) */
-        "pagination[page]"?: number;
+        'pagination[page]'?: number;
         /** Page size (default: 25) */
-        "pagination[pageSize]"?: number;
+        'pagination[pageSize]'?: number;
         /** Offset value (default: 0) */
-        "pagination[start]"?: number;
+        'pagination[start]'?: number;
         /** Number of entities to return (default: 25) */
-        "pagination[limit]"?: number;
+        'pagination[limit]'?: number;
         /** Fields to return (ex: title,author) */
         fields?: string;
         /** Relations to return */
@@ -4684,10 +4684,10 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     ) =>
       this.http.request<GeneralSettingResponseDataContract, ErrorDataContract>({
         path: `/general-setting`,
-        method: "GET",
+        method: 'GET',
         query: query,
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -4714,11 +4714,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         ErrorDataContract
       >({
         path: `/general-setting/localizations`,
-        method: "POST",
+        method: 'POST',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -4742,11 +4742,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     ) =>
       this.http.request<GeneralSettingResponseDataContract, ErrorDataContract>({
         path: `/general-setting`,
-        method: "PUT",
+        method: 'PUT',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
   };
@@ -4768,9 +4768,9 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     deletePostsId: (id: number, params: RequestParams = {}) =>
       this.http.request<number, ErrorDataContract>({
         path: `/posts/${id}`,
-        method: "DELETE",
+        method: 'DELETE',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -4793,15 +4793,15 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         /** Sort by attributes ascending (asc) or descending (desc) */
         sort?: string;
         /** Return page/pageSize (default: true) */
-        "pagination[withCount]"?: boolean;
+        'pagination[withCount]'?: boolean;
         /** Page number (default: 0) */
-        "pagination[page]"?: number;
+        'pagination[page]'?: number;
         /** Page size (default: 25) */
-        "pagination[pageSize]"?: number;
+        'pagination[pageSize]'?: number;
         /** Offset value (default: 0) */
-        "pagination[start]"?: number;
+        'pagination[start]'?: number;
         /** Number of entities to return (default: 25) */
-        "pagination[limit]"?: number;
+        'pagination[limit]'?: number;
         /** Fields to return (ex: title,author) */
         fields?: string;
         /** Relations to return */
@@ -4815,10 +4815,10 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     ) =>
       this.http.request<PostListResponseDataContract, ErrorDataContract>({
         path: `/posts`,
-        method: "GET",
+        method: 'GET',
         query: query,
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -4839,9 +4839,9 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     getPostsId: (id: number, params: RequestParams = {}) =>
       this.http.request<PostResponseDataContract, ErrorDataContract>({
         path: `/posts/${id}`,
-        method: "GET",
+        method: 'GET',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -4862,11 +4862,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     postPosts: (data: PostRequestDataContract, params: RequestParams = {}) =>
       this.http.request<PostResponseDataContract, ErrorDataContract>({
         path: `/posts`,
-        method: "POST",
+        method: 'POST',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -4894,11 +4894,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         ErrorDataContract
       >({
         path: `/posts/${id}/localizations`,
-        method: "POST",
+        method: 'POST',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -4923,11 +4923,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     ) =>
       this.http.request<PostResponseDataContract, ErrorDataContract>({
         path: `/posts/${id}`,
-        method: "PUT",
+        method: 'PUT',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
   };
@@ -4949,9 +4949,9 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     deleteProductsId: (id: number, params: RequestParams = {}) =>
       this.http.request<number, ErrorDataContract>({
         path: `/products/${id}`,
-        method: "DELETE",
+        method: 'DELETE',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -4974,15 +4974,15 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         /** Sort by attributes ascending (asc) or descending (desc) */
         sort?: string;
         /** Return page/pageSize (default: true) */
-        "pagination[withCount]"?: boolean;
+        'pagination[withCount]'?: boolean;
         /** Page number (default: 0) */
-        "pagination[page]"?: number;
+        'pagination[page]'?: number;
         /** Page size (default: 25) */
-        "pagination[pageSize]"?: number;
+        'pagination[pageSize]'?: number;
         /** Offset value (default: 0) */
-        "pagination[start]"?: number;
+        'pagination[start]'?: number;
         /** Number of entities to return (default: 25) */
-        "pagination[limit]"?: number;
+        'pagination[limit]'?: number;
         /** Fields to return (ex: title,author) */
         fields?: string;
         /** Relations to return */
@@ -4996,10 +4996,10 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     ) =>
       this.http.request<ProductListResponseDataContract, ErrorDataContract>({
         path: `/products`,
-        method: "GET",
+        method: 'GET',
         query: query,
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5020,9 +5020,9 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     getProductsId: (id: number, params: RequestParams = {}) =>
       this.http.request<ProductResponseDataContract, ErrorDataContract>({
         path: `/products/${id}`,
-        method: "GET",
+        method: 'GET',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5046,11 +5046,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     ) =>
       this.http.request<ProductResponseDataContract, ErrorDataContract>({
         path: `/products`,
-        method: "POST",
+        method: 'POST',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5078,11 +5078,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         ErrorDataContract
       >({
         path: `/products/${id}/localizations`,
-        method: "POST",
+        method: 'POST',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5107,11 +5107,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     ) =>
       this.http.request<ProductResponseDataContract, ErrorDataContract>({
         path: `/products/${id}`,
-        method: "PUT",
+        method: 'PUT',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
   };
@@ -5128,9 +5128,9 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     filesDelete: (id: string, params: RequestParams = {}) =>
       this.http.request<UploadFileDataContract, any>({
         path: `/upload/files/${id}`,
-        method: "DELETE",
+        method: 'DELETE',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5146,9 +5146,9 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     filesDetail: (id: string, params: RequestParams = {}) =>
       this.http.request<UploadFileDataContract, any>({
         path: `/upload/files/${id}`,
-        method: "GET",
+        method: 'GET',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5164,9 +5164,9 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     filesList: (params: RequestParams = {}) =>
       this.http.request<UploadFileDataContract[], any>({
         path: `/upload/files`,
-        method: "GET",
+        method: 'GET',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5195,11 +5195,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     ) =>
       this.http.request<UploadFileDataContract[], any>({
         path: `/upload`,
-        method: "POST",
+        method: 'POST',
         body: data,
         secure: true,
         type: ContentType.FormData,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5231,12 +5231,12 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     ) =>
       this.http.request<UploadFileDataContract[], any>({
         path: `/upload?id=${id}`,
-        method: "POST",
+        method: 'POST',
         query: query,
         body: data,
         secure: true,
         type: ContentType.FormData,
-        format: "json",
+        format: 'json',
         ...params,
       }),
   };
@@ -5258,9 +5258,9 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         ErrorDataContract
       >({
         path: `/auth/${provider}/callback`,
-        method: "GET",
+        method: 'GET',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5288,11 +5288,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         ErrorDataContract
       >({
         path: `/auth/change-password`,
-        method: "POST",
+        method: 'POST',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5310,7 +5310,7 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     connectDetail: (provider: string, params: RequestParams = {}) =>
       this.http.request<any, void | ErrorDataContract>({
         path: `/connect/${provider}`,
-        method: "GET",
+        method: 'GET',
         secure: true,
         ...params,
       }),
@@ -5335,7 +5335,7 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     ) =>
       this.http.request<any, void | ErrorDataContract>({
         path: `/auth/email-confirmation`,
-        method: "GET",
+        method: 'GET',
         query: query,
         secure: true,
         ...params,
@@ -5363,16 +5363,16 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     ) =>
       this.http.request<
         {
-          ok?: "true";
+          ok?: 'true';
         },
         ErrorDataContract
       >({
         path: `/auth/forgot-password`,
-        method: "POST",
+        method: 'POST',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5399,11 +5399,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         ErrorDataContract
       >({
         path: `/auth/local`,
-        method: "POST",
+        method: 'POST',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5431,11 +5431,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         ErrorDataContract
       >({
         path: `/auth/local/register`,
-        method: "POST",
+        method: 'POST',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5463,11 +5463,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         ErrorDataContract
       >({
         path: `/auth/reset-password`,
-        method: "POST",
+        method: 'POST',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5495,16 +5495,16 @@ export class NvCmsApi<SecurityDataType extends unknown> {
       this.http.request<
         {
           email?: string;
-          sent?: "true";
+          sent?: 'true';
         },
         ErrorDataContract
       >({
         path: `/auth/send-email-confirmation`,
-        method: "POST",
+        method: 'POST',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
   };
@@ -5523,9 +5523,9 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     countList: (params: RequestParams = {}) =>
       this.http.request<number, ErrorDataContract>({
         path: `/users/count`,
-        method: "GET",
+        method: 'GET',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5543,9 +5543,9 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     getUsersPermissionsUsersRoles: (params: RequestParams = {}) =>
       this.http.request<UsersPermissionsUserDataContract, ErrorDataContract>({
         path: `/users/me`,
-        method: "GET",
+        method: 'GET',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5571,9 +5571,9 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         ErrorDataContract
       >({
         path: `/users-permissions/permissions`,
-        method: "GET",
+        method: 'GET',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5602,15 +5602,15 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     ) =>
       this.http.request<
         {
-          ok?: "true";
+          ok?: 'true';
         },
         ErrorDataContract
       >({
         path: `/users-permissions/roles`,
-        method: "POST",
+        method: 'POST',
         body: data,
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5631,14 +5631,14 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     rolesDelete: (role: string, params: RequestParams = {}) =>
       this.http.request<
         {
-          ok?: "true";
+          ok?: 'true';
         },
         ErrorDataContract
       >({
         path: `/users-permissions/roles/${role}`,
-        method: "DELETE",
+        method: 'DELETE',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5664,9 +5664,9 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         ErrorDataContract
       >({
         path: `/users-permissions/roles/${id}`,
-        method: "GET",
+        method: 'GET',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5697,9 +5697,9 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         ErrorDataContract
       >({
         path: `/users-permissions/roles`,
-        method: "GET",
+        method: 'GET',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5729,15 +5729,15 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     ) =>
       this.http.request<
         {
-          ok?: "true";
+          ok?: 'true';
         },
         ErrorDataContract
       >({
         path: `/users-permissions/roles/${role}`,
-        method: "PUT",
+        method: 'PUT',
         body: data,
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5770,11 +5770,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         ErrorDataContract
       >({
         path: `/users`,
-        method: "POST",
+        method: 'POST',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5792,9 +5792,9 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     usersDelete: (id: string, params: RequestParams = {}) =>
       this.http.request<UsersPermissionsUserDataContract, ErrorDataContract>({
         path: `/users/${id}`,
-        method: "DELETE",
+        method: 'DELETE',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5812,9 +5812,9 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     usersDetail: (id: string, params: RequestParams = {}) =>
       this.http.request<UsersPermissionsUserDataContract, ErrorDataContract>({
         path: `/users/${id}`,
-        method: "GET",
+        method: 'GET',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5832,9 +5832,9 @@ export class NvCmsApi<SecurityDataType extends unknown> {
     usersList: (params: RequestParams = {}) =>
       this.http.request<UsersPermissionsUserDataContract[], ErrorDataContract>({
         path: `/users`,
-        method: "GET",
+        method: 'GET',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -5868,11 +5868,11 @@ export class NvCmsApi<SecurityDataType extends unknown> {
         ErrorDataContract
       >({
         path: `/users/${id}`,
-        method: "PUT",
+        method: 'PUT',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
   };

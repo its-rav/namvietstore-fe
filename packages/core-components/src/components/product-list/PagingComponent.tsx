@@ -12,6 +12,8 @@ export type PagingComponentProps = {
   classImg?: string;
   classContent?: string;
   classPaging?: string;
+  previousLabel?: string;
+  nextLabel?: string;
 };
 
 const PagingComponent: React.FC<PagingComponentProps> = ({
@@ -23,6 +25,8 @@ const PagingComponent: React.FC<PagingComponentProps> = ({
   classImg = 'basis-full object-contain',
   classContent = 'basis-full',
   classPaging = 'grid grid-cols-4 gap-3',
+  previousLabel,
+  nextLabel,
 }) => {
   return (
     <div>
@@ -43,6 +47,8 @@ const PagingComponent: React.FC<PagingComponentProps> = ({
       <div className='my-[20px]'>
         {paginationPage.totalPages > 1 ? (
           <Pagination
+            previousLabel={previousLabel}
+            nextLabel={nextLabel}
             paginationPage={paginationPage}
             handlePageClick={handlePageClick}
           />

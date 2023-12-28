@@ -1,20 +1,20 @@
-const { generateApi, generateTemplates } = require("swagger-typescript-api");
-const path = require("path");
-const fs = require("fs");
+import fs from 'fs';
+import path from 'path';
+import { generateApi } from 'swagger-typescript-api';
 
 /* NOTE: all fields are optional expect one of `input`, `url`, `spec` */
-console.log(path.resolve(process.cwd(), "full_documentation.json"));
+console.log(path.resolve(process.cwd(), 'full_documentation.json'));
 generateApi({
-  name: "NvCmsApi.ts",
+  name: 'NvCmsApi.ts',
   // set to `false` to prevent the tool from writing to disk
-  output: path.resolve(process.cwd(), "./src/__generated_apis__"),
-  url: "http://localhost:1337/api",
-  input: path.resolve(process.cwd(), "full_documentation.json"),
+  output: path.resolve(process.cwd(), './src/__generated_apis__'),
+  url: 'http://localhost:1337/api',
+  input: path.resolve(process.cwd(), 'full_documentation.json'),
   spec: {
-    swagger: "2.0",
+    swagger: '2.0',
     info: {
-      version: "1.0.0",
-      title: "Nv Cms Api",
+      version: '1.0.0',
+      title: 'Nv Cms Api',
     },
     // ...
   },
