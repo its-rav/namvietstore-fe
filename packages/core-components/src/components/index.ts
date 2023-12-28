@@ -12,13 +12,12 @@ import SideBarMobile from './SideBarMobile';
 import TopBar from './topbar/TopBar';
 export { SideBarMobile };
 
-  export { PostCard };
+export { PostCard };
 
-  export { type FeaturesCardItemType,FeaturesCard, MobileHeader, SearchBar };
+export { type FeaturesCardItemType,FeaturesCard, MobileHeader, SearchBar };
 
-  export * from './buttons';
-  export * from './contact';
-  export * from './product-detail';
-  export * from './sections';
-  export { type ContactTableItemType,ContactTable, TopBar };
-
+export * from './buttons';
+export * from './contact';
+export * from './product-detail';
+export * from './sections';
+export { type ContactTableItemType,ContactTable, TopBar };
