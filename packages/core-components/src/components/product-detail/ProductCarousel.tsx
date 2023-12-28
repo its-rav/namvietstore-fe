@@ -47,7 +47,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
       });
 
     return (
-      <div className=''>
+      <div>
         <ImageGallery
           ref={slideShowRef}
           items={images}
