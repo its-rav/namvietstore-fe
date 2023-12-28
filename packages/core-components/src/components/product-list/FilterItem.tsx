@@ -29,8 +29,8 @@ const FilterItem: React.FC<FilterItemProps> = ({
         <p className='font-semibold color-primary'>{filterItems.title}</p>
         <div className='h-[70px]'>
           <button
-            id='dropdownButton'
-            data-dropdown-toggle='dropdown'
+            id={`dropdown-button-${filterItems.filterType}`}
+            data-dropdown-toggle={`dropdown-${filterItems.filterType}`}
             data-dropdown-delay='500'
             className='w-full p-4 rounded-md border-solid flex justify-end items-center mt-4 hover:bg-gray-200'
             style={{
@@ -77,11 +77,11 @@ const FilterItem: React.FC<FilterItemProps> = ({
           </button>
           {isOpen ? (
             <div
-              id='dropdown'
+              id={`dropdown-${filterItems.filterType}`}
               className='z-10 bg-white rounded-md overflow-y-scroll	h-[134px]'
             >
               <ul
-                aria-labelledby='dropdownButton'
+                aria-labelledby={`dropdown-button-${filterItems.filterType}`}
                 className='divide-y divide-[#7D7D7DE5] p-1'
                 style={{
                   boxShadow: '0 2px 6px 0 rgba(0, 0, 0, 0.15)',
