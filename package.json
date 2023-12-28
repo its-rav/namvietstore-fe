@@ -3,6 +3,7 @@
   "scripts": {
     "lint": "eslint --max-warnings=20 --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore .",
     "format:check": "prettier --check \"**/*.{ts,tsx}\"",
+    "core:typecheck": "yarn workspace @namviet-fe/core-ui tsc --noEmit --incremental false",
     "core:build": "yarn workspace @namviet-fe/core-ui build",
     "core:watch": "yarn workspace @namviet-fe/core-ui watch",
     "pg:dev": "yarn workspace @namviet-fe/playground dev",
