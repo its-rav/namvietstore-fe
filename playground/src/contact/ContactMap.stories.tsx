@@ -11,7 +11,6 @@ export const Default: Story = () => (
     style={{
       width: '100%',
     }}
-    className=''
   >
     <ContactMap
       contactMapItem={{

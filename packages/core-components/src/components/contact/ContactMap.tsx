@@ -10,7 +10,7 @@ type ContactMapProps = {
 
 const ContactMap: React.FC<ContactMapProps> = ({ contactMapItem }) => {
   return contactMapItem?.srcMap ? (
-    <div className=''>
+    <div>
       <iframe
         src={contactMapItem.srcMap}
         width='100%'

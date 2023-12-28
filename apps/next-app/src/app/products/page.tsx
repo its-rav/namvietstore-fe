@@ -181,50 +181,66 @@ export default function ProductsPage() {
   };
 
   return (
-    <div className='bg-[#F5F5F5]'>
-      <div className='max-w-7xl mx-auto w-full '>
-        <div className='grid grid-cols-12 gap-3 md:!gap-7'>
-          <div className='col-span-12 md:col-span-3'></div>
-          <div className='col-span-12 md:col-span-9 px-[5px] md:px-0 py-[10px] md:py-[30px] flex items-center font-[Roboto]'>
-            <span className='text-[#0F0F0F] md:text-[#850000] text-base md:text-2xl font-semibold md:font-bold mr-[5px]'>
-              {title.toUpperCase()}
-            </span>
-            <span className='text-[#575757] md:text-[#000000] text-[11px] md:text-base font-normal'>{`(${quantity} sản phẩm)`}</span>
-          </div>
-          <div className='col-span-12 md:!col-span-3'>
-            <FilterComponent
-              filterGroupItems={filterData}
-              applyFilterTitle={'Áp dụng'}
-              clearFilterTitle={'Xóa bộ lọc'}
-              filterTitle={'Bộ Lọc'}
-              onClickSortAndFilter={onClickSortAndFilter}
-              onChangePageLayout={onChangePageLayout}
-            />
-          </div>
-          <div className='col-span-12 md:!col-span-9'>
-            <PagingComponent
-              productItems={productItems}
-              onClickItem={onClickItem}
-              paginationPage={paginationPage}
-              handlePageClick={handlePageClick}
-              classItem={showLayoutList ? 'flex flex-row' : 'flex flex-col'}
-              classImg={
-                showLayoutList
-                  ? 'basis-2/5 object-contain'
-                  : 'bais-full object-contain'
-              }
-              classContent={showLayoutList ? 'basis-3/5' : 'bais-full'}
-              classPaging={
-                showLayoutList
-                  ? 'grid gap-3 grid-cols-1'
-                  : 'grid gap-3 grid-cols-2 md:!grid-cols-4'
-              }
-              previousLabel={'Trước'}
-              nextLabel={'Sau'}
-            />
+    <>
+      <button
+        onClick={() => {
+          router.push('/');
+        }}
+      >
+        Homepage
+      </button>
+      <button
+        onClick={() => {
+          router.push('/products/product1');
+        }}
+      >
+        DetailProduct
+      </button>
+      <div className='bg-[#F5F5F5]'>
+        <div className='max-w-7xl mx-auto w-full '>
+          <div className='grid grid-cols-12 gap-3 md:!gap-7'>
+            <div className='col-span-12 md:col-span-3'></div>
+            <div className='col-span-12 md:col-span-9 px-[5px] md:px-0 py-[10px] md:py-[30px] flex items-center font-[Roboto]'>
+              <span className='text-[#0F0F0F] md:text-[#850000] text-base md:text-2xl font-semibold md:font-bold mr-[5px]'>
+                {title.toUpperCase()}
+              </span>
+              <span className='text-[#575757] md:text-[#000000] text-[11px] md:text-base font-normal'>{`(${quantity} sản phẩm)`}</span>
+            </div>
+            <div className='col-span-12 md:!col-span-3'>
+              <FilterComponent
+                filterGroupItems={filterData}
+                applyFilterTitle={'Áp dụng'}
+                clearFilterTitle={'Xóa bộ lọc'}
+                filterTitle={'Bộ Lọc'}
+                onClickSortAndFilter={onClickSortAndFilter}
+                onChangePageLayout={onChangePageLayout}
+              />
+            </div>
+            <div className='col-span-12 md:!col-span-9'>
+              <PagingComponent
+                productItems={productItems}
+                onClickItem={onClickItem}
+                paginationPage={paginationPage}
+                handlePageClick={handlePageClick}
+                classItem={showLayoutList ? 'flex flex-row' : 'flex flex-col'}
+                classImg={
+                  showLayoutList
+                    ? 'basis-2/5 object-contain'
+                    : 'bais-full object-contain'
+                }
+                classContent={showLayoutList ? 'basis-3/5' : 'bais-full'}
+                classPaging={
+                  showLayoutList
+                    ? 'grid gap-3 grid-cols-1'
+                    : 'grid gap-3 grid-cols-2 md:!grid-cols-4'
+                }
+                previousLabel={'Trước'}
+                nextLabel={'Sau'}
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
