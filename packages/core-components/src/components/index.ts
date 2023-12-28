@@ -8,6 +8,8 @@ import MobileHeader from '@/components/MobileHeader';
 import PostCard from '@/components/PostCard';
 import SearchBar from '@/components/SearchBar';
 
+import SideBarMobile from './SideBarMobile';
+export { SideBarMobile };
 import TopBar from './topbar/TopBar';
 
 export { PostCard };

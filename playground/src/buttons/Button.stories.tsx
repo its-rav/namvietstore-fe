@@ -1,9 +1,11 @@
 import type { Story, StoryDefault } from '@ladle/react';
-import { WhitePlusIcon } from '@namviet-fe/core-ui';
 import { type ButtonProps, Button } from '@namviet-fe/core-ui';
+import { HamburgerIcon, WhitePlusIcon } from '@namviet-fe/core-ui';
 import React from 'react';
 import 'regenerator-runtime/runtime';
+import 'regenerator-runtime/runtime';
 
+import '@namviet-fe/core-ui/dist/style.css';
 export default {
   title: '@nv-fe/core-ui/buttons/Button',
 } satisfies StoryDefault<typeof Button>;
@@ -24,4 +26,15 @@ export const Loading: Story<ButtonProps> = () => (
 
 export const Disabled: Story<ButtonProps> = () => (
   <Button rightIcon={<WhitePlusIcon />} children='Đọc thêm' disabled={true} />
+);
+
+export const CategoryButton: Story<ButtonProps> = () => (
+  <Button
+    leftIcon={<HamburgerIcon />}
+    children='danh mục sản phẩm'
+    backgroundColor='secondary'
+    buttonType='category'
+    isUpperCase={true}
+    isBold={true}
+  />
 );

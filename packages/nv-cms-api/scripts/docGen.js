@@ -1,6 +1,6 @@
-import fs from "fs";
-import path from "path";
-import { generateApi } from "swagger-typescript-api";
+import fs from 'fs';
+import path from 'path';
+import { generateApi } from 'swagger-typescript-api';
 
 /* NOTE: all fields are optional expect one of `input`, `url`, `spec` */
 console.log(path.resolve(process.cwd(), 'full_documentation.json'));
