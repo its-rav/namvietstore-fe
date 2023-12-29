@@ -28,8 +28,8 @@ export const Default: Story = () => (
       <Contact contactItem={contactItem} />
     </div>
     <div
-      className='col-span-7 col-span-12 md:col-span-7'
-      style={{ backgroundColor: '#F3F3F3' }}
+      ////#F3F3F3 not found
+      className='col-span-7 col-span-12 md:col-span-7 bg-[#F3F3F3]'
     ></div>
   </div>
 );

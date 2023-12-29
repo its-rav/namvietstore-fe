@@ -3,6 +3,8 @@ import ImageGallery, { ReactImageGalleryItem } from 'react-image-gallery';
 
 import 'react-image-gallery/styles/css/image-gallery.css';
 
+import { ArrowLongLeftIcon, ArrowLongRightIcon } from '@/icons';
+
 export type ProductImgItemType = {
   src: string;
   alt?: string;
@@ -28,6 +30,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
           key: `image-${index}`,
           original: `${item.src}`,
           thumbnail: `${item.src}`,
+          //#575757 Onyx color not found
           originalClass: `${
             isFullScreen ? 'px-0 md:px-[70px]' : ''
           } border-0 md:border-b-[0.5px] border-[#575757] border-solid pb-[14.5px]`,
@@ -47,74 +50,46 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
       });
 
     return (
-      <div>
-        <ImageGallery
-          ref={slideShowRef}
-          items={images}
-          slideOnThumbnailOver={true}
-          showIndex={true}
-          useBrowserFullscreen={false}
-          thumbnailPosition={isFullScreen ? 'right' : 'bottom'}
-          showPlayButton={isFullScreen}
-          showNav={isFullScreen}
-          onClick={() => {
-            slideShowRef.current.toggleFullScreen();
-          }}
-          onScreenChange={() => {
-            !isFullScreen ? setIsFullScreen(true) : setIsFullScreen(false);
-          }}
-          renderLeftNav={(onClick, disabled) => (
-            <button
-              onClick={onClick}
-              disabled={disabled}
-              type='button'
-              className='image-gallery-icon image-gallery-left-nav'
-              aria-label='Previous Slide'
-              style={{ padding: '10px', backgroundColor: '#4e4e4e' }}
-            >
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 24 24'
-                strokeWidth='1.5'
-                stroke='currentColor'
-                className='w-6 h-6'
-              >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18'
-                />
-              </svg>
-            </button>
-          )}
-          renderRightNav={(onClick, disabled) => (
-            <button
-              onClick={onClick}
-              disabled={disabled}
-              type='button'
-              className='image-gallery-icon image-gallery-right-nav'
-              aria-label='Next Slide'
-              style={{ padding: '10px', backgroundColor: '#4e4e4e' }}
-            >
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 24 24'
-                strokeWidth='1.5'
-                stroke='currentColor'
-                className='w-6 h-6'
-              >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3'
-                />
-              </svg>
-            </button>
-          )}
-        />
-      </div>
+      <ImageGallery
+        ref={slideShowRef}
+        items={images}
+        slideOnThumbnailOver={true}
+        showIndex={true}
+        useBrowserFullscreen={false}
+        thumbnailPosition={isFullScreen ? 'right' : 'bottom'}
+        showPlayButton={isFullScreen}
+        showNav={isFullScreen}
+        onClick={() => {
+          slideShowRef.current.toggleFullScreen();
+        }}
+        onScreenChange={() => {
+          !isFullScreen ? setIsFullScreen(true) : setIsFullScreen(false);
+        }}
+        renderLeftNav={(onClick, disabled) => (
+          <button
+            onClick={onClick}
+            disabled={disabled}
+            type='button'
+            // #4e4e4e not found
+            className='image-gallery-icon p-[10px] !bg-[#4e4e4e] -translate-y-1/2 top-1/2 left-0'
+            aria-label='Previous Slide'
+          >
+            <ArrowLongLeftIcon />
+          </button>
+        )}
+        renderRightNav={(onClick, disabled) => (
+          <button
+            onClick={onClick}
+            disabled={disabled}
+            type='button'
+            // #4e4e4e not found
+            className='image-gallery-icon p-[10px] !bg-[#4e4e4e] -translate-y-1/2 top-1/2 right-0'
+            aria-label='Next Slide'
+          >
+            <ArrowLongRightIcon />
+          </button>
+        )}
+      />
     );
   } else {
     return <></>;
