@@ -7,7 +7,8 @@ import {
   type ProductItemType,
   Button,
   FilterItem,
-  PagingComponent,
+  PagingListComponent,
+  PagingGridComponent,
 } from '@namviet-fe/core-ui';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
@@ -235,26 +236,25 @@ export default function ProductsPage() {
               </div>
             </div>
             <div className='col-span-12 md:!col-span-9'>
-              <PagingComponent
-                productItems={productItems}
-                onClickItem={onClickItem}
-                paginationPage={paginationPage}
-                handlePageClick={handlePageClick}
-                classItem={showLayoutList ? 'flex flex-row' : 'flex flex-col'}
-                classImg={
-                  showLayoutList
-                    ? 'basis-2/5 object-contain'
-                    : 'bais-full object-contain'
-                }
-                classContent={showLayoutList ? 'basis-3/5' : 'bais-full'}
-                classPaging={
-                  showLayoutList
-                    ? 'grid gap-3 grid-cols-1'
-                    : 'grid gap-3 grid-cols-2 md:!grid-cols-4'
-                }
-                previousLabel={'Trước'}
-                nextLabel={'Sau'}
-              />
+              {showLayoutList ? (
+                <PagingListComponent
+                  productItems={productItems}
+                  paginationPage={paginationPage}
+                  previousLabel={'Trước'}
+                  nextLabel={'Sau'}
+                  onClickItem={onClickItem}
+                  handlePageClick={handlePageClick}
+                />
+              ) : (
+                <PagingGridComponent
+                  productItems={productItems}
+                  paginationPage={paginationPage}
+                  previousLabel={'Trước'}
+                  nextLabel={'Sau'}
+                  onClickItem={onClickItem}
+                  handlePageClick={handlePageClick}
+                />
+              )}
             </div>
           </div>
         </div>
