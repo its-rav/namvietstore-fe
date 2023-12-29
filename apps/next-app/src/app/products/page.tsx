@@ -1,12 +1,15 @@
 'use client';
 
+import { Button } from '@namviet-fe/core-ui';
 import {
   type FilterGroupType,
   type FilterItemType,
   type PaginationType,
   type ProductItemType,
-  Button,
   FilterItem,
+  ListFilterMobile,
+  ListSortMobile,
+  NavFilterMobile,
   PagingComponent,
 } from '@namviet-fe/core-ui';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
@@ -20,6 +23,9 @@ export default function ProductsPage() {
   const pageParamName = 'page';
   const totalPageParamName = 'total';
   const sortParamName = 'sort';
+  const [isOpenSort, setIsOpenSort] = useState(false);
+  const [isOpenFilter, setIsOpenFilter] = useState(false);
+
   const onClickItem = (productId: string) => {
     router.replace(`${pathname}/${productId}`);
   };
@@ -28,6 +34,14 @@ export default function ProductsPage() {
     const params = new URLSearchParams(searchParams.toString());
     params.set(pageParamName, page.toString());
     router.replace(`${pathname}?${params.toString()}`);
+  };
+
+  const onClickOpenSort = (isOpenSort: boolean) => {
+    setIsOpenSort(isOpenSort);
+  };
+
+  const onClickOpenFilter = (isOpenFilter: boolean) => {
+    setIsOpenFilter(isOpenFilter);
   };
 
   const onClickSortAndFilter = (searchData: string[]) => {
@@ -233,6 +247,28 @@ export default function ProductsPage() {
                   );
                 })}
               </div>
+              <div className='block md:hidden'>
+                <NavFilterMobile
+                  sortTitle={filterData.sortItems.title}
+                  filterTitle='Bộ Lọc'
+                  onClickOpenSort={onClickOpenSort}
+                  onChangePageLayout={onChangePageLayout}
+                  onClickOpenFilter={onClickOpenFilter}
+                />
+                <ListSortMobile
+                  isOpenSort={isOpenSort}
+                  sortItems={filterData.sortItems}
+                  onClickApplySortFilter={onClickSortAndFilter}
+                />
+                <ListFilterMobile
+                  isOpenFilter={isOpenFilter}
+                  filterItems={filterData.filterItems}
+                  clearFilterTitle='Xóa bộ lọc'
+                  applyFilterTitle='Áp dụng bộ lọc'
+                  onClickApplySortFilter={onClickSortAndFilter}
+                  onClickOpenFilter={onClickOpenFilter}
+                />
+              </div>
             </div>
             <div className='col-span-12 md:!col-span-9'>
               <PagingComponent
@@ -240,18 +276,7 @@ export default function ProductsPage() {
                 onClickItem={onClickItem}
                 paginationPage={paginationPage}
                 handlePageClick={handlePageClick}
-                classItem={showLayoutList ? 'flex flex-row' : 'flex flex-col'}
-                classImg={
-                  showLayoutList
-                    ? 'basis-2/5 object-contain'
-                    : 'bais-full object-contain'
-                }
-                classContent={showLayoutList ? 'basis-3/5' : 'bais-full'}
-                classPaging={
-                  showLayoutList
-                    ? 'grid gap-3 grid-cols-1'
-                    : 'grid gap-3 grid-cols-2 md:!grid-cols-4'
-                }
+                layout={showLayoutList ? 'list' : 'grid'}
                 previousLabel={'Trước'}
                 nextLabel={'Sau'}
               />

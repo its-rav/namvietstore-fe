@@ -8,10 +8,7 @@ export type PagingComponentProps = {
   onClickItem?: (id: string) => void;
   paginationPage: PaginationType;
   handlePageClick?: (page: number) => void;
-  classItem?: string;
-  classImg?: string;
-  classContent?: string;
-  classPaging?: string;
+  layout?: 'list' | 'grid';
   previousLabel?: string;
   nextLabel?: string;
 };
@@ -21,25 +18,32 @@ const PagingComponent: React.FC<PagingComponentProps> = ({
   onClickItem,
   paginationPage,
   handlePageClick,
-  classItem = 'flex flex-col',
-  classImg = 'basis-full object-contain',
-  classContent = 'basis-full',
-  classPaging = 'grid grid-cols-4 gap-3',
+  layout = 'list',
   previousLabel,
   nextLabel,
 }) => {
   return (
-    <div>
-      <div className={classPaging}>
+    <>
+      <div
+        className={
+          layout === 'list'
+            ? 'grid gap-3 grid-cols-1'
+            : 'grid gap-3 grid-cols-2 md:!grid-cols-4'
+        }
+      >
         {productItems.map((item) => {
           return (
             <ProductItem
               key={item.productId}
               productItem={item}
               onClick={onClickItem}
-              classItem={classItem}
-              classImg={classImg}
-              classContent={classContent}
+              classItem={layout === 'list' ? 'flex flex-row' : 'flex flex-col'}
+              classImg={
+                layout === 'list'
+                  ? 'basis-2/5 object-contain'
+                  : 'basis-full object-contain'
+              }
+              classContent={layout === 'list' ? 'basis-3/5' : 'basis-full'}
             />
           );
         })}
@@ -53,10 +57,10 @@ const PagingComponent: React.FC<PagingComponentProps> = ({
             handlePageClick={handlePageClick}
           />
         ) : (
-          <div>&ensp;</div>
+          <>&ensp;</>
         )}
       </div>
-    </div>
+    </>
   );
 };
 
