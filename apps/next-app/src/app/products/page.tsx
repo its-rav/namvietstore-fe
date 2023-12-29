@@ -1,11 +1,13 @@
 'use client';
 
 import {
-  FilterComponent,
-  FilterGroupType,
-  PaginationType,
+  type FilterGroupType,
+  type FilterItemType,
+  type PaginationType,
+  type ProductItemType,
+  Button,
+  FilterItem,
   PagingComponent,
-  ProductItemType,
 } from '@namviet-fe/core-ui';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
@@ -54,7 +56,7 @@ export default function ProductsPage() {
   const onChangePageLayout = (isList: boolean) => {
     setShowLayoutList(isList);
   };
-  // dumy data
+  // dummy data
   const title = 'Dầu đốt';
   const quantity = 16;
   const productItems: ProductItemType[] = [
@@ -182,20 +184,20 @@ export default function ProductsPage() {
 
   return (
     <>
-      <button
+      <Button
         onClick={() => {
           router.push('/');
         }}
       >
         Homepage
-      </button>
-      <button
+      </Button>
+      <Button
         onClick={() => {
           router.push('/products/product1');
         }}
       >
         DetailProduct
-      </button>
+      </Button>
       <div className='bg-neutral-100'>
         <div className='max-w-7xl mx-auto w-full '>
           <div className='grid grid-cols-12 gap-3 md:!gap-7'>
@@ -209,14 +211,28 @@ export default function ProductsPage() {
               <span className='text-[#575757] md:text-black text-[11px] md:text-base font-normal'>{`(${quantity} sản phẩm)`}</span>
             </div>
             <div className='col-span-12 md:!col-span-3'>
-              <FilterComponent
-                filterGroupItems={filterData}
-                applyFilterTitle={'Áp dụng'}
-                clearFilterTitle={'Xóa bộ lọc'}
-                filterTitle={'Bộ Lọc'}
-                onClickSortAndFilter={onClickSortAndFilter}
-                onChangePageLayout={onChangePageLayout}
-              />
+              <div className='hidden md:block'>
+                {filterData.sortItems ? (
+                  <div key={filterData.sortItems.filterId} className='mb-12'>
+                    <FilterItem
+                      filterItems={filterData.sortItems}
+                      onClickSort={onClickSortAndFilter}
+                    ></FilterItem>
+                  </div>
+                ) : (
+                  <></>
+                )}
+                {filterData.filterItems.map((item: FilterItemType) => {
+                  return (
+                    <div key={item.filterId} className='mb-12'>
+                      <FilterItem
+                        filterItems={item}
+                        onClickSort={onClickSortAndFilter}
+                      ></FilterItem>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
             <div className='col-span-12 md:!col-span-9'>
               <PagingComponent

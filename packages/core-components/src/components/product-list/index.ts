@@ -1,4 +1,3 @@
-import FilterComponent from '@/components/product-list/FilterComponent';
 import FilterItem, {
   type FilterItemType,
 } from '@/components/product-list/FilterItem';
@@ -21,10 +20,4 @@ export {
   ProductItem,
 };
 
-export {
-  type FilterGroupType,
-  type FilterItemType,
-  FilterComponent,
-  FilterItem,
-  FilterMobile,
-};
+export { type FilterGroupType, type FilterItemType, FilterItem, FilterMobile };
