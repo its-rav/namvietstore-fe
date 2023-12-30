@@ -7,8 +7,8 @@ import {
   type ProductItemType,
   Button,
   FilterItem,
-  PagingListComponent,
   PagingGridComponent,
+  PagingListComponent,
   SortMobile,
 } from '@namviet-fe/core-ui';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
