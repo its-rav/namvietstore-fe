@@ -35,6 +35,7 @@ const ContactTable: React.FC<ContactTableProps> = ({
         {contactTableItem.title}
       </h2>
     )}
+
     <div className=' flex items-center bg-white w-full h-1 my-4'>
       <div className='bg-primary w-1/5 h-2'></div>
     </div>

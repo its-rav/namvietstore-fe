@@ -13,7 +13,7 @@ export type InfoContactFormType = {
 };
 
 type ContactFormProps = {
-  submitForm: (data: InfoContactFormType) => void;
+  submitForm?: (data: InfoContactFormType) => Promise<void>;
   sitekey: string;
 };
 
@@ -41,9 +41,9 @@ const ContactForm: React.FC<ContactFormProps> = ({
   const onExpiredReCapcha = () => {
     setReCapchaToken('');
   };
-  const onSubmit = function (e: React.FormEvent<HTMLFormElement>) {
+  const onSubmit = async function (e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    submitForm(infoContactForm.current);
+    await submitForm?.(infoContactForm.current);
   };
   //#F3F3F3 not found
   return (
