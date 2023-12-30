@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-import { FilterItemType } from './FilterItem';
 import { CaretDownIcon } from '@/icons';
+
+import { FilterItemType } from './FilterItem';
 
 type SortMobileProps = {
   sortItems: FilterItemType;

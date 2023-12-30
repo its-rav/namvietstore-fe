@@ -4,7 +4,6 @@ import FilterItem, {
 import FilterMobile, {
   type FilterGroupType,
 } from '@/components/product-list/FilterMobile';
-import SortMobile from '@/components/product-list/SortMobile';
 import Pagination, {
   type PaginationType,
 } from '@/components/product-list/Pagination';
@@ -14,6 +13,7 @@ import PagingListComponent from '@/components/product-list/PagingListComponent';
 import ProductItem, {
   type ProductItemType,
 } from '@/components/product-list/ProductItem';
+import SortMobile from '@/components/product-list/SortMobile';
 
 export {
   type PaginationType,
@@ -25,4 +25,10 @@ export {
   ProductItem,
 };
 
-export { type FilterGroupType, type FilterItemType, FilterItem, FilterMobile, SortMobile };
+export {
+  type FilterGroupType,
+  type FilterItemType,
+  FilterItem,
+  FilterMobile,
+  SortMobile,
+};
