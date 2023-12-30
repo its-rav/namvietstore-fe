@@ -8,6 +8,8 @@ import {
   Button,
   FilterItem,
   PagingListComponent,
+  PagingGridComponent,
+  SortMobile,
 } from '@namviet-fe/core-ui';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
@@ -232,6 +234,12 @@ export default function ProductsPage() {
                     </div>
                   );
                 })}
+              </div>
+              <div className='block md:hidden'>
+                <SortMobile
+                  sortItems={filterData.sortItems}
+                  onClickApplySort={onClickSortAndFilter}
+                />
               </div>
             </div>
             <div className='col-span-12 md:!col-span-9'>
