@@ -11,7 +11,8 @@ export type ButtonProps = React.PropsWithChildren<{
   rightIcon?: React.ReactNode;
   onClick?: () => void;
   size?: 'sm' | 'md' | 'lg' | 'fit-content';
-}> & React.ComponentPropsWithRef<'button'>;
+}> &
+  React.ComponentPropsWithRef<'button'>;
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -41,11 +42,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           size === 'md' && 'px-6 py-4 w-36',
           size === 'lg' && 'px-7 py-5 w-40',
           size === 'fit-content' && 'px-5 py-4 w-fit',
-          loading &&
-            'relative opacity-1 disabled:cursor-wait',
+          loading && 'relative opacity-1 disabled:cursor-wait',
           backgroundColor === 'secondary'
             ? 'bg-secondary hover:bg-secondary-800 active:bg-secondary-700'
-            : 'bg-primary hover:bg-primary-800 active:bg-primary-700',
+            : 'bg-primary hover:bg-primary-800 active:bg-primary-700'
         )}
         onClick={onClick}
         {...rest}
@@ -62,7 +62,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           <div className='md:w-5 md:h-5 sm:w-4 sm:h-4 md:mr-4'>{leftIcon}</div>
         )}
 
-        <div className="font-primary text-white sm:text-xs md:text-md text-justify">{children}</div>
+        <div className='font-primary text-white sm:text-xs md:text-md text-justify'>
+          {children}
+        </div>
 
         {rightIcon && (
           <div className='md:w-5 md:h-5 sm:w-4 sm:h-4 md:ml-4'>{rightIcon}</div>

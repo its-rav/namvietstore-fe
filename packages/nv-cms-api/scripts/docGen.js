@@ -2,8 +2,6 @@ import fs from 'fs';
 import path from 'path';
 import { generateApi } from 'swagger-typescript-api';
 
-/* NOTE: all fields are optional expect one of `input`, `url`, `spec` */
-console.log(path.resolve(process.cwd(), 'full_documentation.json'));
 generateApi({
   name: 'NvCmsApi.ts',
   // set to `false` to prevent the tool from writing to disk
@@ -22,10 +20,9 @@ generateApi({
   moduleNameFirstTag: true,
   modular: true,
 })
-  .then(({ files, configuration }) => {
+  .then(({ files }) => {
     files.forEach((params) => {
-      const { content, name, fileName } = params;
-      console.log(fileName);
+      const { content } = params;
       if (content) fs.writeFile(path, content);
     });
   })

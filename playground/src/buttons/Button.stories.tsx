@@ -16,20 +16,25 @@ const args = {
 };
 
 const argTypes = {
-  size : {
+  size: {
     options: ['fit-content', 'sm', 'md', 'lg'],
-    control: { type: "radio" }, // or type: inline-radio
-    defaultValue: "fit-content",
+    control: { type: 'radio' }, // or type: inline-radio
+    defaultValue: 'fit-content',
   },
 };
 
-export const Default: Story<ButtonProps> = ({size, loading}) => (
-  <Button rightIcon={<WhitePlusIcon />} size={size} loading={loading} children='Đọc thêm' />
+export const Default: Story<ButtonProps> = ({ size, loading }) => (
+  <Button
+    rightIcon={<WhitePlusIcon />}
+    size={size}
+    loading={loading}
+    children='Đọc thêm'
+  />
 );
 
-Default.args = args
+Default.args = args;
 
-Default.argTypes = argTypes
+Default.argTypes = argTypes;
 
 export const NoIcon: Story<ButtonProps> = () => <Button children='Submit' />;
 
@@ -46,15 +51,11 @@ export const Disabled: Story<ButtonProps> = () => (
 );
 
 export const CategoryButton: Story<ButtonProps> = (props) => (
-  <Button
-    leftIcon={<HamburgerIcon />}
-    backgroundColor='secondary'
-    {...props}
-  >
+  <Button leftIcon={<HamburgerIcon />} backgroundColor='secondary' {...props}>
     Danh mục sản phẩm
   </Button>
 );
 
-CategoryButton.args = args
+CategoryButton.args = args;
 
-CategoryButton.argTypes = argTypes
+CategoryButton.argTypes = argTypes;

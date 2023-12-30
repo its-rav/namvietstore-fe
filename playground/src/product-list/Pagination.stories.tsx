@@ -8,29 +8,17 @@ export default {
   title: '@nv-fe/core-ui/product-list/Pagination',
 } satisfies StoryDefault<typeof Pagination>;
 
-const handlePageClick = (page: number) => {
-  console.log(`Page ${page}`);
-};
 //#F3F3F3 not found
 export const Default: Story = () => (
   <div className='w-screen bg-[#F3F3F3] p-[20px]'>
     <div className='mb-[50px]'>
-      <Pagination
-        paginationPage={{ totalPages: 5, currentPage: 4 }}
-        handlePageClick={handlePageClick}
-      />
+      <Pagination paginationPage={{ totalPages: 5, currentPage: 4 }} />
     </div>
     <div className='mb-[50px]'>
-      <Pagination
-        paginationPage={{ totalPages: 2, currentPage: 1 }}
-        handlePageClick={handlePageClick}
-      />
+      <Pagination paginationPage={{ totalPages: 2, currentPage: 1 }} />
     </div>
     <div className='mb-[50px]'>
-      <Pagination
-        paginationPage={{ totalPages: 100, currentPage: 100 }}
-        handlePageClick={handlePageClick}
-      />
+      <Pagination paginationPage={{ totalPages: 100, currentPage: 100 }} />
     </div>
   </div>
 );

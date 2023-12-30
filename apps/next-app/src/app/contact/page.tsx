@@ -9,9 +9,9 @@ import {
 
 export async function submitFormAsync(data: InfoContactFormType) {
   // TODO add logic
-  return { data};
+  return { data };
 }
- 
+
 export default async function ContactPage() {
   return (
     <section className='max-w-7xl mx-auto'>
