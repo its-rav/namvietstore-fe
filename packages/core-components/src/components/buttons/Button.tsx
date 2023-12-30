@@ -3,36 +3,32 @@ import { ImSpinner2 } from 'react-icons/im';
 
 import clsxm from '@/lib/clsxm';
 
-export type ButtonProps = {
-  isLoading?: boolean;
+export type ButtonProps = React.PropsWithChildren<{
+  loading?: boolean;
   backgroundColor?: 'primary' | 'secondary';
-  buttonType?: string;
-  isUpperCase?: boolean;
-  isBold?: boolean;
   disabled?: boolean;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   onClick?: () => void;
-} & React.ComponentPropsWithRef<'button'>;
+  size?: 'sm' | 'md' | 'lg' | 'fit-content';
+}> & React.ComponentPropsWithRef<'button'>;
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       children,
       disabled: buttonDisabled,
-      isLoading,
+      loading,
       leftIcon,
       rightIcon,
       backgroundColor,
-      isUpperCase,
-      isBold,
-      buttonType,
+      size = 'fit-content',
       onClick,
       ...rest
     },
     ref
   ) => {
-    const disabled = isLoading || buttonDisabled;
+    const disabled = loading || buttonDisabled;
 
     return (
       <button
@@ -40,32 +36,34 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         type='button'
         disabled={disabled}
         className={clsxm(
-          'flex items-center rounded-xs w-fit font-primary text-white sm:text-xs md:text-md text-justify disabled:cursor-not-allowed',
-          isLoading &&
-            'relative text-transparent transition-none hover:text-transparent disabled:cursor-wait',
-          buttonType === 'category' ? 'md:px-8 md:py-4' : 'md:px-3 md:py-3',
+          'flex items-center rounded-xs disabled:cursor-not-allowed',
+          size === 'sm' && 'px-3 py-3 w-32',
+          size === 'md' && 'px-6 py-4 w-36',
+          size === 'lg' && 'px-7 py-5 w-40',
+          size === 'fit-content' && 'px-5 py-4 w-fit',
+          loading &&
+            'relative opacity-1 disabled:cursor-wait',
           backgroundColor === 'secondary'
             ? 'bg-secondary hover:bg-secondary-800 active:bg-secondary-700'
             : 'bg-primary hover:bg-primary-800 active:bg-primary-700',
-          isUpperCase && 'uppercase',
-          isBold
-            ? 'md:font-medium sm:font-normal'
-            : 'md:font-normal sm:font-light'
         )}
         onClick={onClick}
         {...rest}
       >
-        {isLoading && (
+        {loading && (
           <div
-            className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white`}
+            className={`absolute left-0 top-0 w-full h-full z-10 bg-white bg-opacity-75 flex items-center justify-center`}
           >
             <ImSpinner2 className='animate-spin' />
           </div>
         )}
+
         {leftIcon && (
-          <div className='md:w-5 md:5 sm:w-4 sm:h-4 md:mr-4'>{leftIcon}</div>
+          <div className='md:w-5 md:h-5 sm:w-4 sm:h-4 md:mr-4'>{leftIcon}</div>
         )}
-        <div>{children}</div>
+
+        <div className="font-primary text-white sm:text-xs md:text-md text-justify">{children}</div>
+
         {rightIcon && (
           <div className='md:w-5 md:h-5 sm:w-4 sm:h-4 md:ml-4'>{rightIcon}</div>
         )}
