@@ -10,6 +10,7 @@ import {
   PagingGridComponent,
   PagingListComponent,
   SortMobile,
+  ButtonChangeLayout,
 } from '@namviet-fe/core-ui';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
@@ -235,11 +236,12 @@ export default function ProductsPage() {
                   );
                 })}
               </div>
-              <div className='block md:hidden'>
+              <div className='flex md:hidden'>
                 <SortMobile
                   sortItems={filterData.sortItems}
                   onClickApplySort={onClickSortAndFilter}
                 />
+                <ButtonChangeLayout onChangePageLayout={onChangePageLayout} />
               </div>
             </div>
             <div className='col-span-12 md:!col-span-9'>

@@ -1,3 +1,4 @@
+import ButtonChangeLayout from '@/components/product-list/ButtonChangeLayout';
 import FilterItem, {
   type FilterItemType,
 } from '@/components/product-list/FilterItem';
@@ -28,6 +29,7 @@ export {
 export {
   type FilterGroupType,
   type FilterItemType,
+  ButtonChangeLayout,
   FilterItem,
   FilterMobile,
   SortMobile,
