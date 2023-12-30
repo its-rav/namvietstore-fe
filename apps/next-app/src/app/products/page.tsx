@@ -34,7 +34,7 @@ export default function ProductsPage() {
     router.replace(`${pathname}?${params.toString()}`);
   };
 
-  const onClickSortAndFilter = (searchData: string[]) => {
+  const onClickSort = (searchData: string[]) => {
     let params = new URLSearchParams();
     if (searchData.length === 0) {
       params.set(pageParamName, searchParams.get(pageParamName) ?? '');
@@ -49,6 +49,34 @@ export default function ProductsPage() {
         const [key, value] = search.split('=');
         if (params.has(key)) {
           params.set(key, value);
+        } else {
+          params.append(key, value);
+        }
+      });
+    }
+    router.replace(`${pathname}?${params.toString()}`);
+  };
+
+  const onClickFilter = (searchData: string[]) => {
+    let params = new URLSearchParams();
+
+    if (searchData.length === 0) {
+      params.set(pageParamName, searchParams.get(pageParamName) ?? '');
+      params.set(
+        totalPageParamName,
+        searchParams.get(totalPageParamName) ?? ''
+      );
+      params.set(sortParamName, searchParams.get(sortParamName) ?? '');
+    } else {
+      params = new URLSearchParams(searchParams.toString());
+      searchData.forEach((search) => {
+        const [key] = search.split('=');
+        params.delete(key);
+      });
+      searchData.forEach((search) => {
+        const [key, value] = search.split('=');
+        if (params.has(key)) {
+          params.set(key, params.get(key) + ',' + value);
         } else {
           params.append(key, value);
         }
@@ -195,13 +223,6 @@ export default function ProductsPage() {
       >
         Homepage
       </Button>
-      <Button
-        onClick={() => {
-          router.push('/products/product1');
-        }}
-      >
-        DetailProduct
-      </Button>
       <div className='bg-neutral-100'>
         <div className='max-w-7xl mx-auto w-full'>
           <div className='bg-white md:!bg-neutral-100 grid grid-cols-12 mb-1 mt-2'>
@@ -223,7 +244,7 @@ export default function ProductsPage() {
                   <div key={filterData.sortItems.filterId} className='mb-12'>
                     <FilterItem
                       filterItems={filterData.sortItems}
-                      onClickSort={onClickSortAndFilter}
+                      onClickSort={onClickSort}
                     ></FilterItem>
                   </div>
                 ) : (
@@ -234,7 +255,7 @@ export default function ProductsPage() {
                     <div key={item.filterId} className='mb-12'>
                       <FilterItem
                         filterItems={item}
-                        onClickSort={onClickSortAndFilter}
+                        onClickSort={onClickFilter}
                       ></FilterItem>
                     </div>
                   );
@@ -243,20 +264,23 @@ export default function ProductsPage() {
               <div className='bg-white flex md:hidden justify-between py-5 font-medium text-sm/4 border-b'>
                 <SortMobile
                   sortItems={filterData.sortItems}
-                  onClickApplySort={onClickSortAndFilter}
+                  onClickApplySort={onClickSort}
                 />
                 <div className='flex divide-x'>
-                  <ButtonChangeLayout
-                    className='pr-2'
-                    onChangePageLayout={onChangePageLayout}
-                  />
-                  <FilterMobile
-                    filterItems={filterData.filterItems}
-                    filterTitle='Bộ Lọc'
-                    clearFilterTitle='Xóa bộ lọc'
-                    applyFilterTitle='Áp dụng bộ lọc'
-                    onClickApplyFilter={onClickSortAndFilter}
-                  />
+                  <div className='px-3'>
+                    <ButtonChangeLayout
+                      onChangePageLayout={onChangePageLayout}
+                    />
+                  </div>
+                  <div className='px-3'>
+                    <FilterMobile
+                      filterItems={filterData.filterItems}
+                      filterTitle='Bộ Lọc'
+                      clearFilterTitle='Xóa bộ lọc'
+                      applyFilterTitle='Áp dụng bộ lọc'
+                      onClickApplyFilter={onClickFilter}
+                    />
+                  </div>
                 </div>
               </div>
             </div>

@@ -23,8 +23,8 @@ const FilterMobile: React.FC<FilterMobileProps> = ({
   applyFilterTitle,
   onClickApplyFilter,
 }) => {
-  const formatFilterValue = (filterType: string, optionId: string) => {
-    return `${filterType}=${optionId}`;
+  const formatFilterValue = (filterId: string, optionId: string) => {
+    return `${filterId}=${optionId}`;
   };
 
   const [isOpenFilter, setIsOpenFilter] = useState(false);
@@ -48,7 +48,7 @@ const FilterMobile: React.FC<FilterMobileProps> = ({
   return (
     <>
       <button
-        className='flex items-center px-3'
+        className='flex items-center'
         onClick={() => {
           setIsOpenFilter(true);
         }}
@@ -115,14 +115,21 @@ const FilterMobile: React.FC<FilterMobileProps> = ({
               <button
                 type='button'
                 className='text-blue-700 border border-blue-700 hover:bg-blue-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md px-5 py-2.5 text-center'
-                onClick={() => onClickApplyFilter?.([])}
+                onClick={() => {
+                  onClickApplyFilter?.([]);
+                  setFilterData([]);
+                  setIsOpenFilter(false);
+                }}
               >
                 {clearFilterTitle}
               </button>
               <button
                 type='button'
                 className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md px-5 py-2.5 ml-3'
-                onClick={() => onClickApplyFilter?.(filterData)}
+                onClick={() => {
+                  onClickApplyFilter?.(filterData);
+                  setIsOpenFilter(false);
+                }}
               >
                 {applyFilterTitle}
               </button>

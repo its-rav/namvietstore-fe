@@ -67,7 +67,7 @@ const Pagination: React.FC<PaginationProps> = ({
         breakLabel={breakLabel}
         nextLabel={showNextButton ? nextButton : null}
         onPageChange={(selectedItem) => {
-          handlePageClick?.(selectedItem.selected);
+          handlePageClick?.(selectedItem.selected + 1);
         }}
         pageRangeDisplayed={3}
         pageCount={paginationPage.totalPages}

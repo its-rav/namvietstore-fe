@@ -1,5 +1,9 @@
 import type { Story, StoryDefault } from '@ladle/react';
-import { FilterMobile, type FilterItemType } from '@namviet-fe/core-ui';
+import {
+  FilterMobile,
+  type FilterItemType,
+  ButtonChangeLayout,
+} from '@namviet-fe/core-ui';
 import React from 'react';
 
 import '@namviet-fe/core-ui/dist/style.css';
@@ -58,6 +62,11 @@ const filterItems: FilterItemType[] = [
     ],
   },
 ];
+
+const onChangePageLayout = (isList: boolean) => {
+  console.log('isList', isList);
+};
+
 const onClickFilter = (filterData: string[]) => {
   console.log('filterData', filterData);
 };
@@ -69,7 +78,8 @@ export const Default: Story = () => (
     }}
     className='w-full bg-gray-100'
   >
-    <div className='' style={{ backgroundColor: 'white' }}>
+    <div className='flex gap-4' style={{ backgroundColor: 'white' }}>
+      <ButtonChangeLayout onChangePageLayout={onChangePageLayout} />
       <FilterMobile
         filterItems={filterItems}
         filterTitle='Bộ Lọc'

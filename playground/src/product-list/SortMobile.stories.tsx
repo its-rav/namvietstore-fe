@@ -41,10 +41,6 @@ const onClickSort = (sortData: string[]) => {
   console.log('sortData', sortData);
 };
 
-const onChangePageLayout = (isList: boolean) => {
-  console.log('isList', isList);
-};
-
 export const Default: Story = () => (
   <div
     style={{
@@ -54,7 +50,6 @@ export const Default: Story = () => (
   >
     <div className='flex' style={{ backgroundColor: 'white' }}>
       <SortMobile sortItems={sortItems} onClickApplySort={onClickSort} />
-      <ButtonChangeLayout onChangePageLayout={onChangePageLayout} />
     </div>
   </div>
 );
