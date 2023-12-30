@@ -6,11 +6,12 @@ import {
   type PaginationType,
   type ProductItemType,
   Button,
-  ButtonChangeLayout,
   FilterItem,
   PagingGridComponent,
   PagingListComponent,
   SortMobile,
+  ButtonChangeLayout,
+  FilterMobile,
 } from '@namviet-fe/core-ui';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
@@ -236,12 +237,21 @@ export default function ProductsPage() {
                   );
                 })}
               </div>
-              <div className='flex md:hidden'>
+              <div className='bg-white flex md:hidden justify-between py-5 font-medium text-sm/4 border-b'>
                 <SortMobile
                   sortItems={filterData.sortItems}
                   onClickApplySort={onClickSortAndFilter}
                 />
-                <ButtonChangeLayout onChangePageLayout={onChangePageLayout} />
+                <div className='flex divide-x'>
+                  <ButtonChangeLayout onChangePageLayout={onChangePageLayout} />
+                  <FilterMobile
+                    filterItems={filterData.filterItems}
+                    filterTitle='Bộ Lọc'
+                    clearFilterTitle='Xóa bộ lọc'
+                    applyFilterTitle='Áp dụng bộ lọc'
+                    onClickApplyFilter={onClickSortAndFilter}
+                  />
+                </div>
               </div>
             </div>
             <div className='col-span-12 md:!col-span-9'>

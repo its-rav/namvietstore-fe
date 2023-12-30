@@ -26,13 +26,13 @@ const SortMobile: React.FC<SortMobileProps> = ({
     setIsOpenSort(false);
   };
   return (
-    <div className='relative'>
+    <div className=''>
       <button className='flex items-center px-3' onClick={checkSort}>
         <p className='pr-4'>{sortItems.title}</p>
         <CaretDownIcon className='w-4 h-4' />
       </button>
       {sortItems && isOpenSort ? (
-        <div className='absolute w-screen'>
+        <div className='absolute w-screen mt-[5px]'>
           <ul className='bg-white divide-y text-sm font-normal w-full z-0 absolute opacity-100 top-0 transition-all ease-in duration-500'>
             {sortItems.filterOptions.map((item) => {
               return item.selected ? (

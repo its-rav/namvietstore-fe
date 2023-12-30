@@ -37,8 +37,8 @@ const sortItems: FilterItemType = {
   ],
 };
 
-const onClickSort = (sortId: string[]) => {
-  console.log('Sort', sortId);
+const onClickSort = (sortData: string[]) => {
+  console.log('sortData', sortData);
 };
 
 const onChangePageLayout = (isList: boolean) => {
