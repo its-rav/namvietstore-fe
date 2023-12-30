@@ -92,9 +92,7 @@ const FilterMobile: React.FC<FilterMobileProps> = ({
                 />
               </svg>
             </button>
-            {filterItems ? (
-              <>
-                {filterItems.map((filterItem) => {
+            {filterItems ? filterItems.map((filterItem) => {
                   return (
                     <div
                       key={filterItem.filterId}
@@ -136,9 +134,7 @@ const FilterMobile: React.FC<FilterMobileProps> = ({
                       </div>
                     </div>
                   );
-                })}
-              </>
-            ) : (
+                }) : (
               <></>
             )}
             <div className='grid-cols-1 py-6 text-right'>
