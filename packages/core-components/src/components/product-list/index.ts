@@ -1,10 +1,11 @@
-import ButtonChangeLayout from '@/components/product-list/ButtonChangeLayout';
 import FilterItem, {
   type FilterItemType,
 } from '@/components/product-list/FilterItem';
 import FilterMobile, {
   type FilterGroupType,
 } from '@/components/product-list/FilterMobile';
+import SortMobile from '@/components/product-list/SortMobile';
+import ButtonChangeLayout from '@/components/product-list/ButtonChangeLayout';
 import Pagination, {
   type PaginationType,
 } from '@/components/product-list/Pagination';
@@ -14,7 +15,6 @@ import PagingGridComponent from '@/components/product-list/PagingGridComponent';
 import ProductItem, {
   type ProductItemType,
 } from '@/components/product-list/ProductItem';
-import SortMobile from '@/components/product-list/SortMobile';
 
 export {
   type PaginationType,
