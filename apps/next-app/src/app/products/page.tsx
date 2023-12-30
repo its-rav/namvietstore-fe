@@ -196,15 +196,17 @@ export default function ProductsPage() {
       >
         DetailProduct
       </button>
-      <div className='bg-[#F5F5F5]'>
+      <div className='bg-neutral-100'>
         <div className='max-w-7xl mx-auto w-full '>
           <div className='grid grid-cols-12 gap-3 md:!gap-7'>
             <div className='col-span-12 md:col-span-3'></div>
-            <div className='col-span-12 md:col-span-9 px-[5px] md:px-0 py-[10px] md:py-[30px] flex items-center font-[Roboto]'>
-              <span className='text-[#0F0F0F] md:text-[#850000] text-base md:text-2xl font-semibold md:font-bold mr-[5px]'>
+            <div className='col-span-12 md:col-span-9 px-[5px] md:px-0 py-[10px] md:py-[30px] flex items-center font-primary'>
+              {/*#0F0F0F Onyx color not found*/}
+              <span className='text-[#0F0F0F] md:text-primary text-base md:text-2xl font-semibold md:font-bold mr-[5px]'>
                 {title.toUpperCase()}
               </span>
-              <span className='text-[#575757] md:text-[#000000] text-[11px] md:text-base font-normal'>{`(${quantity} sản phẩm)`}</span>
+              {/*#575757 Onyx color not found*/}
+              <span className='text-[#575757] md:text-black text-[11px] md:text-base font-normal'>{`(${quantity} sản phẩm)`}</span>
             </div>
             <div className='col-span-12 md:!col-span-3'>
               <FilterComponent

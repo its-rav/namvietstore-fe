@@ -37,13 +37,7 @@ const onClickSort = (sortParams: string[]) => {
 };
 
 export const Default: Story = () => (
-  <div
-    style={{
-      height: '80vh',
-      padding: '20px',
-    }}
-    className='w-full bg-gray-100'
-  >
+  <div className='w-full bg-gray-100 h-screen p-[20px]'>
     <div className='w-56 mb-14'>
       <FilterItem filterItems={filterItems} onClickSort={onClickSort} />
     </div>

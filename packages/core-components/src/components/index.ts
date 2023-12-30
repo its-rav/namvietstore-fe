@@ -14,11 +14,11 @@ export { SideBarMobile };
 
 export { PostCard };
 
-export { type FeaturesCardItemType,FeaturesCard, MobileHeader, SearchBar };
+export { type FeaturesCardItemType, FeaturesCard, MobileHeader, SearchBar };
 
 export * from './buttons';
 export * from './contact';
 export * from './product-detail';
 export * from './product-list';
 export * from './sections';
-export { type ContactTableItemType,ContactTable, TopBar };
+export { type ContactTableItemType, ContactTable, TopBar };

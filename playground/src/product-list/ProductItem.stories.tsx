@@ -61,12 +61,8 @@ export const Default: Story = () => {
   return (
     <>
       <div
-        style={{
-          width: '100%',
-          backgroundColor: '#F3F3F3',
-          padding: '20px',
-        }}
-        className='grid grid-cols-4 gap-3'
+        //#F3F3F3 not found
+        className='grid grid-cols-4 gap-3 w-screen bg-[#F3F3F3] p-[20px]'
       >
         {productItems.map((item) => {
           return (

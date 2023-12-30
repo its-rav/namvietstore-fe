@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { ChevronDownIcon, XMarkIcon } from '@/icons';
+
 export type ProductSpecificationsItemType = {
   name: string;
   value: string;
@@ -27,14 +29,14 @@ const renderRow = (
       key={name}
       className={
         isEvenLine
-          ? 'grid grid-cols-5 bg-[#F4F4F4]'
+          ? 'grid grid-cols-5 bg-[#F4F4F4]' //#F4F4F4 not found
           : 'grid grid-cols-5 bg-white'
       }
     >
       <div
         className={
           isGroupName
-            ? 'col-span-2 p-4 font-semibold text-[#375159]'
+            ? 'col-span-2 p-4 font-semibold text-[#375159]' //#375159 not found
             : 'col-span-2 p-4'
         }
       >
@@ -104,20 +106,7 @@ const ProductSpecifications: React.FC<ProductSpecificationsProps> = ({
               setIsShowPopUp(false);
             }}
           >
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              fill='none'
-              viewBox='0 0 24 24'
-              strokeWidth='1.5'
-              stroke='currentColor'
-              className='w-7 h-7'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                d='M6 18 18 6M6 6l12 12'
-              />
-            </svg>
+            <XMarkIcon />
           </div>
         </div>
         <div className='absolute bottom-0 left-0 right-0 h-[40px] bg-gradient-to-t from-white'></div>
@@ -130,20 +119,7 @@ const ProductSpecifications: React.FC<ProductSpecificationsProps> = ({
           }}
         >
           <span className='font-medium'>{viewMoreLabel}</span>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            fill='none'
-            viewBox='0 0 24 24'
-            strokeWidth='1.5'
-            stroke='currentColor'
-            className='w-6 h-6'
-          >
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              d='m19.5 8.25-7.5 7.5-7.5-7.5'
-            />
-          </svg>
+          <ChevronDownIcon />
         </button>
       </div>
     </div>

@@ -45,12 +45,9 @@ const ContactForm: React.FC<ContactFormProps> = ({
     e.preventDefault();
     submitForm(infoContactForm.current);
   };
-
+  //#F3F3F3 not found
   return (
-    <div
-      className='px-6 py-8 font-primary leading-6 font-normal'
-      style={{ backgroundColor: '#F3F3F3' }}
-    >
+    <div className='px-6 py-8 font-primary leading-6 font-normal bg-[#F3F3F3]'>
       <h2 className='font-bold text-xl'>Liên hệ</h2>
       <p>Các trường hợp bắt buộc được đánh dấu *</p>
       <form onSubmit={onSubmit}>
@@ -60,7 +57,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             name='username'
             id='username'
             placeholder='Họ và tên*'
-            style={{ padding: '3px 11px' }}
+            className='px-[11px] py-[3px]'
             onChange={onChangeInput}
           />
           <input
@@ -68,7 +65,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             name='companyName'
             id='companyName'
             placeholder='Tên công ty*'
-            style={{ padding: '3px 11px' }}
+            className='px-[11px] py-[3px]'
             onChange={onChangeInput}
           />
           <input
@@ -76,7 +73,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             name='phoneNumber'
             id='phoneNumber'
             placeholder='ĐT/số điện thoại*'
-            style={{ padding: '3px 11px' }}
+            className='px-[11px] py-[3px]'
             onChange={onChangeInput}
           />
           <input
@@ -84,23 +81,19 @@ const ContactForm: React.FC<ContactFormProps> = ({
             name='email'
             id='email'
             placeholder='Email*'
-            style={{ padding: '3px 11px' }}
+            className='px-[11px] py-[3px]'
             onChange={onChangeInput}
           />
           <textarea
             name='text'
             id='text'
-            className='col-span-2'
+            className='col-span-2 px-[11px] py-[3px] h-[100px]'
             placeholder='Thông điệp'
-            style={{ padding: '3px 11px', height: '100px' }}
             onChange={onChangeInput}
           />
           <ReCAPTCHA
             sitekey={sitekey}
-            style={{
-              transform: 'scale(0.77)',
-              transformOrigin: '0 0',
-            }}
+            className='scale-75 origin-top-left'
             onChange={onChangeReCapcha}
             onExpired={onExpiredReCapcha}
           />
