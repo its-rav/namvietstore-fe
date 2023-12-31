@@ -1,4 +1,4 @@
-'use client';
+'use server';
 
 import {
   Contact,
@@ -7,10 +7,12 @@ import {
   InfoContactFormType,
 } from '@namviet-fe/core-ui';
 
-export default function ContactPage() {
-  const submitForm = (data: InfoContactFormType) => {
-    console.log('submit data ', data);
-  };
+export async function submitFormAsync(data: InfoContactFormType) {
+  // TODO add logic
+  return { data };
+}
+
+export default async function ContactPage() {
   return (
     <section className='max-w-7xl mx-auto'>
       <div className='hidden md:block text-2xl/6 text-center py-5 mb-7'>
@@ -41,7 +43,7 @@ export default function ContactPage() {
         <div className='col-span-12 md:col-span-7 px-5 py-4'>
           <ContactForm
             sitekey='6Leo6C8pAAAAAKHtfDMqa2YZLYf6D1VNVQKcixha'
-            submitForm={submitForm}
+            submitForm={submitFormAsync}
           />
         </div>
       </div>

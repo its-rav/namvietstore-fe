@@ -1,8 +1,9 @@
-'use client';
+'use server';
 
 import { ContactTable } from '@namviet-fe/core-ui';
+import Image from 'next/image';
 
-export default function Footer() {
+export default async function Footer() {
   return (
     <footer className='py-5 bg-secondary w-full'>
       <div className='max-w-7xl mx-auto'>
@@ -18,11 +19,13 @@ export default function Footer() {
             email: 'thaiduong.huynh@gmail.com',
           }}
           stamp={
-            <img
+            <Image
               src={
                 'http://online.gov.vn/PublicImages/2015/08/27/11/20150827110756-dathongbao.png'
               }
               alt='Bo Cong Thuong Stamp'
+              width={200}
+              height={200}
             />
           }
         />

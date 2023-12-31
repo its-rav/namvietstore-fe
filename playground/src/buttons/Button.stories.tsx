@@ -10,9 +10,31 @@ export default {
   title: '@nv-fe/core-ui/buttons/Button',
 } satisfies StoryDefault<typeof Button>;
 
-export const Default: Story<ButtonProps> = () => (
-  <Button rightIcon={<WhitePlusIcon />} children='Đọc thêm' />
+const args = {
+  size: 'fit-content',
+  loading: false,
+};
+
+const argTypes = {
+  size: {
+    options: ['fit-content', 'sm', 'md', 'lg'],
+    control: { type: 'radio' }, // or type: inline-radio
+    defaultValue: 'fit-content',
+  },
+};
+
+export const Default: Story<ButtonProps> = ({ size, loading }) => (
+  <Button
+    rightIcon={<WhitePlusIcon />}
+    size={size}
+    loading={loading}
+    children='Đọc thêm'
+  />
 );
+
+Default.args = args;
+
+Default.argTypes = argTypes;
 
 export const NoIcon: Story<ButtonProps> = () => <Button children='Submit' />;
 
@@ -28,13 +50,12 @@ export const Disabled: Story<ButtonProps> = () => (
   <Button rightIcon={<WhitePlusIcon />} children='Đọc thêm' disabled={true} />
 );
 
-export const CategoryButton: Story<ButtonProps> = () => (
-  <Button
-    leftIcon={<HamburgerIcon />}
-    children='danh mục sản phẩm'
-    backgroundColor='secondary'
-    buttonType='category'
-    isUpperCase={true}
-    isBold={true}
-  />
+export const CategoryButton: Story<ButtonProps> = (props) => (
+  <Button leftIcon={<HamburgerIcon />} backgroundColor='secondary' {...props}>
+    Danh mục sản phẩm
+  </Button>
 );
+
+CategoryButton.args = args;
+
+CategoryButton.argTypes = argTypes;

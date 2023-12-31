@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    serverActions: true,
+  },
   images: {
     remotePatterns: [
       {
@@ -7,6 +10,11 @@ const nextConfig = {
         hostname: 'thietbinhietnv.com',
         port: '',
         pathname: '/storage/app/uploads/public/**',
+      },
+      {
+        protocol: 'http',
+        hostname: 'online.gov.vn',
+        pathname: '/PublicImages/**',
       },
     ],
   },

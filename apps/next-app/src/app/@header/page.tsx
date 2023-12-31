@@ -18,8 +18,6 @@ const WebHeader = () => {
         <SearchBar
           placeholder='Search all products...'
           // eslint-disable-next-line @typescript-eslint/no-empty-function
-          onQueryChange={() => {}}
-          // eslint-disable-next-line @typescript-eslint/no-empty-function
           onClick={() => {}}
         />
       </div>
@@ -27,20 +25,29 @@ const WebHeader = () => {
   );
 };
 
-export default function Header() {
+const MobileHeaderWrapper = () => {
+  const onClick = () => {
+    window.alert('Redirect to search results');
+  };
+
+  return (
+    <MobileHeader
+      placeholder='Tìm kiếm sản phẩm'
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      toggleSideBar={() => {}}
+      onClick={onClick}
+    />
+  );
+};
+
+export default async function Header() {
   return (
     <header className='md:mt-[60px]'>
       <div className='hidden md:block w-full'>
         <WebHeader />
       </div>
       <div className='md:hidden block w-full'>
-        <MobileHeader
-          placeholder='Tìm kiếm sản phẩm'
-          // eslint-disable-next-line @typescript-eslint/no-empty-function
-          toggleSideBar={() => {}}
-          // eslint-disable-next-line @typescript-eslint/no-empty-function
-          onClick={() => {}}
-        />
+        <MobileHeaderWrapper />
       </div>
     </header>
   );

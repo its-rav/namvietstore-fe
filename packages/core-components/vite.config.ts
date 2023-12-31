@@ -1,17 +1,12 @@
 // vite.config.js
 import autoprefixer from 'autoprefixer';
 import { resolve } from 'path';
+import banner2 from 'rollup-plugin-banner2';
 import tailwindcss from 'tailwindcss';
 import { defineConfig } from 'vite';
-// import typescript from '@rollup/plugin-typescript';
-// import tsConfigPaths from 'vite-tsconfig-paths';
-// import { nodeResolve } from '@rollup/plugin-node-resolve';
-// import { babel } from '@rollup/plugin-babel';
-// import commonjs from '@rollup/plugin-commonjs';
 import { UserConfigExport } from 'vite';
 import dts from 'vite-plugin-dts';
 import svgr from 'vite-plugin-svgr';
-const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 const app = async (): Promise<UserConfigExport> =>
   defineConfig({
     plugins: [
@@ -19,19 +14,16 @@ const app = async (): Promise<UserConfigExport> =>
         include: 'src',
         insertTypesEntry: true,
       }),
-      // tsConfigPaths(),
-      // nodeResolve({ extensions }),
-      // commonjs(),
-      // typescript(),
-      // babel({
-      //   extensions,
-      //   babelHelpers: 'bundled',
-      // }),
       svgr({
         svgrOptions: {
           dimensions: false,
         },
       }),
+      banner2(
+        () => `
+      'use client';
+      `
+      ),
     ],
     css: {
       postcss: {

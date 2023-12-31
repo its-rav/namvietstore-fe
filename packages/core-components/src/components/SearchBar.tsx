@@ -3,7 +3,7 @@ import React from 'react';
 import { SearchIcon } from '../icons';
 
 type SearchBarProps = {
-  onQueryChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onQueryChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
   onClick?: () => void;
 };
