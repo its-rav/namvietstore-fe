@@ -13,6 +13,7 @@ import PagingListComponent from '@/components/product-list/PagingListComponent';
 import ProductItem, {
   type ProductItemType,
 } from '@/components/product-list/ProductItem';
+import SortMobile from '@/components/product-list/SortMobile';
 
 export {
   type PaginationType,
@@ -24,4 +25,10 @@ export {
   ProductItem,
 };
 
-export { type FilterGroupType, type FilterItemType, FilterItem, FilterMobile };
+export {
+  type FilterGroupType,
+  type FilterItemType,
+  FilterItem,
+  FilterMobile,
+  SortMobile,
+};
