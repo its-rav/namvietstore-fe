@@ -60,7 +60,6 @@ const Pagination: React.FC<PaginationProps> = ({
   const showNextButton =
     paginationPage.currentPage !== paginationPage.totalPages;
   const showPreviousButton = paginationPage.currentPage !== 1;
-
   return (
     <div className='flex justify-center'>
       <ReactPaginate

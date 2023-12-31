@@ -133,6 +133,7 @@ export default function Page({ params }: { params: { id: string } }) {
       >
         ProductPage
       </Button>
+      {/* //#EDEDED not found */}
       <div className='grid grid-cols-3 gap-0 md:gap-[50px] mt-[30px] mb-[10px] md:mb-[100px] bg-[#EDEDED] md:bg-white'>
         <div className='col-span-3 md:!col-span-1 p-[12px] bg-white'>
           <ProductCarousel productImgItems={productImgItems} />
