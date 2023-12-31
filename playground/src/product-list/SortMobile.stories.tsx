@@ -1,5 +1,9 @@
 import type { Story, StoryDefault } from '@ladle/react';
-import { type FilterItemType, SortMobile } from '@namviet-fe/core-ui';
+import {
+  type FilterItemType,
+  ButtonChangeLayout,
+  SortMobile,
+} from '@namviet-fe/core-ui';
 import React from 'react';
 
 import '@namviet-fe/core-ui/dist/style.css';
@@ -37,6 +41,10 @@ const onClickSort = (sortId: string[]) => {
   console.log('Sort', sortId);
 };
 
+const onChangePageLayout = (isList: boolean) => {
+  console.log('isList', isList);
+};
+
 export const Default: Story = () => (
   <div
     style={{
@@ -44,8 +52,9 @@ export const Default: Story = () => (
     }}
     className='w-full bg-gray-100'
   >
-    <div className='' style={{ backgroundColor: 'white' }}>
+    <div className='flex' style={{ backgroundColor: 'white' }}>
       <SortMobile sortItems={sortItems} onClickApplySort={onClickSort} />
+      <ButtonChangeLayout onChangePageLayout={onChangePageLayout} />
     </div>
   </div>
 );

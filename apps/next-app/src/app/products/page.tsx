@@ -6,6 +6,7 @@ import {
   type PaginationType,
   type ProductItemType,
   Button,
+  ButtonChangeLayout,
   FilterItem,
   PagingGridComponent,
   PagingListComponent,
@@ -235,11 +236,12 @@ export default function ProductsPage() {
                   );
                 })}
               </div>
-              <div className='block md:hidden'>
+              <div className='flex md:hidden'>
                 <SortMobile
                   sortItems={filterData.sortItems}
                   onClickApplySort={onClickSortAndFilter}
                 />
+                <ButtonChangeLayout onChangePageLayout={onChangePageLayout} />
               </div>
             </div>
             <div className='col-span-12 md:!col-span-9'>

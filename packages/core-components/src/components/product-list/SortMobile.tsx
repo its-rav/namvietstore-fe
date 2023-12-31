@@ -26,7 +26,7 @@ const SortMobile: React.FC<SortMobileProps> = ({
     setIsOpenSort(false);
   };
   return (
-    <>
+    <div className='relative'>
       <button className='flex items-center px-3' onClick={checkSort}>
         <p className='pr-4'>{sortItems.title}</p>
         <CaretDownIcon className='w-4 h-4' />
@@ -58,7 +58,7 @@ const SortMobile: React.FC<SortMobileProps> = ({
       ) : (
         <></>
       )}
-    </>
+    </div>
   );
 };
 export default SortMobile;
