@@ -8,8 +8,8 @@ import Pagination, {
   type PaginationType,
 } from '@/components/product-list/Pagination';
 import PagingComponent from '@/components/product-list/PagingComponent';
-import PagingListComponent from '@/components/product-list/PagingListComponent';
 import PagingGridComponent from '@/components/product-list/PagingGridComponent';
+import PagingListComponent from '@/components/product-list/PagingListComponent';
 import ProductItem, {
   type ProductItemType,
 } from '@/components/product-list/ProductItem';
@@ -19,8 +19,8 @@ export {
   type ProductItemType,
   Pagination,
   PagingComponent,
-  PagingListComponent,
   PagingGridComponent,
+  PagingListComponent,
   ProductItem,
 };
 

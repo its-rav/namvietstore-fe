@@ -8,7 +8,6 @@ import {
   Button,
   FilterItem,
   PagingListComponent,
-  PagingGridComponent,
 } from '@namviet-fe/core-ui';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';

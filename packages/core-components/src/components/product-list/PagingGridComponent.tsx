@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { PaginationType } from './Pagination';
-import { ProductItemType } from './ProductItem';
 import PagingComponent from './PagingComponent';
+import { ProductItemType } from './ProductItem';
 
 type PagingGridComponentProps = {
   productItems: ProductItemType[];
