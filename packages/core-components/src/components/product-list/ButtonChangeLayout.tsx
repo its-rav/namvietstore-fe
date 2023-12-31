@@ -1,5 +1,6 @@
-import { ListBulletIcon, Square2x2Icon } from '@/icons';
 import React, { useState } from 'react';
+
+import { ListBulletIcon, Square2x2Icon } from '@/icons';
 
 type ButtonChangeLayoutProps = {
   onChangePageLayout?: (isList: boolean) => void;
