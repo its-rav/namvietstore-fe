@@ -1,8 +1,5 @@
 import type { Story, StoryDefault } from '@ladle/react';
-import {
-  type FilterItemType,
-  SortMobile,
-} from '@namviet-fe/core-ui';
+import { type FilterItemType, SortMobile } from '@namviet-fe/core-ui';
 import React from 'react';
 
 import '@namviet-fe/core-ui/dist/style.css';
