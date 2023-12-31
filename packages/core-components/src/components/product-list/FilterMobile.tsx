@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-import { FilterItemType } from './FilterItem';
 import { FunnelIcon, XMarkIcon } from '@/icons';
+
+import { FilterItemType } from './FilterItem';
 
 export type FilterGroupType = {
   sortItems: FilterItemType;
