@@ -143,18 +143,22 @@ export default function ProductsPage() {
         {
           optionId: '12',
           optionName: 'Khuyến mãi tốt nhất',
+          selected: searchParams.get('sort') === '12',
         },
         {
           optionId: '13',
           optionName: 'Giá tăng dần',
+          selected: searchParams.get('sort') === '13',
         },
         {
           optionId: '14',
           optionName: 'Giá giảm dần',
+          selected: searchParams.get('sort') === '14',
         },
         {
           optionId: '15',
           optionName: 'Sản phẩm bán chạy nhất',
+          selected: searchParams.get('sort') === '15',
         },
       ],
     },
@@ -168,18 +172,22 @@ export default function ProductsPage() {
           {
             optionId: '101',
             optionName: 'Bếp hồng ngoại',
+            selected: searchParams.get('typea')?.split('%2C').includes('101'),
           },
           {
             optionId: '102',
             optionName: 'Bếp từ 3 vùng nấu trở lên',
+            selected: searchParams.get('typea')?.split('%2C').includes('102'),
           },
           {
             optionId: '103',
             optionName: 'Bếp từ đôi',
+            selected: searchParams.get('typea')?.split('%2C').includes('103'),
           },
           {
             optionId: '104',
             optionName: 'Bếp từ đơn',
+            selected: searchParams.get('typea')?.split('%2C').includes('104'),
           },
         ],
       },
@@ -192,18 +200,22 @@ export default function ProductsPage() {
           {
             optionId: '201',
             optionName: 'Bếp hồng ngoại',
+            selected: searchParams.get('typeb')?.split('%2C').includes('201'),
           },
           {
             optionId: '202',
             optionName: 'Bếp từ 3 vùng nấu trở lên',
+            selected: searchParams.get('typeb')?.split('%2C').includes('202'),
           },
           {
             optionId: '203',
             optionName: 'Bếp từ đôi',
+            selected: searchParams.get('typeb')?.split('%2C').includes('203'),
           },
           {
             optionId: '204',
             optionName: 'Bếp từ đơn',
+            selected: searchParams.get('typeb')?.split('%2C').includes('204'),
           },
         ],
       },

@@ -23,8 +23,8 @@ const FilterMobile: React.FC<FilterMobileProps> = ({
   applyFilterTitle,
   onClickApplyFilter,
 }) => {
-  const formatFilterValue = (filterId: string, optionId: string) => {
-    return `${filterId}=${optionId}`;
+  const formatFilterValue = (filterType: string, optionId: string) => {
+    return `${filterType}=${optionId}`;
   };
 
   const [isOpenFilter, setIsOpenFilter] = useState(false);
@@ -36,8 +36,8 @@ const FilterMobile: React.FC<FilterMobileProps> = ({
     )
   );
 
-  const onChangeFilter = (filterId: string, optionId: string) => {
-    const filterValue = formatFilterValue(filterId, optionId);
+  const onChangeFilter = (filterType: string, optionId: string) => {
+    const filterValue = formatFilterValue(filterType, optionId);
     if (filterData.includes(filterValue)) {
       setFilterData(filterData.filter((data) => data !== filterValue));
     } else {
@@ -45,6 +45,7 @@ const FilterMobile: React.FC<FilterMobileProps> = ({
       setFilterData([...filterData]);
     }
   };
+  console.log(filterItems, 'filterItems');
   return (
     <>
       <button
@@ -81,7 +82,7 @@ const FilterMobile: React.FC<FilterMobileProps> = ({
                               style={
                                 filterData.includes(
                                   formatFilterValue(
-                                    filterItem.filterId,
+                                    filterItem.filterType,
                                     item.optionId
                                   )
                                 )
@@ -94,7 +95,7 @@ const FilterMobile: React.FC<FilterMobileProps> = ({
                               className=' cursor-pointer rounded-md border-[1px] border-gray-200 border-solid p-3'
                               onClick={() => {
                                 onChangeFilter(
-                                  filterItem.filterId,
+                                  filterItem.filterType,
                                   item.optionId
                                 );
                               }}

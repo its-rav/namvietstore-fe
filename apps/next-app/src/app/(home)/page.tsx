@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <Button
         onClick={() => {
-          router.push('/products?page=1&total=20');
+          router.push('/products?page=1&total=20&sort=13&typea=102');
         }}
       >
         Product Page
