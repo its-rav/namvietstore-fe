@@ -32,7 +32,7 @@ const FilterMobile: React.FC<FilterMobileProps> = ({
     filterItems.flatMap((filter) =>
       filter.filterOptions
         .filter((option) => option.selected)
-        .map((option) => formatFilterValue(filter.filterId, option.optionId))
+        .map((option) => formatFilterValue(filter.filterType, option.optionId))
     )
   );
 
