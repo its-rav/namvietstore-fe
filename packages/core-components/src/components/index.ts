@@ -1,4 +1,6 @@
-import CategoryBar,{type categoryBarItemType} from '@/components/CategoryBar';
+import CategoryBar, {
+  type categoryBarItemType,
+} from '@/components/CategoryBar';
 import ContactTable, {
   type ContactTableItemType,
 } from '@/components/ContactTable';
@@ -22,4 +24,4 @@ export * from './product-detail';
 export * from './product-list';
 export * from './sections';
 export { type ContactTableItemType, ContactTable, TopBar };
-export { type categoryBarItemType, CategoryBar }
+export { type categoryBarItemType, CategoryBar };
