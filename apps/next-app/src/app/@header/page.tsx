@@ -1,24 +1,66 @@
 'use client';
-import { MobileHeader, SearchBar } from '@namviet-fe/core-ui';
+import {
+  type categoryBarItemType,
+  CategoryBar,
+  HamburgerIcon,
+  MobileHeader,
+  SearchBar,
+} from '@namviet-fe/core-ui';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+
+const categoryItems: categoryBarItemType[] = [
+  {
+    name: 'Trang chủ',
+    url: '/',
+  },
+  {
+    name: 'Giới thiệu',
+    url: '/introduction',
+  },
+  {
+    name: 'Tin tức',
+    url: '/news',
+  },
+  {
+    name: 'Liên hệ',
+    url: '/contact',
+  },
+];
 
 const WebHeader = () => {
+  const router = useRouter();
+
+  const handleCategoryBarItemClicked = (url: string) => {
+    router.push(url);
+  };
+
   return (
-    <div className='w-full h-[185px] border-b-[#e5e5e5] border-b-2 border-solid'>
-      <div className='h-full flex flex-row justify-between items-center max-w-7xl mx-auto'>
-        <div>
-          <Image
-            src='https://thietbinhietnv.com/storage/app/uploads/public/5df/64d/31d/5df64d31d51d8117549829.jpg'
-            loading='lazy'
-            alt='logo'
-            width={200}
-            height={145}
+    <div>
+      <div className='w-full h-full border-b-slate-200 border-b-2 border-solid'>
+        <div className='flex flex-row h-[185px] justify-between items-center max-w-7xl mx-auto'>
+          <div>
+            <Image
+              src='https://thietbinhietnv.com/storage/app/uploads/public/5df/64d/31d/5df64d31d51d8117549829.jpg'
+              loading='lazy'
+              alt='logo'
+              width={200}
+              height={145}
+            />
+          </div>
+          <SearchBar
+            placeholder='Search all products...'
+            // eslint-disable-next-line @typescript-eslint/no-empty-function
+            onClick={() => {}}
           />
         </div>
-        <SearchBar
-          placeholder='Search all products...'
-          // eslint-disable-next-line @typescript-eslint/no-empty-function
-          onClick={() => {}}
+      </div>
+      <div className='max-w-7xl mx-auto'>
+        <CategoryBar
+          categoryButtonIcon={<HamburgerIcon />}
+          categoryButtonText='DANH MỤC SẢN PHẨM'
+          categoryBarItems={categoryItems}
+          onCategoryBarItemClick={handleCategoryBarItemClicked}
         />
       </div>
     </div>
