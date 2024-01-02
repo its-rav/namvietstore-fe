@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import '@/styles/global.css';
 import '@namviet-fe/core-ui/dist/style.css';
 
-export const metadata: Metadata = {
+ const metadata: Metadata = {
   title: 'Nam Viet Store',
   description: 'Nam Viet Store description',
 };

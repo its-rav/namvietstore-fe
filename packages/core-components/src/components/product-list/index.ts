@@ -12,13 +12,18 @@ import PagingComponent from '@/components/product-list/PagingComponent';
 import ProductItem, {
   type ProductItemType,
 } from '@/components/product-list/ProductItem';
+import ProductCollapse, {
+  type ProductListProps,
+}  from '@/components/product-list/ProductCollapse';
 
 export {
   type PaginationType,
   type ProductItemType,
+  type ProductListProps,
   Pagination,
   PagingComponent,
   ProductItem,
+  ProductCollapse,
 };
 
 export {
