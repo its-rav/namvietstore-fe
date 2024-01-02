@@ -46,7 +46,10 @@ const FilterMobile: React.FC<FilterMobileProps> = ({
       setFilterData([...filterData]);
     }
   };
-  console.log(filterItems, 'filterItems');
+  const handleOnClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    if ((event.target as HTMLElement).id === 'containerFilter')
+      setIsOpenFilter(false);
+  };
   return (
     <>
       <button
@@ -59,7 +62,11 @@ const FilterMobile: React.FC<FilterMobileProps> = ({
         <FunnelIcon className='w-5 h-5' />
       </button>
       {isOpenFilter ? (
-        <div className='fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm'>
+        <div
+          id='containerFilter'
+          className='fixed z-20 inset-0 bg-black bg-opacity-30 backdrop-blur-sm'
+          onClick={handleOnClick}
+        >
           <div className='absolute top-0 right-0 grid grid-cols-1 z-10 w-3/4 px-6 divide-y bg-white border-gray-200 content-between'>
             <button
               className='absolute top-7 right-7'

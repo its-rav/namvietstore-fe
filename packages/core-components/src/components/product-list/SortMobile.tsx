@@ -25,14 +25,33 @@ const SortMobile: React.FC<SortMobileProps> = ({
     onClickApplySort?.(sortParams);
     setIsOpenSort(false);
   };
+  const handleOnClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    if ((event.target as HTMLElement).id === 'containerSort')
+      setIsOpenSort(false);
+  };
   return (
-    <div className=''>
-      <button className='flex items-center px-3' onClick={checkSort}>
+    <div
+      id='containerSort'
+      className={
+        isOpenSort
+          ? 'fixed z-20 inset-0 bg-black bg-opacity-30 backdrop-blur-sm'
+          : 'relative '
+      }
+      onClick={handleOnClick}
+    >
+      <button
+        className={
+          isOpenSort
+            ? 'flex items-center p-3 bg-white'
+            : 'flex items-center px-3'
+        }
+        onClick={checkSort}
+      >
         <p className='pr-4'>{sortItems.title}</p>
         <CaretDownIcon className='w-4 h-4' />
       </button>
       {sortItems && isOpenSort ? (
-        <div className='absolute w-screen mt-[5px]'>
+        <div className='absolute top-8 w-screen mt-[5px] z-20 inset-0 bg-black bg-opacity-30 backdrop-blur-sm h-fit'>
           <ul className='bg-white divide-y text-sm font-normal w-full z-0 absolute opacity-100 top-0 transition-all ease-in duration-500'>
             {sortItems.filterOptions.map((item) => {
               return item.selected ? (

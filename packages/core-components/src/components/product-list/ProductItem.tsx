@@ -42,7 +42,7 @@ const ProductItem: React.FC<ProductItemProps> = ({
         <h2 className='line-clamp-1 text-base/5 md:text-lg/6 font-bold'>
           {productItem.productName}
         </h2>
-        <p className='line-clamp-2 font-normal text-sm/4 md:text-base/5'>
+        <p className='line-clamp-3 font-normal text-sm/4 md:text-base/5 h-12 md:h-[60px]'>
           {productItem.description}
         </p>
         {/* #575757 Onyx color not found */}

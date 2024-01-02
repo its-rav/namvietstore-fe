@@ -70,41 +70,44 @@ const ProductSpecifications: React.FC<ProductSpecificationsProps> = ({
         <div
           className={
             isShowPopUp
-              ? 'bg-white w-full md:w-1/2 h-full md:h-5/6 rounded-[10px] overflow-auto px-[20px] py-[10px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
+              ? 'bg-white w-full md:w-1/2 h-full md:h-5/6  rounded-[10px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 py-3'
               : ''
           }
         >
-          <h3
-            className={`${
-              isShowPopUp
-                ? 'text-[16px] md:text-[22px] font-bold md:font-semibold'
-                : 'text-[16px] md:text-[18px] font-bold md:font-medium'
-            } text-center mb-[19px]`}
-          >
-            {title}
-          </h3>
-          {productSpecificationsGroups?.map((group, index) => {
-            return (
-              <div key={`specs-${index}`}>
-                {renderRow(group.nameGroup?.trim() ?? '', '', false, true)}
-                {group.listItem?.map((item, itemIndex) => {
-                  return (
-                    <div key={`specis-detail-${itemIndex}`}>
-                      {renderRow(
-                        item.name ?? '',
-                        item.value ?? '',
-                        itemIndex % 2 === 0
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            );
-          })}
+          <div className='overflow-auto px-[20px] py-[10px] h-full '>
+            <h3
+              className={`${
+                isShowPopUp
+                  ? 'text-[16px] md:text-[22px] font-bold md:font-semibold'
+                  : 'text-[16px] md:text-[18px] font-bold md:font-medium'
+              } text-center mb-[19px]`}
+            >
+              {title}
+            </h3>
+            {productSpecificationsGroups?.map((group, index) => {
+              return (
+                <div key={`specs-${index}`}>
+                  {renderRow(group.nameGroup?.trim() ?? '', '', false, true)}
+                  {group.listItem?.map((item, itemIndex) => {
+                    return (
+                      <div key={`specis-detail-${itemIndex}`}>
+                        {renderRow(
+                          item.name ?? '',
+                          item.value ?? '',
+                          itemIndex % 2 === 0
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })}
+          </div>
+
           <div
             className={
               isShowPopUp
-                ? 'absolute top-[15px] md:top-[11px] right-[15px] md:right-[11px] cursor-pointer hover:text-blue-600'
+                ? 'absolute top-[17px] md:top-[12px] right-[20px] md:right-[25px] cursor-pointer hover:text-blue-600'
                 : 'hidden'
             }
             onClick={() => {
