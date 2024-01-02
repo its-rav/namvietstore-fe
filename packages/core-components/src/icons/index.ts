@@ -30,4 +30,3 @@ export { ReactComponent as ViIcon } from './vnflag.svg';
 export { ReactComponent as WebsiteIcon } from './website.svg';
 export { ReactComponent as WhitePlusIcon } from './whiteplus.svg';
 export { ReactComponent as XMarkIcon } from './xmark.svg';
-
