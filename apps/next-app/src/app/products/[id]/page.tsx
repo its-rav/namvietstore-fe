@@ -182,7 +182,7 @@ export default function Page({ params }: { params: { id: string } }) {
           />
         </div>
       </div>
-      <div className='grid grid-cols-3'>
+      <div className='grid grid-cols-3 bg-[#EDEDED] md:bg-white'>
         <div className='md:!col-span-1 md:!order-last col-span-3 p-[12px] bg-white mb-[5px] md:mb-0'>
           <ProductSpecifications
             title={'Thông số kỹ thuật chính'}
@@ -194,7 +194,7 @@ export default function Page({ params }: { params: { id: string } }) {
           <ProductContent richText={richText} />
         </div>
       </div>
-      <div>
+      <div className='p-[12px]'>
         <p className='font-primary font-bold text-[18px] mb-[20px]'>
           Sản phẩm liên quan
         </p>

@@ -53,14 +53,19 @@ const ProductSpecifications: React.FC<ProductSpecificationsProps> = ({
   productSpecificationsGroups,
 }) => {
   const [isShowPopUp, setIsShowPopUp] = useState<boolean>(false);
+  const handleOnClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    if ((event.target as HTMLElement).id === 'container') setIsShowPopUp(false);
+  };
   return (
     <div className='font-primary'>
       <div
+        id='container'
         className={
           isShowPopUp
             ? 'fixed top-0 right-0 z-10 w-screen h-screen backdrop-brightness-50 backdrop-blur-sm'
-            : 'relative pointer-events-none h-[520px] overflow-hidden'
+            : 'relative h-[520px] overflow-hidden'
         }
+        onClick={handleOnClick}
       >
         <div
           className={

@@ -18,6 +18,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
   productImgItems,
 }) => {
   const slideShowRef = useRef<any>();
+  const currentIndex = slideShowRef?.current?.getCurrentIndex() ?? 0;
   const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
   if (
     productImgItems &&
@@ -59,6 +60,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
         thumbnailPosition={isFullScreen ? 'right' : 'bottom'}
         showPlayButton={isFullScreen}
         showNav={isFullScreen}
+        startIndex={currentIndex}
         onClick={() => {
           slideShowRef.current.toggleFullScreen();
         }}
