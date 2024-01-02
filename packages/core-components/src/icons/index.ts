@@ -18,6 +18,7 @@ export { ReactComponent as HeadphonesIcon } from './headphones.svg';
 export { ReactComponent as SearchIcon } from './ic_round-search.svg';
 export { ReactComponent as KeyIcon } from './key.svg';
 export { ReactComponent as ListBulletIcon } from './listbullet.svg';
+export { ReactComponent as MapIcon } from './map.svg';
 export { ReactComponent as PhoneIcon } from './phone.svg';
 export { ReactComponent as PhoneBox } from './phonebox.svg';
 export { ReactComponent as PlusIcon } from './plus.svg';
