@@ -1,9 +1,5 @@
 import type { Story, StoryDefault } from '@ladle/react';
-import {
-  type ImageSliderItemType,
-  type ImageSliderSettingsType,
-  ImageSlider,
-} from '@namviet-fe/core-ui';
+import { type ImageSliderItemType, ImageSlider } from '@namviet-fe/core-ui';
 import React from 'react';
 import 'regenerator-runtime/runtime';
 
@@ -36,14 +32,4 @@ const items: ImageSliderItemType[] = [
   },
 ];
 
-const imageSliderSettings: ImageSliderSettingsType = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  autoplay: true,
-  autoplaySpeed: 2000,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-};
-
-export const Default: Story = () => <ImageSlider />;
+export const Default: Story = () => <ImageSlider imageSliderItems={items} />;
