@@ -1,24 +1,15 @@
 'use client';
 
-import { Button } from '@namviet-fe/core-ui';
-import { useRouter } from 'next/navigation';
-
 import FeaturesListSection from '@/components/featureList/FeatureList';
+import ImageSliderComponent from '@/components/imageSlider/ImageSlider';
 import IntroSection from '@/components/intro';
 import ProductsListSection from '@/components/productsList';
 import SectionWrapper from '@/components/sections/section-wrapper';
 
 export default function Home() {
-  const router = useRouter();
   return (
     <>
-      <Button
-        onClick={() => {
-          router.push('/products?page=1&total=20');
-        }}
-      >
-        Product Page
-      </Button>
+      <ImageSliderComponent />
       <SectionWrapper background='transparent' py='large'>
         <FeaturesListSection />
         <IntroSection />
