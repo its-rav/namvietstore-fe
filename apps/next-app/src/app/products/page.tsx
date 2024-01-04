@@ -14,7 +14,7 @@ import {
   SortMobile,
 } from '@namviet-fe/core-ui';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function ProductsPage() {
   const router = useRouter();
@@ -93,6 +93,10 @@ export default function ProductsPage() {
   const onChangePageLayout = (isList: boolean) => {
     setShowLayoutList(isList);
   };
+
+  useEffect(() => {
+    document.body.style.overflow = isOpenSort ? 'hidden' : 'unset';
+  }, [isOpenSort]);
   // dummy data
   const title = 'Dầu đốt';
   const quantity = 16;

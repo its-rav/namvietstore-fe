@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { FunnelIcon, XMarkIcon } from '@/icons';
 
@@ -50,6 +50,10 @@ const FilterMobile: React.FC<FilterMobileProps> = ({
     if ((event.target as HTMLElement).id === 'containerFilter')
       setIsOpenFilter(false);
   };
+
+  useEffect(() => {
+    document.body.style.overflow = isOpenFilter ? 'hidden' : 'unset';
+  }, [isOpenFilter]);
   return (
     <>
       <button

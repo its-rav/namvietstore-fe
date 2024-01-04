@@ -94,7 +94,7 @@ const Pagination: React.FC<PaginationProps> = ({
         </button>
         <div className='grid '>
           <select
-            defaultValue={paginationPage.currentPage}
+            value={paginationPage.currentPage}
             onChange={(e) => {
               e.preventDefault();
               handlePageClick?.(parseInt(e.target.value));
