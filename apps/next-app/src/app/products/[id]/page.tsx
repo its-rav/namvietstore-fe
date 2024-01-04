@@ -1,5 +1,7 @@
 'use client';
 
+import { ProductItemType } from '@namviet-fe/core-ui';
+import { ProductItem } from '@namviet-fe/core-ui';
 import {
   type ProductImgItemType,
   type ProductSpecificationsGroupType,
@@ -10,7 +12,7 @@ import {
   ProductSpecifications,
   ProductSummary,
 } from '@namviet-fe/core-ui';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 const productImgItems: ProductImgItemType[] = [
   { src: 'https://picsum.photos/id/1019/1000/600/', alt: 'hình 1' },
@@ -117,10 +119,44 @@ const productSpecificationsItems: ProductSpecificationsGroupType[] = [
   },
 ];
 
+const productItems: ProductItemType[] = [
+  {
+    productId: '104',
+    productName: 'Dầu đốt 1',
+    previewImage:
+      'https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*',
+    description:
+      'Chuyên cung cấp các đầu đốt djnfkjsfbkja asdjasdjk ajshdjkashdkj ashdkjahsd ajshdkjasdkj ạhdkjahsd',
+    specifications: 'Công suất: 50-5500kw',
+  },
+  {
+    productId: '105',
+    productName: 'Dầu đốt 2',
+    previewImage:
+      'https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*',
+    description: 'Chuyên cung cấp các đầu đốt',
+    specifications: 'Công suất: 50-5500kw',
+  },
+  {
+    productId: '106',
+    productName: 'Dầu đốt 3',
+    previewImage:
+      'https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*',
+    description: 'Chuyên cung cấp các đầu đốt',
+    specifications: 'Công suất: 50-5500kw',
+  },
+];
+
 export default function Page({ params }: { params: { id: string } }) {
   const router = useRouter();
+  const pathname = usePathname();
   const onClick = () => {
     // event lien he mua hang
+  };
+  const onClickItem = (productId: string) => {
+    router.replace(
+      `${pathname.substring(0, pathname.length - params.id.length)}${productId}`
+    );
   };
 
   return (
@@ -133,6 +169,7 @@ export default function Page({ params }: { params: { id: string } }) {
       >
         ProductPage
       </Button>
+      {/* //#EDEDED not found */}
       <div className='grid grid-cols-3 gap-0 md:gap-[50px] mt-[30px] mb-[10px] md:mb-[100px] bg-[#EDEDED] md:bg-white'>
         <div className='col-span-3 md:!col-span-1 p-[12px] bg-white'>
           <ProductCarousel productImgItems={productImgItems} />
@@ -145,7 +182,7 @@ export default function Page({ params }: { params: { id: string } }) {
           />
         </div>
       </div>
-      <div className='grid grid-cols-3'>
+      <div className='grid grid-cols-3 bg-[#EDEDED] md:bg-white'>
         <div className='md:!col-span-1 md:!order-last col-span-3 p-[12px] bg-white mb-[5px] md:mb-0'>
           <ProductSpecifications
             title={'Thông số kỹ thuật chính'}
@@ -157,10 +194,19 @@ export default function Page({ params }: { params: { id: string } }) {
           <ProductContent richText={richText} />
         </div>
       </div>
-      <div>
+      <div className='p-[12px]'>
         <p className='font-primary font-bold text-[18px] mb-[20px]'>
           Sản phẩm liên quan
         </p>
+        <div className='grid grid-cols-3 md:grid-cols-4 gap-[30px] md:gap-[19px]'>
+          {productItems.map((item) => {
+            return (
+              <div key={item.productId} className='col-span-1'>
+                <ProductItem productItem={item} onClick={onClickItem} />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

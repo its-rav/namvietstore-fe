@@ -18,6 +18,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
   productImgItems,
 }) => {
   const slideShowRef = useRef<any>();
+  const currentIndex = slideShowRef?.current?.getCurrentIndex() ?? 0;
   const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
   if (
     productImgItems &&
@@ -33,7 +34,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
           //#575757 Onyx color not found
           originalClass: `${
             isFullScreen ? 'px-0 md:px-[70px]' : ''
-          } border-0 md:border-b-[0.5px] border-[#575757] border-solid pb-[14.5px]`,
+          } border-0 md:border-b-[0.5px] border-[#575757] border-solid pb-2 md:pb-[14.5px]`,
           thumbnailClass: '!border-solid mr-[8px] mt-[4.5px] !w-[105px]',
           renderThumbInner: () => {
             return (
@@ -59,6 +60,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
         thumbnailPosition={isFullScreen ? 'right' : 'bottom'}
         showPlayButton={isFullScreen}
         showNav={isFullScreen}
+        startIndex={currentIndex}
         onClick={() => {
           slideShowRef.current.toggleFullScreen();
         }}

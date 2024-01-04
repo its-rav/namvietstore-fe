@@ -60,7 +60,6 @@ const Pagination: React.FC<PaginationProps> = ({
   const showNextButton =
     paginationPage.currentPage !== paginationPage.totalPages;
   const showPreviousButton = paginationPage.currentPage !== 1;
-
   return (
     <div className='flex justify-center'>
       <ReactPaginate
@@ -68,7 +67,7 @@ const Pagination: React.FC<PaginationProps> = ({
         breakLabel={breakLabel}
         nextLabel={showNextButton ? nextButton : null}
         onPageChange={(selectedItem) => {
-          handlePageClick?.(selectedItem.selected);
+          handlePageClick?.(selectedItem.selected + 1);
         }}
         pageRangeDisplayed={3}
         pageCount={paginationPage.totalPages}
@@ -95,7 +94,7 @@ const Pagination: React.FC<PaginationProps> = ({
         </button>
         <div className='grid '>
           <select
-            defaultValue={paginationPage.currentPage}
+            value={paginationPage.currentPage}
             onChange={(e) => {
               e.preventDefault();
               handlePageClick?.(parseInt(e.target.value));
