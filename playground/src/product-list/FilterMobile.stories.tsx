@@ -1,5 +1,9 @@
 import type { Story, StoryDefault } from '@ladle/react';
-import { type FilterGroupType, FilterMobile } from '@namviet-fe/core-ui';
+import {
+  type FilterItemType,
+  ButtonChangeLayout,
+  FilterMobile,
+} from '@namviet-fe/core-ui';
 import React from 'react';
 
 import '@namviet-fe/core-ui/dist/style.css';
@@ -8,85 +12,63 @@ export default {
   title: '@nv-fe/core-ui/product-list/FilterMobile',
 } satisfies StoryDefault<typeof FilterMobile>;
 
-const filterMobileItems: FilterGroupType = {
-  sortItems: {
+const filterItems: FilterItemType[] = [
+  {
     filterId: '1',
-    filterType: 'sort',
+    filterType: 'typea',
     placeholder: '',
-    title: 'Sắp xếp',
+    title: 'Loại bếp',
     filterOptions: [
       {
-        optionId: '12',
-        optionName: 'Khuyến mãi tốt nhất',
+        optionId: '101',
+        optionName: 'Bếp hồng ngoại',
       },
       {
-        optionId: '13',
-        optionName: 'Giá tăng dần',
+        optionId: '102',
+        optionName: 'Bếp từ 3 vùng nấu trở lên',
       },
       {
-        optionId: '14',
-        optionName: 'Giá giảm dần',
+        optionId: '103',
+        optionName: 'Bếp từ đôi',
       },
       {
-        optionId: '15',
-        optionName: 'Sản phẩm bán chạy nhất',
+        optionId: '104',
+        optionName: 'Bếp từ đơn',
       },
     ],
   },
-  filterItems: [
-    {
-      filterId: '1',
-      filterType: 'typea',
-      placeholder: '',
-      title: 'Loại bếp',
-      filterOptions: [
-        {
-          optionId: '101',
-          optionName: 'Bếp hồng ngoại',
-        },
-        {
-          optionId: '102',
-          optionName: 'Bếp từ 3 vùng nấu trở lên',
-        },
-        {
-          optionId: '103',
-          optionName: 'Bếp từ đôi',
-        },
-        {
-          optionId: '104',
-          optionName: 'Bếp từ đơn',
-        },
-      ],
-    },
-    {
-      filterId: '2',
-      filterType: 'typeb',
-      placeholder: '',
-      title: 'Loại bếp 2',
-      filterOptions: [
-        {
-          optionId: '201',
-          optionName: 'Bếp hồng ngoại',
-        },
-        {
-          optionId: '202',
-          optionName: 'Bếp từ 3 vùng nấu trở lên',
-        },
-        {
-          optionId: '203',
-          optionName: 'Bếp từ đôi',
-        },
-        {
-          optionId: '204',
-          optionName: 'Bếp từ đơn',
-        },
-      ],
-    },
-  ],
+  {
+    filterId: '2',
+    filterType: 'typeb',
+    placeholder: '',
+    title: 'Loại bếp 2',
+    filterOptions: [
+      {
+        optionId: '201',
+        optionName: 'Bếp hồng ngoại',
+      },
+      {
+        optionId: '202',
+        optionName: 'Bếp từ 3 vùng nấu trở lên',
+      },
+      {
+        optionId: '203',
+        optionName: 'Bếp từ đôi',
+      },
+      {
+        optionId: '204',
+        optionName: 'Bếp từ đơn',
+      },
+    ],
+  },
+];
+
+const onChangePageLayout = (isList: boolean) => {
+  console.log('isList', isList);
 };
 
-const onClickSort = (sortId: string[]) => {
-  console.log('Sort', sortId);
+const onClickFilter = (filterData: string[]) => {
+  console.log('filterData', filterData);
 };
 
 export const Default: Story = () => (
@@ -96,13 +78,14 @@ export const Default: Story = () => (
     }}
     className='w-full bg-gray-100'
   >
-    <div className='' style={{ backgroundColor: 'white' }}>
+    <div className='flex gap-4' style={{ backgroundColor: 'white' }}>
+      <ButtonChangeLayout onChangePageLayout={onChangePageLayout} />
       <FilterMobile
-        filterMobileItems={filterMobileItems}
+        filterItems={filterItems}
         filterTitle='Bộ Lọc'
         clearFilterTitle='Xóa bộ lọc'
         applyFilterTitle='Áp dụng bộ lọc'
-        onClickApplySortFilter={onClickSort}
+        onClickApplyFilter={onClickFilter}
       />
     </div>
   </div>

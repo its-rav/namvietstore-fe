@@ -34,7 +34,7 @@ const FilterItem: React.FC<FilterItemProps> = ({
             id={`dropdown-button-${filterItems.filterType}`}
             data-dropdown-toggle={`dropdown-${filterItems.filterType}`}
             data-dropdown-delay='500'
-            className='w-full p-4 rounded-md border-solid flex justify-end items-center mt-4 hover:bg-gray-200 border-[1px] border-primary text-primary'
+            className='w-full p-4 rounded-md border-solid flex justify-between items-center mt-4 hover:bg-gray-200 border-[1px] border-primary text-primary'
             onClick={() => {
               setIsOpen(!isOpen);
             }}
@@ -59,7 +59,7 @@ const FilterItem: React.FC<FilterItemProps> = ({
                 {filterItems.filterOptions.map((item) => {
                   return item.selected ? (
                     <li key={item.optionId}>
-                      <p className='block p-4 color-primary'>
+                      <p className='block p-4 text-primary'>
                         {item.optionName}
                       </p>
                     </li>
