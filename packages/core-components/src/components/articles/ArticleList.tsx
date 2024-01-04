@@ -13,11 +13,9 @@ const ArticleList: React.FC<ArticleListProps> = ({
       {
         articles.map((article) => {
           return (
-            <div >
-              <Article
-                article={article}
-              />
-            </div>
+            <Article
+              article={article}
+            />
           );
           })
       }

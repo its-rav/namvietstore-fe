@@ -2,6 +2,7 @@ import { BlueCheck, WhiteCheck } from '@/icons';
 import React, {useState} from 'react';
 
 type ProductItemProps = {
+  id?: string;
   productName: string;
   productImage: string;
   productDescription: string;
@@ -16,44 +17,39 @@ const ProductCollapse: React.FC<ProductItemProps> = ({
   productImage, 
   productDescription,
 }) => {
-  const [closeCollapse, setCloseCollapse] = useState(true);
-  const [navColor, setNavColor] = useState('bg-[#FFE1E1]');
-  const [nameColor, setNameColor] = useState('text-[#002651]');
+  const [collapsed, setCollapsed] = useState(true);
+  // const [navColor, setNavColor] = useState('bg-[#FFE1E1]');
+  // const [nameColor, setNameColor] = useState('text-[#002651]');
   const toggleCollapse = () => {
-    setCloseCollapse(!closeCollapse);
-    if (closeCollapse) {
-      setNavColor('bg-[#002651]');
-      setNameColor('text-[#FFFFFF]');
-    }
-    else {
-      setNameColor('text-[#002651]');
-      setNavColor('bg-[#FFE1E1]');
-    }
+    setCollapsed(!collapsed);
+    // if (collapsed) {
+    //   setNavColor('bg-[#002651]');
+    //   setNameColor('text-[#FFFFFF]');
+    // }
+    // else {
+    //   setNameColor('text-[#002651]');
+    //   setNavColor('bg-[#FFE1E1]');
+    // }
   }
   return (
     <div>
       <button
         type="button"
         onClick={toggleCollapse}
-        className={`flex border border-solid ${navColor} w-full h-[50px] items-center px-[20px]`}
+        className={`flex border border-solid ${collapsed ? "bg-[#FFE1E1]" : "bg-[#002651]"} w-full h-[50px] items-center px-[20px]`}
       >
         <div className='mr-4'>
-          {closeCollapse ? <BlueCheck className='w-5 h-5'/> : <WhiteCheck className='w-5 h-5'/>}
+          {collapsed ? <BlueCheck className='w-5 h-5'/> : <WhiteCheck className='w-5 h-5'/>}
         </div>
-        <p className={`${nameColor}`}>{productName}</p>
+        <p className={`${collapsed ? "bg-[#FFE1E1]" : "text-[#FFFFFF]"}`}>{productName}</p>
       </button>
-      <div
-        id="demo" 
-        hidden={closeCollapse}
-      >
-        <div className='flex justify-center md:flex-col'>
-          <div className='flex justify-center'>
+      <div hidden={collapsed} >
+        <div className='flex justify-center'>
             <img 
-              className='flex w-[900px] h-[100px] md:w-[300px] md:h-[200px]'
+              className='flex w-[300px] h-[200px]'
               src={productImage} 
               alt={productName}
             />
-          </div>
           <p className='font-primary text-base text-justify'>
             {productDescription}
           </p>
@@ -73,9 +69,9 @@ const ProductListCollapse: React.FC<ProductListProps> = ({
       </div>
       <div className='space-y-2'>
         {             
-          products.map((product, index) => {
+          products.map((product) => {
               return (
-                <div key={index}>
+                <div key={`${product.id}`}>
                   <ProductCollapse 
                     productName={product.productName}
                     productImage={product.productImage}

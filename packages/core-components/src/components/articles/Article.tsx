@@ -19,8 +19,8 @@ const Article: React.FC<ArticleProps> = ({
       <img className='mr-3' src={article.image} alt={article.title} />
       <div className='w-full'>
         <p className='text-md text-[15px] font-bold'>{article.title}</p>
-        <p className='text-md text-[11px]'>{article.date}</p>
-        <p className='text-md text-[13px] line-clamp-3 '>{article.content}</p>
+        <p className='text-[11px]'>{article.date}</p>
+        <p className='text-[13px] line-clamp-3 '>{article.content}</p>
       </div>
     </div>
   );
