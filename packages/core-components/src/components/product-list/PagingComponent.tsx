@@ -24,7 +24,7 @@ const PagingComponent: React.FC<PagingComponentProps> = ({
   classItem = 'flex flex-col',
   classImg = 'basis-full object-contain',
   classContent = 'basis-full',
-  classPaging = 'grid grid-cols-4 gap-3',
+  classPaging = 'grid gap-3 grid-cols-2 md:!grid-cols-3',
   previousLabel,
   nextLabel,
 }) => {

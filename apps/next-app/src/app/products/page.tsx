@@ -19,6 +19,7 @@ import { useState } from 'react';
 export default function ProductsPage() {
   const router = useRouter();
   const [showLayoutList, setShowLayoutList] = useState(false);
+  const [isOpenSort, setIsOpenSort] = useState(false);
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const pageParamName = 'page';
@@ -55,6 +56,10 @@ export default function ProductsPage() {
       });
     }
     router.replace(`${pathname}?${params.toString()}`);
+  };
+
+  const onClickOpenSort = (isOpen: boolean) => {
+    setIsOpenSort(isOpen);
   };
 
   const onClickFilter = (searchData: string[]) => {
@@ -277,8 +282,9 @@ export default function ProductsPage() {
                 <SortMobile
                   sortItems={filterData.sortItems}
                   onClickApplySort={onClickSort}
+                  onClickOpenSort={onClickOpenSort}
                 />
-                <div className='flex divide-x'>
+                <div className='flex divide-x items-center'>
                   <div className='px-3'>
                     <ButtonChangeLayout
                       onChangePageLayout={onChangePageLayout}
@@ -296,7 +302,13 @@ export default function ProductsPage() {
                 </div>
               </div>
             </div>
-            <div className='col-span-12 md:!col-span-9'>
+            <div
+              className={`${
+                isOpenSort
+                  ? 'inset-0 brightness-50 backdrop-blur-sm pointer-events-none'
+                  : ''
+              } col-span-12 md:!col-span-9`}
+            >
               {showLayoutList ? (
                 <PagingListComponent
                   productItems={productItems}

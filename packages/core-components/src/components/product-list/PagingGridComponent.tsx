@@ -30,7 +30,7 @@ const PagingGridComponent: React.FC<PagingGridComponentProps> = ({
       classItem={'flex flex-col'}
       classImg={'basis-full object-contain'}
       classContent={'basis-full'}
-      classPaging={'grid gap-3 grid-cols-2 md:!grid-cols-4'}
+      classPaging={'grid gap-3 grid-cols-2 md:!grid-cols-3'}
       previousLabel={previousLabel}
       nextLabel={nextLabel}
     />
