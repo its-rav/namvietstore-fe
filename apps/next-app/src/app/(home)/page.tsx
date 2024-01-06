@@ -24,14 +24,6 @@ export default function Home() {
       >
         Product Page
       </Button>
-      <Button
-
-        onClick={() => {
-          router.push('/contact');
-        }}
-      >
-        Contact Page
-      </Button>
       <SectionWrapper background='transparent' py='large'>
         <FeaturesListSection />
         <IntroSection />

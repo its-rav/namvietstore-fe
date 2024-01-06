@@ -1,3 +1,6 @@
+import CategoryBar, {
+  type categoryBarItemType,
+} from '@/components/CategoryBar';
 import ContactTable, {
   type ContactTableItemType,
 } from '@/components/ContactTable';
@@ -7,9 +10,8 @@ import FeaturesCard, {
 import MobileHeader from '@/components/MobileHeader';
 import PostCard from '@/components/PostCard';
 import SearchBar from '@/components/SearchBar';
-
-import SideBarMobile from './SideBarMobile';
-import TopBar from './topbar/TopBar';
+import SideBarMobile from '@/components/SideBarMobile';
+import TopBar from '@/components/topbar/TopBar';
 export { SideBarMobile };
 
 export { PostCard };
@@ -23,3 +25,4 @@ export * from './product-list';
 export * from './sections';
 export * from './articles';
 export { type ContactTableItemType, ContactTable, TopBar };
+export { type categoryBarItemType, CategoryBar };
