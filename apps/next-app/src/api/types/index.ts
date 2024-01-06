@@ -44,27 +44,6 @@ export type QueryParams<TFilter = unknown> = Partial<{
   filter: TFilter;
   sort: `${string}:${'asc' | 'desc'}`;
 }>;
-// "data": {
-//   "id": 3,
-//   "attributes": {
-//       "name": "Rectangle 30.png",
-//       "alternativeText": null,
-//       "caption": null,
-//       "width": 190,
-//       "height": 70,
-//       "formats": null,
-//       "hash": "Rectangle_30_01f72c0dbb",
-//       "ext": ".png",
-//       "mime": "image/png",
-//       "size": 1.98,
-//       "url": "/uploads/Rectangle_30_01f72c0dbb.png",
-//       "previewUrl": null,
-//       "provider": "local",
-//       "provider_metadata": null,
-//       "createdAt": "2024-01-05T12:34:31.898Z",
-//       "updatedAt": "2024-01-05T12:34:31.898Z"
-//   }
-// }
 
 export type MediaAttributes = {
   name: string;
