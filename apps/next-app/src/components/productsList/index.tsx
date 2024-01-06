@@ -46,7 +46,7 @@ const ProductsListSection = () => {
     },
   ];
   return (
-    <div className='grid grid-flow-row gap-8 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3'>
+    <div className='grid grid-flow-row gap-y-8 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3'>
       {items.map(({ title, previewImage, description }, index) => (
         <PostCard
           key={index}
