@@ -34,7 +34,7 @@ export default function RootLayout({
     <HtmlWrapper>
       {topbar}
       {header}
-      <main className='pt-[60px]'>{children}</main>
+      <main>{children}</main>
       {footer}
     </HtmlWrapper>
   );
