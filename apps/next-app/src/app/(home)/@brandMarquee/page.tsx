@@ -51,7 +51,7 @@ export default async function BrandMarquee() {
   const items = await getMarqueeItems();
   return (
     <>
-      <MarqueeSection marqueeItems={items} autoFill={true} />
+      <MarqueeSection marqueeItems={items} autoFill={true} gradient={true} />
     </>
   );
 }

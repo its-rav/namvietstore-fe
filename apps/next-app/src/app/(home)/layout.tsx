@@ -20,7 +20,7 @@ export default function HomeLayout(props: HomeLayoutProps) {
       <main>
         {children}
 
-        <SectionWrapper background='rgb(133 0 0)' py='large'>
+        <SectionWrapper className='bg-primary' py='large'>
           <>{statistics}</>
         </SectionWrapper>
 
