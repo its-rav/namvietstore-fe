@@ -4,6 +4,7 @@ import { Button, ShoppingIcon } from '@namviet-fe/core-ui';
 import { useRouter } from 'next/navigation';
 
 import FeaturesListSection from '@/components/featureList/FeatureList';
+import ImageSliderComponent from '@/components/imageSlider/ImageSlider';
 import IntroSection from '@/components/intro';
 import ProductsListSection from '@/components/productsList';
 import SectionWrapper from '@/components/sections/section-wrapper';
@@ -22,7 +23,8 @@ export default function Home() {
           Product Page
         </Button>
       </div>
-      <div className='h-96 bg-gray-300'>Place holder for image slider</div>
+
+      <ImageSliderComponent />
 
       <SectionWrapper
         backgroundImage={mapBackgroundImage}
