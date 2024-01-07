@@ -13,6 +13,7 @@ import SearchBar from '@/components/SearchBar';
 import SideBarMobile from '@/components/SideBarMobile';
 import TopBar from '@/components/topbar/TopBar';
 export { SideBarMobile };
+import ImageSlider from '@/components/ImageSlider';
 
 export { PostCard };
 
@@ -25,3 +26,4 @@ export * from './product-list';
 export * from './sections';
 export { type ContactTableItemType, ContactTable, TopBar };
 export { type categoryBarItemType, CategoryBar };
+export { ImageSlider };
