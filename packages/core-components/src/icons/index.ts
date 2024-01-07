@@ -23,6 +23,7 @@ export { ReactComponent as PhoneIcon } from './phone.svg';
 export { ReactComponent as PhoneBox } from './phonebox.svg';
 export { ReactComponent as PlusIcon } from './plus.svg';
 export { ReactComponent as ProductIcon } from './product.svg';
+export { ReactComponent as ShoppingIcon } from './shopping.svg';
 export { ReactComponent as Square2x2Icon } from './square2x2.svg';
 export { ReactComponent as FaxCodeIcon } from './taxcode.svg';
 export { ReactComponent as UserIcon } from './user.svg';
