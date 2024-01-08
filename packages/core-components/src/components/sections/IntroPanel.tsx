@@ -36,6 +36,7 @@ const IntroPanel: React.FC<IntroPanelProps> = ({
         onClick={onClick}
         rightIcon={<WhitePlusIcon />}
         children={buttonText}
+        size='sm'
       />
     </div>
   );
