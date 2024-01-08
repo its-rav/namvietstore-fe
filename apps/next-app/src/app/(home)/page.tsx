@@ -11,12 +11,12 @@ import SectionWrapper from '@/components/sections/section-wrapper';
 
 import mapBackgroundImage from '@/public/map.png';
 export default function Home() {
+  const router = useRouter();
   return (
     <>
       <div className='flex absolute top-0 left-0'>
         <Button
           onClick={() => {
-            const router = useRouter();
             router.push('/products?page=1&total=20');
           }}
         >
