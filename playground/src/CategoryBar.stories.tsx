@@ -1,6 +1,10 @@
 import type { Story, StoryDefault } from '@ladle/react';
-import { type categoryBarItemType, CategoryBar } from '@namviet-fe/core-ui';
-import { HamburgerIcon } from '@namviet-fe/core-ui';
+import {
+  type categoryBarItemType,
+  type CategoryMenuItemType,
+  CategoryBar,
+} from '@namviet-fe/core-ui';
+import { HamburgerIcon, KeyIcon } from '@namviet-fe/core-ui';
 import React from 'react';
 
 export default {
@@ -26,6 +30,24 @@ const categoryItems: categoryBarItemType[] = [
   },
 ];
 
+const categoryMenuItems: CategoryMenuItemType[] = [
+  {
+    id: 'item 1',
+    icon: <KeyIcon />,
+    label: 'Đầu đốt',
+  },
+  {
+    id: 'item 2',
+    icon: <KeyIcon />,
+    label: 'Đầu đốt',
+  },
+  {
+    id: 'item 3',
+    icon: <KeyIcon />,
+    label: 'Đầu đốt',
+  },
+];
+
 const handleCategoryBarItemsClicked = () => {
   window.alert('redirect');
 };
@@ -35,6 +57,7 @@ export const Default: Story = () => (
     categoryButtonIcon={<HamburgerIcon />}
     categoryButtonText='DANH MỤC SẢN PHẨM'
     categoryBarItems={categoryItems}
+    categoryMenuItems={categoryMenuItems}
     onCategoryBarItemClick={handleCategoryBarItemsClicked}
   />
 );
