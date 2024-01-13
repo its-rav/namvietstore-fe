@@ -20,18 +20,28 @@ type Partner = {
   logo: MediaType;
 };
 
-type HomePageAttributes = {
+type StatisticAttributes = {
+  statistics: Statistic[];
+};
+
+type FeaturesAttributes = {
   Features: Features[];
-  statistic: Statistic[];
+};
+
+type PartnerAttributes = {
   Partners: Partner[];
 };
+
+type HomePageAttributes = StatisticAttributes &
+  FeaturesAttributes &
+  PartnerAttributes;
 
 const RESOURCE_NAME = '/home-page';
 
 export const fetchFeaturesAsync = async (
   locale: string
-): Promise<SingleData<HomePageAttributes>> => {
-  const response = await getOne<HomePageAttributes>(RESOURCE_NAME, {
+): Promise<SingleData<FeaturesAttributes>> => {
+  const response = await getOne<FeaturesAttributes>(RESOURCE_NAME, {
     populate: 'Features',
     locale,
   });
@@ -42,8 +52,19 @@ export const fetchFeaturesAsync = async (
 export const fetchPartnersAsync = async (
   locale: string
 ): Promise<SingleData<HomePageAttributes>> => {
-  const response = await getOne<HomePageAttributes>(RESOURCE_NAME, {
+  const response = await getOne<PartnerAttributes>(RESOURCE_NAME, {
     populate: 'Partners.logo',
+    locale,
+  });
+
+  return response.data;
+};
+
+export const fetchStatisticsAsync = async (
+  locale: string
+): Promise<SingleData<StatisticAttributes>> => {
+  const response = await getOne<StatisticAttributes>(RESOURCE_NAME, {
+    populate: 'statistics',
     locale,
   });
 
