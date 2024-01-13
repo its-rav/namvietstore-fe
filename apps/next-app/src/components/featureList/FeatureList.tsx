@@ -52,7 +52,6 @@ export const getFeatures = async () => {
     <UserIcon />,
   ];
 
-  console.log(res);
   return res.attributes.Features.map((item, index) => ({
     id: item.id.toString(),
     icon: iconMap[index],

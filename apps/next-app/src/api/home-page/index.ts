@@ -20,6 +20,13 @@ type Partner = {
   logo: MediaType;
 };
 
+type Introduction = {
+  id: number;
+  Title: string;
+  Description: string;
+  Subtitle: string;
+};
+
 type StatisticAttributes = {
   statistics: Statistic[];
 };
@@ -32,41 +39,45 @@ type PartnerAttributes = {
   Partners: Partner[];
 };
 
+type IntroductionAttributes = {
+  Introduction: Introduction;
+};
+
 type HomePageAttributes = StatisticAttributes &
   FeaturesAttributes &
-  PartnerAttributes;
+  PartnerAttributes &
+  IntroductionAttributes;
 
 const RESOURCE_NAME = '/home-page';
 
-export const fetchFeaturesAsync = async (
-  locale: string
-): Promise<SingleData<FeaturesAttributes>> => {
-  const response = await getOne<FeaturesAttributes>(RESOURCE_NAME, {
-    populate: 'Features',
+const fetchHomePageAsync = async (
+  locale: string,
+  populate?: string
+): Promise<SingleData<HomePageAttributes>> => {
+  const response = await getOne<HomePageAttributes>(RESOURCE_NAME, {
+    populate: populate,
     locale,
   });
 
   return response.data;
 };
+
+export const fetchFeaturesAsync = async (
+  locale: string
+): Promise<SingleData<FeaturesAttributes>> =>
+  fetchHomePageAsync(locale, 'Features');
 
 export const fetchPartnersAsync = async (
   locale: string
-): Promise<SingleData<HomePageAttributes>> => {
-  const response = await getOne<PartnerAttributes>(RESOURCE_NAME, {
-    populate: 'Partners.logo',
-    locale,
-  });
-
-  return response.data;
-};
+): Promise<SingleData<PartnerAttributes>> =>
+  fetchHomePageAsync(locale, 'Partners.logo');
 
 export const fetchStatisticsAsync = async (
   locale: string
-): Promise<SingleData<StatisticAttributes>> => {
-  const response = await getOne<StatisticAttributes>(RESOURCE_NAME, {
-    populate: 'statistics',
-    locale,
-  });
+): Promise<SingleData<StatisticAttributes>> =>
+  fetchHomePageAsync(locale, 'statistics');
 
-  return response.data;
-};
+export const fetchIntroductionAsync = async (
+  locale: string
+): Promise<SingleData<IntroductionAttributes>> =>
+  fetchHomePageAsync(locale, 'Introduction');
