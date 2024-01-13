@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { StaticImageData } from 'next/image';
 import React, { PropsWithChildren } from 'react';
 
@@ -24,22 +25,29 @@ export default function SectionWrapper({
 }: SectionWrapperProps) {
   return (
     <section
-      className={`section-wrapper full-width flex flex-col items-center
-      ${py === 'small' && 'py-6'}
-      ${py === 'medium' && 'py-10'}
-      ${py === 'large' && 'py-28'}
-      ${className}
-      `}
-      style={{
-        background,
-        backgroundImage: `url(${backgroundImage?.src})`,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-      }}
+      className={clsx(
+        py === 'small' && 'py-6',
+        py === 'medium' && 'py-10',
+        py === 'large' && 'py-28',
+        'section-wrapper full-width flex flex-col items-center',
+        className
+      )}
+      style={
+        background
+          ? {
+              background,
+              backgroundImage: `url(${backgroundImage?.src})`,
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
+            }
+          : {}
+      }
     >
       <div
-        className={`section-wrapper flex flex-col items-center
-        ${isFullWidth ? 'w-full' : 'w-full max-w-7xl mx-auto'}`}
+        className={clsx(
+          isFullWidth ? 'w-full' : 'w-full max-w-7xl mx-auto',
+          'section-wrapper flex flex-col items-center'
+        )}
       >
         <div className='flex flex-col items-center'>
           {sectionIcon && <div className='w-14 h-14'>{sectionIcon}</div>}
