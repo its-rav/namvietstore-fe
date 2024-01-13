@@ -1,7 +1,6 @@
-'use client';
+'use server';
 
-import { Button, ShoppingIcon } from '@namviet-fe/core-ui';
-import { useRouter } from 'next/navigation';
+import { ShoppingIcon } from '@namviet-fe/core-ui';
 
 import FeaturesListSection from '@/components/featureList/FeatureList';
 import ImageSliderComponent from '@/components/imageSlider/ImageSlider';
@@ -10,20 +9,9 @@ import ProductsListSection from '@/components/productsList';
 import SectionWrapper from '@/components/sections/section-wrapper';
 
 import mapBackgroundImage from '@/public/map.png';
-export default function Home() {
-  const router = useRouter();
+export default async function Home() {
   return (
     <>
-      <div className='flex absolute top-0 left-0'>
-        <Button
-          onClick={() => {
-            router.push('/products?page=1&total=20');
-          }}
-        >
-          Product Page
-        </Button>
-      </div>
-
       <ImageSliderComponent />
 
       <SectionWrapper

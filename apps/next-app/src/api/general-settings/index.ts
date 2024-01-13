@@ -1,5 +1,5 @@
 import { getOne } from '../common';
-import { SingleData } from '../types';
+import { MediaType, SingleData } from '../types';
 
 type PhoneNumber = {
   id: number;
@@ -25,14 +25,18 @@ type GeneralSettingAttributes = {
   publishedAt: string;
   locale: string;
   contact: Contact;
+  stamp: MediaType;
 };
 
 const RESOURCE_NAME = '/general-setting';
 
-export const fetchGeneralSettingAsync = async (): Promise<
-  SingleData<GeneralSettingAttributes>
-> => {
-  const response = await getOne<GeneralSettingAttributes>(RESOURCE_NAME);
+export const fetchGeneralSettingAsync = async (
+  locale: string
+): Promise<SingleData<GeneralSettingAttributes>> => {
+  const response = await getOne<GeneralSettingAttributes>(RESOURCE_NAME, {
+    locale,
+    populate: ['contact', 'contact.phoneNumbers', 'stamp'],
+  });
 
   return response.data;
 };

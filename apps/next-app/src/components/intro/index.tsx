@@ -9,14 +9,13 @@ export const getIntroduction = async () => {
   if (!useApi) {
     return await Promise.resolve({
       title: 'Công ty TNHH Thiết bị nhiệt Nam Việt',
-      establisedTime: 'Thành lập vào tháng 06 năm 2010',
+      establisedTime: 'Thành lập vào tháng 06 năm 20',
       description:
-        'Công ty TNHH Thiết bị nhiệt Nam Việt chuyên cung cấp sản phẩm và dịch vụ trong lĩnh vực thiết bị nhiệt nóng, thiết bị kiểm soát và đo đạc lưu lượng chất lỏng chất khí trong các ngành công nghiệp khu vực Đông Nam Á',
+        'Công ty TNHH Thiết bị nhiệt Nam Việt chuyên cung cấp sản phẩm và dịch vụ trong lĩnh vực thiết bị nhiệt nóng, thiết bị kiểm soát và đo đạc lưu lượng chất lỏng chất khí trong các ngành công nghiệp khu vực Đông Nam Á.',
     });
   }
 
   const res = await fetchIntroductionAsync('vi-Vn');
-  console.log(res);
 
   return {
     title: res.attributes.Introduction.Title,
