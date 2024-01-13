@@ -48,6 +48,7 @@ const PostCard: React.FC<PostCardProps> = ({
         }
         rightIcon={<WhitePlusIcon />}
         onClick={onClick}
+        size='sm'
       />
     </div>
   );
