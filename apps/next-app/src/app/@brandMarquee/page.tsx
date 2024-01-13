@@ -7,7 +7,7 @@ import { getMarqueeItems } from './utils';
 export default async function BrandMarquee() {
   const items = await getMarqueeItems();
   return (
-    <SectionWrapper className='bg-primary' py='large'>
+    <SectionWrapper background='transparent' py='large' isFullWidth={true}>
       <MarqueeSection marqueeItems={items} autoFill={true} gradient={true} />
     </SectionWrapper>
   );

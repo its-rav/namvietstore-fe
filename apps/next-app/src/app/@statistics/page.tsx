@@ -9,7 +9,7 @@ import { getStatisticItems } from './utils';
 export default async function Statistics() {
   const statisticItems = await getStatisticItems();
   return (
-    <SectionWrapper background='transparent' py='large' isFullWidth={true}>
+    <SectionWrapper className='bg-primary' py='large'>
       <StatisticSection statisticItems={statisticItems} />
     </SectionWrapper>
   );
