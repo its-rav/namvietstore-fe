@@ -42,12 +42,6 @@ export default function Home() {
             title='Gia tri cot loi'
             description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.'
           />
-          <IntroPanelCard 
-            
-            />
-          <IntroPanelCard 
-            
-            />
         </div>
       </SectionWrapper>
 
