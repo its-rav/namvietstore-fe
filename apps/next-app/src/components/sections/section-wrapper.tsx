@@ -1,34 +1,60 @@
+import clsx from 'clsx';
+import { StaticImageData } from 'next/image';
 import React, { PropsWithChildren } from 'react';
 
 import './section-wrapper.css';
 export type SectionWrapperProps = PropsWithChildren<{
   background?: string;
+  backgroundImage?: StaticImageData;
   isFullWidth?: boolean;
   py: 'small' | 'medium' | 'large';
+  sectionTitle?: string;
+  sectionIcon?: React.ReactNode;
+  className?: string;
 }>;
 
 export default function SectionWrapper({
   isFullWidth = false,
   background,
+  backgroundImage,
   children,
   py = 'medium',
+  sectionTitle,
+  sectionIcon,
+  className,
 }: SectionWrapperProps) {
   return (
     <section
-      className={`section-wrapper full-width 
-      py-10
-      ${py === 'small' && 'py-1'}
-      ${py === 'medium' && 'py-5'}
-      ${py === 'large' && 'py-10'}
-      
-      `}
-      style={{ background }}
+      className={clsx(
+        py === 'small' && 'py-6',
+        py === 'medium' && 'py-10',
+        py === 'large' && 'py-28',
+        'section-wrapper full-width flex flex-col items-center',
+        className
+      )}
+      style={
+        background
+          ? {
+              background,
+              backgroundImage: `url(${backgroundImage?.src})`,
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
+            }
+          : {}
+      }
     >
       <div
-        className={`section-wrapper 
-          ${isFullWidth ? 'w-full' : 'max-w-7xl mx-auto'}
-        `}
+        className={clsx(
+          isFullWidth ? 'w-full' : 'w-full max-w-7xl mx-auto',
+          'section-wrapper flex flex-col items-center'
+        )}
       >
+        <div className='flex flex-col items-center'>
+          {sectionIcon && <div className='w-14 h-14'>{sectionIcon}</div>}
+          {sectionTitle && (
+            <h2 className='text-primary text-2xl font-bold'>{sectionTitle}</h2>
+          )}
+        </div>
         {children}
       </div>
     </section>

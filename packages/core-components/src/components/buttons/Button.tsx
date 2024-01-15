@@ -38,9 +38,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled}
         className={clsxm(
           'flex items-center rounded-xs disabled:cursor-not-allowed',
-          size === 'sm' && 'px-3 py-3 w-32',
-          size === 'md' && 'px-6 py-4 w-36',
-          size === 'lg' && 'px-7 py-5 w-40',
+          size === 'sm' && 'px-3 py-3 w-fit',
+          size === 'md' && 'px-6 py-4 w-fit',
+          size === 'lg' && 'px-7 py-5 w-fit',
           size === 'fit-content' && 'px-5 py-4 w-fit',
           loading && 'relative opacity-1 disabled:cursor-wait',
           backgroundColor === 'secondary'

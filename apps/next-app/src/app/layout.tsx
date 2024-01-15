@@ -14,6 +14,8 @@ type RootLayoutProps = {
   header: React.ReactNode;
   footer: React.ReactNode;
   topbar: React.ReactNode;
+  brandMarquee: React.ReactNode;
+  statistics: React.ReactNode;
 };
 
 const HtmlWrapper = ({ children }: { children: React.ReactNode }) => {
@@ -29,12 +31,19 @@ export default function RootLayout({
   header,
   footer,
   topbar,
+  brandMarquee,
+  statistics,
 }: RootLayoutProps) {
   return (
     <HtmlWrapper>
       {topbar}
       {header}
-      <main className='pt-[60px]'>{children}</main>
+      <main>
+        {children}
+
+        {statistics}
+        {brandMarquee}
+      </main>
       {footer}
     </HtmlWrapper>
   );
