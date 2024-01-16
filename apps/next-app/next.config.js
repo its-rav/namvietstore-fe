@@ -20,7 +20,7 @@ const nextConfig = {
         protocol: 'http',
         hostname: '157.245.145.39',
         pathname: '/uploads/**',
-      }
+      },
     ],
   },
 };
