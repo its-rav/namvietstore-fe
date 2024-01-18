@@ -6,7 +6,7 @@ import { BlackHamburgerIcon } from '../icons';
 type MobileHeaderProps = {
   placeholder: string;
   onClick?: () => void;
-  toggleSideBar: () => void;
+  toggleSideBar?: () => void;
 };
 
 const MobileHeader = React.forwardRef<HTMLInputElement, MobileHeaderProps>(

@@ -1,5 +1,3 @@
-import { MarqueeSection } from '@namviet-fe/core-ui';
-
 import { getCmsBaseUrl, getFFUseApi } from '@/api/common/env';
 import { fetchPartnersAsync } from '@/api/home-page';
 
@@ -46,12 +44,3 @@ export const getMarqueeItems = async () => {
     alt: item.name,
   }));
 };
-
-export default async function BrandMarquee() {
-  const items = await getMarqueeItems();
-  return (
-    <>
-      <MarqueeSection marqueeItems={items} autoFill={true} gradient={true} />
-    </>
-  );
-}

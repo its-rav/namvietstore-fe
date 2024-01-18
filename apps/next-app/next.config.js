@@ -16,6 +16,11 @@ const nextConfig = {
         hostname: 'online.gov.vn',
         pathname: '/PublicImages/**',
       },
+      {
+        protocol: 'http',
+        hostname: '157.245.145.39',
+        pathname: '/uploads/**',
+      },
     ],
   },
 };
