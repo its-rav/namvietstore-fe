@@ -22,6 +22,7 @@ type CategorySubMenuProps = {
 };
 
 type CategoryMenuSubItemType = {
+  key: string;
   title: string;
   items: {
     description: string;
@@ -41,11 +42,11 @@ const CategorySubMenu: React.FC<CategorySubMenuProps> = ({
   onCategorySubMenuItemClick,
 }) => {
   return (
-    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+    <div className='relative -right-72 grid h-full w-full grid-cols-4 grid-flow-row bg-gray-400'>
       {categorySubMenuItem.map((categorySubMenuItem) => (
         <div
-          className='flex flex-col items-start gap-y-2 w-fit'
-          key={categorySubMenuItem.title}
+          className='flex flex-col items-start gap-y-2 px-2 bg-purple-200'
+          key={categorySubMenuItem.key}
         >
           <p className='font-primary text-lg font-bold leading-6 text-black'>
             {categorySubMenuItem.title}
@@ -72,18 +73,15 @@ const CategoryMenu: React.FC<CategoryMenuProps> = ({
   categoryMenuItems,
   onCategorySubMenuItemClick,
 }) => {
-  const [hoveredCategoryId, setHoveredCategoryId] = React.useState<
-    string | null
-  >(null);
+  const [hoveredCategoryIndex, setHoveredCategoryIndex] =
+    React.useState<number>(-1);
 
-  const handleMenuItemMouseEnter = (categoryId: string) => {
-    console.log('Mouse Enter:', categoryId);
-    setHoveredCategoryId(categoryId);
+  const handleMenuItemMouseEnter = (index: number) => () => {
+    setHoveredCategoryIndex(index);
   };
 
   const handleMenuItemMouseLeave = () => {
-    console.log('Mouse Leave');
-    setHoveredCategoryId(null);
+    setHoveredCategoryIndex(-1);
   };
 
   return (
@@ -97,29 +95,44 @@ const CategoryMenu: React.FC<CategoryMenuProps> = ({
           {buttonText}
         </Button>
       </MenuHandler>
-      <MenuList>
-        {categoryMenuItems?.map((categoryMenuItem) => {
-          return (
-            <div
-              key={categoryMenuItem.id}
-              onMouseEnter={() => handleMenuItemMouseEnter(categoryMenuItem.id)}
-              onMouseLeave={handleMenuItemMouseLeave}
-            >
-              <MenuItem className='flex items-start gap-x-3 py-4 w-full'>
-                <i className='block w-6 h-6'>{categoryMenuItem.icon}</i>
-                <p className='font-primary text-lg font-normal leading-6 text-black'>
-                  {categoryMenuItem.label}
-                </p>
-              </MenuItem>
-              {hoveredCategoryId === categoryMenuItem.id && (
-                <div className='w-full font-primary text-lg'>
-                  Sample Text on Hover
+      <div className='absolute'>
+        <div>
+          <MenuList>
+            {categoryMenuItems?.map((categoryMenuItem, index) => {
+              return (
+                <div key={categoryMenuItem.id}>
+                  <MenuItem
+                    className='flex items-start gap-x-3 py-4 w-full'
+                    onMouseEnter={handleMenuItemMouseEnter(index)}
+                  >
+                    <i className='block w-6 h-6'>{categoryMenuItem.icon}</i>
+                    <p className='font-primary text-lg font-normal leading-6 text-black'>
+                      {categoryMenuItem.label}
+                    </p>
+                  </MenuItem>
                 </div>
-              )}
+              );
+            })}
+          </MenuList>
+          {hoveredCategoryIndex !== -1 && (
+            <div
+              onMouseEnter={handleMenuItemMouseEnter(hoveredCategoryIndex)}
+              onMouseLeave={handleMenuItemMouseLeave}
+              className='w-full'
+            >
+              {categoryMenuItems &&
+                categoryMenuItems[hoveredCategoryIndex].subItems && (
+                  <CategorySubMenu
+                    categorySubMenuItem={
+                      categoryMenuItems[hoveredCategoryIndex].subItems ?? []
+                    }
+                    onCategorySubMenuItemClick={onCategorySubMenuItemClick}
+                  />
+                )}
             </div>
-          );
-        })}
-      </MenuList>
+          )}
+        </div>
+      </div>
     </Menu>
   );
 };
