@@ -26,9 +26,9 @@ export default function SectionWrapper({
   return (
     <section
       className={clsx(
-        py === 'small' && 'py-6',
-        py === 'medium' && 'py-10',
-        py === 'large' && 'py-28',
+        py === 'small' && 'md:py-6',
+        py === 'medium' && 'md:py-10',
+        py === 'large' && 'md:py-28',
         'section-wrapper full-width flex flex-col items-center',
         className
       )}
