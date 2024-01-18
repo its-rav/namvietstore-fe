@@ -14,6 +14,7 @@ type CategoryBarProps = {
   categoryBarItems?: categoryBarItemType[];
   categoryMenuItems?: CategoryMenuItemType[];
   onCategoryBarItemClick?: (url: string) => void;
+  onCategorySubMenuItemClick?: (url: string) => void;
 };
 
 const CategoryBar: React.FC<CategoryBarProps> = ({
@@ -22,6 +23,7 @@ const CategoryBar: React.FC<CategoryBarProps> = ({
   categoryBarItems,
   categoryMenuItems,
   onCategoryBarItemClick,
+  onCategorySubMenuItemClick,
 }) => {
   return (
     <div className='w-full flex justify-between items-center'>
@@ -29,8 +31,9 @@ const CategoryBar: React.FC<CategoryBarProps> = ({
         buttonIcon={categoryButtonIcon}
         buttonText={categoryButtonText}
         categoryMenuItems={categoryMenuItems}
+        onCategorySubMenuItemClick={onCategorySubMenuItemClick}
       />
-      <div className='flex gap-x-7 font-primary text-lg leading-6 font-normal  text-gray-500 hover:cursor-pointer'>
+      <div className='flex gap-x-7 font-primary text-lg leading-6 font-normal text-gray-500 hover:cursor-pointer whitespace-nowrap'>
         {categoryBarItems?.map((categoryBarItem) => (
           <p
             onClick={() => onCategoryBarItemClick?.(categoryBarItem.url)}
