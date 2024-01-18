@@ -42,10 +42,10 @@ const CategorySubMenu: React.FC<CategorySubMenuProps> = ({
   onCategorySubMenuItemClick,
 }) => {
   return (
-    <div className='relative -right-72 grid h-full w-full grid-cols-4 grid-flow-row bg-gray-400'>
+    <div className='flex flex-wrap h-full w-full'>
       {categorySubMenuItem.map((categorySubMenuItem) => (
         <div
-          className='flex flex-col items-start gap-y-2 px-2 bg-purple-200'
+          className='flex flex-col items-start gap-y-2 px-2 w-fit'
           key={categorySubMenuItem.key}
         >
           <p className='font-primary text-lg font-bold leading-6 text-black'>
@@ -73,37 +73,39 @@ const CategoryMenu: React.FC<CategoryMenuProps> = ({
   categoryMenuItems,
   onCategorySubMenuItemClick,
 }) => {
-  const [hoveredCategoryIndex, setHoveredCategoryIndex] =
-    React.useState<number>(-1);
+  const [hoveredCategoryId, setHoveredCategoryId] = React.useState<
+    string | null
+  >(null);
 
-  const handleMenuItemMouseEnter = (index: number) => () => {
-    setHoveredCategoryIndex(index);
+  const handleMenuItemMouseEnter = (categoryId: string) => () => {
+    setHoveredCategoryId(categoryId);
   };
 
   const handleMenuItemMouseLeave = () => {
-    setHoveredCategoryIndex(-1);
+    setHoveredCategoryId(null);
   };
 
   return (
-    <Menu allowHover={true}>
-      <MenuHandler>
-        <Button
-          leftIcon={buttonIcon}
-          backgroundColor={buttonBackgroundColor}
-          size='lg'
-        >
-          {buttonText}
-        </Button>
-      </MenuHandler>
-      <div className='absolute'>
+    <div className='relative w-full'>
+      <Menu allowHover={true}>
+        <MenuHandler>
+          <Button
+            leftIcon={buttonIcon}
+            backgroundColor={buttonBackgroundColor}
+            size='lg'
+          >
+            {buttonText}
+          </Button>
+        </MenuHandler>
+
         <div>
           <MenuList>
-            {categoryMenuItems?.map((categoryMenuItem, index) => {
+            {categoryMenuItems?.map((categoryMenuItem) => {
               return (
                 <div key={categoryMenuItem.id}>
                   <MenuItem
                     className='flex items-start gap-x-3 py-4 w-full'
-                    onMouseEnter={handleMenuItemMouseEnter(index)}
+                    onMouseEnter={handleMenuItemMouseEnter(categoryMenuItem.id)}
                   >
                     <i className='block w-6 h-6'>{categoryMenuItem.icon}</i>
                     <p className='font-primary text-lg font-normal leading-6 text-black'>
@@ -114,26 +116,27 @@ const CategoryMenu: React.FC<CategoryMenuProps> = ({
               );
             })}
           </MenuList>
-          {hoveredCategoryIndex !== -1 && (
-            <div
-              onMouseEnter={handleMenuItemMouseEnter(hoveredCategoryIndex)}
-              onMouseLeave={handleMenuItemMouseLeave}
-              className='w-full'
-            >
-              {categoryMenuItems &&
-                categoryMenuItems[hoveredCategoryIndex].subItems && (
-                  <CategorySubMenu
-                    categorySubMenuItem={
-                      categoryMenuItems[hoveredCategoryIndex].subItems ?? []
-                    }
-                    onCategorySubMenuItemClick={onCategorySubMenuItemClick}
-                  />
-                )}
-            </div>
-          )}
+          {hoveredCategoryId &&
+            categoryMenuItems?.find((item) => item.id === hoveredCategoryId)
+              ?.subItems && (
+              <div
+                onMouseEnter={handleMenuItemMouseEnter(hoveredCategoryId)}
+                onMouseLeave={handleMenuItemMouseLeave}
+                className='absolute left-72 top-14 w-5/6 h-[500px] z-50 border-solid border-2 border-gray-200 rounded-sm px-4 py-4 bg-white'
+              >
+                <CategorySubMenu
+                  categorySubMenuItem={
+                    categoryMenuItems.find(
+                      (item) => item.id === hoveredCategoryId
+                    )?.subItems ?? []
+                  }
+                  onCategorySubMenuItemClick={onCategorySubMenuItemClick}
+                />
+              </div>
+            )}
         </div>
-      </div>
-    </Menu>
+      </Menu>
+    </div>
   );
 };
 export default CategoryMenu;

@@ -30,11 +30,11 @@ const categoryMenuItems: CategoryMenuItemType[] = [
           },
           {
             description: 'Madas',
-            url: '/2',
+            url: '/23',
           },
           {
             description: 'Madas',
-            url: '/3',
+            url: '/34',
           },
         ],
       },
@@ -48,11 +48,11 @@ const categoryMenuItems: CategoryMenuItemType[] = [
           },
           {
             description: 'Madas',
-            url: '/2',
+            url: '/25',
           },
           {
             description: 'Madas',
-            url: '/3',
+            url: '/36',
           },
         ],
       },
@@ -66,11 +66,11 @@ const categoryMenuItems: CategoryMenuItemType[] = [
           },
           {
             description: 'Madas',
-            url: '/2',
+            url: '/27',
           },
           {
             description: 'Madas',
-            url: '/3',
+            url: '/38',
           },
         ],
       },
@@ -84,11 +84,11 @@ const categoryMenuItems: CategoryMenuItemType[] = [
           },
           {
             description: 'Madas',
-            url: '/2',
+            url: '/test',
           },
           {
             description: 'Madas',
-            url: '/3',
+            url: '/091',
           },
         ],
       },
