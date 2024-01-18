@@ -14,15 +14,15 @@ export default {
 const categoryItems: categoryBarItemType[] = [
   {
     name: 'Trang chủ',
-    url: '/',
+    url: '/1',
   },
   {
     name: 'Giới thiệu',
-    url: '/',
+    url: '/2',
   },
   {
     name: 'Tin tức',
-    url: '/',
+    url: '/33',
   },
   {
     name: 'Liên hệ',
@@ -37,6 +37,7 @@ const categoryMenuItems: CategoryMenuItemType[] = [
     label: 'Đầu đốt',
     subItems: [
       {
+        key: 'item1-1',
         title: 'Đầu đốt theo hãng',
         items: [
           {
@@ -45,15 +46,16 @@ const categoryMenuItems: CategoryMenuItemType[] = [
           },
           {
             description: 'Madas',
-            url: '/2',
+            url: '/23',
           },
           {
             description: 'Madas',
-            url: '/3',
+            url: '/34',
           },
         ],
       },
       {
+        key: 'item1-2',
         title: 'Đầu đốt theo loại nhiên liệu',
         items: [
           {
@@ -62,15 +64,16 @@ const categoryMenuItems: CategoryMenuItemType[] = [
           },
           {
             description: 'Madas',
-            url: '/2',
+            url: '/25',
           },
           {
             description: 'Madas',
-            url: '/3',
+            url: '/36',
           },
         ],
       },
       {
+        key: 'item1-3',
         title: 'Đầu đốt theo lĩnh vực',
         items: [
           {
@@ -79,11 +82,29 @@ const categoryMenuItems: CategoryMenuItemType[] = [
           },
           {
             description: 'Madas',
-            url: '/2',
+            url: '/27',
           },
           {
             description: 'Madas',
-            url: '/3',
+            url: '/38',
+          },
+        ],
+      },
+      {
+        key: 'item1-4',
+        title: 'Đầu đốt theo lĩnh vực',
+        items: [
+          {
+            description: 'Madas',
+            url: '/madas',
+          },
+          {
+            description: 'Madas',
+            url: '/test',
+          },
+          {
+            description: 'Madas',
+            url: '/091',
           },
         ],
       },
@@ -95,6 +116,43 @@ const categoryMenuItems: CategoryMenuItemType[] = [
     label: 'Đầu đốt',
     subItems: [
       {
+        key: 'item2-1',
+        title: 'Đầu đốt theo hãng',
+        items: [
+          {
+            description: 'Madas',
+            url: '/1',
+          },
+          {
+            description: 'Madas',
+            url: '/2',
+          },
+          {
+            description: 'Madas',
+            url: '/3',
+          },
+        ],
+      },
+      {
+        key: 'item2-2',
+        title: 'Đầu đốt theo hãng',
+        items: [
+          {
+            description: 'Madas',
+            url: '/1',
+          },
+          {
+            description: 'Madas',
+            url: '/2',
+          },
+          {
+            description: 'Madas',
+            url: '/3',
+          },
+        ],
+      },
+      {
+        key: 'item2-3',
         title: 'Đầu đốt theo hãng',
         items: [
           {
@@ -119,6 +177,7 @@ const categoryMenuItems: CategoryMenuItemType[] = [
     label: 'Đầu đốt',
     subItems: [
       {
+        key: 'item3-1',
         title: 'Đầu đốt theo hãng',
         items: [
           {
@@ -143,6 +202,79 @@ const categoryMenuItems: CategoryMenuItemType[] = [
     label: 'Nồi hơi và nồi nước nóng đốt',
     subItems: [
       {
+        key: 'item4-1',
+        title: 'Đầu đốt theo hãng',
+        items: [
+          {
+            description: 'Madas',
+            url: '/12',
+          },
+          {
+            description: 'Madas',
+            url: '/2',
+          },
+          {
+            description: 'Madas',
+            url: '/3',
+          },
+        ],
+      },
+      {
+        key: 'item4-2',
+        title: 'Đầu đốt theo hãng',
+        items: [
+          {
+            description: 'Madas',
+            url: '/12',
+          },
+          {
+            description: 'Madas',
+            url: '/2',
+          },
+          {
+            description: 'Madas',
+            url: '/3',
+          },
+        ],
+      },
+      {
+        key: 'item4-3',
+        title: 'Đầu đốt theo hãng',
+        items: [
+          {
+            description: 'Madas',
+            url: '/12',
+          },
+          {
+            description: 'Madas',
+            url: '/2',
+          },
+          {
+            description: 'Madas',
+            url: '/3',
+          },
+        ],
+      },
+      {
+        key: 'item4-4',
+        title: 'Đầu đốt theo linh vuc nghiep vu',
+        items: [
+          {
+            description: 'Madas',
+            url: '/12',
+          },
+          {
+            description: 'Madas',
+            url: '/2',
+          },
+          {
+            description: 'Madas',
+            url: '/3',
+          },
+        ],
+      },
+      {
+        key: 'item4-5',
         title: 'Đầu đốt theo hãng',
         items: [
           {
