@@ -33,3 +33,6 @@ export { ReactComponent as WhitePlusIcon } from './whiteplus.svg';
 export { ReactComponent as XMarkIcon } from './xmark.svg';
 export { ReactComponent as WhiteCheck } from './whitecheck.svg';
 export { ReactComponent as BlueCheck } from './bluecheck.svg';
+export { ReactComponent as Gift } from './gift.svg';
+export { ReactComponent as Target } from './target.svg';
+export { ReactComponent as Vision } from './vision.svg';

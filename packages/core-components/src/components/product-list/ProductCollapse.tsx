@@ -18,18 +18,8 @@ const ProductCollapse: React.FC<ProductItemProps> = ({
   productDescription,
 }) => {
   const [collapsed, setCollapsed] = useState(true);
-  // const [navColor, setNavColor] = useState('bg-[#FFE1E1]');
-  // const [nameColor, setNameColor] = useState('text-[#002651]');
   const toggleCollapse = () => {
     setCollapsed(!collapsed);
-    // if (collapsed) {
-    //   setNavColor('bg-[#002651]');
-    //   setNameColor('text-[#FFFFFF]');
-    // }
-    // else {
-    //   setNameColor('text-[#002651]');
-    //   setNavColor('bg-[#FFE1E1]');
-    // }
   }
   return (
     <div>
@@ -71,7 +61,7 @@ const ProductListCollapse: React.FC<ProductListProps> = ({
         {             
           products.map((product) => {
               return (
-                <div key={`${product.id}`}>
+                <div key={product.id}>
                   <ProductCollapse 
                     productName={product.productName}
                     productImage={product.productImage}

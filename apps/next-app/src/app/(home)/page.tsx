@@ -7,7 +7,6 @@ import FeaturesListSection from '@/components/featureList/FeatureList';
 import IntroSection from '@/components/intro';
 import ProductsListSection from '@/components/productsList';
 import SectionWrapper from '@/components/sections/section-wrapper';
-import IntroImageSection from '@/components/intro/imagePanel';
 import { IntroPanelCard } from '@namviet-fe/core-ui';
 
 export default function Home() {
@@ -32,10 +31,18 @@ export default function Home() {
       >
         Contact Page
       </Button>
+      <Button
+
+onClick={() => {
+  router.push('/intro');
+}}
+>
+into Page
+</Button>
       <SectionWrapper background='transparent' py='large'>
         <FeaturesListSection />
         <IntroSection />
-        <IntroImageSection />
+        
         <div className=''>
           <IntroPanelCard 
             icon='https://thietbinhietnv.com/storage/app/uploads/public/5df/64d/31d/5df64d31d51d8117549829.jpg'
