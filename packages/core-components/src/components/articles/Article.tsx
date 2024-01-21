@@ -11,9 +11,7 @@ export type ArticleProps = {
   article: ArticleType;
 };
 
-const Article: React.FC<ArticleProps> = ({
-  article
-}) => {
+const Article: React.FC<ArticleProps> = ({ article }) => {
   return (
     <div className='flex h-[105px] w-[400px]'>
       <img className='mr-3' src={article.image} alt={article.title} />

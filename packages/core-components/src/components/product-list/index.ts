@@ -14,7 +14,7 @@ import ProductItem, {
 } from '@/components/product-list/ProductItem';
 import ProductCollapse, {
   type ProductListProps,
-}  from '@/components/product-list/ProductCollapse';
+} from '@/components/product-list/ProductCollapse';
 
 export {
   type PaginationType,

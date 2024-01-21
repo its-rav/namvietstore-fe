@@ -65,7 +65,7 @@ const fetchIntroPageAsync = async (
 export const fetchBannerAsync = async (
   locale: string
 ): Promise<SingleData<BannerAttributes>> =>
-fetchIntroPageAsync(locale, 'Features');
+  fetchIntroPageAsync(locale, 'Features');
 
 export const fetchMissionsAsync = async (
   locale: string

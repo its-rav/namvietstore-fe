@@ -15,13 +15,9 @@ const IntroPanelCard: React.FC<IntroPanelCardProps> = ({
     <div className='flex flex-col border border-[#85000033] max-w-xs h-80 justify-center p-5 space-y-4'>
       <div className='flex items-center'>
         <div className='w-9 mr-3'>{icon}</div>
-        <h3 className='font-primary text-base font-bold '>
-          {title}
-        </h3>
+        <h3 className='font-primary text-base font-bold '>{title}</h3>
       </div>
-      <p className='font-primary text-base text-justify'>
-          {description}
-        </p>
+      <p className='font-primary text-base text-justify'>{description}</p>
     </div>
   );
 };

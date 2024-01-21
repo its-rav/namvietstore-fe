@@ -24,7 +24,6 @@ export default function Home() {
         Product Page
       </Button>
       <Button
-
         onClick={() => {
           router.push('/contact');
         }}
@@ -32,19 +31,18 @@ export default function Home() {
         Contact Page
       </Button>
       <Button
-
-onClick={() => {
-  router.push('/intro');
-}}
->
-into Page
-</Button>
+        onClick={() => {
+          router.push('/intro');
+        }}
+      >
+        into Page
+      </Button>
       <SectionWrapper background='transparent' py='large'>
         <FeaturesListSection />
         <IntroSection />
-        
+
         <div className=''>
-          <IntroPanelCard 
+          <IntroPanelCard
             icon='https://thietbinhietnv.com/storage/app/uploads/public/5df/64d/31d/5df64d31d51d8117549829.jpg'
             title='Gia tri cot loi'
             description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.'

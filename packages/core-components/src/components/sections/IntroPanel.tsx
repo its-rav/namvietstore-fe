@@ -24,7 +24,6 @@ const IntroPanel: React.FC<IntroPanelProps> = ({
   return (
     <div>
       <h2 className='text-center font-primary md:text-2xl sm:text-xl font-bold text-primary leading-normal'>
-
         {introPanelItem.title}
       </h2>
       <p className='font-primary md:text-lg sm:text-base font-bold leading-normal my-6'>
