@@ -1,33 +1,18 @@
-'use client';
+import type { StoryDefault } from '@ladle/react';
 import {
-  type categoryBarItemType,
   type CategoryMenuItemType,
-  CategoryBar,
+  CategoryMenu,
   HamburgerIcon,
   KeyIcon,
-  SearchBar,
 } from '@namviet-fe/core-ui';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import React from 'react';
+import 'regenerator-runtime/runtime';
+import 'regenerator-runtime/runtime';
 
-const categoryItems: categoryBarItemType[] = [
-  {
-    name: 'Trang chủ',
-    url: '/',
-  },
-  {
-    name: 'Giới thiệu',
-    url: '/introduction',
-  },
-  {
-    name: 'Tin tức',
-    url: '/news',
-  },
-  {
-    name: 'Liên hệ',
-    url: '/contact',
-  },
-];
+import '@namviet-fe/core-ui/dist/style.css';
+export default {
+  title: '@nv-fe/core-ui/CategoryMenu',
+} satisfies StoryDefault<typeof CategoryMenu>;
 
 const categoryMenuItems: CategoryMenuItemType[] = [
   {
@@ -294,45 +279,10 @@ const categoryMenuItems: CategoryMenuItemType[] = [
   },
 ];
 
-const WebHeader = () => {
-  const router = useRouter();
-
-  const handleCategoryBarItemClicked = (url: string) => {
-    router.push(url);
-  };
-
-  const handleCategorySubMenuItemClicked = (url: string) => {
-    router.push(url);
-  };
-
-  return (
-    <div>
-      <div className='w-full h-full border-b-slate-200 border-b-2 border-solid'>
-        <div className='flex flex-row h-[185px] justify-between items-center max-w-7xl mx-auto'>
-          <div>
-            <Image
-              src='https://thietbinhietnv.com/storage/app/uploads/public/5df/64d/31d/5df64d31d51d8117549829.jpg'
-              loading='lazy'
-              alt='logo'
-              width={200}
-              height={145}
-            />
-          </div>
-          <SearchBar placeholder='Search all products...' />
-        </div>
-      </div>
-      <div className='max-w-7xl mx-auto'>
-        <CategoryBar
-          categoryButtonIcon={<HamburgerIcon />}
-          categoryButtonText='DANH MỤC SẢN PHẨM'
-          categoryBarItems={categoryItems}
-          categoryMenuItems={categoryMenuItems}
-          onCategoryBarItemClick={handleCategoryBarItemClicked}
-          onCategorySubMenuItemClick={handleCategorySubMenuItemClicked}
-        />
-      </div>
-    </div>
-  );
-};
-
-export default WebHeader;
+export const Default = () => (
+  <CategoryMenu
+    buttonIcon={<HamburgerIcon />}
+    buttonText='DANH MỤC SẢN PHẨM'
+    categoryMenuItems={categoryMenuItems}
+  />
+);
