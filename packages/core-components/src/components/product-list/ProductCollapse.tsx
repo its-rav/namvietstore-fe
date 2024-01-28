@@ -1,5 +1,6 @@
-import { BlueCheck, WhiteCheck } from '@/icons';
 import React, { useState } from 'react';
+
+import { BlueCheck, WhiteCheck } from '@/icons';
 
 type ProductItemProps = {
   id?: string;

@@ -1,13 +1,13 @@
 'use server';
 
 import { InfoContactFormType } from '@namviet-fe/core-ui';
-import IntroSection from '@/components/intro';
-import { IntroPanelCard, Gift, Target, Vision } from '@namviet-fe/core-ui';
+import { Gift, IntroPanelCard, Target, Vision } from '@namviet-fe/core-ui';
 import { ProductCollapse } from '@namviet-fe/core-ui';
 import { OutStandingArticle } from '@namviet-fe/core-ui';
 import { ArticleList } from '@namviet-fe/core-ui';
 import { Pagination } from '@namviet-fe/core-ui';
-import { fetchIntroductionAsync } from '@/api/home-page';
+
+import IntroSection from '@/components/intro';
 
 export async function submitFormAsync(data: InfoContactFormType) {
   // TODO add logic

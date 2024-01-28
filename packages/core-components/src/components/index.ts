@@ -20,12 +20,12 @@ export { PostCard };
 
 export { type FeaturesCardItemType, FeaturesCard, MobileHeader, SearchBar };
 
+export * from './articles';
 export * from './buttons';
 export * from './contact';
 export * from './product-detail';
 export * from './product-list';
 export * from './sections';
-export * from './articles';
 export { type ContactTableItemType, ContactTable, TopBar };
 export { type categoryBarItemType, CategoryBar };
 export { ImageSlider };

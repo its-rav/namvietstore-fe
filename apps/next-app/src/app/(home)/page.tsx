@@ -1,22 +1,21 @@
 'use client';
 
-import { Button } from '@namviet-fe/core-ui';
-import { useRouter } from 'next/navigation';
+
+import { IntroPanelCard } from '@namviet-fe/core-ui';
 
 import FeaturesListSection from '@/components/featureList/FeatureList';
 import IntroSection from '@/components/intro';
 import ProductsListSection from '@/components/productsList';
 import SectionWrapper from '@/components/sections/section-wrapper';
-import { IntroPanelCard } from '@namviet-fe/core-ui';
 
 export default function Home() {
-  const router = useRouter();
+  // const router = useRouter();
   return (
     <div>
       {/* < CategoryButton
         onClick={() => {}}
       /> */}
-      <Button
+      {/* <Button
         onClick={() => {
           router.push('/products?page=1&total=20');
         }}
@@ -36,7 +35,7 @@ export default function Home() {
         }}
       >
         into Page
-      </Button>
+      </Button> */}
       <SectionWrapper background='transparent' py='large'>
         <FeaturesListSection />
         <IntroSection />

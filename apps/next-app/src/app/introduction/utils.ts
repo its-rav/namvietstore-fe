@@ -1,5 +1,4 @@
 import { getFFUseApi } from '@/api/common/env';
-import { fetchStatisticsAsync } from '@/api/home-page';
 
 export const getIntroItems = async () => {
   const useApi = getFFUseApi();

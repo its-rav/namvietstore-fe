@@ -1,4 +1,4 @@
-import React, { SVGProps } from 'react';
+import React from 'react';
 
 type IntroPanelCardProps = {
   icon: string;

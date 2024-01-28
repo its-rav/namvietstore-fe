@@ -1,9 +1,5 @@
 import React from 'react';
 
-import { Button } from '@/components/buttons';
-
-import { WhitePlusIcon } from '@/icons';
-
 export type IntroPanelItemType = {
   title: string;
   establisedTime: string;
@@ -18,8 +14,6 @@ type IntroPanelProps = {
 
 const IntroPanel: React.FC<IntroPanelProps> = ({
   introPanelItem,
-  buttonText,
-  onClick,
 }) => {
   return (
     <div>

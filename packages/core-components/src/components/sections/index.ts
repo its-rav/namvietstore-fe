@@ -11,8 +11,9 @@ import StatisticSection, {
   type StatisticItemType,
   type StatisticSectionProps,
 } from '@/components/sections/StatisticSection';
-import IntroPanelImage from './IntroPanelImage';
+
 import IntroPanelCard from './IntroPanelCard';
+import IntroPanelImage from './IntroPanelImage';
 
 export {
   type FeaturesListItemType,
@@ -22,8 +23,8 @@ export {
   type StatisticSectionProps,
   FeaturesList,
   IntroPanel,
+  IntroPanelCard,
+  IntroPanelImage,
   MarqueeSection,
   StatisticSection,
-  IntroPanelImage,
-  IntroPanelCard,
 };
