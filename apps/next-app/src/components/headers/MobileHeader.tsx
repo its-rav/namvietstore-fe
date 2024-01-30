@@ -76,7 +76,7 @@ const MobileHeaderWrapper = () => {
 
   //TODO: implement search
   const handleSearchButtonClicked = () => {
-    ref.current?.focus();
+    console.log(ref.current?.value);
   };
 
   return (
