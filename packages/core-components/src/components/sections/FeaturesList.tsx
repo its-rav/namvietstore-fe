@@ -14,7 +14,7 @@ type FeaturesListProps = {
 
 const FeaturesList: React.FC<FeaturesListProps> = ({ items }) => {
   return (
-    <div className='flex flex-col md:flex-row w-full items-center justify-between'>
+    <div className='grid grid-cols-2 md:flex md:flex-row w-full items-center justify-items-center justify-between'>
       {items.map((item) => (
         <FeaturesCard key={item.id} featuresCardItem={item} />
       ))}

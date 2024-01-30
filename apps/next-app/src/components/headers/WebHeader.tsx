@@ -321,15 +321,17 @@ const WebHeader = () => {
           <SearchBar placeholder='Search all products...' />
         </div>
       </div>
-      <div className='max-w-7xl mx-auto'>
-        <CategoryBar
-          categoryButtonIcon={<HamburgerIcon />}
-          categoryButtonText='DANH MỤC SẢN PHẨM'
-          categoryBarItems={categoryItems}
-          categoryMenuItems={categoryMenuItems}
-          onCategoryBarItemClick={handleCategoryBarItemClicked}
-          onCategorySubMenuItemClick={handleCategorySubMenuItemClicked}
-        />
+      <div className='w-full shadow-lg'>
+        <div className='max-w-7xl mx-auto'>
+          <CategoryBar
+            categoryButtonIcon={<HamburgerIcon />}
+            categoryButtonText='DANH MỤC SẢN PHẨM'
+            categoryBarItems={categoryItems}
+            categoryMenuItems={categoryMenuItems}
+            onCategoryBarItemClick={handleCategoryBarItemClicked}
+            onCategorySubMenuItemClick={handleCategorySubMenuItemClicked}
+          />
+        </div>
       </div>
     </div>
   );

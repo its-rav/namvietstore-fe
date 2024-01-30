@@ -41,14 +41,4 @@ export default {
   title: '@nv-fe/core-ui/layout/FeaturesList',
 } satisfies StoryDefault<typeof FeaturesList>;
 
-export const Default: Story = () => (
-  <div
-    style={{
-      width: '100%',
-      backgroundColor: 'black',
-      padding: '20px',
-    }}
-  >
-    <FeaturesList items={items} />
-  </div>
-);
+export const Default: Story = () => <FeaturesList items={items} />;
