@@ -37,6 +37,4 @@ const items: ImageSliderItemType[] = [
   },
 ];
 
-export const Default: Story = () => (
-  <ImageSlider imageSliderItems={items} imageSliderHeight='lg' />
-);
+export const Default: Story = () => <ImageSlider items={items} height='lg' />;
