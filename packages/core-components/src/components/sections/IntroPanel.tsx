@@ -12,9 +12,7 @@ type IntroPanelProps = {
   onClick?: () => void;
 };
 
-const IntroPanel: React.FC<IntroPanelProps> = ({
-  introPanelItem,
-}) => {
+const IntroPanel: React.FC<IntroPanelProps> = ({ introPanelItem }) => {
   return (
     <div>
       <h2 className='text-center font-primary md:text-2xl sm:text-xl font-bold text-primary leading-normal'>

@@ -1,6 +1,5 @@
 'use client';
 
-
 import { IntroPanelCard } from '@namviet-fe/core-ui';
 
 import FeaturesListSection from '@/components/featureList/FeatureList';
