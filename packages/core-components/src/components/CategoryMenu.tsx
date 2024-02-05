@@ -86,7 +86,7 @@ const CategoryMenu: React.FC<CategoryMenuProps> = ({
   };
 
   return (
-    <div className='relative w-full'>
+    <div className='w-full'>
       <Menu allowHover={true}>
         <MenuHandler>
           <Button
@@ -122,7 +122,7 @@ const CategoryMenu: React.FC<CategoryMenuProps> = ({
               <div
                 onMouseEnter={handleMenuItemMouseEnter(hoveredCategoryId)}
                 onMouseLeave={handleMenuItemMouseLeave}
-                className='absolute left-72 top-14 w-5/6 h-[500px] z-50 border-solid border-2 border-gray-200 rounded-sm px-4 py-4 bg-white'
+                className='absolute left-80 w-5/6 h-[500px] max-w-4xl z-50 border-solid border-2 border-gray-200 px-4 py-4 bg-white'
               >
                 <CategorySubMenu
                   categorySubMenuItem={
