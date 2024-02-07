@@ -1,7 +1,7 @@
 'use server';
-
 import { InfoContactFormType } from '@namviet-fe/core-ui';
-import { Gift, IntroPanelCard, Target, Vision } from '@namviet-fe/core-ui';
+import { Gift, IntroPanelCard, Target } from '@namviet-fe/core-ui';
+import {Vision} from '@namviet-fe/core-ui'
 import { ProductCollapse } from '@namviet-fe/core-ui';
 import { OutStandingArticle } from '@namviet-fe/core-ui';
 import { ArticleList } from '@namviet-fe/core-ui';
@@ -13,23 +13,28 @@ export async function submitFormAsync(data: InfoContactFormType) {
   // TODO add logic
   return { data };
 }
+
 export default async function IntroPage() {
   return (
-    <section className='max-w-7xl mx-auto space-y-7 mb-10'>
+    <section className='max-w-7xl mx-auto space-y-10 mb-10'>
       <IntroSection />
-      <img className='h-96 w-full object-cover' src={image} />
-      <div className='flex space-x-4 max-[600px]:snap-x justify-center'>
-        {cards.map((card, index) => {
-          return (
-            <div key={index}>
-              <IntroPanelCard
-                icon={card.icon}
-                title={card.title}
-                description={card.description}
-              />
-            </div>
-          );
-        })}
+      <div className='relative !mb-[250px]'>
+        <img className='relative h-[458px] w-full object-cover' src={image} />
+        <div className='absolute top-[65%] left-[130px]'>
+          <div className='flex space-x-4 max-[600px]:snap-x justify-center'>
+            {cards.map((card, index) => {
+              return (
+                <div key={index}>
+                  <IntroPanelCard
+                    icon={card.icont}
+                    title={card.title}
+                    description={card.description}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
       <div className='mx-[100px]'>
         <ProductCollapse products={filterItems} />
@@ -77,19 +82,19 @@ const filterItems = [
 ];
 const cards = [
   {
-    icon: <Gift />,
+    icont: <Vision />,
     title: 'Giá trị cốt lõi',
     description:
       'Chúng tôi sẽ có trách nhiệm cá nhân với nhau để tăng hiệu suất từng cá nhân trong chúng tôi, cũng như chung trách nhiệm với cácbên liên quan của chúng tôi theo các cam kết trong hợp đồng và các nghĩa vụ pháp lý. Chúng tôi sẽ là một công dân tốt và chịu trách nhiệm của mỗi cá nhân trong cộng đồng nơi chúng tôi hoạt động.',
   },
   {
-    icon: <Target />,
+    icont: <Target />,
     title: 'Sứ mệnh',
     description:
       'Chúng tôi cung cấp các dịch vụ sau bán hàng xuất sắc cho khách hàng. Chúng tôi nhanh chóng và đáp ứng nhu cầu của họ, sử dụng các nguồn lực toàn cầu của chúng tôi với đội ngũ kỹ sư bản địa giàu kinh nghiệm trong việc áp dụng công nghệ và thực hiện thành công dự án phức tạp trong môi trường đầy thử thách. Mục tiêu của chúng tôi là cung cấp giải pháp một cách sáng tạo, có giá trị và luôn định hướng đi lên.',
   },
   {
-    icon: <Vision />,
+    icont: <Vision />,
     title: 'Tầm nhìn',
     description:
       'Chúng tôi cam kết về chất lượng và sự tăng trưởng không ngừng các sản phẩm, dịch vụ của chúng tôi. Liên tục nâng cao kỹ năng của con người, kỹ thuật, cập nhật thông tin về hệ thống và quy trình làm việc của chúng tôi để đảm bảo đem được chất lượng cao nhất, chi phí thấp nhất, tăng giá trị và sự tận tâm nhất đến cho khách hàng.',

@@ -40,7 +40,7 @@ type HeroSectionAttributes = {
 };
 
 type IntroductionAttributes = {
-  Introduction: Introduction;
+  attributes: Introduction;
 };
 
 type IntroPageAttributes = BannerAttributes &

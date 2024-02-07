@@ -43,7 +43,7 @@ const ProductCollapse: React.FC<ProductItemProps> = ({
         </p>
       </button>
       <div hidden={collapsed}>
-        <div className='flex justify-center'>
+        <div className='py-5 flex justify-center'>
           <img
             className='flex w-[300px] h-[200px]'
             src={productImage}
@@ -61,12 +61,12 @@ const ProductCollapse: React.FC<ProductItemProps> = ({
 const ProductListCollapse: React.FC<ProductListProps> = ({ products }) => {
   return (
     <>
-      <div className='mt-10px pl-[13px] mb-[16px] md:mb-[11px] border-l-[3px] border-primary text-md font-medium leading-[10px]'>
+      <div className='mt-10px pl-[13px] mb-[16px] md:mb-[11px] border-l-[3px] border-[#002651] text-md font-medium leading-[10px]'>
         <h1 className='text-md md:text-[18px] font-bold py-[10px] text-primary'>
           SẢN PHẨM
         </h1>
       </div>
-      <div className='space-y-2'>
+      <div className='space-y-3'>
         {products.map((product) => {
           return (
             <div key={product.id}>

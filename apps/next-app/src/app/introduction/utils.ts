@@ -1,4 +1,5 @@
 import { getFFUseApi } from '@/api/common/env';
+import { fetchIntroductionAsync } from '@/api/home-page';
 
 export const getIntroItems = async () => {
   const useApi = getFFUseApi();
@@ -26,8 +27,5 @@ export const getIntroItems = async () => {
 
   const res = await fetchIntroductionAsync('vi-Vn');
 
-  return res.attributes.statistics.map((item) => ({
-    title: item.title,
-    statistic: item.value,
-  }));
+  return res.attributes;
 };

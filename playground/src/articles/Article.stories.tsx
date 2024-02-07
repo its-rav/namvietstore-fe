@@ -8,10 +8,10 @@ export default {
 } satisfies StoryDefault<typeof Article>;
 
 const article = {
-  title: 'Article title',
+  title: 'Những dự án mà chúng tôi đã thực hiện',
   image: 'https://picsum.photos/200',
   content:
-    'Nhiều phụ nữ hiện nay vẫn bị đóng khung trong các khuôn mẫu, chuẩn mực về vẻ đẹp và vai trò của nữ giới. Đứng trước thực trạng đó, Unilever nhận thức rõ vai trò, trách nhiệm của mình trong việc xóa bỏ các định kiến và khuôn khổ tiêu cực.',
+    'Chúng tôi luôn được thúc đẩy bởi mục đích mang cuộc sống bền vững trở nên phổ biến.Chúng tôi luôn được thúc đẩy bởi mục đích mang cuộc sống bền vững trở nên phổ biến. \nChúng tôi luôn được thúc đẩy bởi mục đích mang cuộc sống bền vững trở nên phổ biến.Các chương trình trao quyền cho phụ nữ sẽ tiếp tục được lan tỏa, tạo điều kiện và mang lại cơ hội đào tạo khởi nghiệp cho ít nhất 100.000 phụ nữ với sáng kiến, cam kết cắt giảm khí nhà kính trong vận hành và chuỗi giá trị.',
   date: '2021-09-09',
 };
 
