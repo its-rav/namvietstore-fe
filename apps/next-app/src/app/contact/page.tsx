@@ -1,16 +1,6 @@
 'use server';
 
-import {
-  Contact,
-  ContactForm,
-  ContactMap,
-  InfoContactFormType,
-} from '@namviet-fe/core-ui';
-
-export async function submitFormAsync(data: InfoContactFormType) {
-  // TODO add logic
-  return { data };
-}
+import { Contact, ContactForm, ContactMap } from '@namviet-fe/core-ui';
 
 export default async function ContactPage() {
   return (
@@ -41,10 +31,7 @@ export default async function ContactPage() {
           />
         </div>
         <div className='col-span-12 md:col-span-7 px-5 py-4'>
-          <ContactForm
-            sitekey='6Leo6C8pAAAAAKHtfDMqa2YZLYf6D1VNVQKcixha'
-            submitForm={submitFormAsync}
-          />
+          <ContactForm sitekey='6Leo6C8pAAAAAKHtfDMqa2YZLYf6D1VNVQKcixha' />
         </div>
       </div>
       <div className='pb-32 pt-14 hidden md:block px-5 py-4'>

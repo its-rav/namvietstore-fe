@@ -53,7 +53,7 @@ export const getFeatures = async () => {
   ];
 
   return res.attributes.Features.map((item, index) => ({
-    id: item.id.toString(),
+    id: item.id,
     icon: iconMap[index],
     title: item.name,
     description: item.description,
