@@ -87,7 +87,7 @@ const CategoryMenu: React.FC<CategoryMenuProps> = ({
 
   return (
     <div className='relative w-full'>
-      <Menu allowHover={true}>
+      <Menu open allowHover={true}>
         <MenuHandler>
           <Button
             leftIcon={buttonIcon}
@@ -99,23 +99,28 @@ const CategoryMenu: React.FC<CategoryMenuProps> = ({
         </MenuHandler>
 
         <div>
-          <MenuList>
-            {categoryMenuItems?.map((categoryMenuItem) => {
-              return (
-                <div key={categoryMenuItem.id}>
-                  <MenuItem
-                    className='flex items-start gap-x-3 py-4 w-full'
-                    onMouseEnter={handleMenuItemMouseEnter(categoryMenuItem.id)}
-                  >
-                    <i className='block w-6 h-6'>{categoryMenuItem.icon}</i>
-                    <p className='font-primary text-lg font-normal leading-6 text-black'>
-                      {categoryMenuItem.label}
-                    </p>
-                  </MenuItem>
-                </div>
-              );
-            })}
-          </MenuList>
+          {categoryMenuItems && (
+            <MenuList>
+              {categoryMenuItems?.map((categoryMenuItem) => {
+                return (
+                  <div key={categoryMenuItem.id}>
+                    <MenuItem
+                      className='flex items-start gap-x-3 py-4 w-full'
+                      onMouseEnter={handleMenuItemMouseEnter(
+                        categoryMenuItem.id
+                      )}
+                    >
+                      <i className='block w-6 h-6'>{categoryMenuItem.icon}</i>
+                      <p className='font-primary text-lg font-normal leading-6 text-black'>
+                        {categoryMenuItem.label}
+                      </p>
+                    </MenuItem>
+                  </div>
+                );
+              })}
+            </MenuList>
+          )}
+
           {hoveredCategoryId &&
             categoryMenuItems?.find((item) => item.id === hoveredCategoryId)
               ?.subItems && (

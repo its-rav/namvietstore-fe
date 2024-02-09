@@ -327,7 +327,8 @@ const WebHeader = () => {
             categoryButtonIcon={<HamburgerIcon />}
             categoryButtonText='DANH MỤC SẢN PHẨM'
             categoryBarItems={categoryItems}
-            categoryMenuItems={categoryMenuItems}
+            // categoryMenuItems={categoryMenuItems}
+            categoryMenuItems={[]}
             onCategoryBarItemClick={handleCategoryBarItemClicked}
             onCategorySubMenuItemClick={handleCategorySubMenuItemClicked}
           />

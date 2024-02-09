@@ -1,5 +1,5 @@
 import { getOne } from '../common';
-import { MediaType, SingleData } from '../types';
+import { CollectionData, MediaType, SingleData } from '../types';
 
 type Features = {
   id: number;
@@ -39,6 +39,20 @@ type PartnerAttributes = {
   Partners: Partner[];
 };
 
+type ProductAttributes = {
+  name: string;
+  slug: string;
+  description: string;
+  code: string;
+  shortDescription: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  locale: string;
+};
+
+type FeatureProductsAttributes = { data: CollectionData<ProductAttributes> };
+
 type IntroductionAttributes = {
   Introduction: Introduction;
 };
@@ -46,7 +60,8 @@ type IntroductionAttributes = {
 type HomePageAttributes = StatisticAttributes &
   FeaturesAttributes &
   PartnerAttributes &
-  IntroductionAttributes;
+  IntroductionAttributes &
+  FeatureProductsAttributes;
 
 const RESOURCE_NAME = '/home-page';
 
@@ -81,3 +96,8 @@ export const fetchIntroductionAsync = async (
   locale: string
 ): Promise<SingleData<IntroductionAttributes>> =>
   fetchHomePageAsync(locale, 'Introduction');
+
+export const fetchFeatureProductsAsync = async (
+  locale: string
+): Promise<SingleData<FeatureProductsAttributes>> =>
+  fetchHomePageAsync(locale, 'FeatureProducts');
