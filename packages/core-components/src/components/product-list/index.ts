@@ -9,6 +9,9 @@ import Pagination, {
   type PaginationType,
 } from '@/components/product-list/Pagination';
 import PagingComponent from '@/components/product-list/PagingComponent';
+import ProductCollapse, {
+  type ProductListProps,
+} from '@/components/product-list/ProductCollapse';
 import ProductItem, {
   type ProductItemType,
 } from '@/components/product-list/ProductItem';
@@ -16,8 +19,10 @@ import ProductItem, {
 export {
   type PaginationType,
   type ProductItemType,
+  type ProductListProps,
   Pagination,
   PagingComponent,
+  ProductCollapse,
   ProductItem,
 };
 

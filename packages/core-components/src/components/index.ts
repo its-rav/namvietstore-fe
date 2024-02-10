@@ -20,6 +20,7 @@ export { PostCard };
 
 export { type FeaturesCardItemType, FeaturesCard, MobileHeader, SearchBar };
 
+export * from './articles';
 export * from './buttons';
 export * from './contact';
 export * from './product-detail';
