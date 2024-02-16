@@ -29,7 +29,7 @@ const items: ImageSliderItemType[] = [
 ];
 
 const ImageSliderComponent = () => {
-  return <ImageSlider imageSliderItems={items} imageSliderHeight='lg' />;
+  return <ImageSlider items={items} height='lg' />;
 };
 
 export default ImageSliderComponent;

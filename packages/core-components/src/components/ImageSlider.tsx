@@ -11,40 +11,36 @@ export type ImageSliderItemType = {
 };
 
 type ImageSliderProps = {
-  imageSliderItems: ImageSliderItemType[];
-  imageSliderAutoPlay?: boolean;
-  imageSliderLoop?: boolean;
-  imageSliderAutoplayDelay?: number;
-  imageSliderHeight?: 'sm' | 'md' | 'lg';
+  items: ImageSliderItemType[];
+  autoPlay?: boolean;
+  loop?: boolean;
+  autoPlayDelay?: number;
+  height?: 'sm' | 'md' | 'lg';
 };
 
 const ImageSlider: React.FC<ImageSliderProps> = ({
-  imageSliderItems,
-  imageSliderAutoPlay = true,
-  imageSliderLoop = true,
-  imageSliderAutoplayDelay = 5000,
-  imageSliderHeight = 'md',
+  items,
+  autoPlay = true,
+  loop = true,
+  autoPlayDelay = 5000,
+  height = 'md',
 }) => {
   return (
     <ThemeProvider>
       <div
         className={clsxm(
           'w-full',
-          imageSliderHeight === 'lg' && 'h-96',
-          imageSliderHeight === 'md' && 'h-80',
-          imageSliderHeight === 'sm' && 'h-40'
+          height === 'lg' && 'h-96',
+          height === 'md' && 'h-80',
+          height === 'sm' && 'h-40'
         )}
       >
-        <Carousel
-          autoplay={imageSliderAutoPlay}
-          loop={imageSliderLoop}
-          autoplayDelay={imageSliderAutoplayDelay}
-        >
-          {imageSliderItems.map((imageSliderItem) => (
-            <a key={imageSliderItem.name} href={imageSliderItem.url}>
+        <Carousel autoplay={autoPlay} loop={loop} autoplayDelay={autoPlayDelay}>
+          {items.map((item) => (
+            <a key={item.name} href={item.url}>
               <img
-                src={imageSliderItem.src}
-                alt={imageSliderItem.name}
+                src={item.src}
+                alt={item.name}
                 className='h-full w-full object-cover'
               />
             </a>
