@@ -3,7 +3,7 @@ import React from 'react';
 type SideBarMobileProps = {
   closeButtonIcon: React.ReactNode;
   onCloseBtnClick: () => void;
-  onSideBarItemClick: () => void;
+  onSideBarItemClick: (url: string) => void;
   dropDownIcon?: React.ReactNode;
   sideBarItems: SideBarMobileItemProps[];
 };
@@ -12,7 +12,7 @@ export type SideBarMobileItemProps = {
   title: string;
   url: string;
   dropDownIcon?: React.ReactNode;
-  onSideBarItemClick?: () => void;
+  onSideBarItemClick?: (url: string) => void;
   subItems?: SideBarMobileItemProps[];
 };
 
@@ -21,6 +21,7 @@ const SideBarMobileItem: React.FC<SideBarMobileItemProps> = ({
   onSideBarItemClick,
   dropDownIcon,
   subItems,
+  url,
 }) => {
   const [itemOpen, setItemOpen] = React.useState(false);
 
@@ -63,7 +64,7 @@ const SideBarMobileItem: React.FC<SideBarMobileItemProps> = ({
           </i>
         </button>
       ) : (
-        <button onClick={onSideBarItemClick}>{title}</button>
+        <button onClick={() => onSideBarItemClick?.(url)}>{title}</button>
       )}
       {renderSubItems()}
     </div>
@@ -92,7 +93,7 @@ const SideBarMobile: React.FC<SideBarMobileProps> = ({
         <SideBarMobileItem
           key={sideBarItem.title}
           dropDownIcon={dropDownIcon}
-          onSideBarItemClick={onSideBarItemClick}
+          onSideBarItemClick={(url) => onSideBarItemClick?.(url)}
           {...sideBarItem}
         />
       ))}

@@ -39,6 +39,19 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
           autoplay={imageSliderAutoPlay}
           loop={imageSliderLoop}
           autoplayDelay={imageSliderAutoplayDelay}
+          navigation={({ setActiveIndex, activeIndex, length }) => (
+            <div className='absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2'>
+              {Array.from({ length }).map((_, i) => (
+                <span
+                  key={i}
+                  className={`block h-3 w-3 cursor-pointer rounded-full transition-all ${
+                    activeIndex === i ? 'bg-gray-700' : 'bg-gray-100'
+                  }`}
+                  onClick={() => setActiveIndex(i)}
+                />
+              ))}
+            </div>
+          )}
         >
           {imageSliderItems.map((imageSliderItem) => (
             <a key={imageSliderItem.name} href={imageSliderItem.url}>
